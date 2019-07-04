@@ -1,0 +1,32 @@
+{
+  "name": "@crystal-ball/react-app-prototype",
+  "version": "0.0.0",
+  "description": "Prototypical React application",
+  "keywords": [
+    "prototype",
+    "react"
+  ],
+  "contributors": [
+    "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server --mode=development",
+    "test": "npm run lint",
+    "lint": "NODE_ENV=test eslint --format=pretty src/**/*.js",
+    "format": "prettier --write src/**/*.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.4.5",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-redux": "7.1.0",
+    "redux": "4.0.1"
+  },
+  "devDependencies": {
+    "@crystal-ball/prettier-base": "1.1.0",
+    "@crystal-ball/webpack-base": "4.3.0",
+    "eslint-config-eloquence": "11.2.0"
+  },
+  "prettier": "@crystal-ball/prettier-base"
+}
