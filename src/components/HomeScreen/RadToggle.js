@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { Button } from 'componentry'
 
 import { updateRad } from '@/dux/app'
 
@@ -9,9 +10,7 @@ const RadToggle = () => {
 
   return (
     <div>
-      <button onClick={() => dispatch(updateRad())} type='button'>
-        Toggle radness
-      </button>
+      <Button onClick={() => dispatch(updateRad())}>Toggle radness</Button>
     </div>
   )
 }

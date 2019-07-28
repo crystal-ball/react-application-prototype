@@ -14,6 +14,7 @@ module.exports = () => {
    * conventions.
    */
   const { configs } = webpackBase({
+    envVars: { PACKAGE_VERSION: '0.0.0' },
     compressPlugin: false,
   })
 

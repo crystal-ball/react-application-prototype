@@ -1,0 +1,139 @@
+// ========================================================
+// Componentry 'Clear' Theme
+// ========================================================
+
+// NOTE:
+// Access maps using Sass map-get function, eg: map-get($spacers, 4);
+
+// Colors
+// ---------------------------------------------------------------------------
+// Theme grayscale
+// TODO: Pick 10 and map grays to Bs gray values
+$coal: #292b2c;
+$pebble: #464a4c;
+$slate: #636c72;
+$aluminum: #a1aeb7;
+$wolf: rgba(149, 165, 175, 0.3);
+$smoke: #eceeef;
+$ash: #f7f7f9;
+$white: #fff;
+
+// Gotta have those blues
+$aegean: #39608e;
+$denim: #374d68;
+$cerulean: #5bc0de;
+
+$theme-colors: (
+  primary: $denim,
+  secondary: $pebble,
+  success: #93c54b,
+  info: $cerulean,
+  warning: #efb73e,
+  danger: #d9534f,
+  light: $ash,
+  dark: $coal,
+);
+
+$theme-color-interval: 8%;
+
+// Global Options
+// ---------------------------------------------------------------------------
+$enable-rounded: true;
+$enable-shadows: true;
+
+// Spacing
+// ---------------------------------------------------------------------------
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+// Body
+// ---------------------------------------------------------------------------
+$body-bg: $white;
+$body-color: $coal;
+
+// Links
+// ---------------------------------------------------------------------------
+$link-color: $aegean;
+
+// Fonts
+// ---------------------------------------------------------------------------
+$font-family-sans-serif: 'IBM Plex Sans', sans-serif;
+
+$font-size-base: 0.9375rem; // 15px base assuming 1 rem = 16px
+$font-size-lg: $font-size-base * 1.25;
+$font-size-sm: $font-size-base * 0.8;
+
+$line-height-base: 1.5;
+
+$h1-font-size: 48px;
+$h2-font-size: 30px;
+$h3-font-size: 24px;
+$h4-font-size: 18px;
+
+$headings-font-weight: 300;
+$headings-color: $pebble;
+
+$small-font-size: 80%;
+$text-muted: $slate;
+
+$icon-bottom: -0.2em; // Componentry Var
+
+// Components
+// ---------------------------------------------------------------------------
+$border-width: 1px !default;
+$border-color: $wolf;
+$transition-fade: opacity 0.3s linear;
+
+// Buttons
+// ---------------------------------------------------------------------------
+// Disable wonky Bootstrap box-shadow on button focus
+$btn-active-box-shadow: none;
+$btn-focus-box-shadow: none;
+
+// Dropdowns
+// ---------------------------------------------------------------------------
+$dropdown-item-padding-x: 1.5rem;
+$dropdown-item-padding-y: 0.25rem;
+
+// Tooltips
+// ---------------------------------------------------------------------------
+$tooltip-max-width: 350px;
+$tooltip-bg: $pebble;
+$tooltip-padding-y: 5px;
+$tooltip-padding-x: 8px;
+$tooltip-arrow-width: 8px;
+
+// Popovers
+// ---------------------------------------------------------------------------
+$popover-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+$popover-inner-padding: 15px;
+
+// Modals
+// ---------------------------------------------------------------------------
+$modal-content-border-width: 0 !default;
+$modal-header-border-width: $border-width !default;
+$modal-footer-border-width: $border-width !default;
+$modal-content-box-shadow-xs: 0 3px 9px rgba(149, 165, 175, 0.7) !default;
+$modal-content-box-shadow-sm-up: 0 5px 15px rgba(149, 165, 175, 0.7) !default;
+
+// Code
+// ---------------------------------------------------------------------------
+$code-bg: #f9f2f4;
+
+// ========================================================
+// Componentry theme vars
+// ========================================================
+
+@import '~componentry/styles/theme';
+
+// ========================================================
+// Font imports
+// ========================================================
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush|IBM+Plex+Sans:400,400i,700&display=swap');

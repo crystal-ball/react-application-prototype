@@ -1,0 +1,13 @@
+/**
+ * Application styles
+ */
+
+// Default constraint for paragraphs helps with readability, can be overridden
+// where needed with `mw-100`
+p {
+  max-width: 800px;
+}
+
+.font-ornamental {
+  font-family: 'Alex Brush', cursive;
+}

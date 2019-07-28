@@ -1,0 +1,32 @@
+/*
+ * 🔮 Projects - Application Styles Entry
+ *
+ * Best practice for application styles is to create a foundational set of
+ * component and utility styles themed by a single set of theme variables.
+ * Application components can then be composed of the base component styles,
+ * utility styles, and component styles.
+ */
+
+/*
+ * --- Variables setup ---
+ *
+ * The same set of theme variables should be used for theming Componentry and
+ * application components in order to create consistent application theming. For
+ * convenience, the webpack configurations enable importing the theme variables
+ * into any component style file with `@import 'theme';`
+ */
+@import './styles/theme';
+
+/*
+ * --- Componentry styles ---
+ *
+ * Componentry includes a browser reboot, component styles and utility styles.
+ */
+@import '~componentry/styles/componentry';
+
+/*
+ * --- Application styles ---
+ *
+ * Application styles should be used sparingly and cover general styling needs.
+ */
+@import './styles/application/base';

@@ -12,21 +12,41 @@
   "license": "ISC",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode=development",
-    "test": "npm run lint",
-    "lint": "NODE_ENV=test eslint --format=pretty src/**/*.js",
+    "test": "npm run test:lint",
+    "test:lint": "NODE_ENV=test eslint --format=pretty src/**/*.js",
     "format": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@babel/runtime": "7.4.5",
+    "@babel/runtime": "7.5.5",
+    "classnames": "2.2.6",
+    "componentry": "3.0.0-alpha.12",
+    "nanoid": "2.0.3",
+    "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-redux": "7.1.0",
-    "redux": "4.0.1"
+    "react-router-dom": "5.0.1",
+    "redux": "4.0.4",
+    "redux-saga": "1.0.5",
+    "styled-components": "4.3.2",
+    "svg-symbol-sprite-loader": "3.1.0"
   },
   "devDependencies": {
-    "@crystal-ball/prettier-base": "1.1.0",
-    "@crystal-ball/webpack-base": "4.3.0",
-    "eslint-config-eloquence": "11.2.0"
+    "@crystal-ball/commitizen-adapter": "1.4.0",
+    "@crystal-ball/prettier-base": "1.2.0",
+    "@crystal-ball/webpack-base": "5.2.0",
+    "eslint-config-eloquence": "12.3.0",
+    "husky": "3.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@crystal-ball/commitizen-adapter"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
+    }
   },
   "prettier": "@crystal-ball/prettier-base"
 }
