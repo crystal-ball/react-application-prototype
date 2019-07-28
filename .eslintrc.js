@@ -2,5 +2,5 @@
 
 module.exports = {
   root: true,
-  extends: 'eloquence/webpack',
+  extends: 'eloquence/react',
 }

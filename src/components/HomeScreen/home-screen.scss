@@ -1,0 +1,15 @@
+:local(.component) {
+  .title-container {
+    width: 40%;
+
+    .sticky-title {
+      position: sticky;
+      padding-top: 3rem;
+      top: 3rem;
+    }
+  }
+
+  .features-list-container {
+    width: 60%;
+  }
+}

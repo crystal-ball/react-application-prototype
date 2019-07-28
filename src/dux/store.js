@@ -1,3 +1,4 @@
+/* global module */
 import { createStore, compose } from 'redux'
 
 import rootReducer from './reducers'
