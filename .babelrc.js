@@ -1,4 +1,11 @@
 /**
+ * CoreJS includes the polyfills for new language features compiled by Babel.
+ * Explicitly set the `core-js` version used by `preset-env` per Babel best
+ * practices and allow polyifilling proposal stage features
+ */
+const corejs = { version: 3, proposals: true }
+
+/**
  * Babel configurations
  *
  * Babel configs are specified by environment (explicit configs by env makes it
@@ -18,6 +25,12 @@ module.exports = {
             // Disable module transformation to allow webpack to manage it
             modules: false,
             targets: { chrome: '73', firefox: '67' },
+            // Will automatically add core-js polyfill imports for unsupported
+            // language features based on environment
+            useBuiltIns: 'usage',
+            // Set the core-js version as best practice and allow polyifilling
+            // proposal stage features
+            corejs: { version: 3, proposals: true },
           },
         ],
         '@babel/preset-react',
@@ -28,7 +41,9 @@ module.exports = {
         '@babel/plugin-proposal-class-properties',
         // Runtime will transform Babel helpers to imports from @babel/runtime
         // Passing useESModules allows webpack to handle module transforms
-        ['@babel/plugin-transform-runtime', { useESModules: true }],
+        // Passing corejs configs will use imports from @babel/runtime-corejs3
+        // instead of global polyfills
+        ['@babel/plugin-transform-runtime', { useESModules: true, corejs }],
       ],
     },
     /**
@@ -58,7 +73,7 @@ module.exports = {
         '@babel/plugin-proposal-class-properties',
         // Runtime will transform Babel helpers to imports from @babel/runtime
         // Passing useESModules allows webpack to handle module transforms
-        ['@babel/plugin-transform-runtime', { useESModules: true }],
+        ['@babel/plugin-transform-runtime', { useESModules: true, corejs }],
       ],
     },
   },

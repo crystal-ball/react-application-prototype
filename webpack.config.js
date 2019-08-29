@@ -1,3 +1,5 @@
+/* global module */
+
 const webpackBase = require('@crystal-ball/webpack-base')
 
 /*
