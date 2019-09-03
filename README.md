@@ -39,7 +39,22 @@ npm start
 
 ## Testing workflows
 
-Coming soon...
+The project includes 3 types of testing: static linting, unit testing and
+acceptance testing.
+
+- _Static linting_ uses ESLint with the `eslint-config-eloquence` ruleset.
+  - `npm run test:lint`
+- _Unit testing_ uses Jest with `@testing-library/react` and is configured in
+  `jest.config.js`
+  - `npm run test:unit`
+  - `npm run test:watch`
+- _Acceptance testing_ uses Cypress inside of a Docker Compose environment
+  - `npm run test:acceptance`
+
+#### Testing patterns
+
+- _React Router_ management requires the addition of a `MemoryRouter` (reference
+  the Header component test file)
 
 ## Development workflows
 
@@ -48,3 +63,17 @@ Start the webpack development server
 ```
 npm start
 ```
+
+## Formatting
+
+All JS, JSON, SCSS and markdown files are required to be formatted by Prettier
+and can be formatted using the `format` npm command.
+
+## Notes
+
+_Miscellaneous project notes and explanations_
+
+### Project dependencies
+
+- Jest IntelliSense isn't working unless the `@types/jest` package is installed
+  as a project dependency.

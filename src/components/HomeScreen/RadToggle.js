@@ -5,7 +5,6 @@ import { Button } from 'componentry'
 import { updateRad } from '@/dux/app'
 
 const RadToggle = () => {
-  console.log('RadToggle render')
   const dispatch = useDispatch()
 
   return (

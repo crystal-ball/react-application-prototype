@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    // Configuration to resolve project `@` relative imports
     "paths": {
-      // Handles the @ alias added to webpack
       "@/*": ["src/*"]
     }
   },
