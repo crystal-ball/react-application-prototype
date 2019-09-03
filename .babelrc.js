@@ -30,14 +30,13 @@ module.exports = {
             useBuiltIns: 'usage',
             // Set the core-js version as best practice and allow polyifilling
             // proposal stage features
-            corejs: { version: 3, proposals: true },
+            corejs,
           },
         ],
         '@babel/preset-react',
       ],
       plugins: [
         '@babel/plugin-transform-react-jsx-source', // Better stacks for error boundaries
-        'babel-plugin-styled-components', // Better styled component display names
         '@babel/plugin-proposal-class-properties',
         // Runtime will transform Babel helpers to imports from @babel/runtime
         // Passing useESModules allows webpack to handle module transforms
@@ -56,24 +55,41 @@ module.exports = {
         [
           '@babel/preset-env',
           {
-            // Disable module transformation to allow webpack to manage it
+            // ℹ️ See development env for preset-env notes
             modules: false,
             targets: '> 0.25%, not ie 11, not dead',
-            // Will automatically add core-js imports for unsupported language
-            // features based on environment
             useBuiltIns: 'usage',
-            // Set the core-js version as best practice and allow polyifilling
-            // proposal stage features
-            corejs: { version: 3, proposals: true },
+            corejs,
           },
         ],
         '@babel/preset-react',
       ],
       plugins: [
         '@babel/plugin-proposal-class-properties',
-        // Runtime will transform Babel helpers to imports from @babel/runtime
-        // Passing useESModules allows webpack to handle module transforms
         ['@babel/plugin-transform-runtime', { useESModules: true, corejs }],
+      ],
+    },
+    /**
+     * Test env mimics production, but uses commonjs modules because Jest
+     * doesn't support ESModules and operates directly on source code.
+     */
+    test: {
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            // ℹ️ See development env for preset-env notes
+            modules: 'commonjs',
+            targets: '> 0.25%, not ie 11, not dead',
+            useBuiltIns: 'usage',
+            corejs,
+          },
+        ],
+        '@babel/preset-react',
+      ],
+      plugins: [
+        '@babel/plugin-proposal-class-properties',
+        ['@babel/plugin-transform-runtime', { useESModules: false, corejs }],
       ],
     },
   },
