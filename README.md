@@ -34,8 +34,9 @@
 <!-- prettier-ignore-end -->
 </div>
 
-_Prototype React application for Crystal Ball Projects reference and
-experimentation_
+<p align="center">
+  <em>Prototypical React application for Crystal Ball Projects</em>
+</p>
 
 ## ⚙️ Setup
 
