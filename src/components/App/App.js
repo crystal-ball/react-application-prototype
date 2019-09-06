@@ -5,7 +5,7 @@ import { Flex } from 'componentry'
 // Application
 import { ScrollToTop } from '@/components/universal'
 import Header from './Header/Header'
-import Footer from './Footer'
+import Footer from './Footer/Footer'
 
 // Screens
 import HomeScreen from '../HomeScreen/HomeScreen'

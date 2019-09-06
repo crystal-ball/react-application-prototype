@@ -15,6 +15,21 @@
 
 - Acceptance tests are run using `cypress`
 
+## Recipes
+
+### Routing
+
+Components that require a router can be tested using the `MemoryRouter` router
+provider.
+
+```js
+const { queryByText } = render(
+  <MemoryRouter initialEntries={['/']}>
+    <RoutingComponent />
+  </MemoryRouter>,
+)
+```
+
 ## Future
 
 - Add jest-axe for a11y validations?
