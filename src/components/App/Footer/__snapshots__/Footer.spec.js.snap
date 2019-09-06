@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> Footer snapshot 1`] = `
+<div
+  class="d-flex align-items-center justify-content-center"
+  style="padding: 5px;"
+>
+  <p
+    class="text-lg"
+    style="margin-bottom: 0px;"
+  >
+    <svg
+      class="icon icon-cog font"
+      role="img"
+      style="margin-right: 5px;"
+    >
+      <use
+        href="#cog"
+        xlink:href="#cog"
+      />
+    </svg>
+    Configuration Generator
+  </p>
+</div>
+`;
