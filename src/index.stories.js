@@ -6,7 +6,7 @@ const Welcome = () => (
   <Block>
     <Header textAlign='center' mt={50}>
       It&apos;s hacking time{' '}
-      <span role='img' aria-label='wave'>
+      <span role='img' aria-label='alien monster emoji'>
         👾
       </span>
     </Header>
