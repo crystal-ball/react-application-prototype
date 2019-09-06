@@ -19,7 +19,7 @@
     <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/test_coverage" />
   </a>
   <a href="https://renovatebot.com/" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="dependencies managed by Renvoate" />
+    <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="dependencies managed by Renovate" />
   </a>
   <a href="https://github.com/crystal-ball/react-application-prototype#zenhub" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg?style=flat-square" alt="ZenHub" />

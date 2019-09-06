@@ -5,17 +5,24 @@ import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers'
 import rootSaga from './sagas'
 
+const NODE_ENV = process.env.NODE_ENV // eslint-disable-line
+
 // Create the middleware "thread" that the sagas run in. From the middleware
 // the root saga is able to respond to incoming actions and dispatch new actions
 const sagaMiddleware = createSagaMiddleware()
 
-// In dev envs and when app is entered in debug mode use the redux devtools compose
-// otherwise fallback to redux compose
+// In dev envs and when app is entered in debug add Redux devtools compose
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers =
-  process.env.NODE_ENV === 'development' || window.location.href.includes('debug=true')
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true }) || compose
-    : compose
+let composeEnhancers = compose
+if (
+  (NODE_ENV === 'development' || window.location.href.includes('debug=true')) &&
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+) {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    trace: true,
+  })
+}
 
 // Create store, overriding preloaded state if needed
 const store = createStore(
