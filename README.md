@@ -12,6 +12,12 @@
   <a href="https://travis-ci.com/crystal-ball/react-application-prototype" target="_blank" rel="noopener noreferrer">
     <img src="https://travis-ci.com/crystal-ball/react-application-prototype.svg?branch=master" alt="build status" />
   </a>
+  <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/maintainability" />
+  </a>
+  <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/test_coverage" />
+  </a>
   <a href="https://renovatebot.com/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="dependencies managed by Renvoate" />
   </a>
