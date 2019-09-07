@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  test:
+    image: nginx:1.15.8
+    volumes:
+      - ./test/nginx.conf:/etc/nginx/nginx.conf
+      - ./dist:/www/data
+  cypress:
+    image: cypress/included:3.4.1
+    # See https://github.com/cypress-io/cypress/issues/350
+    ipc: host
+    environment:
+      - CYPRESS_baseUrl=http://test
+    depends_on:
+      - test
+    # Share the current folder as volume to avoid copying
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e

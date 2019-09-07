@@ -4,11 +4,8 @@ language: node_js
 node_js:
   - '10'
 
-# Cache dependencies
-cache: npm
-
-# Default for install is npm ci w/ package-lock.json
-# install
+# All dependencies are managed in Docker container
+install: true
 
 # Setup Code Climate test reporter
 before_script:
@@ -16,8 +13,20 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
-# Default for script lifecycle is npm test
-# script
+# Test workflow builds and runs a container to create app production bundle
+# which is then used within Docker Compose to run Cypress acceptance tests.
+script:
+  # Building the app image will install dependencies then lint and unit test so
+  # that image is ready to build app bundle when run
+  - docker build -t crystal-ball/react-application-prototype .
+  # Copy code coverage report into Travis workspace for Code Climate test
+  # coverage reporting
+  - docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
+  # Running the container will build the app assets, mounted directories will
+  # copy output to Travis workspace
+  - docker run -v $(pwd)/dist:/usr/src/app/dist -v $(pwd)/coverage:/usr/src/app/coverage crystal-ball/react-application-prototype
+  # With Docker Compose use Nginx+built assets and Cypress to acceptance test
+  - docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
 
 # Call Code Climate reporter with results, note the --prefix option is used to
 # strip the file paths output from the Docker container

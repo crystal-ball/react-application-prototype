@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  cypress:
+    # This will append --record to the `cypress run` entrypoint and upload the
+    # test results to project dashboard if the correct CYPRESS_RECORD_KEY is set
+    command: --record
+    environment:
+      # Provides required env variable to upload test runs to project dashboard
+      - CYPRESS_RECORD_KEY=${CYPRESS_RECORD_KEY}

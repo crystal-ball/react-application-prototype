@@ -1,0 +1,13 @@
+# Docker context ignore
+
+# Git history
+.git/
+
+# NPM dependencies
+node_modules/
+
+# Editor configs
+.vscode/
+
+# Compose architecture
+docker-compose*.yml
