@@ -28,4 +28,4 @@ script:
 # Call Code Climate reporter with results, note the --prefix option is used to
 # strip the file paths output from the Docker container
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build --prefix /usr/src/app --exit-code $TRAVIS_TEST_RESULT
