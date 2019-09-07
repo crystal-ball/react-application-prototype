@@ -1,3 +1,5 @@
+/* global module */
+
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Block, Header } from 'componentry'
@@ -14,4 +16,4 @@ const Welcome = () => (
   </Block>
 )
 
-storiesOf('Welcome').add('to Storybook development', () => <Welcome />)
+storiesOf('Welcome', module).add('to Storybook development', () => <Welcome />)
