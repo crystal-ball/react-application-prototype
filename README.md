@@ -12,6 +12,9 @@
   <a href="https://travis-ci.com/crystal-ball/react-application-prototype" target="_blank" rel="noopener noreferrer">
     <img src="https://travis-ci.com/crystal-ball/react-application-prototype.svg?branch=master" alt="build status" />
   </a>
+  <a href="https://dashboard.cypress.io/#/projects/v3cpt4/runs">
+    <img src="https://img.shields.io/badge/cypress-dashboard-brightgreen.svg" alt="Cypress Dashboard">
+  </a>
   <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/maintainability">
     <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/maintainability" />
   </a>
@@ -24,9 +27,9 @@
   <a href="https://github.com/crystal-ball/react-application-prototype#zenhub" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg?style=flat-square" alt="ZenHub" />
   </a>
-  <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
+  <!-- <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier" />
-  </a>
+  </a> -->
   <!-- <a href="https://semantic-release.gitbook.io/semantic-release/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9A%80-semantic_release-e10079.svg" alt="managed by semantic release" />
   </a> -->
