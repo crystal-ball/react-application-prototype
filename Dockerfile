@@ -8,11 +8,12 @@ RUN apk add --no-cache bash
 
 WORKDIR /usr/src/app
 
-ENV TRAVIS_CI true
+# Include serve globally for testing production builds
+RUN npm install -g serve
 
 # Install dependencies
 COPY ./package*.json ./
-RUN npm ci
+RUN CI=true npm ci
 
 # Copy remaining source files
 COPY . .
@@ -21,5 +22,11 @@ COPY . .
 RUN npm run test:lint
 RUN npm run test:unit
 
-# Run the production build
-CMD [ "npm", "run", "build" ]
+# Copy serve config for prod build testing with `serve`
+RUN echo "{ \"public\": \"public\" }" >> ./serve.json
+
+# Build for acceptance testing
+RUN npm run build
+
+# Serve the app in the container on :5000
+CMD ["serve"]

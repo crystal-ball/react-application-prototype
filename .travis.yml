@@ -22,13 +22,10 @@ script:
   # Copy code coverage report into Travis workspace for Code Climate test
   # coverage reporting
   - docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
-  # Running the container will build the app assets, mounted directories will
-  # copy output to Travis workspace
-  - docker run -v $(pwd)/dist:/usr/src/app/dist -v $(pwd)/coverage:/usr/src/app/coverage crystal-ball/react-application-prototype
   # With Docker Compose use Nginx+built assets and Cypress to acceptance test
   - docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
 
 # Call Code Climate reporter with results, note the --prefix option is used to
 # strip the file paths output from the Docker container
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build --prefix /usr/src/app --exit-code $TRAVIS_TEST_RESULT
