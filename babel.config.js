@@ -1,3 +1,5 @@
+/* global module */
+
 /**
  * CoreJS includes the polyfills for new language features compiled by Babel.
  * Explicitly set the `core-js` version used by `preset-env` per Babel best
@@ -6,10 +8,13 @@
 const corejs = { version: 3, proposals: true }
 
 /**
- * Babel configurations
+ * 📝 Babel configurations
  *
- * Babel configs are specified by environment (explicit configs by env makes it
- * easy to understand how each env is transformed).
+ * - Project wide configuration file type `babel.config.js` used to set the
+ *   "root" configurations. This is required for any project that needs to
+ *   transform a linked npm package.
+ * - Configs are specified by environment to make it easier to understand how
+ *   each env is transformed.
  */
 module.exports = {
   env: {
