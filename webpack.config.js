@@ -1,5 +1,7 @@
-/* global module */
+/* eslint-env node */
+/* eslint-disable import/no-extraneous-dependencies */
 
+const path = require('path')
 const webpackBase = require('@crystal-ball/webpack-base')
 
 /*
@@ -10,6 +12,8 @@ const webpackBase = require('@crystal-ball/webpack-base')
  * 📝 https://github.com/crystal-ball/webpack-base
  */
 module.exports = () => {
+  const featherIconsPath = path.resolve('node_modules/feather-icons/dist/icons')
+
   /*
    * Generate the base configuration object by passing the environment flags and
    * optional options object available for customizing the standard project
@@ -17,13 +21,16 @@ module.exports = () => {
    */
   const { configs } = webpackBase({
     envVars: { PACKAGE_VERSION: '0.0.0' },
+    paths: {
+      iconSpriteIncludes: [path.resolve('src/media/icons'), featherIconsPath],
+    },
   })
 
   /*
    * Handle non-standard, advanced project customization by directly updating
    * the generated base configs.
    */
-  // eg: configs.bail = false
+  configs.resolve.alias['feather-icons'] = featherIconsPath
 
   return configs
 }
