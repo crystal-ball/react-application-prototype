@@ -1,10 +1,15 @@
 import React from 'react'
-import { Flex, Header, Text } from 'componentry'
+import { Flex, Header, Icon, Text } from 'componentry'
 import classnames from 'classnames'
 
 import RadState from './RadState'
 import RadToggle from './RadToggle'
-import Webpack from '@/media/webpack-logo.svg'
+
+import CodeClimate from '@/media/codeclimate.svg'
+import Cypress from '@/media/cypress.svg'
+import Renovate from '@/media/renovate.svg'
+import Travis from '@/media/travis-ci.svg'
+import Zeit from '@/media/zeit.svg'
 import MagicImg from '@/media/karly-santiago.jpg'
 
 import { component } from './home-screen.scss'
@@ -26,20 +31,30 @@ const HomeScreen = () => (
       </h1>
     </div>
     <div className='features-list-container'>
-      <div className='hero d-flex flex-column align-items-center'>
-        <Webpack />
+      <div className='hero d-flex align-items-center mb-4'>
+        <img src={MagicImg} className='w-25' alt='In pursuit of magic' />
+        <Header textAlign='center flex-grow-1'>React Application Prototype</Header>
       </div>
-      <Header textAlign='center'>webpack-base</Header>
+
+      <Text italic textAlign='center' mb={0}>
+        Prototype React application for{' '}
+        <span role='img' aria-label='crystal ball'>
+          🔮
+        </span>{' '}
+        projects
+      </Text>
       <Text italic textAlign='center'>
         v{process.env.PACKAGE_VERSION}
       </Text>
-      <Text italic textAlign='center'>
-        Test applicaton for <code>webpack-base</code> projects.
-      </Text>
+
       <Flex>
         <div className='w-75 pl-3'>
           <RadToggle />
           <RadState />
+          <h4>
+            <Icon id='coffee' />
+            Application featureset
+          </h4>
           <ul>
             <li>
               JS loader setup to transpile all source in the{' '}
@@ -70,10 +85,29 @@ const HomeScreen = () => (
               </span>
             </li>
           </ul>
+          <h4>
+            <Icon id='education' />
+            Workflow integrations
+            <Flex justify='center'>
+              <div className='integration'>
+                <Renovate />
+              </div>
+              <div className='integration'>
+                <CodeClimate />
+              </div>
+              <div className='integration'>
+                <Cypress />
+              </div>
+              <div className='integration'>
+                <Travis />
+              </div>
+              <div className='integration'>
+                <Zeit />
+              </div>
+            </Flex>
+          </h4>
         </div>
       </Flex>
-
-      <img src={MagicImg} className='mw-100' alt='In pursuit of magic' />
     </div>
   </Flex>
 )

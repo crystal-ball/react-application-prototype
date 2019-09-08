@@ -1,5 +1,10 @@
 @import 'theme';
 
 :local(.component) {
+  padding: 15px 30px;
   background: $gray-600;
+
+  .icon-heart {
+    color: #fcc4dd;
+  }
 }

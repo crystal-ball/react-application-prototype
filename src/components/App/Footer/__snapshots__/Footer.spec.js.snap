@@ -1,25 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> Footer snapshot 1`] = `
-<div
+<footer
   class="d-flex align-items-center justify-content-center"
-  style="padding: 5px;"
 >
   <p
-    class="text-lg"
+    class="text-white"
     style="margin-bottom: 0px;"
   >
     <svg
-      class="icon icon-cog font"
+      class="icon icon-heart font"
       role="img"
-      style="margin-right: 5px;"
     >
       <use
-        href="#cog"
-        xlink:href="#cog"
+        href="#heart"
+        xlink:href="#heart"
       />
     </svg>
-    Configuration Generator
+    Make something awesome!
   </p>
-</div>
+</footer>
 `;
