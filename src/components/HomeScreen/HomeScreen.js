@@ -57,6 +57,12 @@ const HomeScreen = () => (
             <li>
               Injected <code>PUBLIC_PATH</code> for routing
             </li>
+            <li>
+              Auto deploy with Zeit{' '}
+              <span role='img' aria-label='mindblown'>
+                🤯
+              </span>
+            </li>
           </ul>
         </div>
       </Flex>
