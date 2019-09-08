@@ -63,6 +63,12 @@ const HomeScreen = () => (
                 🤯
               </span>
             </li>
+            <li>
+              All the notifications in Slack{' '}
+              <span role='img' aria-label='yay'>
+                🎉
+              </span>
+            </li>
           </ul>
         </div>
       </Flex>
