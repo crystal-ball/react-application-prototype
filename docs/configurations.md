@@ -11,7 +11,7 @@ the browser will handle all of the preconnection responsibilities for `gstatic`.
 ```html
 <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css?family=Alex+Brush|IBM+Plex+Sans:400,700&display=swap"
+  href="https://fonts.googleapis.com/css?family=Alex+Brush&display=swap"
   rel="stylesheet"
 />
 ```
