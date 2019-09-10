@@ -9,4 +9,7 @@ import '../src/index.scss'
 import '../src/utils/require-icons'
 
 // Fetch and inject SVG symbol sprite
-svgSymbolSpriteLoader({ customSpriteId: 'icon-sprite.svg', useCache: 'false' })
+svgSymbolSpriteLoader({
+  customSpriteId: 'static/media/icon-sprite.svg',
+  useCache: 'false',
+})

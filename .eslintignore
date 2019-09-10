@@ -1,0 +1,6 @@
+
+# ESLint
+
+# Dot directories are ignored by default, force linting of .storybook with a
+# ignore negation
+!.storybook
