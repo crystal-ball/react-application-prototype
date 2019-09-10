@@ -4,7 +4,9 @@ import { css } from '@emotion/core'
 
 import RadState from './RadState'
 import RadToggle from './RadToggle'
+import { Footer } from '@/components/universal'
 
+import radpackBg from './radpack-bg.jpg'
 import CodeClimate from '@/media/codeclimate.svg'
 import Cypress from '@/media/cypress.svg'
 import Renovate from '@/media/renovate.svg'
@@ -14,8 +16,12 @@ import MagicImg from '@/media/karly-santiago.jpg'
 
 const titleContainerStyles = css`
   width: 40%;
+  background-image: url(${radpackBg});
+  background-position: center center;
 
-  .sticky-title {
+  h1 {
+    color: #a8ffdb;
+    text-shadow: #f70777 0px 0 15px;
     position: sticky;
     padding-top: 3rem;
     top: 3rem;
@@ -24,6 +30,7 @@ const titleContainerStyles = css`
 
 const featuresContainerStyles = css`
   width: 60%;
+  min-height: 100%;
 `
 
 const integrationsContainerStyles = css`
@@ -48,27 +55,29 @@ const HomeScreen = () => (
   // Small screens ->
   //   Flex column layout with title then contents
   <Flex className='flex-grow-1'>
-    <div className='mx-3' css={titleContainerStyles}>
-      <h1 className='sticky-title font-ornamental display-1'>
+    <Flex justify='center' align='center' css={titleContainerStyles}>
+      <Header align='center' className='font-ornamental display-1'>
         The Order
         <br />
         of the
         <br />
         Crystal Code Wizards
-      </h1>
-    </div>
-    <div css={featuresContainerStyles}>
-      <div className='hero d-flex align-items-center mb-4'>
+      </Header>
+    </Flex>
+    <Flex direction='column' css={featuresContainerStyles}>
+      <Flex align='center' className='mb-4'>
         <img src={MagicImg} className='w-25' alt='In pursuit of magic' />
-        <Header textAlign='center flex-grow-1'>React Application Prototype</Header>
-      </div>
+        <Header align='center' className='flex-grow-1'>
+          React Application Prototype
+        </Header>
+      </Flex>
 
       <Text italic textAlign='center' mb={0}>
         Prototype React application for{' '}
         <span role='img' aria-label='crystal ball'>
           🔮
-        </span>{' '}
-        projects
+        </span>
+        Projects
       </Text>
       <Text italic textAlign='center'>
         v{process.env.PACKAGE_VERSION}
@@ -141,7 +150,8 @@ const HomeScreen = () => (
           </h4>
         </div>
       </Flex>
-    </div>
+      <Footer />
+    </Flex>
   </Flex>
 )
 

@@ -5,7 +5,6 @@ import { Flex } from 'componentry'
 // Application
 import { ScrollToTop } from '@/components/universal'
 import Header from './Header/Header'
-import Footer from './Footer/Footer'
 
 // Screens
 import HomeScreen from '../HomeScreen/HomeScreen'
@@ -29,7 +28,6 @@ const App = () => (
         <Route path='/best-practices' exact component={BestPracticesScreen} />
         <Route component={FourOhFourScreen} />
       </Switch>
-      <Footer />
     </Flex>
   </>
 )
