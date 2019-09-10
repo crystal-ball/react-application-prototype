@@ -2,7 +2,7 @@
 
 exports[`<Footer /> Footer snapshot 1`] = `
 <footer
-  class="d-flex align-items-center justify-content-center"
+  class="d-flex align-items-center justify-content-center css-o10jy6-Footer"
 >
   <p
     class="text-white"

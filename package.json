@@ -32,8 +32,10 @@
   "dependencies": {
     "@babel/runtime": "7.6.0",
     "@babel/runtime-corejs3": "7.6.0",
+    "@emotion/core": "10.0.17",
     "classnames": "2.2.6",
     "componentry": "3.0.0-alpha.12",
+    "emotion-theming": "10.0.17",
     "feather-icons": "4.24.1",
     "nanoid": "2.1.0",
     "prop-types": "15.7.2",
@@ -49,6 +51,7 @@
     "@crystal-ball/commitizen-adapter": "1.4.0",
     "@crystal-ball/prettier-base": "1.5.0",
     "@crystal-ball/webpack-base": "6.0.1",
+    "@emotion/babel-preset-css-prop": "10.0.17",
     "@storybook/addon-actions": "5.1.11",
     "@storybook/addon-knobs": "5.1.11",
     "@storybook/addon-links": "5.1.11",
@@ -57,6 +60,7 @@
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "9.1.4",
     "@types/jest": "24.0.18",
+    "babel-plugin-emotion": "10.0.17",
     "eslint-config-eloquence": "12.4.0",
     "husky": "3.0.5",
     "jest": "24.9.0"
