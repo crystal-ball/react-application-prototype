@@ -39,8 +39,14 @@ module.exports = {
           },
         ],
         '@babel/preset-react',
+        // Replace React.createElement with Emotion's `jsx` call to enable
+        // Emotion's CSS in JS
+        '@emotion/babel-preset-css-prop',
       ],
       plugins: [
+        // Emotion must be first! Hoists and compresses styles and provides
+        // source maps in dev
+        ['emotion', { sourceMap: true }],
         '@babel/plugin-transform-react-jsx-source', // Better stacks for error boundaries
         '@babel/plugin-proposal-class-properties',
         // Runtime will transform Babel helpers to imports from @babel/runtime
@@ -68,8 +74,10 @@ module.exports = {
           },
         ],
         '@babel/preset-react',
+        '@emotion/babel-preset-css-prop',
       ],
       plugins: [
+        'emotion',
         '@babel/plugin-proposal-class-properties',
         ['@babel/plugin-transform-runtime', { useESModules: true, corejs }],
       ],
@@ -91,6 +99,7 @@ module.exports = {
           },
         ],
         '@babel/preset-react',
+        '@emotion/babel-preset-css-prop',
       ],
       plugins: [
         '@babel/plugin-proposal-class-properties',
