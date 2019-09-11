@@ -4,6 +4,11 @@ language: node_js
 node_js:
   - '10'
 
+# Skip building branches unless except for master for automated releases
+branches:
+  only:
+    - master
+
 # All dependencies are managed in Docker container
 install: true
 
