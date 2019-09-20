@@ -44,6 +44,7 @@ module.exports = {
         '@emotion/babel-preset-css-prop',
       ],
       plugins: [
+        'react-hot-loader/babel',
         // Emotion must be first! Hoists and compresses styles and provides
         // source maps in dev
         ['emotion', { sourceMap: true }],
@@ -77,6 +78,7 @@ module.exports = {
         '@emotion/babel-preset-css-prop',
       ],
       plugins: [
+        'react-hot-loader/babel',
         'emotion',
         '@babel/plugin-proposal-class-properties',
         ['@babel/plugin-transform-runtime', { useESModules: true, corejs }],
@@ -102,6 +104,7 @@ module.exports = {
         '@emotion/babel-preset-css-prop',
       ],
       plugins: [
+        'react-hot-loader/babel',
         '@babel/plugin-proposal-class-properties',
         ['@babel/plugin-transform-runtime', { useESModules: false, corejs }],
       ],

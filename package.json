@@ -33,6 +33,7 @@
     "@babel/runtime": "7.6.0",
     "@babel/runtime-corejs3": "7.6.0",
     "@emotion/core": "10.0.17",
+    "@hot-loader/react-dom": "16.9.0",
     "classnames": "2.2.6",
     "componentry": "3.0.0-alpha.12",
     "emotion-theming": "10.0.17",
@@ -40,11 +41,12 @@
     "nanoid": "2.1.0",
     "prop-types": "15.7.2",
     "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react-hot-loader": "4.12.13",
     "react-redux": "7.1.1",
     "react-router-dom": "5.0.1",
     "redux": "4.0.4",
     "redux-saga": "1.0.5",
+    "redux-thunk": "2.3.0",
     "svg-symbol-sprite-loader": "3.2.0"
   },
   "devDependencies": {
@@ -64,7 +66,8 @@
     "eslint-config-eloquence": "12.4.0",
     "husky": "3.0.5",
     "jest": "24.9.0",
-    "jest-emotion": "10.0.17"
+    "jest-emotion": "10.0.17",
+    "redux-devtools-extension": "2.13.8"
   },
   "config": {
     "commitizen": {

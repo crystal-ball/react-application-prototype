@@ -31,6 +31,7 @@ module.exports = () => {
    * the generated base configs.
    */
   configs.resolve.alias['feather-icons'] = featherIconsPath
+  configs.resolve.alias['react-dom'] = '@hot-loader/react-dom'
 
   return configs
 }
