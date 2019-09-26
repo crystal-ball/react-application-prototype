@@ -2,12 +2,16 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import Footer from './Footer'
-import { emotionWrapper } from '@/theme/emotion'
+import { EmotionProvider } from '@/theme/emotion'
 
 describe('<Footer />', () => {
   // ℹ️ example of testing classes, attrs and styles
   test('The icon is an accessible pink font icon', () => {
-    const { getByTestId } = render(emotionWrapper(<Footer />))
+    const { getByTestId } = render(
+      <EmotionProvider>
+        <Footer />
+      </EmotionProvider>,
+    )
     const heartIcon = getByTestId('heart')
     expect(heartIcon).toHaveClass('icon icon-heart font')
     expect(heartIcon).toHaveAttribute('role', 'img')
@@ -15,7 +19,11 @@ describe('<Footer />', () => {
   })
 
   test('Footer snapshot', () => {
-    const { container } = render(emotionWrapper(<Footer />))
+    const { container } = render(
+      <EmotionProvider>
+        <Footer />
+      </EmotionProvider>,
+    )
     expect(container.firstChild).toMatchSnapshot()
   })
 })

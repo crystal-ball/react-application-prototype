@@ -1,4 +1,5 @@
 import React from 'react'
+import { node } from 'prop-types'
 import { ThemeProvider as EmotionTheme } from 'emotion-theming'
 
 // Emotion styles theme is accessible using emotion-theming
@@ -12,6 +13,10 @@ export const emotionTheme = {
  * Emotion ThemeProvider wrapper that can be used with Storybook stories or
  * unit tests.
  */
-export const emotionWrapper = render => (
-  <EmotionTheme theme={emotionTheme}>{render}</EmotionTheme>
-)
+export function EmotionProvider({ children }) {
+  return <EmotionTheme theme={emotionTheme}>{children}</EmotionTheme>
+}
+
+EmotionProvider.propTypes = {
+  children: node.isRequired,
+}

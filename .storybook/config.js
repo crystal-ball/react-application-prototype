@@ -8,7 +8,14 @@ import './app-setup'
 // Global decorators for all stories
 addParameters({
   options: {
-    showPanel: false,
+    showPanel: true,
+    panelPosition: 'right',
+    storySort: (a, b) => {
+      // Shift the intro story to the top
+      if (a[0] === 'react-application-prototype--page') return -1
+      // Alphabetically sort the rest
+      return a[0].localeCompare(b[0])
+    },
     theme: {
       brandTitle: 'React App Prototype',
       ...themes.dark,
@@ -18,12 +25,6 @@ addParameters({
 
 addDecorator(withKnobs)
 
-// 🎉 Load stories
-const stories = require.context('../src', true, /.stories.js$/)
-function loadStories() {
-  // Update app welcome story to be first displayed
-  const orderedStories = stories.keys()
-  orderedStories.unshift(orderedStories.pop())
-  orderedStories.forEach(filename => stories(filename))
-}
-configure(loadStories, module)
+// --- Require all stories in /src 🎉 --
+
+configure(require.context('../src', true, /\.stories\.(js|mdx)$/), module)
