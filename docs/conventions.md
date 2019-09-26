@@ -39,6 +39,10 @@ _Crystal Ball Projects React application conventions_
 - Prettier w/ @crystal-ball/prettier-base
 - ESLint w/ eslint-config-eloquence
 - .jsconfig.json for instructing VSCode how to autocomplete `@` alias
+- Hot loading is supported with the webpack dev server hot mode,
+  HotModuleReplacementPlugin, and `react-hot-loader`. RHL uses a Babel plugin,
+  along with an import that must come before React is imported, and a hot export
+  of App.
 
 #### Source
 

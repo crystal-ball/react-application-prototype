@@ -1,3 +1,4 @@
+import 'react-hot-loader'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -14,12 +15,14 @@ import './index.scss'
 import './utils/require-icons'
 
 import App from './components/App/App'
-import store from './dux/store'
+import configureStore from './dux/store'
 import logger from './utils/logger'
 
 // Injects SVG symbol sprite into document from local storage if it exists,
 // otherwise fetch, cache in local storage and inject.
 svgSymbolSpriteLoader({ useCache: process.env.NODE_ENV === 'production' })
+
+const store = configureStore()
 
 // Start the party 🎉
 // Render all of the root application providers then application root component

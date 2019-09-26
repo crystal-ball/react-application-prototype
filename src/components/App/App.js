@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 import { Switch, Route } from 'react-router-dom'
 import { Flex } from 'componentry'
 
@@ -32,4 +33,4 @@ const App = () => (
   </>
 )
 
-export default App
+export default hot(App)
