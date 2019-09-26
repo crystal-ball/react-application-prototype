@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const BestPracticesScreen = () => (
-  <div className='flex-grow-1'>
+  <div className='screen-container'>
     <h1>Best Practices</h1>
     <p>
       God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God.
