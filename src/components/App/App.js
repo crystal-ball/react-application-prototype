@@ -1,7 +1,6 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { Switch, Route } from 'react-router-dom'
-import { Flex } from 'componentry'
 
 // Application
 import { ScrollToTop } from '@/components/universal'
@@ -19,7 +18,7 @@ import FourOhFourScreen from '../FourOhFourScreen/FourOhFourScreen'
 const App = () => (
   <>
     {/* Base container element with flexbox layout for sticky footers */}
-    <Flex className='min-100vh' direction='column'>
+    <div className='app-container'>
       <Header />
       <Switch>
         <Route path='/' exact>
@@ -35,7 +34,7 @@ const App = () => (
 
       {/* Restores scroll position to page top on route change */}
       <ScrollToTop />
-    </Flex>
+    </div>
   </>
 )
 
