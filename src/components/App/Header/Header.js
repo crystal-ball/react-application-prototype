@@ -1,12 +1,13 @@
 import React from 'react'
-import { shape, string } from 'prop-types'
-import { withRouter } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Flex } from 'componentry'
 
 // List of screens that should not have the shared application header rendered
 const suppressHeaderLocations = ['/']
 
-const Header = ({ location }) => {
+export default function Header() {
+  const location = useLocation()
+
   // When the app is on a route that should not show the header bail out on
   // a render value
   if (suppressHeaderLocations.includes(location.pathname)) return null
@@ -17,11 +18,3 @@ const Header = ({ location }) => {
     </Flex>
   )
 }
-
-Header.propTypes = {
-  location: shape({
-    pathname: string.isRequired,
-  }).isRequired,
-}
-
-export default withRouter(Header)

@@ -18,17 +18,23 @@ import FourOhFourScreen from '../FourOhFourScreen/FourOhFourScreen'
  */
 const App = () => (
   <>
-    {/* Restores scroll position to page top on route change */}
-    <ScrollToTop />
     {/* Base container element with flexbox layout for sticky footers */}
     <Flex className='min-100vh' direction='column'>
       <Header />
-      {/* Application screen level routes */}
       <Switch>
-        <Route path='/' exact component={HomeScreen} />
-        <Route path='/best-practices' exact component={BestPracticesScreen} />
-        <Route component={FourOhFourScreen} />
+        <Route path='/' exact>
+          <HomeScreen />
+        </Route>
+        <Route path='/best-practices'>
+          <BestPracticesScreen />
+        </Route>
+        <Route>
+          <FourOhFourScreen />
+        </Route>
       </Switch>
+
+      {/* Restores scroll position to page top on route change */}
+      <ScrollToTop />
     </Flex>
   </>
 )
