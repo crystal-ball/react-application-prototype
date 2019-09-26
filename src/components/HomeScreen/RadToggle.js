@@ -2,14 +2,14 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Button } from 'componentry'
 
-import { updateRad } from '@/dux/app'
+import { dispatchRadToggled } from '@/dux/app'
 
 const RadToggle = () => {
   const dispatch = useDispatch()
 
   return (
     <div>
-      <Button onClick={() => dispatch(updateRad())}>Toggle radness</Button>
+      <Button onClick={() => dispatch(dispatchRadToggled())}>Toggle radness</Button>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const TOGGLE_RAD = 'APP/TOGGLE_RAD'
+const RAD_TOGGLED = 'APP/RAD_TOGGLED'
 
 const defaultState = {
   rad: true,
@@ -6,7 +6,7 @@ const defaultState = {
 
 const reducer = (state = defaultState, { type /* , payload */ }) => {
   switch (type) {
-    case TOGGLE_RAD:
+    case RAD_TOGGLED:
       return {
         rad: !state.rad,
       }
@@ -24,6 +24,6 @@ export const selectRad = state => state.app.rad
 // Action creators
 // ---------------------------------------------------------------------------
 
-export const updateRad = () => ({
-  type: TOGGLE_RAD,
+export const dispatchRadToggled = () => ({
+  type: RAD_TOGGLED,
 })
