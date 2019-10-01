@@ -17,8 +17,14 @@
  *
  * CoreJS includes the polyfills for new language features compiled by Babel.
  * Explicitly set the `core-js` version used by `preset-env` per Babel best
- * practices (optionall an object can be used to allow polyfilling experimental
- * features: { version: 3, proposals: true })
+ * practices
+ * - Optionally experimental features can be polyfilled by setting corejs to:
+ *   { version: 3, proposals: true }
+ * - Optionally the transform-runtime plugin accepts a `corejs` configuration
+ *   option that will use imports from core-js to polyfill language features
+ *   instead of adding polyfills to global scope (this is preferred for package
+ *   compilation) Note that enabling this requires adding `@babel/runtime-corejs3`
+ *   as a dependency.
  */
 module.exports = function babelConfigs(api) {
   const presets = [
