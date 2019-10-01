@@ -15,3 +15,10 @@ the browser will handle all of the preconnection responsibilities for `gstatic`.
   rel="stylesheet"
 />
 ```
+
+## Babel dependencies
+
+The `core-js` and `@babel/runtime` packages are included as application
+dependencies because they are included in the production webpack bundles.
+Including them as explicit dependencies in the application's `package.json` is
+an attempt to guarantee that specific versions are resolved for the bundle.
