@@ -27,93 +27,61 @@
  *   as a dependency.
  */
 module.exports = function babelConfigs(api) {
-  const presets = [
-    [
-      '@babel/preset-env',
-      {
-        // Disable module transformation in dev and production envs to allow
-        // webpack to manage it. Transform to common js modules for Jest in
-        // test envs
-        modules: api.env('test') ? 'commonjs' : false,
-        // Will automatically add core-js polyfill imports for unsupported
-        // language features based on environment
-        useBuiltIns: 'usage',
-        // Configures the version of core-js helpers injected by plugins
-        corejs: 3,
-      },
-    ],
-    '@babel/preset-react',
-    // Replace React.createElement with Emotion's `jsx` call to enable
-    // Emotion's CSS in JS
-    '@emotion/babel-preset-css-prop',
-  ]
-
-  // Stage 3 plugins not present in preset-env set
-  const proposalPlugins = [
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-proposal-private-methods',
-    '@babel/plugin-proposal-optional-chaining',
-  ]
-
   return {
-    env: {
-      /**
-       * Development env targets latest Chrome/FF browsers and includes plugins
-       * that provide more detailed info for debugging workflows
-       */
-      development: {
-        presets,
-        plugins: [
-          // Emotion must be first! Hoists and compresses styles and provides
-          // source maps in dev
-          ['emotion', { sourceMap: true }],
-          // Extends HMR with hot reloading for components
-          'react-hot-loader/babel',
-          // Provides better call stacks for error boundaries
-          '@babel/plugin-transform-react-jsx-source',
-          // Transform Runtime will transform inline Babel helper fns to imports
-          //   from @babel/runtime
-          // Passing useESModules disables running helper imports through the
-          //   common js module transform and allows webpack to manage the esm
-          // Passing corejs configs will use imports from @babel/runtime-corejs3
-          //   instead of global polyfills (this should be set for libraries but
-          //   is optional for applications)
-          ['@babel/plugin-transform-runtime', { useESModules: true }],
-          // --- Stage 3 plugins
-          ...proposalPlugins,
-        ],
-      },
-      /**
-       * Production env targets current modern browsers and only includes plugins
-       * used by production code.
-       */
-      production: {
-        presets,
-        plugins: [
-          'emotion',
-          // When NODE_ENV is production, RHL plugin will replace `hot(module)(App)`
-          // with `App` which is important for webpack optimizations
-          // Ref: https://github.com/gaearon/react-hot-loader/issues/1080
-          'react-hot-loader/babel',
-          ['@babel/plugin-transform-runtime', { useESModules: true }],
-          // --- Stage 3 plugins
-          ...proposalPlugins,
-        ],
-      },
-      /**
-       * Test env mimics production, but uses commonjs modules because Jest
-       * doesn't support ESModules and operates directly on source code.
-       */
-      test: {
-        presets,
-        plugins: [
-          'emotion',
-          'react-hot-loader/babel',
-          ['@babel/plugin-transform-runtime', { useESModules: false }],
-          // --- Stage 3 plugins
-          ...proposalPlugins,
-        ],
-      },
-    },
+    // --------------------------------------------------------
+    // Presets
+    presets: [
+      // Automatically use the minimum set of syntax and polyfill transforms to
+      // meet target environment using browserslist config.
+      [
+        '@babel/preset-env',
+        {
+          // Transform modules to common js in test for Jest
+          // Disable module transformation in dev and prod builds to allow
+          // webpack to smart-manage modules.
+          modules: api.env('test') ? 'commonjs' : false,
+          // Automatically add core-js polyfill imports for unsupported language
+          // features using target environment
+          useBuiltIns: 'usage',
+          // Configure the version of core-js polyfill helpers injected by
+          // plugins
+          corejs: 3,
+        },
+      ],
+      // Includes plugins required to transform JSX. Development plugins add
+      // references to source and self on each component
+      ['@babel/preset-react', { development: api.env('development'), useBuiltIns: true }],
+      // Includes the `babel-plugin-emotion` and configures the transform-react-jsx
+      // plugin to replace `React.createElement` with calls to Emotion's `jsx` to
+      // enable Emotion's CSS in JS
+      '@emotion/babel-preset-css-prop',
+    ],
+
+    // --------------------------------------------------------
+    // Plugins
+    plugins: [
+      // Auto-loads different transforms by env 😱... In development the `hot`
+      // fn is magically transformed to extend HMR to handle components.
+      // In production, plugin will replace `hot(module)(App)` with `App` which is
+      // important for webpack optimizations
+      // Ref: https://github.com/gaearon/react-hot-loader/issues/1080
+      'react-hot-loader/babel',
+      // Transform Runtime will transform inline Babel helper fns to imports from
+      //   @babel/runtime
+      // Passing useESModules disables running helper imports through the common
+      //   js module transform and allows webpack to manage the esm
+      // Passing corejs configs will use imports from @babel/runtime-corejs3
+      //   instead of global polyfills (this should be set for libraries but is
+      //   optional for applications)
+      [
+        '@babel/plugin-transform-runtime',
+        { useESModules: api.env(['development', 'production']) },
+      ],
+
+      // --- Additional stage-3 proposals not present in preset-env set
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-private-methods',
+      '@babel/plugin-proposal-optional-chaining',
+    ],
   }
 }
