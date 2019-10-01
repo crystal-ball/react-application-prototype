@@ -15,27 +15,29 @@ import FourOhFourScreen from '../FourOhFourScreen/FourOhFourScreen'
  * Application class component is responsible for setting the base application
  * behaviors and screen layouts+routing.
  */
-const App = () => (
-  <>
-    {/* Base container element with flexbox layout for sticky footers */}
-    <div className='app-container'>
-      <Header />
-      <Switch>
-        <Route path='/' exact>
-          <HomeScreen />
-        </Route>
-        <Route path='/best-practices'>
-          <BestPracticesScreen />
-        </Route>
-        <Route>
-          <FourOhFourScreen />
-        </Route>
-      </Switch>
+function App() {
+  return (
+    <>
+      {/* Base container element with flexbox layout for sticky footers */}
+      <div className='app-container'>
+        <Header />
+        <Switch>
+          <Route path='/' exact>
+            <HomeScreen />
+          </Route>
+          <Route path='/best-practices'>
+            <BestPracticesScreen />
+          </Route>
+          <Route>
+            <FourOhFourScreen />
+          </Route>
+        </Switch>
 
-      {/* Restores scroll position to page top on route change */}
-      <ScrollToTop />
-    </div>
-  </>
-)
+        {/* Restores scroll position to page top on route change */}
+        <ScrollToTop />
+      </div>
+    </>
+  )
+}
 
 export default hot(App)
