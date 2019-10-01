@@ -3,9 +3,10 @@
 /**
  * CoreJS includes the polyfills for new language features compiled by Babel.
  * Explicitly set the `core-js` version used by `preset-env` per Babel best
- * practices and allow polyifilling proposal stage features
+ * practices (optionall an object can be used to allow polyfilling experimental
+ * features: { version: 3, proposals: true })
  */
-const corejs = { version: 3, proposals: true }
+const corejs = 3
 
 /**
  * 📝 Babel configurations
@@ -15,6 +16,9 @@ const corejs = { version: 3, proposals: true }
  *   transform a linked npm package.
  * - Configs are specified by environment to make it easier to understand how
  *   each env is transformed.
+ * - Only polyfills required for application code are added with the `usage`
+ *   option of the preset-env `useBuiltIns`, but this does assume that libraries
+ *   have properly handled compiling their polyfills.
  */
 module.exports = {
   env: {
@@ -33,8 +37,7 @@ module.exports = {
             // Will automatically add core-js polyfill imports for unsupported
             // language features based on environment
             useBuiltIns: 'usage',
-            // Set the core-js version as best practice and allow polyifilling
-            // proposal stage features
+            // Configures the version of core-js helpers injected by plugins
             corejs,
           },
         ],
@@ -44,23 +47,28 @@ module.exports = {
         '@emotion/babel-preset-css-prop',
       ],
       plugins: [
-        'react-hot-loader/babel',
         // Emotion must be first! Hoists and compresses styles and provides
         // source maps in dev
         ['emotion', { sourceMap: true }],
-        '@babel/plugin-transform-react-jsx-source', // Better stacks for error boundaries
-        '@babel/plugin-proposal-class-properties',
-        // Runtime will transform Babel helpers to imports from @babel/runtime
-        // Passing useESModules allows webpack to handle module transforms
+        // Extends HMR with hot reloading for components
+        'react-hot-loader/babel',
+        // Provides better call stacks for error boundaries
+        '@babel/plugin-transform-react-jsx-source',
+        // Transform Runtime will transform inline Babel helper fns to imports
+        //   from @babel/runtime
+        // Passing useESModules disables running helper imports through the
+        //   common js module transform and allows webpack to manage the esm
         // Passing corejs configs will use imports from @babel/runtime-corejs3
-        // instead of global polyfills
-        ['@babel/plugin-transform-runtime', { useESModules: true, corejs }],
+        //   instead of global polyfills (this should be set for libraries but
+        //   is optional for applications)
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
+        // --- Stage 3 plugins
+        '@babel/plugin-proposal-class-properties',
       ],
     },
     /**
-     * Production env targets current modern browsers and `useBuiltIns` will
-     * automatically add polyfill imports for newer browser features when
-     * they're used in code.
+     * Production env targets current modern browsers and only includes plugins
+     * used by production code.
      */
     production: {
       presets: [
@@ -78,10 +86,14 @@ module.exports = {
         '@emotion/babel-preset-css-prop',
       ],
       plugins: [
-        'react-hot-loader/babel',
         'emotion',
+        // When NODE_ENV is production, RHL plugin will replace `hot(module)(App)`
+        // with `App` which is important for webpack optimizations
+        // Ref: https://github.com/gaearon/react-hot-loader/issues/1080
+        'react-hot-loader/babel',
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
+        // --- Stage 3 plugins
         '@babel/plugin-proposal-class-properties',
-        ['@babel/plugin-transform-runtime', { useESModules: true, corejs }],
       ],
     },
     /**
@@ -104,9 +116,11 @@ module.exports = {
         '@emotion/babel-preset-css-prop',
       ],
       plugins: [
+        'emotion',
         'react-hot-loader/babel',
+        ['@babel/plugin-transform-runtime', { useESModules: false }],
+        // --- Stage 3 plugins
         '@babel/plugin-proposal-class-properties',
-        ['@babel/plugin-transform-runtime', { useESModules: false, corejs }],
       ],
     },
   },

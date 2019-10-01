@@ -31,7 +31,11 @@ module.exports = () => {
    * the generated base configs.
    */
   configs.resolve.alias['feather-icons'] = featherIconsPath
-  configs.resolve.alias['react-dom'] = '@hot-loader/react-dom'
+
+  // During development use the RHL patched version of react-dom
+  if (process.env.NODE_ENV === 'development') {
+    configs.resolve.alias['react-dom'] = '@hot-loader/react-dom'
+  }
 
   return configs
 }

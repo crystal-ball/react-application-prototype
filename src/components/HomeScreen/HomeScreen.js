@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Flex, Header, Icon, Text } from 'componentry'
 import { css } from '@emotion/core'
 
@@ -82,6 +83,10 @@ const HomeScreen = () => (
       <Text italic textAlign='center'>
         v{process.env.PACKAGE_VERSION}
       </Text>
+
+      <Flex>
+        <Link to='/best-practices'>Best Practices</Link>
+      </Flex>
 
       <Flex>
         <div className='w-75 pl-3'>
