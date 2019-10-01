@@ -1,4 +1,9 @@
 {
+  "build": {
+    "env": {
+      "CD": "true"
+    }
+  },
   "routes": [
     {
       "src": "/static/(.*)",
