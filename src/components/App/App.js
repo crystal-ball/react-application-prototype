@@ -7,11 +7,21 @@ import { ScrollToTop } from '@/components/universal'
 import Header from './Header/Header'
 
 // Screens
-const HomeScreen = lazy(() => import('../HomeScreen/HomeScreen'))
-const BestPracticesScreen = lazy(() =>
-  import('../BestPracticesScreen/BestPracticesScreen'),
+
+// webpackPrefetch
+const HomeScreen = lazy(() =>
+  import(/* webpackChunkName: 'HomeScreen' */ '../HomeScreen/HomeScreen'),
 )
-const FourOhFourScreen = lazy(() => import('../FourOhFourScreen/FourOhFourScreen'))
+const BestPracticesScreen = lazy(() =>
+  import(
+    /* webpackChunkName: 'BestPracticesScreen' */ '../BestPracticesScreen/BestPracticesScreen'
+  ),
+)
+const FourOhFourScreen = lazy(() =>
+  import(
+    /* webpackChunkName: 'FourOhFourScreen' */ '../FourOhFourScreen/FourOhFourScreen'
+  ),
+)
 
 /**
  * Application class component is responsible for setting the base application
