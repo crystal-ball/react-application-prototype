@@ -4,7 +4,8 @@ const defaultState = {
   rad: true,
 }
 
-const reducer = (state = defaultState, { type /* , payload */ }) => {
+/* eslint-disable default-param-last */
+export default function reducer(state = defaultState, { type /* , payload */ }) {
   switch (type) {
     case RAD_TOGGLED:
       return {
@@ -14,7 +15,7 @@ const reducer = (state = defaultState, { type /* , payload */ }) => {
       return state
   }
 }
-export default reducer
+/* eslint-disable default-param-last */
 
 // Selectors
 // ---------------------------------------------------------------------------
