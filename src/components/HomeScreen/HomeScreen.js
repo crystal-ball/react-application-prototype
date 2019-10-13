@@ -57,7 +57,7 @@ const HomeScreen = () => (
   //   Flex column layout with title then contents
   <Flex className='flex-grow-1'>
     <Flex justify='center' align='center' css={titleContainerStyles}>
-      <Header align='center' className='font-ornamental display-1'>
+      <Header align='center' className='font-ornamental display-1' data-testid='title'>
         The Order
         <br />
         of the
@@ -67,7 +67,12 @@ const HomeScreen = () => (
     </Flex>
     <Flex direction='column' css={featuresContainerStyles}>
       <Flex align='center' className='mb-4'>
-        <img src={MagicImg} className='w-25' alt='In pursuit of magic' />
+        <img
+          src={MagicImg}
+          className='w-25'
+          alt='In pursuit of magic'
+          data-testid='hero-img'
+        />
         <Header align='center' className='flex-grow-1'>
           React Application Prototype
         </Header>
