@@ -1,11 +1,13 @@
 import React from 'react'
+import { object } from 'prop-types'
 
-export default function HeroIcons() {
+export default function HeroIcons({ titleStyles }) {
   return (
     <a
       href='https://github.com/crystal-ball'
-      className='h1 text-white'
+      className='h1'
       data-testid='github-anchor'
+      css={titleStyles}
     >
       <svg
         className='icon'
@@ -20,4 +22,10 @@ export default function HeroIcons() {
       </svg>
     </a>
   )
+}
+
+HeroIcons.propTypes = {
+  // Ignore adding shape propTypes to Emotion passed styles
+  // eslint-disable-next-line react/forbid-prop-types
+  titleStyles: object.isRequired,
 }

@@ -37,6 +37,10 @@ const stickyTitleContainerStyles = css`
 const titleStyles = css`
   color: #a8ffdb;
   text-shadow: #f70777 0px 0 15px;
+
+  &:hover {
+    color: #a8ffdb;
+  }
 `
 
 const integrationsContainerStyles = css`
@@ -81,7 +85,7 @@ const HomeScreen = () => (
           Crystal Code Wizards
         </Header>
         <div>
-          <HeroIcons />
+          <HeroIcons titleStyles={titleStyles} />
         </div>
       </Flex>
     </div>
