@@ -1,4 +1,4 @@
-import reducer, { selectRad, dispatchRadToggled } from './index'
+import reducer, { dispatchRadToggled, selectRad } from './index'
 
 const mockState = () => ({
   app: {

@@ -27,7 +27,6 @@
     "test:acceptance": "docker-compose up --exit-code-from cypress --abort-on-container-exit",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "postinstall": "bash ./scripts/post-install.sh",
     "format": "prettier --write '*.{js,json,md,json}' '**/*.{md,js,json,scss}'"
   },
   "dependencies": {
@@ -39,6 +38,7 @@
     "core-js": "3.3.1",
     "emotion-theming": "10.0.19",
     "feather-icons": "4.24.1",
+    "history": "4.10.1",
     "nanoid": "2.1.3",
     "prop-types": "15.7.2",
     "react": "16.10.2",
@@ -47,12 +47,13 @@
     "react-redux": "7.1.1",
     "react-router-dom": "5.1.2",
     "redux": "4.0.4",
+    "redux-devtools-extension": "2.13.8",
     "redux-saga": "1.1.1",
     "redux-thunk": "2.3.0",
     "svg-symbol-sprite-loader": "3.2.0"
   },
   "devDependencies": {
-    "@crystal-ball/commitizen-adapter": "1.4.0",
+    "@crystal-ball/commitizen-base": "2.0.0",
     "@crystal-ball/prettier-base": "1.5.0",
     "@crystal-ball/webpack-base": "6.4.0",
     "@emotion/babel-preset-css-prop": "10.0.17",
@@ -66,11 +67,11 @@
     "@testing-library/react": "9.3.0",
     "@types/jest": "24.0.18",
     "babel-plugin-emotion": "10.0.21",
-    "eslint-config-eloquence": "12.6.0",
+    "cypress": "3.4.1",
+    "eslint-config-eloquence": "12.7.1",
     "husky": "3.0.9",
     "jest": "24.9.0",
-    "jest-emotion": "10.0.17",
-    "redux-devtools-extension": "2.13.8"
+    "jest-emotion": "10.0.17"
   },
   "config": {
     "commitizen": {

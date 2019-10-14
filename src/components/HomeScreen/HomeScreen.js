@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 import { Flex, Header, Icon, Text } from 'componentry'
 import { css } from '@emotion/core'
 
-import RadState from './RadState'
-import RadToggle from './RadToggle'
 import { Footer } from '@/components/universal'
-
-import radpackBg from './radpack-bg.jpg'
 import CodeClimate from '@/media/codeclimate.svg'
 import Cypress from '@/media/cypress.svg'
 import Renovate from '@/media/renovate.svg'
 import Travis from '@/media/travis-ci.svg'
 import Zeit from '@/media/zeit.svg'
 import MagicImg from '@/media/karly-santiago.jpg'
+
+import RadState from './RadState'
+import RadToggle from './RadToggle'
+import radpackBg from './radpack-bg.jpg'
 
 const titleContainerStyles = css`
   width: 40%;

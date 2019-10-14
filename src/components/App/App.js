@@ -1,8 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { hot } from 'react-hot-loader/root'
-import { Switch, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
-// Application
 import { ScrollToTop } from '@/components/universal'
 import Header from './Header/Header'
 
@@ -10,16 +9,16 @@ import Header from './Header/Header'
 
 // webpackPrefetch
 const HomeScreen = lazy(() =>
-  import(/* webpackChunkName: 'HomeScreen' */ '../HomeScreen/HomeScreen'),
+  import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
 )
 const BestPracticesScreen = lazy(() =>
   import(
-    /* webpackChunkName: 'BestPracticesScreen' */ '../BestPracticesScreen/BestPracticesScreen'
+    /* webpackChunkName: "BestPracticesScreen" */ '../BestPracticesScreen/BestPracticesScreen'
   ),
 )
 const FourOhFourScreen = lazy(() =>
   import(
-    /* webpackChunkName: 'FourOhFourScreen' */ '../FourOhFourScreen/FourOhFourScreen'
+    /* webpackChunkName: "FourOhFourScreen" */ '../FourOhFourScreen/FourOhFourScreen'
   ),
 )
 
