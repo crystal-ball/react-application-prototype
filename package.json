@@ -55,7 +55,7 @@
   "devDependencies": {
     "@crystal-ball/commitizen-base": "2.0.0",
     "@crystal-ball/prettier-base": "1.5.0",
-    "@crystal-ball/webpack-base": "6.4.0",
+    "@crystal-ball/webpack-base": "6.5.0",
     "@emotion/babel-preset-css-prop": "10.0.17",
     "@storybook/addon-actions": "5.2.3",
     "@storybook/addon-docs": "5.2.3",
@@ -75,7 +75,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "@crystal-ball/commitizen-adapter"
+      "path": "@crystal-ball/commitizen-base"
     }
   },
   "husky": {
