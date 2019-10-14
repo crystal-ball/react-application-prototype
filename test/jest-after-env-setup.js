@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint-disable import/no-extraneous-dependencies */
 
 /**
  * Entrypoint for configuring and setting up the test environment immediately

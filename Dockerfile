@@ -13,7 +13,7 @@ RUN npm install -g serve
 
 # Install dependencies
 COPY ./package*.json ./
-RUN CI=true npm ci
+RUN CI=true CYPRESS_INSTALL_BINARY=0 npm ci
 
 # Copy remaining source files
 COPY . .

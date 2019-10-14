@@ -1,8 +1,7 @@
 /* global global */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import { fireEvent, render } from '@testing-library/react'
-import { Router, Link } from 'react-router-dom'
+import { Link, Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 
 import ScrollToTop from './ScrollToTop'
