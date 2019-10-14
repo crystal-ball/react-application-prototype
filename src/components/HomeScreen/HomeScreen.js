@@ -13,25 +13,30 @@ import MagicImg from '@/media/karly-santiago.jpg'
 
 import RadState from './RadState'
 import RadToggle from './RadToggle'
+import HeroIcons from './HeroIcons/HeroIcons'
 import radpackBg from './radpack-bg.jpg'
 
-const titleContainerStyles = css`
+const leftContainerStyles = css`
   width: 40%;
   background-image: url(${radpackBg});
   background-position: center center;
-
-  h1 {
-    color: #a8ffdb;
-    text-shadow: #f70777 0px 0 15px;
-    position: sticky;
-    padding-top: 3rem;
-    top: 3rem;
-  }
+  position: sticky;
 `
 
-const featuresContainerStyles = css`
+const rightContainerStyles = css`
   width: 60%;
   min-height: 100%;
+`
+
+const stickyTitleContainerStyles = css`
+  position: sticky;
+  top: 3rem;
+  padding-top: 3rem;
+`
+
+const titleStyles = css`
+  color: #a8ffdb;
+  text-shadow: #f70777 0px 0 15px;
 `
 
 const integrationsContainerStyles = css`
@@ -56,16 +61,31 @@ const HomeScreen = () => (
   // Small screens ->
   //   Flex column layout with title then contents
   <Flex className='flex-grow-1'>
-    <Flex justify='center' align='center' css={titleContainerStyles}>
-      <Header align='center' className='font-ornamental display-1' data-testid='title'>
-        The Order
-        <br />
-        of the
-        <br />
-        Crystal Code Wizards
-      </Header>
-    </Flex>
-    <Flex direction='column' css={featuresContainerStyles}>
+    <div css={leftContainerStyles}>
+      <Flex
+        justify='center'
+        align='center'
+        direction='column'
+        css={stickyTitleContainerStyles}
+      >
+        <Header
+          align='center'
+          className='font-ornamental display-1'
+          data-testid='title'
+          css={titleStyles}
+        >
+          The Order
+          <br />
+          of the
+          <br />
+          Crystal Code Wizards
+        </Header>
+        <div>
+          <HeroIcons />
+        </div>
+      </Flex>
+    </div>
+    <Flex direction='column' css={rightContainerStyles}>
       <Flex align='center' className='mb-4'>
         <img
           src={MagicImg}
