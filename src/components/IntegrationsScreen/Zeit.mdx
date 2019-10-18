@@ -1,0 +1,14 @@
+# Zeit
+
+1. Set an `engines` in `package.json` to configure the version of Node.js used by the
+   static builder ((Static Build Project Node.js
+   Version)[https://zeit.co/docs/builders#official-builders/static-builds/static-build-project-node-js-version])
+2. Include build variables to prevent Cypress binary from being installed for faster
+   builds. ((Cypress - Skipping
+   Installation)[https://docs.cypress.io/guides/getting-started/installing-cypress.html#Skipping-installation])
+3. Add a route config for all resources to add a `cache-control` header for long term
+   caching of webpack hashed build assets. ((Zeit configuration -
+   headers)[https://zeit.co/docs/configuration/#routes/headers])
+4. Add a route config that rewrites all requests to `/` to support single page app
+   `index.html` resolution ((Zeit configuration - SPA
+   Fallback)[https://zeit.co/docs/configuration/#routes/advanced/spa-fallback])
