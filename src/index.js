@@ -2,6 +2,7 @@ import 'react-hot-loader'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import { MDXProvider } from '@mdx-js/react'
 import { ThemeProvider as ComponentryTheme } from 'componentry'
 import { ThemeProvider as EmotionTheme } from 'emotion-theming'
 import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
@@ -11,6 +12,7 @@ import { render } from 'react-dom'
 
 import { componentryTheme } from './theme/componentry'
 import { emotionTheme } from './theme/emotion'
+import { CodeBlock } from './components/universal'
 
 // ⚠️ Import styles first to ensure lower specificity than component styles
 import './index.scss'
@@ -26,15 +28,23 @@ svgSymbolSpriteLoader({ useCache: process.env.NODE_ENV === 'production' })
 
 const store = configureStore()
 
+// Configure components that will be used to render elements parsed out by MDX
+const components = {
+  pre: props => <div {...props} />,
+  code: CodeBlock,
+}
+
 // Start the party 🎉
 // Render all of the root application providers then application root component
 render(
   <Provider store={store}>
     <ComponentryTheme.Provider value={componentryTheme}>
       <EmotionTheme theme={emotionTheme}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <MDXProvider components={components}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </MDXProvider>
       </EmotionTheme>
     </ComponentryTheme.Provider>
   </Provider>,

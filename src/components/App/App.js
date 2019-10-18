@@ -11,9 +11,18 @@ import Header from './Header/Header'
 const HomeScreen = lazy(() =>
   import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
 )
+// TODO: rename to "ConventionsScreen"
 const BestPracticesScreen = lazy(() =>
   import(
     /* webpackChunkName: "BestPracticesScreen" */ '../BestPracticesScreen/BestPracticesScreen'
+  ),
+)
+const FeaturesScreen = lazy(() =>
+  import(/* webpackChunkName: "FeaturesScreen" */ '../FeaturesScreen/FeaturesScreen'),
+)
+const IntegrationsScreen = lazy(() =>
+  import(
+    /* webpackChunkName: "IntegrationsScreen" */ '../IntegrationsScreen/IntegrationsScreen'
   ),
 )
 const FourOhFourScreen = lazy(() =>
@@ -39,6 +48,12 @@ function App() {
             </Route>
             <Route path='/best-practices'>
               <BestPracticesScreen />
+            </Route>
+            <Route path='/features'>
+              <FeaturesScreen />
+            </Route>
+            <Route path='/integrations'>
+              <IntegrationsScreen />
             </Route>
             <Route>
               <FourOhFourScreen />

@@ -30,6 +30,23 @@ module.exports = () => {
    * Handle non-standard, advanced project customization by directly updating
    * the generated base configs.
    */
+
+  // 🤩 Add MDX loader resources
+  configs.module.rules.push({
+    test: /\.mdx$/,
+    use: [
+      { loader: 'babel-loader' },
+      {
+        loader: '@mdx-js/loader',
+        options: {
+          rehypePlugins: [],
+          remarkPlugins: [],
+        },
+      },
+    ],
+  })
+
+  // Enable simple imports for Feather icons
   configs.resolve.alias['feather-icons'] = featherIconsPath
 
   // During development use the RHL patched version of react-dom
