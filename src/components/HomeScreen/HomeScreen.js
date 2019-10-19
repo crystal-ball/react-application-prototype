@@ -4,10 +4,10 @@ import { Flex, Header, Icon, Text } from 'componentry'
 import { css } from '@emotion/core'
 
 import { Footer } from '@/components/universal'
-import CodeClimate from '@/media/codeclimate.svg'
+import CodeClimate from '@/media/code-climate.svg'
 import Cypress from '@/media/cypress.svg'
 import Renovate from '@/media/renovate.svg'
-import Travis from '@/media/travis-ci.svg'
+import Github from '@/media/github.svg'
 import Zeit from '@/media/zeit.svg'
 import MagicImg from '@/media/karly-santiago.jpg'
 
@@ -172,11 +172,12 @@ const HomeScreen = () => (
                 <CodeClimate />
               </div>
               <div className='integration'>
-                <Cypress />
+                <Github />
               </div>
               <div className='integration'>
-                <Travis />
+                <Cypress />
               </div>
+
               <div className='integration'>
                 <Zeit />
               </div>
