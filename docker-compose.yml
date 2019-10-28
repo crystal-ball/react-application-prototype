@@ -2,8 +2,7 @@ version: '3'
 
 services:
   test:
-    build:
-      context: .
+    image: crystal-ball/react-application-prototype
     ports:
       - '5000:5000'
 
