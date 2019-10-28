@@ -2,19 +2,9 @@
  * Application styles
  */
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-}
-
-.screen-container {
-  max-width: 100%;
-  flex-grow: 1;
-  padding-left: $spacer;
-  padding-right: $spacer;
-  overflow: auto;
+body {
+  background: #181424;
+  color: #c6d2d1;
 }
 
 .font-ornamental {

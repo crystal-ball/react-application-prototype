@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import HeroIcons from './HeroIcons'
+import Hero from './Hero'
 
-describe('<HeroIcons />', () => {
-  test('The icon is an accessible pink font icon', () => {
-    const { getByTestId } = render(<HeroIcons />)
+describe('<Hero />', () => {
+  test('Github icon links to repo Github url', () => {
+    const { getByTestId } = render(<Hero />)
     expect(getByTestId('github-anchor')).toHaveAttribute(
       'href',
       'https://github.com/crystal-ball',

@@ -30,10 +30,13 @@ module.exports = {
   // Configure Jest resolver for non-standard project import and UI resources
   // handled by webpack
   moduleNameMapper: {
-    // Configuration for resolving project `@` relative imports
-    '@/(.*)$': '<rootDir>/src/$1',
     // webpack non-js resources loader mocks
-    '\\.(png|jpg)': '<rootDir>/__mocks__/file-loader-mock.js',
-    '\\.scss': '<rootDir>/__mocks__/scss-loader-mock.js',
+    '\\.(png|jpg)$': '<rootDir>/__mocks__/file-loader-mock.js',
+    '\\.svg$': '<rootDir>/__mocks__/svgr-loader-mock.js',
+    '\\.scss$': '<rootDir>/__mocks__/scss-loader-mock.js',
+    // Configuration for resolving project `@` relative imports (include after
+    // loader mocks to ensure they are matched first for resources like
+    // `@/media/some.svg`)
+    '@/(.*)$': '<rootDir>/src/$1',
   },
 }

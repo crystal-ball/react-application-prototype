@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
 
-import app from './app'
+import routing from './routing'
 
-export default combineReducers({ app })
+export default combineReducers({ routing })

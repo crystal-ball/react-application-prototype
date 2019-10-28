@@ -1,7 +1,6 @@
 import 'react-hot-loader'
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
 import { MDXProvider } from '@mdx-js/react'
 import { ThemeProvider as ComponentryTheme } from 'componentry'
 import { ThemeProvider as EmotionTheme } from 'emotion-theming'
@@ -41,9 +40,7 @@ render(
     <ComponentryTheme.Provider value={componentryTheme}>
       <EmotionTheme theme={emotionTheme}>
         <MDXProvider components={components}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <App />
         </MDXProvider>
       </EmotionTheme>
     </ComponentryTheme.Provider>

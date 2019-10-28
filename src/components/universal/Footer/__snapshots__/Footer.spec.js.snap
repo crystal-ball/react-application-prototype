@@ -4,7 +4,7 @@ exports[`<Footer /> Footer snapshot 1`] = `
 .emotion-0 {
   margin-top: auto;
   padding: 15px 30px;
-  background: #636c72;
+  background: #110f16;
 }
 
 .emotion-0 .icon-heart {
