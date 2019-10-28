@@ -1,4 +1,6 @@
 export { default as CodeBlock } from './CodeBlock/CodeBlock'
 export { default as Footer } from './Footer/Footer'
+export { default as Header } from './Header/Header'
+export { default as Hero } from './Hero/Hero'
+export { default as Link } from './Link/Link'
 export { default as ScreenContainer } from './ScreenContainer/ScreenContainer'
-export { default as ScrollToTop } from './ScrollToTop/ScrollToTop'

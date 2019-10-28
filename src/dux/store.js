@@ -6,13 +6,18 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import rootReducer from './reducers'
 import rootSaga from './sagas'
+import { routingMiddleware } from './routing'
 
 export default function configureStore(preloadedState) {
   // Create the middleware "thread" that the sagas run in. From the middleware
   // the root saga is able to respond to incoming actions and dispatch new actions
   const sagaMiddleware = createSagaMiddleware()
 
-  const middlewareEnhancer = applyMiddleware(thunkMiddleware, sagaMiddleware)
+  const middlewareEnhancer = applyMiddleware(
+    thunkMiddleware,
+    sagaMiddleware,
+    routingMiddleware,
+  )
 
   const composeEnhancers = composeWithDevTools({
     trace: true,
