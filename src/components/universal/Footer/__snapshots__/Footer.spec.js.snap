@@ -28,7 +28,7 @@ exports[`<Footer /> Footer snapshot 1`] = `
         xlink:href="#heart"
       />
     </svg>
-    Make something awesome!
+     Make something awesome!
   </p>
 </footer>
 `;
