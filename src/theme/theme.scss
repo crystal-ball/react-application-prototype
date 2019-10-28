@@ -34,6 +34,9 @@ $theme-colors: (
   dark: $coal,
 );
 
+$background: #181424;
+$foreground: #98a5a4;
+
 $theme-color-interval: 8%;
 
 // Global Options
@@ -55,8 +58,8 @@ $spacers: (
 
 // Body
 // ---------------------------------------------------------------------------
-$body-bg: $white;
-$body-color: $coal;
+$body-bg: $background;
+$body-color: $foreground;
 
 // Links
 // ---------------------------------------------------------------------------

@@ -38,8 +38,7 @@ export default function StackScreen() {
       <h1>Application stack</h1>
       <div>App libraries with approx bundle weights</div>
       <h4>
-        <Icon id='education' />
-        Workflow integrations
+        <Icon id='education' /> Workflow integrations
         <Flex justify='center' css={integrationsContainerStyles}>
           <div className='integration'>
             <Renovate />
