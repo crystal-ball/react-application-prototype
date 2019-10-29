@@ -14,19 +14,16 @@ const rightContainerStyles = css`
   min-height: 100%;
 `
 
-const integrationsContainerStyles = css`
-  .integration {
-    display: flex;
-    align-items: center;
-    width: 75px;
-    height: 75px;
-    margin: 0 10px;
-  }
+const integrationContainerStyles = css`
+  display: flex;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  margin: 0 10px;
+  color: #fff;
 
   svg {
-    fill: #fff;
-    max-width: 100%;
-    max-height: 100%;
+    fill: currentColor;
   }
 `
 
@@ -39,21 +36,20 @@ export default function StackScreen() {
       <div>App libraries with approx bundle weights</div>
       <h4>
         <Icon id='education' /> Workflow integrations
-        <Flex justify='center' css={integrationsContainerStyles}>
-          <div className='integration'>
+        <Flex justify='center'>
+          <div css={integrationContainerStyles}>
             <Renovate />
           </div>
-          <div className='integration'>
+          <div css={integrationContainerStyles}>
             <CodeClimate />
           </div>
-          <div className='integration'>
+          <div css={integrationContainerStyles}>
             <Github />
           </div>
-          <div className='integration'>
+          <div css={integrationContainerStyles}>
             <Cypress />
           </div>
-
-          <div className='integration'>
+          <div css={integrationContainerStyles}>
             <Zeit />
           </div>
         </Flex>

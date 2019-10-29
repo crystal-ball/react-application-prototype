@@ -31,19 +31,14 @@ const iconStyles = css`
 
 export default function Hero() {
   return (
-    <div css={leftContainerStyles}>
+    <div css={leftContainerStyles} data-testid='hero-img'>
       <Flex
         justify='center'
         align='center'
         direction='column'
         css={stickyTitleContainerStyles}
       >
-        <Header
-          align='center'
-          className='font-ornamental display-1'
-          data-testid='title'
-          css={titleStyles}
-        >
+        <Header align='center' className='display-1' css={titleStyles}>
           The Order
           <br />
           of the

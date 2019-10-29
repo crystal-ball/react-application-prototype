@@ -17,10 +17,14 @@ export default function Header() {
   return (
     <Flex as='nav' justify='end' css={headerContainerStyles}>
       <Block css={anchorBlockStyles}>
-        <Link to='/'>Introduction</Link>
+        <Link to='/' data-testid='nav-link'>
+          Introduction
+        </Link>
       </Block>
       <Block css={anchorBlockStyles}>
-        <Link to='/application-stack'>Application Stack</Link>
+        <Link to='/application-stack' data-testid='nav-link'>
+          Application Stack
+        </Link>
       </Block>
     </Flex>
   )
