@@ -36,8 +36,7 @@ export default function HomeScreen() {
 
       <div className='mx-5'>
         <h4>
-          <Icon id='coffee' />
-          Application featureset
+          <Icon id='coffee' /> Application featureset
         </h4>
         <ul>
           <li>

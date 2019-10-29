@@ -19,6 +19,7 @@ const stickyTitleContainerStyles = css`
 `
 
 const titleStyles = css`
+  font-family: 'Alex Brush', cursive;
   color: #a8ffdb;
   text-shadow: #f70777 0px 0 15px;
 `
