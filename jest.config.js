@@ -18,10 +18,10 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.js', '!**/*.stories.js'],
 
   // Environment setup entrypoints in order of execution
-  globalSetup: '<rootDir>/test/global-setup',
-  setupFiles: ['<rootDir>/test/jest-env-setup.js'],
-  setupFilesAfterEnv: ['<rootDir>/test/jest-after-env-setup.js'],
-  globalTeardown: '<rootDir>/test/global-teardown',
+  globalSetup: '<rootDir>/.jest/global-setup',
+  setupFiles: ['<rootDir>/.jest/jest-env-setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/jest-after-env-setup.js'],
+  globalTeardown: '<rootDir>/.jest/global-teardown',
 
   // Snapshot custom component css (it should be used sparingly and be important
   // enough to verify in tests)
