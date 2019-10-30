@@ -12,12 +12,6 @@ branches:
 # All dependencies are managed in Docker container
 install: true
 
-# Setup Code Climate test reporter
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
 # Test workflow builds and runs a container to create app production bundle
 # which is then used within Docker Compose to run Cypress acceptance tests.
 script:
@@ -29,11 +23,6 @@ script:
   - docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
   # With Docker Compose use Nginx+built assets and Cypress to acceptance test
   - docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
-
-# Call Code Climate reporter with results, note the --prefix option is used to
-# strip the file paths output from the Docker container
-after_script:
-  - ./cc-test-reporter after-build --prefix /usr/src/app --exit-code $TRAVIS_TEST_RESULT
 
 # ☎️ Slack
 notifications:
