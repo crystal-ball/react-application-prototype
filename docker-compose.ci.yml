@@ -14,6 +14,7 @@ services:
       - COMMIT_INFO_MESSAGE=${COMMIT_INFO_MESSAGE}
       - COMMIT_INFO_SHA=${COMMIT_INFO_SHA}
       - CYPRESS_RECORD_KEY=${CYPRESS_RECORD_KEY}
+      - PERCY_BRANCH=${PERCY_BRANCH}
       - PERCY_TOKEN=${PERCY_TOKEN}
     volumes:
       # Mount git directory so Cypress can determine branch and commit info
