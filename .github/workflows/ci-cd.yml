@@ -27,11 +27,11 @@ jobs:
       - name: Test
         run: |
           # Set current git info as env variables for Cypress
-          export COMMIT_INFO_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          export COMMIT_INFO_MESSAGE=$(git show -s --pretty=%B)
+          export COMMIT_INFO_BRANCH=$(git branch --contains $GITHUB_SHA)
+          export COMMIT_INFO_MESSAGE=$(git show $GITHUB_SHA -s --pretty=%B)
           export COMMIT_INFO_EMAIL=$(git show -s --pretty=%ae)
           export COMMIT_INFO_AUTHOR=$(git show -s --pretty=%an)
-          export COMMIT_INFO_SHA=$(git show -s --pretty=%H)
+          export COMMIT_INFO_SHA=$GITHUB_SHA
           export COMMIT_INFO_REMOTE=$(git config --get remote.origin.url)
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
