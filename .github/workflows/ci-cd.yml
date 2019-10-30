@@ -44,9 +44,9 @@ jobs:
 
           # echo "BRANCH_COMMIT_SHA: $BRANCH_COMMIT_SHA"
           export COMMIT_INFO_MESSAGE=$(git show $COMMIT_INFO_SHA -s --pretty=%B)
-          echo "COMMIT_INFO_BRANCH: $COMMIT_INFO_BRANCH"
-          echo "COMMIT_INFO_MESSAGE: $COMMIT_INFO_MESSAGE"
           echo "COMMIT_INFO_SHA: $COMMIT_INFO_SHA"
+          echo "COMMIT_INFO_MESSAGE: $COMMIT_INFO_MESSAGE"
+          echo "COMMIT_INFO_BRANCH: $COMMIT_INFO_BRANCH"
           # export COMMIT_INFO_REMOTE=$(git config --get remote.origin.url)
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
@@ -59,8 +59,8 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          COMMIT_INFO_SHA: ${{ github.sha }}
           COMMIT_INFO_BRANCH: ${{ github.head_ref }}
+          COMMIT_INFO_SHA: ${{ github.head.sha }}
       # - name: Code Climate - Report
       #   if: success()
       #   run: ./cc-test-reporter after-build --prefix /usr/src/app
