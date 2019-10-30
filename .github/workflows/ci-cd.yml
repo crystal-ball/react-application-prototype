@@ -33,15 +33,16 @@ jobs:
           # export BRANCH_COMMIT_SHA=$(git rev-parse HEAD)
           # echo "$BRANCH_COMMIT_SHA"
           # Set current git info as env variables for Cypress
+          # export COMMIT_INFO_EMAIL=$(git show $BRANCH_COMMIT_SHA -s --pretty=%ae)
+          # export COMMIT_INFO_AUTHOR=$(git show $BRANCH_COMMIT_SHA -s --pretty=%an)
           export COMMIT_INFO_BRANCH=$(git branch --contains $BRANCH_COMMIT_SHA)
           export COMMIT_INFO_MESSAGE=$(git show $BRANCH_COMMIT_SHA -s --pretty=%B)
-          export COMMIT_INFO_EMAIL=$(git show $BRANCH_COMMIT_SHA -s --pretty=%ae)
-          export COMMIT_INFO_AUTHOR=$(git show $BRANCH_COMMIT_SHA -s --pretty=%an)
-          export COMMIT_INFO_SHA=$ITHUB_SHA
+          export COMMIT_INFO_SHA=$BRANCH_COMMIT_SHA
 
-          echo "$COMMIT_INFO_BRANCH"
-          echo "$COMMIT_INFO_MESSAGE"
-          echo "$COMMIT_INFO_SHA"
+          echo "BRANCH_COMMIT_SHA: $BRANCH_COMMIT_SHA"
+          echo "COMMIT_INFO_BRANCH: $COMMIT_INFO_BRANCH"
+          echo "COMMIT_INFO_MESSAGE: $COMMIT_INFO_MESSAGE"
+          echo "COMMIT_INFO_SHA: $COMMIT_INFO_SHA"
           # export COMMIT_INFO_REMOTE=$(git config --get remote.origin.url)
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
