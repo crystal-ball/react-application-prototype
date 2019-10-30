@@ -10,7 +10,11 @@ services:
       dockerfile: ./cypress/Dockerfile
     environment:
       # Provides required env variable to upload test runs to project dashboard
-      - CYPRESS_RECORD_KEY=${CYPRESS_RECORD_KEY}
       - COMMIT_INFO_BRANCH=${COMMIT_INFO_BRANCH}
+      - COMMIT_INFO_MESSAGE=${COMMIT_INFO_MESSAGE}
+      - COMMIT_INFO_SHA=${COMMIT_INFO_SHA}
+      - CYPRESS_RECORD_KEY=${CYPRESS_RECORD_KEY}
       - PERCY_TOKEN=${PERCY_TOKEN}
-      - PERCY_BRANCH=${PERCY_BRANCH}
+    volumes:
+      # Mount git directory so Cypress can determine branch and commit info
+      - ./.git:/e2e/.git
