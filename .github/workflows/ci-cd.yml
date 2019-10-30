@@ -38,6 +38,6 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: Code Climate - Report
         if: success()
-        run: ./cc-test-reporter after-build --prefix /usr/src
+        run: ./cc-test-reporter after-build --prefix /usr/src/app
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
