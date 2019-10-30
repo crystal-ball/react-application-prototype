@@ -55,6 +55,9 @@
 - [Setup](#-setup) - Getting started
 - [Testing](#-testing) - Running application test suites
 - [Developing](#-developing) - Application development tools and conventions
+- [Notes](#-notes) - Conventions and reference documentation
+
+---
 
 ## ⚙️ Setup
 
@@ -64,26 +67,37 @@
 npm install
 ```
 
-## ✓ Testing
+## ✅ Testing
 
 The project includes 3 types of testing: static linting, unit testing and
 acceptance testing.
 
-- _Static linting_ uses ESLint with the `eslint-config-eloquence` ruleset.
-  - `npm run test:lint`
-- _Unit testing_ uses Jest with `@testing-library/react` and is configured in
-  `jest.config.js`
-  - `npm run test:unit`
-  - `npm run test:watch`
-- _Acceptance testing_ uses Cypress inside of a Docker Compose environment
-  - `npm run test:acceptance`
+**Static linting** uses ESLint with the `eslint-config-eloquence` ruleset.
 
-#### Testing patterns
+```
+npm run test:lint
+```
+
+**Unit testing** uses Jest with `@testing-library/react` and is configured in
+`jest.config.js`
+
+```
+npm run test:unit
+npm run test:watch
+```
+
+**Acceptance testing** uses Cypress inside of a Docker Compose environment
+
+```
+npm run test:acceptance
+```
+
+### Testing patterns
 
 - _React Router_ management requires the addition of a `MemoryRouter` (reference
   the Header component test file)
 
-## Development
+## 🌱 Development
 
 Start the webpack development server.
 
@@ -96,7 +110,7 @@ npm start
 All JS, JSON, SCSS and markdown files are required to be formatted by Prettier
 and can be formatted using the `format` npm command.
 
-## Notes
+## 📝 Notes
 
 _Miscellaneous project notes and explanations_
 
