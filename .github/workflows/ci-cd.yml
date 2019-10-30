@@ -34,6 +34,8 @@ jobs:
           docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
           # With Docker Compose use Nginx+built assets and Cypress to acceptance test
           docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: Code Climate - Report
         if: success()
         run: ./cc-test-reporter after-build --prefix /usr/src
