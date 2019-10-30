@@ -28,12 +28,12 @@ jobs:
         run: |
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
-          - docker build -t crystal-ball/react-application-prototype .
+          docker build -t crystal-ball/react-application-prototype .
           # Copy code coverage report into Travis workspace for Code Climate test
           # coverage reporting
-          - docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
+          docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
           # With Docker Compose use Nginx+built assets and Cypress to acceptance test
-          - docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
+          docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
       - name: Code Climate - Report
         if: success()
         run: ./cc-test-reporter after-build --prefix /usr/src
