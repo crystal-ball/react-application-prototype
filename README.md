@@ -25,6 +25,13 @@
   <a href="https://github.com/crystal-ball/react-application-prototype#zenhub" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg?style=flat-square" alt="ZenHub" />
   </a>
+  <a href="https://snyk.io/test/github/crystal-ball/react-app-prototype?targetFile=package.json">
+    <img
+      src="https://snyk.io/test/github/crystal-ball/react-app-prototype/badge.svg?targetFile=package.json"
+      alt="Known Vulnerabilities"
+      data-canonical-src="https://snyk.io/test/github/crystal-ball/react-app-prototype?targetFile=package.json"
+    />
+  </a>
   <!-- <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier" />
   </a> -->
@@ -45,14 +52,19 @@
   <em>Prototypical React application for Crystal Ball Projects</em>
 </p>
 
+- [Setup](#-setup) - Getting started
+- [Testing](#-testing) - Running application test suites
+- [Developing](#-developing) - Application development tools and conventions
+
 ## ⚙️ Setup
+
+**1. Install dependencies**
 
 ```
 npm install
-npm start
 ```
 
-## Testing workflows
+## ✓ Testing
 
 The project includes 3 types of testing: static linting, unit testing and
 acceptance testing.
@@ -71,15 +83,15 @@ acceptance testing.
 - _React Router_ management requires the addition of a `MemoryRouter` (reference
   the Header component test file)
 
-## Development workflows
+## Development
 
-Start the webpack development server
+Start the webpack development server.
 
 ```
 npm start
 ```
 
-## Formatting
+### Formatting
 
 All JS, JSON, SCSS and markdown files are required to be formatted by Prettier
 and can be formatted using the `format` npm command.
