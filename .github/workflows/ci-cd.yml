@@ -57,10 +57,10 @@ jobs:
           # With Docker Compose use Nginx+built assets and Cypress to acceptance test
           # docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
         env:
+          COMMIT_INFO_BRANCH: ${{ github.head_ref }}
+          COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          COMMIT_INFO_BRANCH: ${{ github.head_ref }}
-          COMMIT_INFO_SHA: ${{ github.head.sha }}
       # - name: Code Climate - Report
       #   if: success()
       #   run: ./cc-test-reporter after-build --prefix /usr/src/app
