@@ -19,11 +19,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
-      - name: Code Climate - Setup
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
+      # - name: Code Climate - Setup
+      #   run: |
+      #     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      #     chmod +x ./cc-test-reporter
+      #     ./cc-test-reporter before-build
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Test
         run: |
           export BRANCH_COMMIT_SHA=$(git rev-parse HEAD^2)
@@ -46,17 +50,17 @@ jobs:
           # export COMMIT_INFO_REMOTE=$(git config --get remote.origin.url)
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
-          docker build -t crystal-ball/react-application-prototype .
+          # docker build -t crystal-ball/react-application-prototype .
           # Copy code coverage report into Travis workspace for Code Climate test
           # coverage reporting
-          docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
+          # docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
           # With Docker Compose use Nginx+built assets and Cypress to acceptance test
-          docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
+          # docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-      - name: Code Climate - Report
-        if: success()
-        run: ./cc-test-reporter after-build --prefix /usr/src/app
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      # - name: Code Climate - Report
+      #   if: success()
+      #   run: ./cc-test-reporter after-build --prefix /usr/src/app
+      #   env:
+      #     CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
