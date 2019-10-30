@@ -12,3 +12,4 @@ services:
       # Provides required env variable to upload test runs to project dashboard
       - CYPRESS_RECORD_KEY=${CYPRESS_RECORD_KEY}
       - PERCY_TOKEN=${PERCY_TOKEN}
+      # - PERCY_BRANCH=${PERCY_BRANCH}
