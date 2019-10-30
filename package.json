@@ -62,6 +62,7 @@
     "@crystal-ball/webpack-base": "7.1.0",
     "@emotion/babel-preset-css-prop": "10.0.23",
     "@mdx-js/loader": "1.5.1",
+    "@percy/cypress": "2.2.0",
     "@storybook/addon-actions": "5.2.5",
     "@storybook/addon-docs": "5.2.5",
     "@storybook/addon-knobs": "5.2.5",

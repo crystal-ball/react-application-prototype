@@ -10,6 +10,7 @@ describe('Application', () => {
    */
   it('should have built without errors', () => {
     cy.contains(/The Order\s*of the\s*Crystal Code\s*Wizards/)
+    cy.percySnapshot()
   })
 
   it('should use hashed image assets', () => {

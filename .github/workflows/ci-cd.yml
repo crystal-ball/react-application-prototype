@@ -36,6 +36,7 @@ jobs:
           docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - name: Code Climate - Report
         if: success()
         run: ./cc-test-reporter after-build --prefix /usr/src/app
