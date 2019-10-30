@@ -9,4 +9,5 @@ RUN npm install @percy/cypress
 # Reset the `cypress run` entrypoint set by the `cypress/included` image
 ENTRYPOINT []
 # Wrap Cypress call with Percy for snapshot testing
-CMD [ "npx", "percy", "exec", "--", "cypress", "run", "--record"]
+# CMD [ "npx", "percy", "exec", "--", "cypress", "run", "--record"]
+CMD [ "npx", "cypress", "run", "--record"]
