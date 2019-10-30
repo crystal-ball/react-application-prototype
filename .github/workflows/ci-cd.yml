@@ -26,6 +26,10 @@ jobs:
       #     ./cc-test-reporter before-build
       - name: Test
         run: |
+          export COMMIT_ONE=$(git rev-parse HEAD^1)
+          echo "$COMMIT_ONE"
+          export COMMIT_TWO=$(git rev-parse HEAD^2)
+          echo "$COMMIT_TWO"
           # export BRANCH_COMMIT_SHA=$(git rev-parse HEAD)
           # echo "$BRANCH_COMMIT_SHA"
           # Set current git info as env variables for Cypress
@@ -37,12 +41,12 @@ jobs:
           # export COMMIT_INFO_REMOTE=$(git config --get remote.origin.url)
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
-          docker build -t crystal-ball/react-application-prototype .
+          # docker build -t crystal-ball/react-application-prototype .
           # Copy code coverage report into Travis workspace for Code Climate test
           # coverage reporting
-          docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
+          # docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
           # With Docker Compose use Nginx+built assets and Cypress to acceptance test
-          docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
+          # docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
