@@ -73,6 +73,12 @@ export default function HomeScreen() {
               🎉
             </span>
           </li>
+          <li>
+            Visual regression testing with Percy{' '}
+            <span role='img' aria-label='hedgehog'>
+              🦔
+            </span>
+          </li>
         </ul>
       </div>
 
