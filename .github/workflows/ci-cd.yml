@@ -27,8 +27,8 @@ jobs:
       - name: Test
         run: |
           # Expose the current branch so Percy can track
-          # export PERCY_BRANCH=${GITHUB_REF:11}
-          # export COMMIT_INFO_BRANCH=${GITHUB_REF:11}
+          export PERCY_BRANCH=${GITHUB_REF:11}
+          export COMMIT_INFO_BRANCH=${GITHUB_REF:11}
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
           docker build -t crystal-ball/react-application-prototype .
