@@ -2,9 +2,13 @@ version: '3'
 
 services:
   cypress:
-    # This will append --record to the `cypress run` entrypoint and upload the
-    # test results to project dashboard if the correct CYPRESS_RECORD_KEY is set
-    command: --record
+    # The image field will be used to name the built image, overriding to
+    # include /percy for easier identification
+    image: cypress/included/percy:3.5
+    build:
+      context: .
+      dockerfile: ./cypress/Dockerfile
     environment:
       # Provides required env variable to upload test runs to project dashboard
       - CYPRESS_RECORD_KEY=${CYPRESS_RECORD_KEY}
+      - PERCY_TOKEN=${PERCY_TOKEN}
