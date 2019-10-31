@@ -27,8 +27,8 @@ jobs:
       - name: Test
         run: |
           export COMMIT_INFO_MESSAGE=$(git show $COMMIT_INFO_SHA -s --pretty=%B)
-          export COMMIT_INFO_BRANCH="${COMMIT_INFO_BRANCH:-GITHUB_REF:11}"
-          export PERCY_BRANCH="${PERCY_BRANCH:-GITHUB_REF:11}"
+          export COMMIT_INFO_BRANCH="${COMMIT_INFO_BRANCH:-$GITHUB_REF:11}"
+          export PERCY_BRANCH="${PERCY_BRANCH:-$GITHUB_REF:11}"
           echo "COMMIT_INFO_SHA: $COMMIT_INFO_SHA"
           echo "COMMIT_INFO_MESSAGE: $COMMIT_INFO_MESSAGE"
           echo "COMMIT_INFO_BRANCH: $COMMIT_INFO_BRANCH"
