@@ -26,26 +26,32 @@ jobs:
           ./cc-test-reporter before-build
       - name: Test
         run: |
+          # Export required Cypress+Percy environment variables for assigning
+          # commit and branch info to test runs. For pull request runs the commit
+          # being tested is a merge commit and branch info isn't getting parsed out
+          # TODO: it may be possible to get the branch info with rev-parse and ^2 to target commit parents?
+          # git rev-parse --abbrev-ref HEAD
           export COMMIT_INFO_MESSAGE=$(git show $COMMIT_INFO_SHA -s --pretty=%B)
           export COMMIT_INFO_BRANCH="${COMMIT_INFO_BRANCH:-${GITHUB_REF:11}}"
           export PERCY_BRANCH="${PERCY_BRANCH:-${GITHUB_REF:11}}"
-          echo "COMMIT_INFO_SHA: $COMMIT_INFO_SHA"
-          echo "COMMIT_INFO_MESSAGE: $COMMIT_INFO_MESSAGE"
-          echo "COMMIT_INFO_BRANCH: $COMMIT_INFO_BRANCH"
-          # export COMMIT_INFO_REMOTE=$(git config --get remote.origin.url)
+
           # Building the app image will install dependencies then lint and unit test so
           # that image is ready to build app bundle when run
           docker build -t crystal-ball/react-application-prototype .
+
           # Copy code coverage report into Travis workspace for Code Climate test
           # coverage reporting
           docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/react-application-prototype cp -a /usr/src/app/coverage/. /tmp/
+
           # With Docker Compose use Nginx+built assets and Cypress to acceptance test
           docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress --abort-on-container-exit
         env:
-          COMMIT_INFO_BRANCH: ${{ github.head_ref || '' }}
-          COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha || '' }}
+          # Cypress vars
+          COMMIT_INFO_BRANCH: ${{ github.head_ref }}
+          COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          PERCY_BRANCH: ${{ github.head_ref || '' }}
+          # Percy vars
+          PERCY_BRANCH: ${{ github.head_ref }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - name: Code Climate - Report
         if: success()
