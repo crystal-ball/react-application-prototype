@@ -1,8 +1,9 @@
 version: '3'
 
 services:
-  test:
-    image: crystal-ball/react-application-prototype
+  application:
+    build:
+      context: .
     ports:
       - '5000:5000'
 
@@ -11,10 +12,9 @@ services:
     # See https://github.com/cypress-io/cypress/issues/350
     ipc: host
     environment:
-      - CYPRESS_baseUrl=http://test:5000
+      - CYPRESS_baseUrl=http://application:5000
     depends_on:
-      - test
-    # Share the current folder as volume to avoid copying
+      - application
     working_dir: /e2e
     volumes:
       # Mount git directory so Cypress can determine branch and commit info
