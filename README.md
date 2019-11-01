@@ -58,9 +58,13 @@
 <!-- prettier-ignore-end -->
 </div>
 
-<p align="center">
-  <em>Crystal Ball Projects prototypical React application</em>
-</p>
+<div>
+<h1></h1>
+<br />
+  <p align="center">
+    <em>Crystal Ball Projects prototypical React application</em>
+  </p>
+</div>
 
 - [Setup](#-setup) - Getting started
 - [Testing](#-testing) - Running application test suites
