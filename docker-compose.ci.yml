@@ -1,6 +1,9 @@
 version: '3'
 
 services:
+  application:
+    image: crystal-ball/react-application-prototype
+
   cypress:
     # The image field will be used to name the built image, overriding to
     # include /percy for easier identification
