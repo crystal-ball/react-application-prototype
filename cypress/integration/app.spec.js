@@ -34,5 +34,6 @@ describe('Application', () => {
 
     cy.url().should('include', '/application-stack')
     cy.contains('Application stack')
+    cy.percySnapshot()
   })
 })
