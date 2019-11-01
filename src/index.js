@@ -36,15 +36,17 @@ const components = {
 // Start the party 🎉
 // Render all of the root application providers then application root component
 render(
-  <Provider store={store}>
-    <ComponentryTheme.Provider value={componentryTheme}>
-      <EmotionTheme theme={emotionTheme}>
-        <MDXProvider components={components}>
-          <App />
-        </MDXProvider>
-      </EmotionTheme>
-    </ComponentryTheme.Provider>
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <ComponentryTheme.Provider value={componentryTheme}>
+        <EmotionTheme theme={emotionTheme}>
+          <MDXProvider components={components}>
+            <App />
+          </MDXProvider>
+        </EmotionTheme>
+      </ComponentryTheme.Provider>
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('root'),
 )
 
