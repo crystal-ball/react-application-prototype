@@ -34,7 +34,7 @@
     <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="dependencies managed by Renovate" valign="text-top" />
   </a>
   <a href="https://github.com/crystal-ball/react-application-prototype#zenhub" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg?style=flat-square" alt="ZenHub" valign="text-top" />
+    <img src="https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg?" alt="ZenHub" valign="text-top" />
   </a>
   <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier" valign="text-top" />
