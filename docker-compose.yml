@@ -14,7 +14,7 @@ services:
     environment:
       - CYPRESS_baseUrl=http://application:5000
       ## This enables colors in the output
-      - TERM: xterm
+      - TERM=xterm
     depends_on:
       - application
     working_dir: /e2e
