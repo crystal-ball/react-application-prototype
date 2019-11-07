@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 
 /**

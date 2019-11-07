@@ -1,4 +1,4 @@
-/* eslint-env node */
+'use strict'
 
 /**
  * Module executed once per run of Jest for managing setting up any shared test
