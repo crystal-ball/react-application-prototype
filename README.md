@@ -38,7 +38,7 @@
     <img src="https://img.shields.io/badge/ZenHub-managed-5e60ba.svg?" alt="ZenHub" valign="text-top" />
   </a>
   <a href="https://percy.io/Crystal-Ball/react-application-prototype" target="_blank" rel="noopener noreferrer">
-    <img src="https://percy.io/static/images/percy-badge.svg" alt="This project is using Percy.io for visual regression testing" valign="text-top" />
+    <img src="https://img.shields.io/badge/Testing-%F0%9F%A6%94%20Percy-9e66bf" alt="This project is using Percy.io for visual regression testing" valign="text-top" />
   </a>
   <a href="./code-of-conduct.md">
     <img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0-de8cf2.svg" alt="Contributor Covenant" valign="text-top" />
