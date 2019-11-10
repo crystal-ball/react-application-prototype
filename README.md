@@ -11,7 +11,7 @@
     <img src="https://snyk.io/test/github/crystal-ball/react-app-prototype/badge.svg?targetFile=package.json" alt="Known vulnerabilities" valign="text-top" />
   </a>
   <a href="https://dashboard.cypress.io/#/projects/v3cpt4/runs">
-    <img src="https://img.shields.io/badge/cypress-dashboard-brightgreen.svg" alt="Cypress dashboard" valign="text-top" />
+    <img src="https://img.shields.io/badge/Cypress-dashboard-brightgreen.svg" alt="Cypress dashboard" valign="text-top" />
   </a>
   <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/test_coverage">
     <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/test_coverage" alt="Test coverage" valign="text-top" />
@@ -23,7 +23,7 @@
 
   <br />
   <a href="https://zeit.co/crystal-ball/react-application-prototype">
-    <img src="https://img.shields.io/badge/Hosting-▲%20Zeit-7de0c4" alt="Zeit Now" valign="text-top" />
+    <img src="https://img.shields.io/badge/hosting-▲%20Zeit-7de0c4" alt="Zeit Now" valign="text-top" />
   </a>
   <a href="https://renovatebot.com/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="dependencies managed by Renovate" valign="text-top" />
@@ -35,7 +35,7 @@
     <img src="https://img.shields.io/badge/ZenHub-managed-5e60ba.svg?" alt="ZenHub" valign="text-top" />
   </a>
   <a href="https://percy.io/Crystal-Ball/react-application-prototype" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Testing-%F0%9F%A6%94%20Percy-9e66bf" alt="This project is using Percy.io for visual regression testing" valign="text-top" />
+    <img src="https://img.shields.io/badge/testing-%F0%9F%A6%94%20Percy-9e66bf" alt="This project is using Percy.io for visual regression testing" valign="text-top" />
   </a>
   <a href="./code-of-conduct.md">
     <img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0-de8cf2.svg" alt="Contributor Covenant" valign="text-top" />
