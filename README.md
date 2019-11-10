@@ -1,50 +1,48 @@
-<h1 align="right">
-  <img height=75 src="./docs/assets/readme-header.png" alt="React application prototype">
-</h1>
-
 <div align="right">
-<!-- prettier-ignore-start -->
-  <!-- <a href="https://www.npmjs.com/package/react-application-prototype" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/npm/v/react-application-prototype.svg" alt="current version" valign="text-top"/>
-  </a> -->
+  <h1>
+    <img height=75 src="./docs/assets/readme-header.png" alt="React application prototype">
+  </h1>
+
+  <!-- prettier-ignore-start -->
   <a href="https://github.com/crystal-ball/react-application-prototype/actions?workflow=CI%2FCD">
     <img src="https://github.com/crystal-ball/react-application-prototype/workflows/CI%2FCD/badge.svg" alt="Build status" valign="text-top" />
   </a>
-  <a href="https://dashboard.cypress.io/#/projects/v3cpt4/runs">
-    <img src="https://img.shields.io/badge/cypress-dashboard-brightgreen.svg" alt="Cypress Dashboard" valign="text-top" />
+  <a href="https://snyk.io/test/github/crystal-ball/react-app-prototype?targetFile=package.json">
+    <img src="https://snyk.io/test/github/crystal-ball/react-app-prototype/badge.svg?targetFile=package.json" alt="Known vulnerabilities" valign="text-top" />
   </a>
-  <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/maintainability">
-    <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/maintainability" valign="text-top" />
+  <a href="https://dashboard.cypress.io/#/projects/v3cpt4/runs">
+    <img src="https://img.shields.io/badge/cypress-dashboard-brightgreen.svg" alt="Cypress dashboard" valign="text-top" />
+  </a>
+  <a href="https://securityheaders.com/?q=https%3A%2F%2Freact-application-prototype.com&followRedirects=on">
+    <img src="https://img.shields.io/security-headers?url=https%3A%2F%2Freact-application-prototype.com" alt="Security headers status" valign="text-top" />
   </a>
   <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/test_coverage">
-    <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/test_coverage" valign="text-top" />
+    <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/test_coverage" alt="Test coverage" valign="text-top" />
   </a>
-  <a href="https://snyk.io/test/github/crystal-ball/react-app-prototype?targetFile=package.json">
-    <img
-      src="https://snyk.io/test/github/crystal-ball/react-app-prototype/badge.svg?targetFile=package.json"
-      alt="Known Vulnerabilities"
-      data-canonical-src="https://snyk.io/test/github/crystal-ball/react-app-prototype?targetFile=package.json"
-      valign="text-top"
-    />
+  <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/maintainability" alt="Maintainability" valign="text-top" />
   </a>
   <code>:status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
 
   <br />
+  <a href="https://zeit.co/crystal-ball/react-application-prototype">
+    <img src="https://img.shields.io/badge/Hosting-▲%20Zeit-7de0c4" alt="Zeit Now" valign="text-top" />
+  </a>
   <a href="https://renovatebot.com/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="dependencies managed by Renovate" valign="text-top" />
   </a>
-  <a href="https://github.com/crystal-ball/react-application-prototype#zenhub" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg?" alt="ZenHub" valign="text-top" />
+  <a href="https://commitizen.github.io/cz-cli/">
+    <img src="https://img.shields.io/badge/Commitizen-%E2%9C%93%20friendly-10e67b" alt="Commitizen friendly" valign="text-top" />
   </a>
-  <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier" valign="text-top" />
+  <a href="https://github.com/crystal-ball/react-application-prototype#workspaces/-projects-5b88b5c9af3c0a2186966767/board?repos=195149522" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/ZenHub-managed-5e60ba.svg?" alt="ZenHub" valign="text-top" />
   </a>
   <a href="https://percy.io/Crystal-Ball/react-application-prototype" target="_blank" rel="noopener noreferrer">
     <img src="https://percy.io/static/images/percy-badge.svg" alt="This project is using Percy.io for visual regression testing" valign="text-top" />
   </a>
-  <!-- <a href="https://semantic-release.gitbook.io/semantic-release/" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9A%80-semantic_release-e10079.svg" alt="managed by semantic release" valign="text-top"/>
-  </a> -->
+  <a href="./code-of-conduct.md">
+    <img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0-de8cf2.svg" alt="Contributor Covenant" valign="text-top" />
+  </a>
   <code>:integrations</code>
 
   <br />
@@ -55,15 +53,14 @@
     <img src="https://img.shields.io/badge/%F0%9F%92%96%F0%9F%8C%88-full_of_love-F5499E.svg" alt="Full of love" valign="text-top"/>
   </a>
   <code>:flair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
-<!-- prettier-ignore-end -->
-</div>
+  <!-- prettier-ignore-end -->
 
-<div>
-<h1></h1>
-<br />
+  <h1></h1>
+  <br />
   <p align="center">
     <em>Crystal Ball Projects prototypical React application</em>
   </p>
+  <br />
 </div>
 
 - [Setup](#-setup) - Getting started
