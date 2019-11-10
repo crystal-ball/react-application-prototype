@@ -13,9 +13,6 @@
   <a href="https://dashboard.cypress.io/#/projects/v3cpt4/runs">
     <img src="https://img.shields.io/badge/cypress-dashboard-brightgreen.svg" alt="Cypress dashboard" valign="text-top" />
   </a>
-  <a href="https://securityheaders.com/?q=https%3A%2F%2Freact-application-prototype.com&followRedirects=on">
-    <img src="https://img.shields.io/security-headers?url=https%3A%2F%2Freact-application-prototype.com" alt="Security headers status" valign="text-top" />
-  </a>
   <a href="https://codeclimate.com/github/crystal-ball/react-application-prototype/test_coverage">
     <img src="https://api.codeclimate.com/v1/badges/3b4b227366911cc055e0/test_coverage" alt="Test coverage" valign="text-top" />
   </a>
