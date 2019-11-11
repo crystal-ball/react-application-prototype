@@ -37,7 +37,7 @@
   <a href="https://percy.io/Crystal-Ball/react-application-prototype" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/testing-%F0%9F%A6%94%20Percy-9e66bf" alt="This project is using Percy.io for visual regression testing" valign="text-top" />
   </a>
-  <a href="./code-of-conduct.md">
+  <a href="./CODE_OF_CONDUCT.md">
     <img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0-de8cf2.svg" alt="Contributor Covenant" valign="text-top" />
   </a>
   <code>:integrations</code>
