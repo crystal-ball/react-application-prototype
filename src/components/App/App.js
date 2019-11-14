@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
-import pathToRegexp from 'path-to-regexp'
+import { pathToRegexp } from 'path-to-regexp'
 import { css } from '@emotion/core'
 
 import FourOhFourScreen from '@/components/FourOhFourScreen/FourOhFourScreen'
