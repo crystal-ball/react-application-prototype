@@ -30,7 +30,7 @@
     "test:acceptance": "docker-compose up --exit-code-from cypress --abort-on-container-exit",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "format": "prettier --write '*.{js,json,md,json}' '**/*.{md,js,json,scss}'"
+    "format": "prettier --write  '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}'"
   },
   "dependencies": {
     "@babel/runtime": "7.7.2",
@@ -84,7 +84,7 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "prettier": "@crystal-ball/prettier-base"
