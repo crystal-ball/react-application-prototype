@@ -2,6 +2,8 @@ version: '3'
 
 services:
   application:
+    # Reference built image name in CI to prevent double building with the
+    # `build` config defined in `docker-compose.yml`
     image: crystal-ball/react-application-prototype
 
   cypress:

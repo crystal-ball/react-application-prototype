@@ -19,8 +19,6 @@ services:
       - application
     working_dir: /e2e
     volumes:
-      # Mount git directory so Cypress can determine branch and commit info
-      - ./.git:/e2e/.git
       # Only copy Cypress configs, the docs example of mounting the entire repo
       # like `./:/e2e` fails Cypress because then the `babel.config.js` is picked
       # up and Cypress tries to use it to transpile tests which is bad
