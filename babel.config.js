@@ -5,7 +5,6 @@
  * Explicitly set the `core-js` version used by `preset-env` per Babel best
  * practices and allow polyifilling proposal stage features
  */
-const corejs = { version: 3, proposals: true }
 
 /**
  * 📝 Babel configurations
@@ -49,10 +48,10 @@ module.exports = function babelConfigs(api) {
           modules: api.env('test') ? 'commonjs' : false,
           // Automatically add core-js polyfill imports for unsupported language
           // features using target environment
-          useBuiltIns: 'usage',
+          useBuiltIns: 'entry',
           // Configure the version of core-js polyfill helpers injected by
           // plugins
-          corejs,
+          corejs: 3,
         },
       ],
       // Includes plugins required to transform JSX. Development plugins add
@@ -83,7 +82,6 @@ module.exports = function babelConfigs(api) {
       [
         '@babel/plugin-transform-runtime',
         {
-          corejs,
           useESModules: api.env(['development', 'production']),
           // https://github.com/babel/babel/issues/10261
           // eslint-disable-next-line
