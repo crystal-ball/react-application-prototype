@@ -1,12 +1,4 @@
 /**
- * Polyfill environments, these imports will be transformed to just the
- * polyfills needed to meet the browserslist targets by the `entry` config for
- * `@babel/preset-env`
- */
-import 'core-js'
-import 'regenerator-runtime/runtime'
-
-/**
  * ℹ️ RHL must be imported before React/DOM for some setup magic, note during
  * development react-dom is aliased to @hot-loader/react-dom in webpack configs
  */

@@ -43,11 +43,6 @@ module.exports = function babelConfigs(api) {
           // Browser support uses Browserslist's best practices default target
           // https://github.com/browserslist/browserslist#best-practices
           targets: ['defaults'],
-          // Transforms the polyfills imports in src/index.js to include only
-          // those needed for targets
-          useBuiltIns: 'entry',
-          // Set core-js version fo polyfill helpers injected by plugins
-          corejs: 3,
         },
       ],
       // Includes plugins required to transform JSX. Development plugins add
