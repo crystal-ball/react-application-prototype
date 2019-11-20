@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Header } from 'componentry'
+import { Flex, Heading } from 'componentry'
 import { css } from '@emotion/core'
 
 import Github from '@/media/github.svg'
@@ -38,13 +38,13 @@ export default function Hero() {
         direction='column'
         css={stickyTitleContainerStyles}
       >
-        <Header align='center' className='display-1' css={titleStyles}>
+        <Heading align='center' className='display-1' css={titleStyles}>
           The Order
           <br />
           of the
           <br />
           Crystal Code Wizards
-        </Header>
+        </Heading>
         <div>
           <a
             href='https://github.com/crystal-ball'

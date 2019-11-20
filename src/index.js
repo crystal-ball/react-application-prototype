@@ -2,7 +2,7 @@ import 'react-hot-loader'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { MDXProvider } from '@mdx-js/react'
-import { ThemeProvider as ComponentryTheme } from 'componentry'
+import { Theme } from 'componentry'
 import { ThemeProvider as EmotionTheme } from 'emotion-theming'
 import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 // ℹ️ During development react-dom is aliased to @hot-loader/react-dom in the
@@ -38,13 +38,13 @@ const components = {
 render(
   <React.StrictMode>
     <Provider store={store}>
-      <ComponentryTheme.Provider value={componentryTheme}>
+      <Theme theme={componentryTheme}>
         <EmotionTheme theme={emotionTheme}>
           <MDXProvider components={components}>
             <App />
           </MDXProvider>
         </EmotionTheme>
-      </ComponentryTheme.Provider>
+      </Theme>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
