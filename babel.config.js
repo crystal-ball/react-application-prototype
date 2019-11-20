@@ -1,12 +1,6 @@
 /* global module */
 
 /**
- * CoreJS includes the polyfills for new language features compiled by Babel.
- * Explicitly set the `core-js` version used by `preset-env` per Babel best
- * practices and allow polyifilling proposal stage features
- */
-
-/**
  * 📝 Babel configurations
  *
  * - Project wide configuration file type `babel.config.js` used to set the
@@ -46,11 +40,13 @@ module.exports = function babelConfigs(api) {
           // Disable module transformation in dev and prod builds to allow
           // webpack to smart-manage modules.
           modules: api.env('test') ? 'commonjs' : false,
-          // Automatically add core-js polyfill imports for unsupported language
-          // features using target environment
+          // Browser support uses Browserslist's best practices default target
+          // https://github.com/browserslist/browserslist#best-practices
+          targets: ['defaults'],
+          // Transforms the polyfills imports in src/index.js to include only
+          // those needed for targets
           useBuiltIns: 'entry',
-          // Configure the version of core-js polyfill helpers injected by
-          // plugins
+          // Set core-js version fo polyfill helpers injected by plugins
           corejs: 3,
         },
       ],
