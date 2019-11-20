@@ -14,7 +14,7 @@ const footerStyles = ({ backgroundColors }) => css`
 
 const Footer = () => (
   <Flex as='footer' align='center' justify='center' css={footerStyles}>
-    <Text mb={0} color='white'>
+    <Text mb={0} fontColor='light'>
       <Icon id='heart' data-testid='heart' /> Make something awesome!
     </Text>
   </Flex>

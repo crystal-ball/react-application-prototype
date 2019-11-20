@@ -1,13 +1,6 @@
 /* global module */
 
 /**
- * CoreJS includes the polyfills for new language features compiled by Babel.
- * Explicitly set the `core-js` version used by `preset-env` per Babel best
- * practices and allow polyifilling proposal stage features
- */
-const corejs = { version: 3, proposals: true }
-
-/**
  * 📝 Babel configurations
  *
  * - Project wide configuration file type `babel.config.js` used to set the
@@ -47,12 +40,9 @@ module.exports = function babelConfigs(api) {
           // Disable module transformation in dev and prod builds to allow
           // webpack to smart-manage modules.
           modules: api.env('test') ? 'commonjs' : false,
-          // Automatically add core-js polyfill imports for unsupported language
-          // features using target environment
-          useBuiltIns: 'usage',
-          // Configure the version of core-js polyfill helpers injected by
-          // plugins
-          corejs,
+          // Browser support uses Browserslist's best practices default target
+          // https://github.com/browserslist/browserslist#best-practices
+          targets: ['defaults'],
         },
       ],
       // Includes plugins required to transform JSX. Development plugins add
@@ -83,7 +73,6 @@ module.exports = function babelConfigs(api) {
       [
         '@babel/plugin-transform-runtime',
         {
-          corejs,
           useESModules: api.env(['development', 'production']),
           // https://github.com/babel/babel/issues/10261
           // eslint-disable-next-line
