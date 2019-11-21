@@ -16,10 +16,25 @@
  * 📝 Core JS
  *
  * CoreJS includes the polyfills for new language features compiled by Babel.
- * Explicitly set the `core-js` version used by `preset-env` per Babel best
- * practices
+ * The recommendation for polyfilling is to include the complete set of
+ * polyfills needed for the target environment (vs only including polyfills used
+ * in app code with `useBuiltIns: 'usage'`). Many libraries will transpile their
+ * code but do not polyfill, and it's hard to tell whether polyfills are needed
+ * in evergreen browsers because they don't need any.
+ *
+ * To completely polyfill for target envs, best practice is to use polyfill.io
+ * for projects that can experience downtime, and to bundle polyfills with
+ * preset-env for projects with critical uptimes.
+ *
+ * To polyfill with preset-env, set `useBuiltIns` to `entry` and import the
+ * core-js and regenerator-runtime packages first in the application entry.
+ * Preset env will transform them to just the polyfills needed to match the
+ * targets environment. Explicitly set the `core-js` version used by
+ * `preset-env` per Babel best practices.
+ * - Polyfills are big, around 46.6kb for the `defaults` env target!
+ * - For applications that need a guarantee for polyfilling, set the
  * - Optionally experimental features can be polyfilled by setting corejs to:
- *   { version: 3, proposals: true }
+ *   { version: 3, proposals: true } (don't)
  * - Optionally the transform-runtime plugin accepts a `corejs` configuration
  *   option that will use imports from core-js to polyfill language features
  *   instead of adding polyfills to global scope (this is preferred for package
@@ -43,6 +58,11 @@ module.exports = function babelConfigs(api) {
           // Browser support uses Browserslist's best practices default target
           // https://github.com/browserslist/browserslist#best-practices
           targets: ['defaults'],
+          // Transforms the core-js and regenerator-runtime imports in index.js
+          // to only the polyfills needed for the target environments
+          useBuiltIns: 'entry',
+          // Configure core-js version used for polyfills
+          corejs: 3,
         },
       ],
       // Includes plugins required to transform JSX. Development plugins add
@@ -70,6 +90,8 @@ module.exports = function babelConfigs(api) {
       // Passing corejs configs will use imports from @babel/runtime-corejs3
       //   instead of global polyfills (this should be set for libraries but is
       //   optional for applications)
+      // Do not set corejs, that will use module scoped polyfilled helpers, but
+      //   env is polyfilled so we would double polyfill
       [
         '@babel/plugin-transform-runtime',
         {
