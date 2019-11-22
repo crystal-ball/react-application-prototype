@@ -58,5 +58,6 @@ function App() {
     </>
   )
 }
+App.displayName = 'App'
 
 export default hot(App)

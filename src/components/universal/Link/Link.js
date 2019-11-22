@@ -24,6 +24,7 @@ export default function Link({ children, to, searchParams, ...rest }) {
     </Anchor>
   )
 }
+Link.displayName = 'Link'
 
 Link.defaultProps = {
   searchParams: {},

@@ -83,6 +83,7 @@ module.exports = function babelConfigs(api) {
       // important for webpack optimizations
       // Ref: https://github.com/gaearon/react-hot-loader/issues/1080
       'react-hot-loader/babel',
+
       // Transform Runtime will transform inline Babel helper fns to imports from
       //   @babel/runtime
       // Passing useESModules disables running helper imports through the common
@@ -108,5 +109,14 @@ module.exports = function babelConfigs(api) {
       '@babel/plugin-proposal-optional-chaining',
       '@babel/plugin-proposal-private-methods',
     ],
+
+    env: {
+      production: {
+        plugins: [
+          // Strip component prop types in production builds
+          'transform-react-remove-prop-types',
+        ],
+      },
+    },
   }
 }

@@ -58,3 +58,4 @@ export default function Hero() {
     </div>
   )
 }
+Hero.displayName = 'Hero'

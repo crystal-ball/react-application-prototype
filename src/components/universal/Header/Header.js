@@ -29,3 +29,4 @@ export default function Header() {
     </Flex>
   )
 }
+Header.displayName = 'Header'

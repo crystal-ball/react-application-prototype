@@ -23,6 +23,7 @@ export default function CodeBlock({ children, className: mdxClassName }) {
     </Highlight>
   )
 }
+CodeBlock.displayName = 'CodeBlock'
 
 CodeBlock.defaultProps = {
   className: '',
