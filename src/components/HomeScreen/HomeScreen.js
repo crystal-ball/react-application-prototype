@@ -86,3 +86,4 @@ export default function HomeScreen() {
     </Flex>
   )
 }
+HomeScreen.displayName = 'HomeScreen'

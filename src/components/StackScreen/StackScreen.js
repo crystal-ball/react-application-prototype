@@ -57,3 +57,4 @@ export default function StackScreen() {
     </Flex>
   )
 }
+StackScreen.displayName = StackScreen

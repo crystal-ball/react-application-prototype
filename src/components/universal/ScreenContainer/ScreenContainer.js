@@ -17,6 +17,7 @@ const screenContainerStyles = ({ spacing }) => css`
 export default function ScreenContainer({ children }) {
   return <div css={screenContainerStyles}>{children}</div>
 }
+ScreenContainer.displayName = 'ScreenContainer'
 
 ScreenContainer.propTypes = {
   children: node.isRequired,
