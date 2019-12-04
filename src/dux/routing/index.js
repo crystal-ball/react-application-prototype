@@ -1,5 +1,7 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
+import { LOCATION_CHANGED } from './actions'
+
 const parseSearchParams = (search = '') => {
   if (!URLSearchParams) return {}
   const searchParams = new URLSearchParams(search)
@@ -26,7 +28,7 @@ const stringifySearchParams = (params = {}) => {
 // Action constants + creators
 
 export const changeLocation = createAction(
-  'ROUTING/LOCATION_CHANGED',
+  LOCATION_CHANGED,
   ({ event = 'replaceState', pathname, resetScroll = true, searchParams = {} }) => ({
     payload: {
       event,

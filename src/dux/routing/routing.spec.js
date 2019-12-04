@@ -1,4 +1,5 @@
 /* global global */
+import { LOCATION_CHANGED } from './actions'
 import routingReducer, {
   getPathname,
   getRouting,
@@ -16,7 +17,7 @@ const mockState = () => ({
 describe('Redux: routing', () => {
   test('When reducer is called with routing action, then the route is updated', () => {
     const newState = routingReducer(mockState().routing, {
-      type: 'ROUTING/LOCATION_CHANGED',
+      type: LOCATION_CHANGED,
       payload: {
         pathname: '/rad/route',
         searchParams: { level: 'ultra' },
@@ -52,7 +53,7 @@ describe('Redux: routing', () => {
       const historySpy = jest.spyOn(global.history, 'replaceState')
 
       routingMiddleware()(nextSpy)({
-        type: 'ROUTING/LOCATION_CHANGED',
+        type: LOCATION_CHANGED,
         payload: {
           event: 'replaceState',
           pathname: '/rad/route',
@@ -69,7 +70,7 @@ describe('Redux: routing', () => {
       const historySpy = jest.spyOn(global.history, 'replaceState')
 
       routingMiddleware()(nextSpy)({
-        type: 'ROUTING/LOCATION_CHANGED',
+        type: LOCATION_CHANGED,
         payload: {
           event: 'replaceState',
           pathname: '/rad/route',
