@@ -1,3 +1,7 @@
+import { createAction, createReducer } from '@reduxjs/toolkit'
+
+import { LOCATION_CHANGED } from './actions'
+
 const parseSearchParams = (search = '') => {
   if (!URLSearchParams) return {}
   const searchParams = new URLSearchParams(search)
@@ -21,9 +25,23 @@ const stringifySearchParams = (params = {}) => {
 }
 
 // --------------------------------------------------------
-// Action constants
+// Action constants + creators
 
-const ROUTE_NAVIGATED = 'ROUTING/ROUTE_NAVIGATED'
+export const changeLocation = createAction(
+  LOCATION_CHANGED,
+  ({ event = 'replaceState', pathname, resetScroll = true, searchParams = {} }) => ({
+    payload: {
+      event,
+      pathname,
+      resetScroll,
+      searchParams,
+    },
+  }),
+)
+
+export const actions = {
+  changeLocation,
+}
 
 // --------------------------------------------------------
 // Reducer
@@ -33,17 +51,15 @@ const initialState = {
   searchParams: parseSearchParams(window?.location?.search),
 }
 
-/* eslint-disable default-param-last */
-export default function routingReducer(state = initialState, { type, payload }) {
-  if (type === ROUTE_NAVIGATED) {
-    return {
-      pathname: payload.pathname,
-      searchParams: parseSearchParams(payload.searchParams),
-    }
-  }
-  return state
-}
-/* eslint-enable default-param-last */
+/* eslint-disable no-param-reassign */
+export default createReducer(initialState, {
+  [changeLocation]: (state, action) => {
+    const { pathname, searchParams } = action.payload
+    state.pathname = pathname
+    state.searchParams = parseSearchParams(searchParams)
+  },
+})
+/* eslint-enable no-param-reassign */
 
 // --------------------------------------------------------
 // Selectors
@@ -59,32 +75,10 @@ export const selectors = {
 }
 
 // --------------------------------------------------------
-// Action creators
-
-export const routeNavigated = ({
-  event = 'replaceState',
-  pathname,
-  resetScroll = true,
-  searchParams = {},
-}) => ({
-  type: ROUTE_NAVIGATED,
-  payload: {
-    event,
-    pathname,
-    resetScroll,
-    searchParams,
-  },
-})
-
-export const actions = {
-  routeNavigated,
-}
-
-// --------------------------------------------------------
 // Middleware
 
 export const routingMiddleware = (/* store */) => next => action => {
-  if (action.type === ROUTE_NAVIGATED) {
+  if (action.type === changeLocation.type) {
     window.history[action.payload.event](
       null,
       '',
