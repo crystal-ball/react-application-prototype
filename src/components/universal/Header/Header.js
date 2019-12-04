@@ -15,14 +15,14 @@ const anchorBlockStyles = css`
 
 export default function Header() {
   return (
-    <Flex as='nav' justify='end' css={headerContainerStyles}>
+    <Flex as='nav' css={headerContainerStyles} justify='end'>
       <Block css={anchorBlockStyles}>
-        <Link to='/' data-testid='nav-link'>
+        <Link data-testid='nav-link' to='/'>
           Introduction
         </Link>
       </Block>
       <Block css={anchorBlockStyles}>
-        <Link to='/application-stack' data-testid='nav-link'>
+        <Link data-testid='nav-link' to='/application-stack'>
           Application Stack
         </Link>
       </Block>

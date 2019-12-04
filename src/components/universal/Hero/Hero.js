@@ -33,10 +33,10 @@ export default function Hero() {
   return (
     <div css={leftContainerStyles} data-testid='hero-img'>
       <Flex
-        justify='center'
         align='center'
-        direction='column'
         css={stickyTitleContainerStyles}
+        direction='column'
+        justify='center'
       >
         <Heading align='center' className='display-1' css={titleStyles}>
           The Order
@@ -47,9 +47,9 @@ export default function Hero() {
         </Heading>
         <div>
           <a
-            href='https://github.com/crystal-ball'
             className='h1'
             data-testid='github-anchor'
+            href='https://github.com/crystal-ball'
           >
             <Github className='icon' css={iconStyles} />
           </a>

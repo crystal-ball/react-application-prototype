@@ -25,7 +25,7 @@ describe('<Link />', () => {
 
     const { getByText } = render(
       <Provider store={configureStore()}>
-        <Link to='/rad/route' searchParams={{ rad: 'hecka' }}>
+        <Link searchParams={{ rad: 'hecka' }} to='/rad/route'>
           Test Link
         </Link>
       </Provider>,

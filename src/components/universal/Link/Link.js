@@ -32,7 +32,7 @@ Link.defaultProps = {
 
 Link.propTypes = {
   children: node.isRequired,
-  to: string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   searchParams: object,
+  to: string.isRequired,
 }

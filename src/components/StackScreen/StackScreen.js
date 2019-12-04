@@ -29,7 +29,7 @@ const integrationContainerStyles = css`
 
 export default function StackScreen() {
   return (
-    <Flex direction='column' css={rightContainerStyles}>
+    <Flex css={rightContainerStyles} direction='column'>
       <Header />
 
       <h1>Application stack</h1>
