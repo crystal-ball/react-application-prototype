@@ -13,10 +13,10 @@ export default function FourOhFourScreen() {
   return (
     <div className='flex-grow-1'>
       <h2 className='text-center mt-5'>
-        <Icon id='alert-triangle' className='text-warning' css={featherStyles} /> The page
+        <Icon className='text-warning' css={featherStyles} id='alert-triangle' /> The page
         you are looking for can&apos;t be found 😣
       </h2>
-      <Flex justify='center' className='mt-5'>
+      <Flex className='mt-5' justify='center'>
         <Block className='mx-3'>
           <Link to='/'>Introduction</Link>
         </Block>

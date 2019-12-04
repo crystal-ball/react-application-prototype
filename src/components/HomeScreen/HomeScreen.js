@@ -16,16 +16,16 @@ export default function HomeScreen() {
   // Small screens ->
   //   Flex column layout with title then contents
   return (
-    <Flex direction='column' css={rightContainerStyles}>
+    <Flex css={rightContainerStyles} direction='column'>
       <Header />
 
       <Flex align='center' className='my-5'>
         <h1 className='flex-grow-1 text-center'>React Application Prototype</h1>
       </Flex>
 
-      <Text italic textAlign='center' mb={0}>
+      <Text italic mb={0} textAlign='center'>
         Prototype React application for{' '}
-        <span role='img' aria-label='crystal ball'>
+        <span aria-label='crystal ball' role='img'>
           🔮
         </span>
         Projects
@@ -54,7 +54,7 @@ export default function HomeScreen() {
           <li>Output directory cleaning</li>
           <li>
             Application theming with Emotion{' '}
-            <span role='img' aria-label='emotion'>
+            <span aria-label='emotion' role='img'>
               👩‍🎤
             </span>
           </li>
@@ -63,19 +63,19 @@ export default function HomeScreen() {
           </li>
           <li>
             Auto deploy with Zeit{' '}
-            <span role='img' aria-label='mindblown'>
+            <span aria-label='mindblown' role='img'>
               🤯
             </span>
           </li>
           <li>
             All the notifications in Slack{' '}
-            <span role='img' aria-label='yay'>
+            <span aria-label='yay' role='img'>
               🎉
             </span>
           </li>
           <li>
             Visual regression testing with Percy{' '}
-            <span role='img' aria-label='hedgehog'>
+            <span aria-label='hedgehog' role='img'>
               🦔
             </span>
           </li>
