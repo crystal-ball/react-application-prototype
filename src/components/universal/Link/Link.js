@@ -3,7 +3,7 @@ import { node, object, string } from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { Anchor } from 'componentry'
 
-import { routeNavigated } from '@/dux/routing'
+import { changeLocation } from '@/dux/routing'
 
 export default function Link({ children, to, searchParams, ...rest }) {
   const dispatch = useDispatch()
@@ -16,7 +16,7 @@ export default function Link({ children, to, searchParams, ...rest }) {
         if (evt.altKey || evt.ctrlKey || evt.metaKey || evt.shiftKey) return
 
         evt.preventDefault()
-        dispatch(routeNavigated({ pathname: to, searchParams }))
+        dispatch(changeLocation({ pathname: to, searchParams }))
       }}
       {...rest}
     >
