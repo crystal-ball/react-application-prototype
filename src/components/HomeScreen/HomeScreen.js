@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Icon, Text } from 'componentry'
+import { Flex, Heading, Icon, Text } from 'componentry'
 import { css } from '@emotion/core'
 
 import { Footer, Header } from '@/components/universal'
@@ -19,8 +19,8 @@ export default function HomeScreen() {
     <Flex css={rightContainerStyles} direction='column'>
       <Header />
 
-      <Flex align='center' className='my-5'>
-        <h1 className='flex-grow-1 text-center'>React Application Prototype</h1>
+      <Flex align='center' my='xl' ml='xl'>
+        <Heading textAlign='center'>React Application Prototype</Heading>
       </Flex>
 
       <Text italic mb={0} textAlign='center'>
@@ -34,7 +34,7 @@ export default function HomeScreen() {
         v{process.env.PACKAGE_VERSION}
       </Text>
 
-      <div className='mx-5'>
+      <div className='mx-xl'>
         <h4>
           <Icon id='coffee' /> Application featureset
         </h4>

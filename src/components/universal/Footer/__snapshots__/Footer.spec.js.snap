@@ -12,7 +12,7 @@ exports[`<Footer /> Footer snapshot 1`] = `
 }
 
 <footer
-  class="emotion-0 d-flex align-items-center justify-content-center"
+  class="d-flex align-items-center justify-content-center emotion-0"
 >
   <p
     class="p font-color-light"
