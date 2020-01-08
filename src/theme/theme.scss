@@ -24,6 +24,8 @@ $denim: #374d68;
 $cerulean: #5bc0de;
 
 $theme-colors: (
+  background: #181424,
+  foreground: #98a5a4,
   primary: $denim,
   secondary: $pebble,
   success: #93c54b,
@@ -34,8 +36,16 @@ $theme-colors: (
   dark: $coal,
 );
 
-$background: #181424;
-$foreground: #98a5a4;
+$border-colors: (
+  default: $wolf,
+);
+
+$typography-colors: (
+  anchor: #5cfff1,
+  code: #f52277,
+  heading: $aluminum,
+  muted: $slate,
+);
 
 $theme-color-interval: 8%;
 
@@ -49,21 +59,12 @@ $enable-shadows: true;
 $spacer: 1rem;
 $spacers: (
   0: 0,
-  1: $spacer * 0.25,
-  2: $spacer * 0.5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+  xs: $spacer * 0.25,
+  sm: $spacer * 0.5,
+  base: $spacer,
+  lg: $spacer * 1.5,
+  xl: $spacer * 3,
 );
-
-// Body
-// ---------------------------------------------------------------------------
-$body-bg: $background;
-$body-color: $foreground;
-
-// Links
-// ---------------------------------------------------------------------------
-$link-color: $aegean;
 
 // Fonts
 // ---------------------------------------------------------------------------
@@ -81,24 +82,15 @@ $h3-font-size: 24px;
 $h4-font-size: 18px;
 
 $headings-font-weight: 300;
-$headings-color: $aluminum;
 
 $small-font-size: 80%;
-$text-muted: $slate;
 
 $icon-bottom: -0.2em; // Componentry Var
 
 // Components
 // ---------------------------------------------------------------------------
 $border-width: 1px !default;
-$border-color: $wolf;
 $transition-fade: opacity 0.3s linear;
-
-// Buttons
-// ---------------------------------------------------------------------------
-// Disable wonky Bootstrap box-shadow on button focus
-$btn-active-box-shadow: none;
-$btn-focus-box-shadow: none;
 
 // Dropdowns
 // ---------------------------------------------------------------------------
@@ -125,10 +117,6 @@ $modal-header-border-width: $border-width !default;
 $modal-footer-border-width: $border-width !default;
 $modal-content-box-shadow-xs: 0 3px 9px rgba(149, 165, 175, 0.7) !default;
 $modal-content-box-shadow-sm-up: 0 5px 15px rgba(149, 165, 175, 0.7) !default;
-
-// Code
-// ---------------------------------------------------------------------------
-$code-bg: #f9f2f4;
 
 // ========================================================
 // Componentry theme vars
