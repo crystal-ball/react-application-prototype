@@ -1,24 +1,34 @@
 import React from 'react'
-import { node } from 'prop-types'
-import { css } from '@emotion/core'
+import { bool, node, oneOf, string } from 'prop-types'
+import cx from 'classnames'
+import { Block, Flex, useMedia } from 'componentry'
 
-const screenContainerStyles = ({ spacing }) => css`
-  display: flex;
-  max-width: 100%;
-  padding-left: ${spacing.base};
-  padding-right: ${spacing.base};
-  flex-grow: 1;
+export default function ScreenContainer({ children, className, flex, ...rest }) {
+  const { sm } = useMedia()
+  const Container = flex ? Flex : Block
 
-  @media (min-width: 768px) {
-    padding: 0;
-  }
-`
-
-export default function ScreenContainer({ children }) {
-  return <div css={screenContainerStyles}>{children}</div>
+  const paddingSize = sm ? 'base' : 0
+  return (
+    <Container
+      className={cx(className, 'flex-grow-1')}
+      pr={paddingSize}
+      pl={paddingSize}
+      {...rest}
+    >
+      {children}
+    </Container>
+  )
 }
-ScreenContainer.displayName = 'ScreenContainer'
+
+ScreenContainer.defaultProps = {
+  className: '',
+  direction: 'column',
+  flex: true,
+}
 
 ScreenContainer.propTypes = {
   children: node.isRequired,
+  className: string,
+  direction: oneOf(['column', 'row']),
+  flex: bool,
 }

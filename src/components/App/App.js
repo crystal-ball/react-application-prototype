@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
 import { pathToRegexp } from 'path-to-regexp'
-import { css } from '@emotion/core'
 
 import FourOhFourScreen from '@/components/FourOhFourScreen/FourOhFourScreen'
 import { Hero, ScreenContainer } from '@/components/universal'
@@ -34,13 +33,6 @@ const optimzationsRoute = {
   path: pathToRegexp('/optimizations'),
 }
 
-const appContainerStyles = css`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-`
-
 /**
  * Application class component is responsible for setting the base application
  * behaviors and screen layouts+routing.
@@ -57,8 +49,8 @@ function App() {
   return (
     <>
       {/* Base container element with flexbox layout for sticky footers */}
-      <div css={appContainerStyles}>
-        <ScreenContainer>
+      <div className='d-flex flex-column w-100 min-100vh'>
+        <ScreenContainer direction='row'>
           <Hero />
           <Suspense fallback={<div className='loading' />}>
             <Screen />
