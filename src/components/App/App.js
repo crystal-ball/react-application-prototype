@@ -25,6 +25,15 @@ const stackRoute = {
   path: pathToRegexp('/application-stack'),
 }
 
+const optimzationsRoute = {
+  component: lazy(() =>
+    import(
+      /* webpackChunkName: "OptimizationsScreen" */ '../OptimizationsScreen/OptimizationsScreen'
+    ),
+  ),
+  path: pathToRegexp('/optimizations'),
+}
+
 const appContainerStyles = css`
   display: flex;
   flex-direction: column;
@@ -42,6 +51,7 @@ function App() {
   let Screen
   if (homeRoute.path.exec(pathname)) Screen = homeRoute.component
   if (stackRoute.path.exec(pathname)) Screen = stackRoute.component
+  if (optimzationsRoute.path.exec(pathname)) Screen = optimzationsRoute.component
   if (!Screen) Screen = FourOhFourScreen
 
   return (

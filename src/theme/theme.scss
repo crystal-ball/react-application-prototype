@@ -36,8 +36,13 @@ $theme-colors: (
   dark: $coal,
 );
 
+$background-colors: (
+  overlay: rgba(17, 15, 22, 0.75),
+);
+
 $border-colors: (
   default: $wolf,
+  mito: #2c3258,
 );
 
 $typography-colors: (
