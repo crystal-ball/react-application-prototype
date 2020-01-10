@@ -1,0 +1,6 @@
+version: '2'
+checks:
+  # Allow 125 line component functions
+  method-lines:
+    config:
+      threshold: 125
