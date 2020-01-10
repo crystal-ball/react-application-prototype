@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
 import { pathToRegexp } from 'path-to-regexp'
-import { css } from '@emotion/core'
 
 import FourOhFourScreen from '@/components/FourOhFourScreen/FourOhFourScreen'
 import { Hero, ScreenContainer } from '@/components/universal'
@@ -25,12 +24,14 @@ const stackRoute = {
   path: pathToRegexp('/application-stack'),
 }
 
-const appContainerStyles = css`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-`
+const optimzationsRoute = {
+  component: lazy(() =>
+    import(
+      /* webpackChunkName: "OptimizationsScreen" */ '../OptimizationsScreen/OptimizationsScreen'
+    ),
+  ),
+  path: pathToRegexp('/optimizations'),
+}
 
 /**
  * Application class component is responsible for setting the base application
@@ -42,13 +43,14 @@ function App() {
   let Screen
   if (homeRoute.path.exec(pathname)) Screen = homeRoute.component
   if (stackRoute.path.exec(pathname)) Screen = stackRoute.component
+  if (optimzationsRoute.path.exec(pathname)) Screen = optimzationsRoute.component
   if (!Screen) Screen = FourOhFourScreen
 
   return (
     <>
       {/* Base container element with flexbox layout for sticky footers */}
-      <div css={appContainerStyles}>
-        <ScreenContainer>
+      <div className='d-flex flex-column w-100 min-100vh'>
+        <ScreenContainer direction='row'>
           <Hero />
           <Suspense fallback={<div className='loading' />}>
             <Screen />
