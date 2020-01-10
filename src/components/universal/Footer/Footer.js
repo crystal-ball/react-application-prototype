@@ -13,7 +13,13 @@ export default function Footer() {
       py='base'
     >
       <Text fontColor='light' mb={0}>
-        <Icon data-testid='heart' id='heart' fontColor='love' /> Make something awesome!
+        <Icon
+          data-testid='heart'
+          id='heart'
+          fontColor='love'
+          style={{ textDecoration: 'none' }}
+        />
+        Make something awesome!
       </Text>
     </Flex>
   )

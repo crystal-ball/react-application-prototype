@@ -15,7 +15,7 @@ describe('<Footer />', () => {
     const heartIcon = getByTestId('heart')
     expect(heartIcon).toHaveClass('icon icon-heart font')
     expect(heartIcon).toHaveAttribute('role', 'img')
-    expect(heartIcon).toHaveStyle('color: #fcc4dd')
+    expect(heartIcon).toHaveStyle('text-decoration: none')
   })
 
   test('Footer snapshot', () => {

@@ -1,34 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> Footer snapshot 1`] = `
-.emotion-0 {
-  margin-top: auto;
-  padding: 15px 30px;
-  background: #110f16;
-}
-
-.emotion-0 .icon-heart {
-  color: #fcc4dd;
-}
-
 <footer
-  class="d-flex align-items-center justify-content-center emotion-0"
+  class="d-flex align-items-center justify-content-center background-ultra px-xl py-base"
+  style="margin-top: auto;"
 >
   <p
     class="p font-color-light"
     style="margin-bottom: 0px;"
   >
     <svg
-      class="icon icon-heart font"
+      class="icon icon-heart font font-color-love"
       data-testid="heart"
       role="img"
+      style="text-decoration: none;"
     >
       <use
         href="#heart"
         xlink:href="#heart"
       />
     </svg>
-     Make something awesome!
+    Make something awesome!
   </p>
 </footer>
 `;
