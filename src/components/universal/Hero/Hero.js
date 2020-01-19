@@ -38,7 +38,7 @@ export default function Hero() {
         direction='column'
         justify='center'
       >
-        <Heading align='center' className='display-1' css={titleStyles}>
+        <Heading variant='display-1' align='center' css={titleStyles}>
           The Order
           <br />
           of the
@@ -47,7 +47,7 @@ export default function Hero() {
         </Heading>
         <div>
           <a
-            className='h1'
+            className='heading-1'
             data-testid='github-anchor'
             href='https://github.com/crystal-ball'
           >
