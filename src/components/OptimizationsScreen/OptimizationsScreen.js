@@ -31,7 +31,7 @@ export default function OptimizationsScreen() {
 
         {selectedPackage && (
           <div>
-            <Heading as='h3'>Package details</Heading>
+            <Heading variant='heading-3'>Package details</Heading>
             <Text>{selectedPackageDetails.name}</Text>
             <Text>{selectedPackageDetails.size}</Text>
           </div>

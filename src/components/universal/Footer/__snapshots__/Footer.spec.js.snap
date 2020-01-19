@@ -6,7 +6,7 @@ exports[`<Footer /> Footer snapshot 1`] = `
   style="margin-top: auto;"
 >
   <p
-    class="p font-color-light"
+    class="body font-color-light"
     style="margin-bottom: 0px;"
   >
     <svg
