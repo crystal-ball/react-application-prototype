@@ -1,21 +1,26 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Flex, Heading, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
 
-export default function HomeScreen() {
+export default function HomeScreen({ appInfo }) {
   // Layout notes
   // Large screens ->
   //   40%/60% 2 column layout with a position sticky header
   // Small screens ->
   //   Flex column layout with title then contents
+
+  // Test optional chaining and nullish coalescing operators
+  const title = appInfo?.title ?? 'React Application Prototype'
+
   return (
     <Flex direction='column' className='flex-grow-1'>
       <Header />
 
       <Flex direction='column' px='xl' py='base'>
         <Heading textAlign='center' mb='xl'>
-          React Application Prototype
+          {title}
         </Heading>
 
         <Text italic mb={0} textAlign='center'>
