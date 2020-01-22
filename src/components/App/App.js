@@ -1,51 +1,48 @@
 import React, { Suspense, lazy } from 'react'
-import { useSelector } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
-import { pathToRegexp } from 'path-to-regexp'
 
-import FourOhFourScreen from '@/components/FourOhFourScreen/FourOhFourScreen'
 import { Hero, ScreenContainer } from '@/components/universal'
-import { getPathname } from '@/dux/routing'
+import Switch from '@/components/universal/routing/Switch/Switch'
 
 // --------------------------------------------------------
 // App routing
 
-const homeRoute = {
-  component: lazy(() =>
-    import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
-  ),
-  path: pathToRegexp('/'),
-}
-
-const stackRoute = {
-  component: lazy(() =>
-    import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
-  ),
-  path: pathToRegexp('/application-stack'),
-}
-
-const optimzationsRoute = {
-  component: lazy(() =>
-    import(
-      /* webpackChunkName: "OptimizationsScreen" */ '../OptimizationsScreen/OptimizationsScreen'
+const routes = [
+  {
+    path: '/',
+    component: lazy(() =>
+      import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
     ),
-  ),
-  path: pathToRegexp('/optimizations'),
-}
+  },
+  {
+    path: '/application-stack',
+    component: lazy(() =>
+      import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
+    ),
+  },
+  {
+    path: '/optimizations',
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "OptimizationsScreen" */ '../OptimizationsScreen/OptimizationsScreen'
+      ),
+    ),
+  },
+  {
+    path: '(.*)',
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "FourOhFourScreen" */ '../FourOhFourScreen/FourOhFourScreen'
+      ),
+    ),
+  },
+]
 
 /**
  * Application class component is responsible for setting the base application
  * behaviors and screen layouts+routing.
  */
 function App() {
-  const pathname = useSelector(getPathname)
-
-  let Screen
-  if (homeRoute.path.exec(pathname)) Screen = homeRoute.component
-  if (stackRoute.path.exec(pathname)) Screen = stackRoute.component
-  if (optimzationsRoute.path.exec(pathname)) Screen = optimzationsRoute.component
-  if (!Screen) Screen = FourOhFourScreen
-
   return (
     <>
       {/* Base container element with flexbox layout for sticky footers */}
@@ -53,7 +50,7 @@ function App() {
         <ScreenContainer direction='row'>
           <Hero />
           <Suspense fallback={<div className='loading' />}>
-            <Screen />
+            <Switch routes={routes} />
           </Suspense>
         </ScreenContainer>
       </div>

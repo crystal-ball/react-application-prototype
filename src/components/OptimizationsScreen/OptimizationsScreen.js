@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Flex, Heading, ListGroup, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
-import { changeMaxPackageSize, getPackage, getPackages } from '@/dux/packages'
+import {
+  changeMaxPackageSize,
+  getPackage,
+  getPackages,
+  selectPackage,
+} from '@/dux/packages'
 
 export default function OptimizationsScreen() {
   const dispatch = useDispatch()
-  const [selectedPackage, setSelectedPackage] = useState(null)
   const packagesList = useSelector(getPackages)
-  const selectedPackageDetails = useSelector(getPackage(selectedPackage))
+  const selectedPackage = useSelector(getPackage)
+
+  console.log({ selectedPackage })
 
   return (
     <Flex direction='column' className='flex-grow-1'>
@@ -23,7 +29,11 @@ export default function OptimizationsScreen() {
 
         <ListGroup>
           {packagesList.map(pkg => (
-            <ListGroup.Item key={pkg.name} onClick={() => setSelectedPackage(pkg.id)}>
+            <ListGroup.Item
+              key={pkg.name}
+              active={pkg.id === selectedPackage?.id}
+              onClick={() => dispatch(selectPackage(pkg.id))}
+            >
               {pkg.name}: {pkg.size}
             </ListGroup.Item>
           ))}
@@ -32,8 +42,8 @@ export default function OptimizationsScreen() {
         {selectedPackage && (
           <div>
             <Heading variant='heading-3'>Package details</Heading>
-            <Text>{selectedPackageDetails.name}</Text>
-            <Text>{selectedPackageDetails.size}</Text>
+            <Text>{selectedPackage.name}</Text>
+            <Text>{selectedPackage.size}</Text>
           </div>
         )}
       </Flex>

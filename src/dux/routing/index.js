@@ -1,11 +1,10 @@
-import { createAction, createReducer } from '@reduxjs/toolkit'
-
-import { LOCATION_CHANGED } from './actions'
+import { PATHNAME_CHANGED } from './action-types'
 
 const parseSearchParams = (search = '') => {
   if (!URLSearchParams) return {}
-  const searchParams = new URLSearchParams(search)
+
   const parsedSearchParams = {}
+  const searchParams = new URLSearchParams(search)
 
   for (const [key, value] of searchParams.entries()) {
     parsedSearchParams[key] = value
@@ -27,20 +26,25 @@ const stringifySearchParams = (params = {}) => {
 // --------------------------------------------------------
 // Action constants + creators
 
-export const changeLocation = createAction(
-  LOCATION_CHANGED,
-  ({ event = 'replaceState', pathname, resetScroll = true, searchParams = {} }) => ({
+export function changePathname({
+  method = 'pushState',
+  pathname,
+  resetScroll = true,
+  searchParams = {},
+}) {
+  return {
+    type: PATHNAME_CHANGED,
     payload: {
-      event,
+      method,
       pathname,
       resetScroll,
       searchParams,
     },
-  }),
-)
+  }
+}
 
 export const actions = {
-  changeLocation,
+  changePathname,
 }
 
 // --------------------------------------------------------
@@ -51,15 +55,27 @@ const initialState = {
   searchParams: parseSearchParams(window?.location?.search),
 }
 
-/* eslint-disable no-param-reassign */
-export default createReducer(initialState, {
-  [changeLocation]: (state, action) => {
+/* eslint-disable default-param-last */
+export default function reducer(state = initialState, action) {
+  if (action.type === PATHNAME_CHANGED) {
     const { pathname, searchParams } = action.payload
-    state.pathname = pathname
-    state.searchParams = parseSearchParams(searchParams)
-  },
-})
-/* eslint-enable no-param-reassign */
+
+    return {
+      pathname,
+      searchParams,
+    }
+  }
+
+  if (action.meta?.searchParamsUpdate) {
+    return {
+      pathname: state.pathname,
+      searchParams: action.meta.searchParams,
+    }
+  }
+
+  return state
+}
+/* eslint-disable default-param-last */
 
 // --------------------------------------------------------
 // Selectors
@@ -77,17 +93,38 @@ export const selectors = {
 // --------------------------------------------------------
 // Middleware
 
-export const routingMiddleware = (/* store */) => next => action => {
-  if (action.type === changeLocation.type) {
-    window.history[action.payload.event](
-      null,
-      '',
-      action.payload.pathname + stringifySearchParams(action.payload.searchParams),
-    )
-    // Force scroll to top this is what browsers normally do when
-    // navigating by clicking a link.
-    // Without this, scroll stays wherever it was which can be quite odd.
-    if (action.payload?.resetScroll) document.body.scrollTop = 0
+export const routingMiddleware = store => next => action => {
+  // Handle updating the url to match pathname changes
+  if (action.type === PATHNAME_CHANGED) {
+    const { method, pathname, resetScroll, searchParams } = action.payload
+
+    window.history[method](null, '', pathname + stringifySearchParams(searchParams))
+
+    // Match browser default behavior by resetting scroll to top of body
+    if (resetScroll) document.body.scrollTop = 0
   }
+
+  // Handle updating the url to match search param changes
+  if (action.meta?.searchParamsUpdate) {
+    const { method = 'replaceState', searchParams } = action.meta
+    const pathname = getPathname(store.getState())
+
+    window.history[method](null, '', pathname + stringifySearchParams(searchParams))
+  }
+
   next(action)
+}
+
+// --------------------------------------------------------
+// Event Listeners
+
+export const setupRoutingListeners = store => {
+  window.addEventListener('popstate', () => {
+    store.dispatch(
+      changePathname({
+        pathname: window.location.pathname,
+        searchParams: parseSearchParams(window.location.search),
+      }),
+    )
+  })
 }

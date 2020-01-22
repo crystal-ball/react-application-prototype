@@ -28,6 +28,7 @@ import './utils/require-icons'
 import App from './components/App/App'
 import { CodeBlock } from './components/universal'
 import configureStore from './dux/store'
+import { setupRoutingListeners } from './dux/routing'
 import logger from './utils/logger'
 import { componentryTheme } from './theme/componentry'
 import { emotionTheme } from './theme/emotion'
@@ -37,6 +38,7 @@ import { emotionTheme } from './theme/emotion'
 svgSymbolSpriteLoader({ useCache: process.env.NODE_ENV === 'production' })
 
 const store = configureStore()
+setupRoutingListeners(store)
 
 // Configure components that will be used to render elements parsed out by MDX
 const components = {

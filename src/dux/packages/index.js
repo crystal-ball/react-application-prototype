@@ -1,14 +1,28 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
-import { MAX_PACKAGE_SIZE_CHANGED } from './actions'
+import { PACKAGE_MAX_SIZE_CHANGED, PACKAGE_SELECTED } from './action-types'
 
 // --------------------------------------------------------
 // Action constants + creators
 
-export const changeMaxPackageSize = createAction(MAX_PACKAGE_SIZE_CHANGED)
+export const changeMaxPackageSize = createAction(PACKAGE_MAX_SIZE_CHANGED)
+export const selectPackage = createAction(PACKAGE_SELECTED, function prepare(
+  selectedPackageId,
+) {
+  return {
+    payload: selectedPackageId,
+    meta: {
+      searchParamsUpdate: true,
+      searchParams: {
+        package: selectedPackageId,
+      },
+    },
+  }
+})
 
 export const actions = {
   changeMaxPackageSize,
+  selectPackage,
 }
 
 // --------------------------------------------------------
@@ -16,6 +30,7 @@ export const actions = {
 
 const initialState = {
   maxPackageSize: null,
+  selectedPackageId: null,
   packagesById: {
     componentry: {
       id: 'componentry',
@@ -35,16 +50,22 @@ export default createReducer(initialState, {
   [changeMaxPackageSize]: (state, action) => {
     state.maxPackageSize = action.payload
   },
+  [selectPackage]: (state, action) => {
+    state.selectedPackageId = action.payload
+  },
 })
 /* eslint-enable no-param-reassign */
 
 // --------------------------------------------------------
 // Selectors
 
+export const getSelectedPackageId = state => state.packages.selectedPackageId
 export const getPackages = state => Object.values(state.packages.packagesById)
-export const getPackage = id => state => state.packages.packagesById[id] || null
+export const getPackage = state =>
+  state.packages.packagesById[getSelectedPackageId(state)] || null
 
 export const selectors = {
   getPackages,
   getPackage,
+  getSelectedPackageId,
 }
