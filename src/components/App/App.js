@@ -3,25 +3,26 @@ import { hot } from 'react-hot-loader/root'
 
 import { Hero, ScreenContainer } from '@/components/universal'
 import Switch from '@/components/universal/routing/Switch/Switch'
+import { routes } from '@/config/routing'
 
 // --------------------------------------------------------
 // App routing
 
-const routes = [
+const routeConfigs = [
   {
-    path: '/',
+    route: routes.home,
     component: lazy(() =>
       import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
     ),
   },
   {
-    path: '/application-stack',
+    route: routes.stack,
     component: lazy(() =>
       import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
     ),
   },
   {
-    path: '/optimizations',
+    route: routes.optimizations,
     component: lazy(() =>
       import(
         /* webpackChunkName: "OptimizationsScreen" */ '../OptimizationsScreen/OptimizationsScreen'
@@ -29,7 +30,7 @@ const routes = [
     ),
   },
   {
-    path: '(.*)',
+    route: '(.*)',
     component: lazy(() =>
       import(
         /* webpackChunkName: "FourOhFourScreen" */ '../FourOhFourScreen/FourOhFourScreen'
@@ -50,7 +51,7 @@ function App() {
         <ScreenContainer direction='row'>
           <Hero />
           <Suspense fallback={<div className='loading' />}>
-            <Switch routes={routes} />
+            <Switch routes={routeConfigs} />
           </Suspense>
         </ScreenContainer>
       </div>

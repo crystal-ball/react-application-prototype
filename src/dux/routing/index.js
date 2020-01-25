@@ -1,30 +1,7 @@
+import { parseSearchParams, stringifySearchParams } from '@/utils/routing'
 import { PATHNAME_CHANGED } from './action-types'
 
-const parseSearchParams = (search = '') => {
-  if (!URLSearchParams) return {}
-
-  const parsedSearchParams = {}
-  const searchParams = new URLSearchParams(search)
-
-  for (const [key, value] of searchParams.entries()) {
-    parsedSearchParams[key] = value
-  }
-  return parsedSearchParams
-}
-
-const stringifySearchParams = (params = {}) => {
-  if (!URLSearchParams) return ''
-  const searchParams = new URLSearchParams()
-
-  Object.keys(params).forEach(key => {
-    searchParams.set(key, params[key])
-  })
-  const stringifiedParams = searchParams.toString()
-  return stringifiedParams ? `?${stringifiedParams}` : ''
-}
-
-// --------------------------------------------------------
-// Action constants + creators
+// --- Action creators ------------------------------------
 
 export function changePathname({
   method = 'pushState',
@@ -43,15 +20,12 @@ export function changePathname({
   }
 }
 
-export const actions = {
-  changePathname,
-}
-
-// --------------------------------------------------------
-// Reducer
+// --- Reducer --------------------------------------------
 
 const initialState = {
+  /** The value of the application location.pathname */
   pathname: window?.location?.pathname || '/',
+  /** Structured key value map of current search params */
   searchParams: parseSearchParams(window?.location?.search),
 }
 
@@ -77,21 +51,13 @@ export default function reducer(state = initialState, action) {
 }
 /* eslint-disable default-param-last */
 
-// --------------------------------------------------------
-// Selectors
+// --- Selectors-------------------------------------------
 
 export const getPathname = state => state.routing.pathname
 export const getSearchParams = state => state.routing.searchParams
 export const getRouting = state => state.routing
 
-export const selectors = {
-  getPathname,
-  getSearchParams,
-  getRouting,
-}
-
-// --------------------------------------------------------
-// Middleware
+// --- Middleware -----------------------------------------
 
 export const routingMiddleware = store => next => action => {
   // Handle updating the url to match pathname changes
@@ -115,8 +81,7 @@ export const routingMiddleware = store => next => action => {
   next(action)
 }
 
-// --------------------------------------------------------
-// Event Listeners
+// --- Event listeners ------------------------------------
 
 export const setupRoutingListeners = store => {
   window.addEventListener('popstate', () => {

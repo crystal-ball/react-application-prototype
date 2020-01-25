@@ -1,27 +1,27 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { arrayOf, func, object, oneOfType, shape, string } from 'prop-types'
 import { useSelector } from 'react-redux'
-import { pathToRegexp } from 'path-to-regexp'
 
 import { getPathname } from '@/dux/routing'
+import { matchRoute } from '@/utils/routing'
 
 export default function Switch({ routes, ...rest }) {
-  const { current: regexRoutes } = useRef({})
   const pathname = useSelector(getPathname)
 
-  routes.forEach(({ path }) => {
-    if (!regexRoutes[path]) regexRoutes[path] = pathToRegexp(path)
-  })
+  const matched = routes.find(({ route }) => matchRoute(pathname, route))
 
-  const { component: Component } =
-    routes.find(({ path }) => regexRoutes[path].exec(pathname)) ?? {}
-  return Component ? <Component {...rest} /> : null
+  if (!matched) return null
+
+  const { component: Component, route } = matched
+  const matchDetails = matchRoute(pathname, route)
+
+  return <Component {...matchDetails} {...rest} />
 }
 
 Switch.propTypes = {
   routes: arrayOf(
     shape({
-      path: string.isRequired,
+      route: string.isRequired,
       component: oneOfType([func, object]).isRequired,
     }),
   ).isRequired,

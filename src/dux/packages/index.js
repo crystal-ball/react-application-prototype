@@ -1,9 +1,9 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
+import { parseSearchParams } from '@/utils/routing'
 import { PACKAGE_MAX_SIZE_CHANGED, PACKAGE_SELECTED } from './action-types'
 
-// --------------------------------------------------------
-// Action constants + creators
+// --- Action creators ------------------------------------
 
 export const changeMaxPackageSize = createAction(PACKAGE_MAX_SIZE_CHANGED)
 export const selectPackage = createAction(PACKAGE_SELECTED, function prepare(
@@ -20,17 +20,14 @@ export const selectPackage = createAction(PACKAGE_SELECTED, function prepare(
   }
 })
 
-export const actions = {
-  changeMaxPackageSize,
-  selectPackage,
-}
-
-// --------------------------------------------------------
-// Reduce
+// --- Reducer -------------------------------------------
 
 const initialState = {
-  maxPackageSize: null,
-  selectedPackageId: null,
+  /** Maximum size in kB to show for packages */
+  maxPackageSize: 0,
+  /** Id of the currently selected package */
+  selectedPackageId: parseSearchParams(document.location.search).package || null,
+  /** Map of packages with package ids as keys */
   packagesById: {
     componentry: {
       id: 'componentry',
@@ -56,8 +53,7 @@ export default createReducer(initialState, {
 })
 /* eslint-enable no-param-reassign */
 
-// --------------------------------------------------------
-// Selectors
+// --- Selectors------------------------------------------
 
 export const getSelectedPackageId = state => state.packages.selectedPackageId
 export const getPackages = state => Object.values(state.packages.packagesById)

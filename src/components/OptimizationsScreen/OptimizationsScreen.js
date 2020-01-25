@@ -25,7 +25,7 @@ export default function OptimizationsScreen() {
           React, Redux, and Optimizations
         </Heading>
 
-        <Button onClick={() => dispatch(changeMaxPackageSize(5))}>Set to 10Kb</Button>
+        <Button onClick={() => dispatch(changeMaxPackageSize(10))}>Set to 10Kb</Button>
 
         <ListGroup>
           {packagesList.map(pkg => (

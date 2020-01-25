@@ -44,3 +44,12 @@ current search params will be updated to match.
 1. Route changes - Dispatch a specific route change, eg selecting an article
 1. Query term changes - Ability to dispatch some action, eg `selectFilter` and
    update the query term
+
+## Naming conventions
+
+- Path params: Params matched from the `pathname` string
+- Search params: Params matched from the `search` string
+- pathname - The value of the current location.pathname
+- search - The value of the current location.search
+- route - A route representation that will be converted to a regex and used for
+  matching pathnames aginast
