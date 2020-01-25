@@ -15,8 +15,6 @@ export default function OptimizationsScreen() {
   const packagesList = useSelector(getPackages)
   const selectedPackage = useSelector(getPackage)
 
-  console.log({ selectedPackage })
-
   return (
     <Flex direction='column' className='flex-grow-1'>
       <Header />
