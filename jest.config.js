@@ -17,6 +17,15 @@ module.exports = {
   coverageReporters: ['text-summary', 'lcov'],
   collectCoverageFrom: ['src/**/*.js', '!**/*.stories.js'],
 
+  // Require unit test coverage for Redux logic
+  coverageThreshold: {
+    'src/dux': {
+      branches: 35,
+      functions: 50,
+      statements: 80,
+    },
+  },
+
   // Environment setup entrypoints in order of execution
   globalSetup: '<rootDir>/.jest/global-setup',
   setupFiles: ['<rootDir>/.jest/jest-env-setup.js'],
