@@ -35,6 +35,15 @@ doesn't need to be dispatched to update the search params, any action can
 include a `meta.searchParamsUpdate` and `meta.searchParams` fields and the
 current search params will be updated to match.
 
+## Naming conventions
+
+- Path params: Params matched from the `pathname` string
+- Search params: Params matched from the `search` string
+- pathname - The value of the current location.pathname
+- search - The value of the current location.search
+- route - A route representation that will be converted to a regex and used for
+  matching pathnames aginast
+
 ## TODO
 
 1. Switch routing
@@ -44,12 +53,4 @@ current search params will be updated to match.
 1. Route changes - Dispatch a specific route change, eg selecting an article
 1. Query term changes - Ability to dispatch some action, eg `selectFilter` and
    update the query term
-
-## Naming conventions
-
-- Path params: Params matched from the `pathname` string
-- Search params: Params matched from the `search` string
-- pathname - The value of the current location.pathname
-- search - The value of the current location.search
-- route - A route representation that will be converted to a regex and used for
-  matching pathnames aginast
+1. Are testing patterns needed? Eg how to mock route info?
