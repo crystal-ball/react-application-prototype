@@ -1,5 +1,6 @@
 import React from 'react'
-import { Flex, Heading, Icon } from 'componentry'
+import { shape, string } from 'prop-types'
+import { Flex, Heading, Icon, Text } from 'componentry'
 import { css } from '@emotion/core'
 
 import { Header } from '@/components/universal'
@@ -22,7 +23,7 @@ const integrationContainerStyles = css`
   }
 `
 
-export default function StackScreen() {
+export default function StackScreen({ params }) {
   return (
     <Flex direction='column' className='flex-grow-1'>
       <Header />
@@ -53,7 +54,12 @@ export default function StackScreen() {
           </Flex>
         </h4>
       </Flex>
+      {params.library && <Text>{params.library}</Text>}
     </Flex>
   )
 }
 StackScreen.displayName = StackScreen
+
+StackScreen.propTypes = {
+  params: shape({ library: string }).isRequired,
+}

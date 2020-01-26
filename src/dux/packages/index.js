@@ -1,21 +1,33 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
-import { MAX_PACKAGE_SIZE_CHANGED } from './actions'
+import { parseSearchParams } from '@/utils/routing'
+import { PACKAGE_MAX_SIZE_CHANGED, PACKAGE_SELECTED } from './action-types'
 
-// --------------------------------------------------------
-// Action constants + creators
+// --- Action creators ------------------------------------
 
-export const changeMaxPackageSize = createAction(MAX_PACKAGE_SIZE_CHANGED)
+export const changeMaxPackageSize = createAction(PACKAGE_MAX_SIZE_CHANGED)
+export const selectPackage = createAction(PACKAGE_SELECTED, function prepare(
+  selectedPackageId,
+) {
+  return {
+    payload: selectedPackageId,
+    meta: {
+      searchParamsUpdate: true,
+      searchParams: {
+        package: selectedPackageId,
+      },
+    },
+  }
+})
 
-export const actions = {
-  changeMaxPackageSize,
-}
-
-// --------------------------------------------------------
-// Reduce
+// --- Reducer -------------------------------------------
 
 const initialState = {
-  maxPackageSize: null,
+  /** Maximum size in kB to show for packages */
+  maxPackageSize: 0,
+  /** Id of the currently selected package */
+  selectedPackageId: parseSearchParams(document.location.search).package || null,
+  /** Map of packages with package ids as keys */
   packagesById: {
     componentry: {
       id: 'componentry',
@@ -35,16 +47,21 @@ export default createReducer(initialState, {
   [changeMaxPackageSize]: (state, action) => {
     state.maxPackageSize = action.payload
   },
+  [selectPackage]: (state, action) => {
+    state.selectedPackageId = action.payload
+  },
 })
 /* eslint-enable no-param-reassign */
 
-// --------------------------------------------------------
-// Selectors
+// --- Selectors------------------------------------------
 
+export const getSelectedPackageId = state => state.packages.selectedPackageId
 export const getPackages = state => Object.values(state.packages.packagesById)
-export const getPackage = id => state => state.packages.packagesById[id] || null
+export const getPackage = state =>
+  state.packages.packagesById[getSelectedPackageId(state)] || null
 
 export const selectors = {
   getPackages,
   getPackage,
+  getSelectedPackageId,
 }

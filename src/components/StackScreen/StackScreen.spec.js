@@ -11,7 +11,7 @@ describe('<StackScreen />', () => {
     const { getByText } = render(
       <Provider store={configureStore()}>
         <EmotionProvider>
-          <StackScreen />
+          <StackScreen params={{}} />
         </EmotionProvider>
       </Provider>,
     )

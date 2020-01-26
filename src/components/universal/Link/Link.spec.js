@@ -36,9 +36,9 @@ describe('<Link />', () => {
 
     expect(clickEvent.defaultPrevented).toBe(true)
     expect(dispatchMock).toHaveBeenCalledWith({
-      type: 'ROUTING/LOCATION_CHANGED',
+      type: 'ROUTING/PATHNAME_CHANGED',
       payload: {
-        event: 'replaceState',
+        method: 'pushState',
         pathname: '/rad/route',
         resetScroll: true,
         searchParams: { rad: 'hecka' },
