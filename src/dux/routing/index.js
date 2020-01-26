@@ -51,7 +51,7 @@ export default function reducer(state = initialState, action) {
 }
 /* eslint-disable default-param-last */
 
-// --- Selectors-------------------------------------------
+// --- Selectors ------------------------------------------
 
 export const getPathname = state => state.routing.pathname
 export const getSearchParams = state => state.routing.searchParams
