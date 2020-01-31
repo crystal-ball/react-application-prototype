@@ -22,7 +22,7 @@ module.exports = {
     'src/dux': {
       branches: 35,
       functions: 50,
-      statements: 80,
+      statements: 65,
     },
   },
 
