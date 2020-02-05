@@ -61,6 +61,8 @@ export function matchRoute(pathname, route) {
   return pathMatch ? { params: pathMatch.params, pathname, route } : null
 }
 
+export function createURI(route, params, search) {}
+
 /*
  * ℹ️ Misc Notes:
  *

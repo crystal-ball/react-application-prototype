@@ -1,8 +1,7 @@
-/* eslint-env node */
-/* eslint-disable import/no-extraneous-dependencies */
-
 const path = require('path')
 const webpackBase = require('@crystal-ball/webpack-base')
+
+const packageJSON = require('./package.json')
 
 /*
  * 📦 Single webpack configuration file handles different environment build
@@ -20,7 +19,17 @@ module.exports = () => {
    * conventions.
    */
   const { configs } = webpackBase({
-    envVars: { PACKAGE_VERSION: '0.0.0' },
+    envVars: {
+      PACKAGE_VERSION: packageJSON.version,
+      APPLICATION_DEPENDENCIES: Object.entries(packageJSON.dependencies).map(pkg => {
+        const [name, version] = pkg
+        return {
+          id: `${name}@${version}`,
+          name,
+          version,
+        }
+      }),
+    },
     paths: {
       iconSpriteIncludes: [path.resolve('src/media/icons'), featherIconsPath],
     },

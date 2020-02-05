@@ -16,11 +16,6 @@ export default function Header() {
           Application Stack
         </Link>
       </Block>
-      <Block p='base'>
-        <Link data-testid='nav-link' to='/optimizations'>
-          Optimizations
-        </Link>
-      </Block>
     </Flex>
   )
 }

@@ -12,7 +12,7 @@ import 'regenerator-runtime/runtime'
  */
 import 'react-hot-loader'
 import React from 'react'
-import { render } from 'react-dom' // eslint-disable-line import/order
+import { render } from 'react-dom'
 
 import { Provider } from 'react-redux'
 import { MDXProvider } from '@mdx-js/react'

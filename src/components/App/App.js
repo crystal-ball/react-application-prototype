@@ -22,14 +22,6 @@ const routeConfigs = [
     ),
   },
   {
-    route: routes.optimizations,
-    component: lazy(() =>
-      import(
-        /* webpackChunkName: "OptimizationsScreen" */ '../OptimizationsScreen/OptimizationsScreen'
-      ),
-    ),
-  },
-  {
     route: '(.*)',
     component: lazy(() =>
       import(

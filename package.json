@@ -1,6 +1,6 @@
 {
   "name": "@crystal-ball/react-app-prototype",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Prototypical React application",
   "keywords": [
     "prototype",
@@ -24,7 +24,7 @@
     "build": "NODE_ENV=production webpack --mode=production",
     "build:stats": "NODE_ENV=production webpack --mode=production --json > stats.json",
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "NODE_ENV=test eslint --format=pretty .jest .storybook cypress src",
+    "test:lint": "NODE_ENV=test eslint --format=pretty --ext .js,.ts .jest .storybook cypress src",
     "test:unit": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
     "test:acceptance": "docker-compose up --exit-code-from cypress --abort-on-container-exit",
@@ -58,9 +58,10 @@
     "svg-symbol-sprite-loader": "4.0.0"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "7.8.3",
     "@crystal-ball/commitizen-base": "2.3.0",
     "@crystal-ball/prettier-base": "1.6.0",
-    "@crystal-ball/webpack-base": "7.12.0",
+    "@crystal-ball/webpack-base": "7.13.0",
     "@emotion/babel-preset-css-prop": "10.0.27",
     "@percy/cypress": "2.2.0",
     "@storybook/addon-actions": "5.3.9",
@@ -73,10 +74,11 @@
     "@testing-library/jest-dom": "5.0.2",
     "@testing-library/react": "9.4.0",
     "cypress": "3.8.3",
-    "eslint-config-eloquence": "12.19.0",
+    "eslint-config-eloquence": "13.0.1",
     "husky": "4.2.1",
     "jest": "25.1.0",
-    "jest-emotion": "10.0.27"
+    "jest-emotion": "10.0.27",
+    "typescript": "3.7.5"
   },
   "config": {
     "commitizen": {

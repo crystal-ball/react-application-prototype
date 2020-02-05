@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action) {
     }
   }
 
-  if (action.meta?.searchParamsUpdate) {
+  if (action.meta?.searchParams) {
     return {
       pathname: state.pathname,
       searchParams: action.meta.searchParams,
@@ -49,7 +49,7 @@ export default function reducer(state = initialState, action) {
 
   return state
 }
-/* eslint-disable default-param-last */
+/* eslint-enable default-param-last */
 
 // --- Selectors ------------------------------------------
 
@@ -71,7 +71,7 @@ export const routingMiddleware = store => next => action => {
   }
 
   // Handle updating the url to match search param changes
-  if (action.meta?.searchParamsUpdate) {
+  if (action.meta?.searchParams) {
     const { method = 'replaceState', searchParams } = action.meta
     const pathname = getPathname(store.getState())
 
