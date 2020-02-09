@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { Block, Flex, Heading, Icon, Input, ListGroup, Text, Button } from 'componentry'
+import { Block, Button, Flex, Heading, Icon, Input, ListGroup, Text } from 'componentry'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 

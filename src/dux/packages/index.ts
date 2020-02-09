@@ -1,16 +1,24 @@
-import { parseSearchParams } from '@/utils/routing'
+import {
+  PATHNAME_UPDATED,
+  matchRoute,
+  parseSearchParams,
+  updatePathname,
+} from 'dux-routing'
+
+import { routes } from '@/config/routing'
 import { ReduxState } from '@/dux/types'
-import { PackagesActionTypes, PackagesState, Status } from './types'
+import {
+  Package,
+  PackagesActionTypes,
+  PackagesById,
+  PackagesState,
+  Status,
+} from './types'
 
 // --- Action creators ------------------------------------
 
 /** Create a selected package id updated action */
-export function updateSelectedPackageId(selectedPackageId: string) {
-  return {
-    type: PackagesActionTypes.SelectedPackageIdUpdated,
-    payload: selectedPackageId,
-  } as const
-}
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 /** Create a package search filter updated action */
 export function updatePackageSearchFilter(packageSearchFilter: string) {
@@ -23,9 +31,9 @@ export function updatePackageSearchFilter(packageSearchFilter: string) {
   } as const
 }
 
-type PackagesActions = ReturnType<
-  typeof updateSelectedPackageId | typeof updatePackageSearchFilter
->
+/* eslint-enable @typescript-eslint/explicit-function-return-type */
+
+type Action = ReturnType<typeof updatePathname | typeof updatePackageSearchFilter>
 
 // --- Reducer -------------------------------------------
 
@@ -37,10 +45,7 @@ const initialState: PackagesState = {
 }
 
 /* eslint-disable default-param-last */
-export default function reducer(
-  state = initialState,
-  action: PackagesActions,
-): PackagesState {
+export default function reducer(state = initialState, action: Action): PackagesState {
   switch (action.type) {
     case PackagesActionTypes.PackageSearchFilterUpdated: {
       return {
@@ -49,12 +54,19 @@ export default function reducer(
       }
     }
 
-    case PackagesActionTypes.SelectedPackageIdUpdated: {
-      return {
-        ...state,
-        selectedPackageId: action.payload,
-        status: Status.Loading,
+    case PATHNAME_UPDATED: {
+      const { pathname } = action.payload
+      const packagePathnameMatch = matchRoute(pathname, routes.stack)
+
+      if (packagePathnameMatch) {
+        const selectedPackageId = packagePathnameMatch.params.package
+        return {
+          ...state,
+          selectedPackageId,
+        }
       }
+
+      return state
     }
 
     default:
@@ -66,16 +78,21 @@ export default function reducer(
 // --- Selectors------------------------------------------
 
 /** Get the currently selected package's id */
-export const getSelectedPackageId = (state: ReduxState) =>
-  state.packages.selectedPackageId
+export function getSelectedPackageId(state: ReduxState): string {
+  return state.packages.selectedPackageId
+}
 
 /** Get the cache of fetched packages data normalized by id */
-export const getPackagesById = (state: ReduxState) => state.packages.packagesById
+export function getPackagesById(state: ReduxState): PackagesById {
+  return state.packages.packagesById
+}
 
 /** Get a package's details from the cache by id */
-export const getPackage = (packageId: string) => (state: ReduxState) =>
-  getPackagesById(state)[packageId]
+export function getPackage(packageId: string) {
+  return (state: ReduxState): Package => getPackagesById(state)[packageId]
+}
 
 /** Get the current package search filter */
-export const getPackageSearchFilter = (state: ReduxState) =>
-  state.packages.packageSearchFilter
+export function getPackageSearchFilter(state: ReduxState): string {
+  return state.packages.packageSearchFilter
+}

@@ -16,5 +16,6 @@
       "@/*": ["src/*"] // Configuration to resolve project `@` relative imports
     }
   },
-  "files": ["./src/index.js"]
+  "include": ["src/**/*"],
+  "files": ["src/types/custom.d.ts"]
 }
