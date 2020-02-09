@@ -24,8 +24,7 @@ import Zeit from '@/media/zeit.svg'
  */
 
 /** @type {Dependency[]} */
-
-const dependencies = process.env.APPLICATION_DEPENDENCIES
+const dependencies = JSON.parse(process.env.APPLICATION_DEPENDENCIES)
 
 const integrationContainerStyles = css`
   display: flex;
@@ -132,6 +131,6 @@ export default function StackScreen() {
     </Flex>
   )
 }
-StackScreen.displayName = StackScreen
+StackScreen.displayName = 'StackScreen'
 
 StackScreen.propTypes = {}

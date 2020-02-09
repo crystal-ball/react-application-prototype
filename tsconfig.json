@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+
+    // --- Alias resolution
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"] // Configuration to resolve project `@` relative imports
+    }
+  },
+  "files": ["./src/index.js"]
+}

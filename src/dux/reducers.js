@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
+import { reducer as routing } from 'dux-routing'
 
 import packages from './packages'
-import routing from './routing'
 
 export default combineReducers({ packages, routing })

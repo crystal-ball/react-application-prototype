@@ -21,14 +21,16 @@ module.exports = () => {
   const { configs } = webpackBase({
     envVars: {
       PACKAGE_VERSION: packageJSON.version,
-      APPLICATION_DEPENDENCIES: Object.entries(packageJSON.dependencies).map(pkg => {
-        const [name, version] = pkg
-        return {
-          id: `${name}@${version}`,
-          name,
-          version,
-        }
-      }),
+      APPLICATION_DEPENDENCIES: JSON.stringify(
+        Object.entries(packageJSON.dependencies).map(pkg => {
+          const [name, version] = pkg
+          return {
+            id: `${name}@${version}`,
+            name,
+            version,
+          }
+        }),
+      ),
     },
     paths: {
       iconSpriteIncludes: [path.resolve('src/media/icons'), featherIconsPath],
