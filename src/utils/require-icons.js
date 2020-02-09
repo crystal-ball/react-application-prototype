@@ -1,3 +1,5 @@
+/* global require */
+
 // Feather icons imports (only icons used in application are imported to keep
 // sprite size down)
 import 'feather-icons/heart.svg'

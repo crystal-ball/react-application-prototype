@@ -2,5 +2,8 @@
 
 module.exports = {
   root: true,
-  extends: 'eloquence/react',
+  extends: ['eloquence/react', 'eloquence/typescript'],
+  parserOptions: {
+    project: './tsconfig.json',
+  },
 }

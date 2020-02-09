@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+
+    // --- Alias resolution
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"] // Configuration to resolve project `@` relative imports
+    }
+  },
+  "include": ["src/**/*"],
+  "files": ["src/types/custom.d.ts"]
+}

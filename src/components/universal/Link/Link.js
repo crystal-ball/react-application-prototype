@@ -2,8 +2,7 @@ import React from 'react'
 import { node, object, string } from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { Anchor } from 'componentry'
-
-import { changePathname } from '@/dux/routing'
+import { updatePathname } from 'dux-routing'
 
 export default function Link({ children, to, searchParams, ...rest }) {
   const dispatch = useDispatch()
@@ -16,7 +15,7 @@ export default function Link({ children, to, searchParams, ...rest }) {
         if (evt.altKey || evt.ctrlKey || evt.metaKey || evt.shiftKey) return
 
         evt.preventDefault()
-        dispatch(changePathname({ pathname: to, searchParams }))
+        dispatch(updatePathname({ pathname: to, searchParams }))
       }}
       {...rest}
     >

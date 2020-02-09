@@ -1,5 +1,3 @@
-/* global module */
-
 /**
  * 📝 Babel configurations
  *
@@ -65,13 +63,18 @@ module.exports = function babelConfigs(api) {
           corejs: 3,
         },
       ],
+
       // Includes plugins required to transform JSX. Development plugins add
       // references to source and self on each component
       ['@babel/preset-react', { development: api.env('development'), useBuiltIns: true }],
+
       // Includes the `babel-plugin-emotion` and configures the transform-react-jsx
       // plugin to replace `React.createElement` with calls to Emotion's `jsx` to
       // enable Emotion's CSS in JS
       '@emotion/babel-preset-css-prop',
+
+      // Enable TypeScript usage 🔐
+      '@babel/preset-typescript',
     ],
 
     // --------------------------------------------------------
