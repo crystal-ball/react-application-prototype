@@ -36,7 +36,7 @@ describe('<Link />', () => {
 
     expect(clickEvent.defaultPrevented).toBe(true)
     expect(dispatchMock).toHaveBeenCalledWith({
-      type: 'ROUTING/PATHNAME_CHANGED',
+      type: 'ROUTING/PATHNAME_UPDATED',
       payload: {
         method: 'pushState',
         pathname: '/rad/route',
