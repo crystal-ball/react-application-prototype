@@ -43,9 +43,5 @@ module.exports = {
     '\\.(png|jpg)$': '<rootDir>/__mocks__/file-loader-mock.js',
     '\\.svg$': '<rootDir>/__mocks__/svgr-loader-mock.js',
     '\\.scss$': '<rootDir>/__mocks__/scss-loader-mock.js',
-    // Configuration for resolving project `@` relative imports (include after
-    // loader mocks to ensure they are matched first for resources like
-    // `@/media/some.svg`)
-    '@/(.*)$': '<rootDir>/src/$1',
   },
 }

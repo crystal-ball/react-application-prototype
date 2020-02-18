@@ -12,13 +12,15 @@ export default function Footer() {
       px='xl'
       py='base'
     >
+      <Icon
+        data-testid='heart'
+        id='heart'
+        fontColor='love'
+        mr='xs'
+        // Stroke is to provide an example of toHaveStyle
+        style={{ stroke: '##a8ffdb' }}
+      />
       <Text fontColor='light' mb={0}>
-        <Icon
-          data-testid='heart'
-          id='heart'
-          fontColor='love'
-          style={{ textDecoration: 'none' }}
-        />
         Make something awesome!
       </Text>
     </Flex>

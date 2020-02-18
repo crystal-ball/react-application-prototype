@@ -3,6 +3,7 @@ import React from 'react'
 import { Flex, Heading, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
+import { PACKAGE_VERSION } from '@/config/environment'
 
 export default function HomeScreen({ appInfo }) {
   // Layout notes
@@ -31,7 +32,7 @@ export default function HomeScreen({ appInfo }) {
           Projects
         </Text>
         <Text italic textAlign='center'>
-          v{process.env.PACKAGE_VERSION}
+          v{PACKAGE_VERSION}
         </Text>
 
         <div className='mx-xl'>
