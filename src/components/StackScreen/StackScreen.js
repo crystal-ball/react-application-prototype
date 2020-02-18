@@ -1,9 +1,10 @@
 import { css } from '@emotion/core'
-import { Block, Button, Flex, Heading, Icon, Input, ListGroup, Text } from 'componentry'
+import { Block, Button, Flex, Heading, Icon, Input, List, Text } from 'componentry'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Header, Link } from '@/components/universal'
+import { APPLICATION_DEPENDENCIES } from '@/config/environment'
 import {
   getPackage,
   getPackageSearchFilter,
@@ -24,7 +25,7 @@ import Zeit from '@/media/zeit.svg'
  */
 
 /** @type {Dependency[]} */
-const dependencies = JSON.parse(process.env.APPLICATION_DEPENDENCIES)
+const dependencies = JSON.parse(APPLICATION_DEPENDENCIES)
 
 const integrationContainerStyles = css`
   display: flex;
@@ -81,9 +82,9 @@ export default function StackScreen() {
                 Search
               </Button>
             </Block>
-            <ListGroup>
+            <List>
               {matchedDependencies.map(pkg => (
-                <ListGroup.Item
+                <List.Item
                   key={pkg.id}
                   as={Link}
                   active={pkg.id === selectedPackage?.id}
@@ -92,9 +93,9 @@ export default function StackScreen() {
                   }`}
                 >
                   {pkg.name}@{pkg.version}
-                </ListGroup.Item>
+                </List.Item>
               ))}
-            </ListGroup>
+            </List>
           </Flex>
           <Flex>
             {selectedPackage && (

@@ -1,3 +1,7 @@
+'use strict'
+
+const fs = require('fs')
+const path = require('path')
 /**
  * 📝 Babel configurations
  *
@@ -104,6 +108,12 @@ module.exports = function babelConfigs(api) {
           // eslint-disable-next-line
           version: require('@babel/helpers/package.json').version,
         },
+      ],
+
+      // Transforms aliased imports to resolveable paths
+      [
+        'babel-plugin-transform-import-aliases',
+        { aliases: { '@': path.resolve(fs.realpathSync(process.cwd()), 'src') } },
       ],
 
       // --- Additional stage-3 proposals not present in preset-env set

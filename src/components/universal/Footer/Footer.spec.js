@@ -13,9 +13,9 @@ describe('<Footer />', () => {
       </EmotionProvider>,
     )
     const heartIcon = getByTestId('heart')
-    expect(heartIcon).toHaveClass('icon icon-heart font')
+    expect(heartIcon).toHaveClass('icon icon-heart')
     expect(heartIcon).toHaveAttribute('role', 'img')
-    expect(heartIcon).toHaveStyle('text-decoration: none')
+    expect(heartIcon).toHaveStyle('stroke: ##a8ffdb')
   })
 
   test('Footer snapshot', () => {
