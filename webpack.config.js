@@ -40,11 +40,6 @@ module.exports = () => {
     },
   })
 
-  configs.resolve.alias = {
-    // Ensure that only one @babel/runtime is bundled into application
-    '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
-  }
-
   /*
    * Handle non-standard, advanced project customization by directly updating
    * the generated base configs.
