@@ -53,7 +53,8 @@ jobs:
         if: success()
         run: |
           export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
-          ./cc-test-reporter after-build --prefix /usr/src/app
+          ./cc-test-reporter format-coverage --prefix /usr/src/app
+          ./cc-test-reporter upload-coverage
         env:
           GIT_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
           GIT_BRANCH: ${{ github.head_ref }}
