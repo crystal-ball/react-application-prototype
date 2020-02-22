@@ -53,6 +53,8 @@ jobs:
         if: success()
         run: |
           export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
+          mkdir coverage
+          touch coverage/codeclimate.json
           ./cc-test-reporter format-coverage --prefix /usr/src/app
           ./cc-test-reporter upload-coverage
         env:
