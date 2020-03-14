@@ -34,9 +34,9 @@
     "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}'"
   },
   "dependencies": {
-    "@babel/runtime": "7.8.4",
+    "@babel/runtime": "7.8.7",
     "@emotion/core": "10.0.28",
-    "@hot-loader/react-dom": "16.12.0",
+    "@hot-loader/react-dom": "16.13.0",
     "@mdx-js/react": "1.5.7",
     "@reduxjs/toolkit": "1.2.5",
     "classnames": "2.2.6",
@@ -51,12 +51,12 @@
     "prop-types": "15.7.2",
     "react": "16.13.0",
     "react-dom": "16.13.0",
-    "react-hot-loader": "4.12.19",
+    "react-hot-loader": "4.12.20",
     "react-redux": "7.2.0",
     "redux": "4.0.5",
     "redux-saga": "1.1.3",
     "redux-thunk": "2.3.0",
-    "regenerator-runtime": "0.13.3",
+    "regenerator-runtime": "0.13.5",
     "svg-symbol-sprite-loader": "4.0.0"
   },
   "devDependencies": {
@@ -65,17 +65,17 @@
     "@crystal-ball/prettier-base": "1.6.0",
     "@crystal-ball/webpack-base": "9.1.0",
     "@emotion/babel-preset-css-prop": "10.0.27",
-    "@percy/cypress": "2.3.0",
-    "@storybook/addon-actions": "5.3.14",
-    "@storybook/addon-docs": "5.3.14",
-    "@storybook/addon-knobs": "5.3.14",
-    "@storybook/addon-links": "5.3.14",
-    "@storybook/addons": "5.3.14",
-    "@storybook/react": "5.3.14",
-    "@storybook/theming": "5.3.14",
+    "@percy/cypress": "2.3.1",
+    "@storybook/addon-actions": "5.3.17",
+    "@storybook/addon-docs": "5.3.17",
+    "@storybook/addon-knobs": "5.3.17",
+    "@storybook/addon-links": "5.3.17",
+    "@storybook/addons": "5.3.17",
+    "@storybook/react": "5.3.17",
+    "@storybook/theming": "5.3.17",
     "@testing-library/jest-dom": "5.1.1",
-    "@testing-library/react": "9.4.1",
-    "@types/jest": "25.1.3",
+    "@testing-library/react": "10.0.1",
+    "@types/jest": "25.1.4",
     "cypress": "4.1.0",
     "eslint-config-eloquence": "13.5.0",
     "husky": "4.2.3",
@@ -83,6 +83,7 @@
     "jest-emotion": "10.0.27",
     "typescript": "3.8.3"
   },
+  "prettier": "@crystal-ball/prettier-base",
   "config": {
     "commitizen": {
       "path": "@crystal-ball/commitizen-base"
@@ -92,6 +93,5 @@
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
-  },
-  "prettier": "@crystal-ball/prettier-base"
+  }
 }
