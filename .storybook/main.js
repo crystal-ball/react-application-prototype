@@ -22,14 +22,15 @@ module.exports = {
   ],
   webpackFinal: async config => {
     /* eslint-disable no-param-reassign */
-    config.resolve.alias['@'] = resolve('src')
-    config.resolve.alias['feather-icons'] = featherIconsPath
+
+    config.resolve.extensions = ['.js', '.jsx', '.json', '.ts', '.tsx']
 
     // --- Loaders ---
 
     // Add loaders that are not included in default Storybook configs for SASS
     // and SVG assets
     config.module.rules = config.module.rules.concat([
+      loaders.jsLoader,
       loaders.sassLoader,
       loaders.svgSpriteLoader,
       loaders.svgComponentLoader,
@@ -38,6 +39,11 @@ module.exports = {
     // --- Plugins ---
 
     config.plugins = config.plugins.concat([plugins.svgSymbolSpritePlugin])
+
+    if (process.env.NODE_ENV === 'production') {
+      // Production must include the MiniCSS Extract plugin to match loader
+      config.plugins = config.plugins.concat([plugins.miniCSSExtractPlugin])
+    }
 
     return config
     /* eslint-enable no-param-reassign */

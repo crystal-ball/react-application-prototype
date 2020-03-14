@@ -23,6 +23,7 @@
     "storybook": "start-storybook -p 6006 --ci",
     "build": "NODE_ENV=production webpack --mode=production",
     "build:stats": "NODE_ENV=production webpack --mode=production --json > stats.json",
+    "build:storybook": "NODE_ENV=production build-storybook",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "NODE_ENV=test eslint --format=pretty --ext .js,.ts .jest .storybook cypress src",
     "test:unit": "NODE_ENV=test jest",
