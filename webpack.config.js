@@ -22,7 +22,7 @@ module.exports = () => {
     envVars: {
       PACKAGE_VERSION: packageJSON.version,
       APPLICATION_DEPENDENCIES: JSON.stringify(
-        Object.entries(packageJSON.dependencies).map(pkg => {
+        Object.entries(packageJSON.dependencies).map((pkg) => {
           const [name, version] = pkg
           return {
             id: `${name}@${version}`,

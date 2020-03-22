@@ -34,7 +34,7 @@
     "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}'"
   },
   "dependencies": {
-    "@babel/runtime": "7.8.7",
+    "@babel/runtime": "7.9.2",
     "@emotion/core": "10.0.28",
     "@hot-loader/react-dom": "16.13.0",
     "@mdx-js/react": "1.5.7",
@@ -49,8 +49,8 @@
     "path-to-regexp": "6.1.0",
     "prism-react-renderer": "1.0.2",
     "prop-types": "15.7.2",
-    "react": "16.13.0",
-    "react-dom": "16.13.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-hot-loader": "4.12.20",
     "react-redux": "7.2.0",
     "redux": "4.0.5",
@@ -60,9 +60,9 @@
     "svg-symbol-sprite-loader": "4.0.0"
   },
   "devDependencies": {
-    "@crystal-ball/babel-base": "1.2.0",
+    "@crystal-ball/babel-base": "1.4.0",
     "@crystal-ball/commitizen-base": "2.4.0",
-    "@crystal-ball/prettier-base": "1.6.0",
+    "@crystal-ball/prettier-base": "2.0.0",
     "@crystal-ball/webpack-base": "9.1.0",
     "@emotion/babel-preset-css-prop": "10.0.27",
     "@percy/cypress": "2.3.1",
@@ -76,11 +76,12 @@
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "10.0.1",
     "@types/jest": "25.1.4",
-    "cypress": "4.1.0",
-    "eslint-config-eloquence": "13.5.0",
+    "cypress": "4.2.0",
+    "eslint-config-eloquence": "13.6.0",
     "husky": "4.2.3",
     "jest": "25.1.0",
-    "jest-emotion": "10.0.27",
+    "jest-emotion": "10.0.32",
+    "prettier": "2.0.1",
     "typescript": "3.8.3"
   },
   "prettier": "@crystal-ball/prettier-base",
