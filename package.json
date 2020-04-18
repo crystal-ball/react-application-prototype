@@ -62,7 +62,7 @@
   "devDependencies": {
     "@crystal-ball/babel-base": "1.2.0",
     "@crystal-ball/commitizen-base": "2.4.0",
-    "@crystal-ball/prettier-base": "1.6.0",
+    "@crystal-ball/prettier-base": "2.1.0",
     "@crystal-ball/webpack-base": "9.1.0",
     "@emotion/babel-preset-css-prop": "10.0.27",
     "@percy/cypress": "2.3.1",
