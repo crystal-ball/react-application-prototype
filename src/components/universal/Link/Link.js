@@ -10,7 +10,7 @@ export default function Link({ children, to, searchParams, ...rest }) {
   return (
     <Anchor
       href={to}
-      onClick={evt => {
+      onClick={(evt) => {
         // Allow browser to handle clicks with special keys
         if (evt.altKey || evt.ctrlKey || evt.metaKey || evt.shiftKey) return
 

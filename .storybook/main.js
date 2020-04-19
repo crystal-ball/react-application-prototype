@@ -20,7 +20,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-docs',
   ],
-  webpackFinal: async config => {
+  webpackFinal: async (config) => {
     /* eslint-disable no-param-reassign */
 
     config.resolve.extensions = ['.js', '.jsx', '.json', '.ts', '.tsx']

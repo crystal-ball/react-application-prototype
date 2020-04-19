@@ -50,7 +50,7 @@ export default function StackScreen() {
   const [searchValue, setSearchValue] = useState(packageSearchFilter)
 
   // ℹ️ Possible example for memoization?
-  const matchedDependencies = dependencies.filter(dependency =>
+  const matchedDependencies = dependencies.filter((dependency) =>
     dependency.name.includes(packageSearchFilter),
   )
 
@@ -69,7 +69,7 @@ export default function StackScreen() {
               <Input>
                 <Input.Field
                   value={searchValue}
-                  onChange={evt => {
+                  onChange={(evt) => {
                     setSearchValue(evt.target.value)
                   }}
                 />
@@ -83,7 +83,7 @@ export default function StackScreen() {
               </Button>
             </Block>
             <List>
-              {matchedDependencies.map(pkg => (
+              {matchedDependencies.map((pkg) => (
                 <List.Item
                   key={pkg.id}
                   as={Link}

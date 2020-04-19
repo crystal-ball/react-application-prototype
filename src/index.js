@@ -40,7 +40,7 @@ const store = configureStore()
 
 // Configure components that will be used to render elements parsed out by MDX
 const components = {
-  pre: props => <div {...props} />,
+  pre: (props) => <div {...props} />,
   code: CodeBlock,
 }
 
