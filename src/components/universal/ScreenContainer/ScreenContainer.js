@@ -7,7 +7,7 @@ export default function ScreenContainer({ children, className, flex, ...rest }) 
   const { sm } = useMedia()
   const Container = flex ? Flex : Block
 
-  const paddingSize = sm ? 'base' : 0
+  const paddingSize = sm ? 'md' : 0
   return (
     <Container
       className={cx(className, 'flex-grow-1')}

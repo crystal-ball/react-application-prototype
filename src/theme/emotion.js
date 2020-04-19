@@ -11,6 +11,11 @@ export const emotionTheme = {
     lg: '1.5rem',
     xl: '2rem',
   },
+  typography: {
+    variants: {
+      title1: {},
+    },
+  },
 }
 
 /**

@@ -10,7 +10,7 @@ export default function Footer() {
       justify='center'
       mt='auto'
       px='xl'
-      py='base'
+      py='md'
     >
       <Icon
         data-testid='heart'
@@ -20,7 +20,7 @@ export default function Footer() {
         // Stroke is to provide an example of toHaveStyle
         style={{ stroke: '##a8ffdb' }}
       />
-      <Text fontColor='light' mb={0}>
+      <Text fontColor='accent' mb={0}>
         Make something awesome!
       </Text>
     </Flex>

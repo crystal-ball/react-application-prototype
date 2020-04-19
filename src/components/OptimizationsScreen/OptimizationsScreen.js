@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Flex, Heading, Text } from 'componentry'
+import { Flex, Typography } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
 import { getPackage } from '@/dux/packages'
@@ -11,16 +11,16 @@ export default function OptimizationsScreen() {
   return (
     <Flex direction='column' className='flex-grow-1'>
       <Header />
-      <Flex direction='column' px='xl' py='base'>
-        <Heading textAlign='center' mb='xl'>
+      <Flex direction='column' px='xl' py='md'>
+        <Typography variant='heading-1' textAlign='center' mb='xl'>
           React, Redux, and Optimizations
-        </Heading>
+        </Typography>
 
         {selectedPackage && (
           <div>
-            <Heading variant='heading-3'>Package details</Heading>
-            <Text>{selectedPackage.name}</Text>
-            <Text>{selectedPackage.size}</Text>
+            <Typography variant='heading-3'>Package details</Typography>
+            <Typography>{selectedPackage.name}</Typography>
+            <Typography>{selectedPackage.size}</Typography>
           </div>
         )}
       </Flex>

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { Flex, Heading, Icon, Text } from 'componentry'
+import { Flex, Icon, Typography } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
 import { PACKAGE_VERSION } from '@/config/environment'
@@ -19,21 +19,21 @@ export default function HomeScreen({ appInfo }) {
     <Flex direction='column' className='flex-grow-1'>
       <Header />
 
-      <Flex direction='column' px='xl' py='base'>
-        <Heading textAlign='center' mb='xl'>
+      <Flex direction='column' px='xl' py='md'>
+        <Typography variant='heading-1' textAlign='center' mb='xl'>
           {title}
-        </Heading>
+        </Typography>
 
-        <Text italic mb={0} textAlign='center'>
+        <Typography italic mb={0} textAlign='center'>
           Prototype React application for{' '}
           <span aria-label='crystal ball' role='img'>
             🔮
           </span>
           Projects
-        </Text>
-        <Text italic textAlign='center'>
+        </Typography>
+        <Typography italic textAlign='center'>
           v{PACKAGE_VERSION}
-        </Text>
+        </Typography>
 
         <div className='mx-xl'>
           <h4>
