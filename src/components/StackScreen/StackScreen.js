@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { Block, Button, Flex, Heading, Icon, Input, List, Text } from 'componentry'
+import { Block, Button, Flex, Icon, Input, List, Typography } from 'componentry'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -58,11 +58,11 @@ export default function StackScreen() {
     <Flex direction='column' className='flex-grow-1'>
       <Header />
 
-      <Flex direction='column' px='xl' py='base'>
-        <Heading textAlign='center' mb='xl'>
+      <Flex direction='column' px='xl' py='md'>
+        <Typography variant='heading-1' textAlign='center' mb='xl'>
           Application stack
-        </Heading>
-        <Text italic>Application dependencies</Text>
+        </Typography>
+        <Typography italic>Application dependencies</Typography>
         <Flex>
           <Flex direction='column'>
             <Block>
@@ -100,17 +100,17 @@ export default function StackScreen() {
           <Flex>
             {selectedPackage && (
               <>
-                <Heading>Package selected</Heading>
-                <Text>Yay</Text>
+                <Typography variant='heading-2'>Package selected</Typography>
+                <Typography>Yay</Typography>
               </>
             )}
           </Flex>
         </Flex>
 
-        <Heading>
+        <Typography variant='heading-2'>
           <Icon id='education' /> Integrations
-        </Heading>
-        <Text italic>Workflows supported by 3rd party integrations</Text>
+        </Typography>
+        <Typography italic>Workflows supported by 3rd party integrations</Typography>
         <Flex justify='center'>
           <div css={integrationContainerStyles}>
             <Renovate />

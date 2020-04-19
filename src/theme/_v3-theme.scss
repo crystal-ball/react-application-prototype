@@ -1,0 +1,61 @@
+$font-family-primary: 'IBM Plex Sans', sans-serif;
+$font-family-title: 'Alex Brush', cursive;
+
+$theme: (
+  palette: (
+    gray: (),
+    primary: (),
+    success: (),
+    warning: (),
+    error: (),
+    backgrounds: (
+      overlay: rgba(17, 15, 22, 0.75),
+      ultra: #110f16,
+    ),
+    borders: (
+      mito: #2c3258,
+    ),
+    typography: (
+      love: #fcc4dd,
+      accent: #f7f7f9,
+    ),
+  ),
+  typography: (
+    font-families: (
+      title: $font-family-title,
+      primary: $font-family-primary,
+    ),
+    line-heights: (
+      single: 1,
+      body: 1.5,
+      heading: 1.25,
+    ),
+    variants: (
+      title: (
+        font-family: $font-family-title,
+        font-size: 6rem,
+        font-weight: 300,
+        line-height: 1.25,
+      ),
+      heading-1: (
+        color: #a1aeb7,
+        font-size: 3rem,
+        font-weight: 300,
+      ),
+      heading-2: (
+        color: #a1aeb7,
+        font-size: 2rem,
+        font-weight: 300,
+      ),
+      heading-3: (
+        color: #a1aeb7,
+        font-size: 1.5rem,
+        font-weight: 300,
+      ),
+      body: (
+        color: #98a5a4,
+        font-size: 0.9375rem,
+      ),
+    ),
+  ),
+);

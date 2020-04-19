@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Heading } from 'componentry'
+import { Flex, Typography } from 'componentry'
 import { css } from '@emotion/core'
 
 import Github from '@/media/github.svg'
@@ -20,6 +20,9 @@ const stickyTitleContainerStyles = css`
 
 const titleStyles = css`
   font-family: 'Alex Brush', cursive;
+  font-size: 6rem;
+  font-weight: 300;
+  line-height: 1.25;
   color: #a8ffdb;
   text-shadow: #f70777 0px 0 15px;
 `
@@ -38,13 +41,13 @@ export default function Hero() {
         direction='column'
         justify='center'
       >
-        <Heading variant='display-1' align='center' css={titleStyles}>
+        <Typography variant='title' align='center' css={titleStyles}>
           The Order
           <br />
           of the
           <br />
           Crystal Code Wizards
-        </Heading>
+        </Typography>
         <div>
           <a
             className='heading-1'
