@@ -45,7 +45,7 @@
     "dux-routing": "0.3.0",
     "emotion-theming": "10.0.27",
     "feather-icons": "4.28.0",
-    "nanoid": "2.1.11",
+    "nanoid": "3.1.3",
     "path-to-regexp": "6.1.0",
     "prism-react-renderer": "1.0.2",
     "prop-types": "15.7.2",
