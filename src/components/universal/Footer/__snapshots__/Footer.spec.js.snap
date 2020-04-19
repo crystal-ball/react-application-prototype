@@ -17,7 +17,7 @@ exports[`<Footer /> Footer snapshot 1`] = `
     />
   </svg>
   <p
-    class="body font-color-light"
+    class="body font-color-accent"
     style="margin-bottom: 0px;"
   >
     Make something awesome!
