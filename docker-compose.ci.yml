@@ -9,7 +9,7 @@ services:
   cypress:
     # The image field will be used to name the built image, overriding to
     # include /percy for easier identification
-    image: cypress/included/percy:4.1.0
+    image: cypress/included/percy:4.4.0
     build:
       context: .
       dockerfile: ./cypress/Dockerfile
