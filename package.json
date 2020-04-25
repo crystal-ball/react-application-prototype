@@ -28,7 +28,7 @@
     "test:lint": "NODE_ENV=test eslint --format=pretty --ext .js,.ts .jest .storybook cypress src",
     "test:unit": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
-    "test:acceptance": "docker-compose up --exit-code-from cypress --abort-on-container-exit",
+    "test:acceptance": "docker-compose up --exit-code-from cypress",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}'"
