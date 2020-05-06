@@ -80,7 +80,7 @@
     "cypress": "4.5.0",
     "eslint-config-eloquence": "13.8.0",
     "husky": "4.2.5",
-    "jest": "25.5.0",
+    "jest": "26.0.1",
     "jest-emotion": "10.0.32",
     "typescript": "3.8.3"
   },
