@@ -4,6 +4,12 @@ import { useDispatch } from 'react-redux'
 import { Anchor } from 'componentry'
 import { updatePathname } from 'dux-routing'
 
+/**
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {string} props.to
+ * @param {{ [x: string]: string }} props.searchParams
+ */
 export default function Link({ children, to, searchParams, ...rest }) {
   const dispatch = useDispatch()
 
