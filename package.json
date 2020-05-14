@@ -64,7 +64,7 @@
     "@crystal-ball/babel-base": "1.6.1",
     "@crystal-ball/commitizen-base": "2.6.0",
     "@crystal-ball/prettier-base": "2.2.0",
-    "@crystal-ball/webpack-base": "9.3.0",
+    "@crystal-ball/webpack-base": "9.4.1",
     "@emotion/babel-preset-css-prop": "10.0.27",
     "@percy/cypress": "2.3.1",
     "@storybook/addon-actions": "5.3.18",

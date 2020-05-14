@@ -4,14 +4,26 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    // --- Launch App - Chrome ---
+    // Launch the application in Chrome pointing to webpack-dev-server
     {
-      // -- Launch Application ---
-      // Launch the application in Chrome running pointing to webpack-dev-server
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Application",
+      "name": "Launch App - Chrome",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
+    },
+    // --- Launch App - Edge ---
+    // Launch the application in Edge pointing to webpack-dev-server
+    {
+      "name": "Launch App - Edge",
+      "type": "edge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "pathMapping": {
+        "/": ""
+      }
     },
     // --- Jest Single File ---
     // Run Jest with a single file for breakpoint debugging of test and src code
