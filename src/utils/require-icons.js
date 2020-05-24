@@ -1,7 +1,7 @@
 /* global require */
+/* eslint-disable import/no-unused-modules, import/no-unassigned-import */
 
-// Feather icons imports (only icons used in application are imported to keep
-// sprite size down)
+// External node_module icon imports
 import 'feather-icons/dist/icons/heart.svg'
 import 'feather-icons/dist/icons/alert-triangle.svg'
 

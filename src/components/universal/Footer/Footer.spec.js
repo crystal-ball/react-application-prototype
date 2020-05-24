@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { EmotionProvider } from '@/theme/emotion'
 import Footer from './Footer'
@@ -7,12 +7,12 @@ import Footer from './Footer'
 describe('<Footer />', () => {
   // ℹ️ example of testing classes, attrs and styles
   test('The icon is an accessible pink font icon', () => {
-    const { getByTestId } = render(
+    render(
       <EmotionProvider>
         <Footer />
       </EmotionProvider>,
     )
-    const heartIcon = getByTestId('heart')
+    const heartIcon = screen.getByTestId('heart')
     expect(heartIcon).toHaveClass('icon icon-heart')
     expect(heartIcon).toHaveAttribute('role', 'img')
     expect(heartIcon).toHaveStyle('stroke: ##a8ffdb')

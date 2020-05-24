@@ -1,4 +1,4 @@
-/* eslint-env node */
+'use strict'
 
 module.exports = {
   // Provides nice test output of what's being run
