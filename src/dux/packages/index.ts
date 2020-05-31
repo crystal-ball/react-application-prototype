@@ -7,7 +7,13 @@ import {
 
 import { routes } from '@/config/routing'
 import { ReduxState } from '@/dux/types'
-import { Package, PackagesActionTypes, PackagesState, Status } from './types'
+import {
+  Package,
+  PackagesActionTypes,
+  PackagesById,
+  PackagesState,
+  Status,
+} from './types'
 
 // --- Action creators ------------------------------------
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
@@ -69,15 +75,15 @@ export default function reducer(state = initialState, action: Action): PackagesS
 
 // --- Selectors------------------------------------------
 
+/** Get the cache of fetched packages data normalized by id */
+function getPackagesById(state: ReduxState): PackagesById {
+  return state.packages.packagesById
+}
+
 /** Get the currently selected package's id */
 export function getSelectedPackageId(state: ReduxState): string {
   return state.packages.selectedPackageId
 }
-
-/** Get the cache of fetched packages data normalized by id */
-// export function getPackagesById(state: ReduxState): PackagesById {
-//   return state.packages.packagesById
-// }
 
 /** Get a package's details from the cache by id */
 export function getPackage(packageId: string) {
