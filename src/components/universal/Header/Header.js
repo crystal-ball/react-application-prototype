@@ -5,7 +5,13 @@ import Link from '../Link/Link'
 
 export default function Header() {
   return (
-    <Flex borderBottom as='nav' justify='end' background='overlay' borderColor='mito'>
+    <Flex
+      borderBottom
+      as='nav'
+      justify='end'
+      backgroundColor='overlay'
+      borderColor='mito'
+    >
       <Block p='md'>
         <Link data-testid='nav-link' to='/'>
           Introduction

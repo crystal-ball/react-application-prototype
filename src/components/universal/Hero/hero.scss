@@ -11,16 +11,8 @@
   padding-top: 3rem;
 }
 
-:local .title {
-  font-family: 'Alex Brush', cursive;
-  font-size: 6rem;
-  font-weight: 300;
-  line-height: 1.25;
-  color: #a8ffdb;
-  text-shadow: #f70777 0px 0 15px;
-}
-
 :local .icon {
-  // TODO: use theme to set fontSize to an h1
-  fill: #a8ffdb !important;
+  width: 64px;
+  height: 64px;
+  fill: currentColor;
 }

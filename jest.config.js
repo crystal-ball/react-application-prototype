@@ -32,10 +32,6 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/.jest/jest-after-env-setup.js'],
   globalTeardown: '<rootDir>/.jest/global-teardown',
 
-  // Snapshot custom component css (it should be used sparingly and be important
-  // enough to verify in tests)
-  snapshotSerializers: ['jest-emotion'],
-
   // Configure Jest resolver for non-standard project import and UI resources
   // handled by webpack
   moduleNameMapper: {

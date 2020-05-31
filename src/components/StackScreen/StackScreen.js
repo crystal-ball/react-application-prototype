@@ -1,4 +1,3 @@
-import { css } from '@emotion/core'
 import { Block, Button, Flex, Icon, Input, List, Typography } from 'componentry'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,6 +16,8 @@ import Github from '@/media/github.svg'
 import Renovate from '@/media/renovate.svg'
 import Zeit from '@/media/zeit.svg'
 
+import classes from './stack-screen.scss'
+
 /**
  * @typedef {Object} Dependency
  * @property {string} id
@@ -26,19 +27,6 @@ import Zeit from '@/media/zeit.svg'
 
 /** @type {Dependency[]} */
 const dependencies = JSON.parse(APPLICATION_DEPENDENCIES)
-
-const integrationContainerStyles = css`
-  display: flex;
-  align-items: center;
-  width: 75px;
-  height: 75px;
-  margin: 0 10px;
-  color: #fff;
-
-  svg {
-    fill: currentColor;
-  }
-`
 
 export default function StackScreen() {
   const dispatch = useDispatch()
@@ -111,22 +99,14 @@ export default function StackScreen() {
           <Icon id='education' /> Integrations
         </Typography>
         <Typography italic>Workflows supported by 3rd party integrations</Typography>
+
         <Flex justify='center'>
-          <div css={integrationContainerStyles}>
-            <Renovate />
-          </div>
-          <div css={integrationContainerStyles}>
-            <CodeClimate />
-          </div>
-          <div css={integrationContainerStyles}>
-            <Github />
-          </div>
-          <div css={integrationContainerStyles}>
-            <Cypress />
-          </div>
-          <div css={integrationContainerStyles}>
-            <Zeit />
-          </div>
+          {[Renovate, CodeClimate, Github, Cypress, Zeit].map((Component, idx) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <Flex key={idx} width={75} height={75} align='center' mx='md'>
+              <Component className={classes.icon} />
+            </Flex>
+          ))}
         </Flex>
       </Flex>
     </Flex>

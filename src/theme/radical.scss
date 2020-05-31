@@ -1,61 +1,170 @@
 $font-family-primary: 'IBM Plex Sans', sans-serif;
 $font-family-title: 'Alex Brush', cursive;
 
-$theme: (
-  palette: (
-    gray: (),
-    primary: (),
-    success: (),
-    warning: (),
-    error: (),
-    backgrounds: (
-      overlay: rgba(17, 15, 22, 0.75),
-      ultra: #110f16,
-    ),
-    borders: (
-      mito: #2c3258,
-    ),
-    typography: (
-      love: #fcc4dd,
-      accent: #f7f7f9,
-    ),
+$theme: theme();
+
+.radical-theme {
+  background: theme('palette.backgrounds.body');
+  color: theme('palette.typography.body');
+}
+
+// --------------------------------------------------------
+// CSS Variables
+
+// --- Small screens
+:root {
+  --display1: 3rem; // 56px
+
+  /* ~1.25 scale on 16px */
+  --heading1: 2.5rem; // 40px
+  --heading2: 1.75rem; // 28px
+  --heading3: 1.5rem; // 24px
+  --heading-letter-spacing: 0.075em;
+
+  --font-sm: 0.75rem; // 12px
+  --font-md: 1rem; // 16px
+  --font-lg: 1.25rem; // 20px
+
+  --lead: 1.25rem; // 20px
+  --code: 0.75rem; // 12px
+
+  --s-xs: 0.274rem;
+  --s-sm: 0.555rem;
+  --s-md: 1rem;
+  --s-lg: 1.424rem;
+  --s-xl: 1.802rem;
+}
+
+// --- Large screens
+@media (min-width: 768px) {
+  :root {
+    --display1: 6rem; // 96px
+
+    --heading1: 3rem; // 48px
+    --heading2: 2rem; // 32px
+    --heading3: 1.5rem; // 24px
+    --heading-letter-spacing: 0.075em;
+
+    --subheading1: 1.125rem; // 20px
+    --subheading2: 0.875rem; // 18px
+
+    --font-sm: 0.875rem; // 14px
+    --font-md: 1rem; // 16px
+    --font-lg: 1.25rem; // 20px
+
+    --lead: 1.5rem; // 24px
+    --code: 0.9375rem; // 15px
+
+    --s-xs: 0.25rem; // 4px
+    --s-sm: 0.5rem; // 8px
+    --s-md: 1rem; // 16px
+    --s-lg: 2rem; // 24px
+    --s-xl: 3rem; // 48px
+  }
+}
+
+// --------------------------------------------------------
+// Components
+
+// --- <Anchor />
+$a-primary: (
+  color: theme('palette.secondary.500'),
+  '&:hover': (
+    color: theme('palette.secondary.700'),
   ),
-  typography: (
-    font-families: (
-      title: $font-family-title,
-      primary: $font-family-primary,
+);
+
+// --- <Icon />
+$icon: (
+  variants: (
+    feature: (
+      display: block,
+      fill: currentColor,
+      stroke: currentColor,
     ),
-    line-heights: (
-      single: 1,
-      body: 1.5,
-      heading: 1.25,
-    ),
-    variants: (
-      title: (
-        font-family: $font-family-title,
-        font-size: 6rem,
-        font-weight: 300,
-        line-height: 1.25,
-      ),
-      heading-1: (
-        color: #a1aeb7,
-        font-size: 3rem,
-        font-weight: 300,
-      ),
-      heading-2: (
-        color: #a1aeb7,
-        font-size: 2rem,
-        font-weight: 300,
-      ),
-      heading-3: (
-        color: #a1aeb7,
-        font-size: 1.5rem,
-        font-weight: 300,
-      ),
-      body: (
-        color: #98a5a4,
-        font-size: 0.9375rem,
-      ),
+    feather: (
+      display: inline-flex,
+      margin-bottom: -0.2em,
+      width: 1em,
+      height: 1em,
+      stroke: currentColor,
+      fill: none,
+      // removes the media alignment
+        vertical-align: unset,
     ),
   ),
 );
+
+$text: (
+  variants: (
+    display-1: (
+      color: theme('palette.typography.display'),
+      font-family: theme('typography.font-families.display'),
+      font-size: var(--display1),
+      font-weight: 300,
+      line-height: 1.2,
+      text-shadow: theme('typography.shadows.display'),
+    ),
+    heading-1: (
+      color: theme('palette.typography.heading'),
+      font-family: theme('typography.font-families.secondary'),
+      font-size: var(--heading1),
+      font-weight: theme('typography.font-weights.heading'),
+      letter-spacing: var(--heading-letter-spacing),
+    ),
+    heading-2: (
+      color: theme('palette.typography.heading'),
+      font-family: theme('typography.font-families.secondary'),
+      font-size: var(--heading2),
+      font-weight: theme('typography.font-weights.heading'),
+      letter-spacing: var(--heading-letter-spacing),
+    ),
+    heading-3: (
+      color: theme('palette.typography.heading'),
+      font-family: theme('typography.font-families.secondary'),
+      font-size: var(--heading3),
+      font-weight: theme('typography.font-weights.heading'),
+      letter-spacing: var(--heading-letter-spacing),
+    ),
+    subheading-1: (
+      color: theme('palette.typography.heading'),
+      font-family: theme('typography.font-families.secondary'),
+      font-size: var(--subheading1),
+      font-weight: theme('typography.font-weights.subtitle'),
+      letter-spacing: theme('typography.letter-spacings.heading'),
+    ),
+    subheading-2: (
+      color: theme('palette.typography.heading'),
+      font-family: theme('typography.font-families.secondary'),
+      font-size: var(--subheading2),
+      font-weight: theme('typography.font-weights.subtitle'),
+      letter-spacing: theme('typography.letter-spacings.heading'),
+    ),
+    body: (
+      font-size: var(--font-md),
+      max-width: 800px,
+      '& + &': (
+        margin-top: 0.75rem,
+      ),
+    ),
+    lead: (
+      color: theme('palette.typography.body'),
+      font-size: var(--lead),
+      font-weight: theme('typography.font-weights.heading'),
+    ),
+  ),
+);
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.list-inside {
+  list-style-position: inside;
+}
+
+code {
+  font-size: 15px;
+  color: #ffadc0;
+  font-family: theme('typography.font-families.monospace');
+}

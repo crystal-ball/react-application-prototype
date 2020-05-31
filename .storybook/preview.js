@@ -4,11 +4,9 @@ import { create } from '@storybook/theming/create'
 import { DocsContainer, Meta } from '@storybook/addon-docs/blocks'
 import { Provider } from 'react-redux'
 import { Theme } from 'componentry'
-import { ThemeProvider as EmotionTheme } from 'emotion-theming'
 
 import configureStore from '@/dux/store'
 import { componentryTheme } from '@/theme/componentry'
-import { emotionTheme } from '@/theme/emotion'
 
 // Include app global SASS in all stories for accurate styling representation
 /* eslint-disable-next-line -- Side effect: sets up app styles and svg icons */
@@ -39,9 +37,7 @@ addParameters({
     container: ({ children, context }) => (
       <DocsContainer context={context}>
         <Provider store={store}>
-          <Theme theme={componentryTheme}>
-            <EmotionTheme theme={emotionTheme}>{children}</EmotionTheme>
-          </Theme>
+          <Theme theme={componentryTheme}>{children}</Theme>
         </Provider>
       </DocsContainer>
     ),

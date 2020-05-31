@@ -16,7 +16,6 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { MDXProvider } from '@mdx-js/react'
 import { Theme } from 'componentry'
-import { ThemeProvider as EmotionTheme } from 'emotion-theming'
 import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 
 // ⚠️ Side effects imports, note styles must be imported before components to
@@ -30,7 +29,6 @@ import { NODE_ENV } from './config/environment'
 import configureStore from './dux/store'
 import logger from './utils/logger'
 import { componentryTheme } from './theme/componentry'
-import { emotionTheme } from './theme/emotion'
 
 // Injects SVG symbol sprite into document from local storage if it exists,
 // otherwise fetch, cache in local storage and inject.
@@ -50,11 +48,9 @@ render(
   <React.StrictMode>
     <Provider store={store}>
       <Theme theme={componentryTheme}>
-        <EmotionTheme theme={emotionTheme}>
-          <MDXProvider components={components}>
-            <App />
-          </MDXProvider>
-        </EmotionTheme>
+        <MDXProvider components={components}>
+          <App />
+        </MDXProvider>
       </Theme>
     </Provider>
   </React.StrictMode>,

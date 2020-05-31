@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Typography } from 'componentry'
+import { Anchor, Flex, Typography } from 'componentry'
 
 import Github from '@/media/github.svg'
 import classes from './hero.scss'
@@ -13,7 +13,7 @@ export default function Hero() {
         justify='center'
         className={classes.titleContainer}
       >
-        <Typography variant='title' align='center' className={classes.title}>
+        <Typography variant='display-1' align='center'>
           The Order
           <br />
           of the
@@ -21,13 +21,9 @@ export default function Hero() {
           Crystal Code Wizards
         </Typography>
         <div>
-          <a
-            className='heading-1'
-            data-testid='github-anchor'
-            href='https://github.com/crystal-ball'
-          >
-            <Github className={`icon ${classes.icon}`} />
-          </a>
+          <Anchor data-testid='github-anchor' href='https://github.com/crystal-ball'>
+            <Github className={classes.icon} />
+          </Anchor>
         </div>
       </Flex>
     </div>

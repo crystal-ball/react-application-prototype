@@ -2,11 +2,11 @@
 
 exports[`<Footer /> Footer snapshot 1`] = `
 <footer
-  class="d-flex align-items-center justify-content-center background-ultra px-xl py-md"
+  class="d-flex align-items-center justify-content-center background-color-ultra px-xl py-md"
   style="margin-top: auto;"
 >
   <svg
-    class="icon icon-heart font-color-love mr-xs"
+    class="🅲-icon 🅲-font icon-heart font-color-love mr-xs"
     data-testid="heart"
     role="img"
     style="stroke: ##a8ffdb;"
@@ -17,7 +17,7 @@ exports[`<Footer /> Footer snapshot 1`] = `
     />
   </svg>
   <p
-    class="body font-color-accent"
+    class="🅲-text 🅲-body font-color-accent"
     style="margin-bottom: 0px;"
   >
     Make something awesome!
