@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { Flex, Icon, Typography } from 'componentry'
+import { Flex, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
 import { PACKAGE_VERSION } from '@/config/environment'
@@ -25,26 +25,26 @@ export default function HomeScreen({ appInfo }) {
       <Header />
 
       <Flex direction='column' px='xl' py='md'>
-        <Typography variant='heading-1' textAlign='center' mb='xl'>
+        <Text variant='heading-1' textAlign='center' mb='xl'>
           {title}
-        </Typography>
+        </Text>
 
-        <Typography italic mb={0} textAlign='center'>
-          Prototype React application for{' '}
-          <span aria-label='crystal ball' role='img'>
+        <Text italic textAlign='center' maxWidth='unset'>
+          Prototype React application for
+          <span className='d-inline-block pr-xs' aria-label='crystal ball' role='img'>
             🔮
           </span>
           Projects
-        </Typography>
-        <Typography italic textAlign='center'>
+        </Text>
+        <Text italic mt={0} textAlign='center' maxWidth='unset'>
           v{PACKAGE_VERSION}
-        </Typography>
+        </Text>
 
-        <div className='mx-xl'>
-          <h4>
+        <div className='mx-xl mt-xl'>
+          <Text variant='heading-3'>
             <Icon id='coffee' /> Application featureset
-          </h4>
-          <ul>
+          </Text>
+          <ul className='list-disc list-inside mt-md'>
             <li>
               JS loader setup to transpile all source in the{' '}
               <code>babelLoaderInclude</code> with the <code>babel-loader</code>
@@ -58,12 +58,6 @@ export default function HomeScreen({ appInfo }) {
             <li>Progress indicators</li>
             <li>Production optimizations including uglify and module concatenation</li>
             <li>Output directory cleaning</li>
-            <li>
-              Application theming with Emotion{' '}
-              <span aria-label='emotion' role='img'>
-                👩‍🎤
-              </span>
-            </li>
             <li>
               Injected <code>PUBLIC_PATH</code> for routing
             </li>

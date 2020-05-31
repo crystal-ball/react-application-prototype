@@ -6,7 +6,7 @@ export default function Footer() {
     <Flex
       as='footer'
       align='center'
-      background='ultra'
+      backgroundColor='ultra'
       justify='center'
       mt='auto'
       px='xl'
