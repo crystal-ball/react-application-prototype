@@ -3,14 +3,14 @@
  * polyfills needed to meet the browserslist targets by the `entry` config for
  * `@babel/preset-env`
  */
-import 'core-js'
-import 'regenerator-runtime/runtime'
+import 'core-js' // eslint-disable-line import/no-unassigned-import -- Side effect: polyfill
+import 'regenerator-runtime/runtime' // eslint-disable-line import/no-unassigned-import -- Side effect: polyfill
 
 /**
  * ℹ️ RHL must be imported before React/DOM for some setup magic, note during
  * development react-dom is aliased to @hot-loader/react-dom in webpack configs
  */
-import 'react-hot-loader'
+import 'react-hot-loader' // eslint-disable-line import/no-unassigned-import -- Side effect: polyfill
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -21,8 +21,8 @@ import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 
 // ⚠️ Side effects imports, note styles must be imported before components to
 // ensure component styles can override them
-import './index.scss'
-import './utils/require-icons'
+import './index.scss' // eslint-disable-line import/no-unassigned-import -- Side effect: includes SASS
+import './utils/require-icons' // eslint-disable-line import/no-unassigned-import -- Side effect: includes svg icons
 
 import App from './components/App/App'
 import { CodeBlock } from './components/universal'

@@ -5,6 +5,11 @@ import { Flex, Icon, Typography } from 'componentry'
 import { Footer, Header } from '@/components/universal'
 import { PACKAGE_VERSION } from '@/config/environment'
 
+/**
+ * @param {Object} props
+ * @param {Object} [props.appInfo]
+ * @param {string} [props.appInfo.title]
+ */
 export default function HomeScreen({ appInfo }) {
   // Layout notes
   // Large screens ->

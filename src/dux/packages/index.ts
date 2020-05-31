@@ -16,9 +16,7 @@ import {
 } from './types'
 
 // --- Action creators ------------------------------------
-
-/** Create a selected package id updated action */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 /** Create a package search filter updated action */
 export function updatePackageSearchFilter(packageSearchFilter: string) {
@@ -31,7 +29,7 @@ export function updatePackageSearchFilter(packageSearchFilter: string) {
   } as const
 }
 
-/* eslint-enable @typescript-eslint/explicit-function-return-type */
+/* eslint-enable @typescript-eslint/explicit-module-boundary-types */
 
 type Action = ReturnType<typeof updatePathname | typeof updatePackageSearchFilter>
 
@@ -77,14 +75,14 @@ export default function reducer(state = initialState, action: Action): PackagesS
 
 // --- Selectors------------------------------------------
 
+/** Get the cache of fetched packages data normalized by id */
+function getPackagesById(state: ReduxState): PackagesById {
+  return state.packages.packagesById
+}
+
 /** Get the currently selected package's id */
 export function getSelectedPackageId(state: ReduxState): string {
   return state.packages.selectedPackageId
-}
-
-/** Get the cache of fetched packages data normalized by id */
-export function getPackagesById(state: ReduxState): PackagesById {
-  return state.packages.packagesById
 }
 
 /** Get a package's details from the cache by id */

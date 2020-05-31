@@ -1,4 +1,4 @@
-'use strict'
+/* global process */
 
 /**
  * Entrypoint for configuring and setting up the Jest test environment that is

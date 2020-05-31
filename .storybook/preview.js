@@ -11,6 +11,7 @@ import { componentryTheme } from '@/theme/componentry'
 import { emotionTheme } from '@/theme/emotion'
 
 // Include app global SASS in all stories for accurate styling representation
+/* eslint-disable-next-line -- Side effect: sets up app styles and svg icons */
 import './app-setup'
 
 const store = configureStore()
