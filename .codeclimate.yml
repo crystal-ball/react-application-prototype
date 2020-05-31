@@ -5,3 +5,6 @@ checks:
   method-lines:
     config:
       threshold: 125
+exclude_patterns:
+  - 'cypress/'
+  - '**/*.spec.js'
