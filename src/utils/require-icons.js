@@ -1,5 +1,5 @@
 /* global require */
-/* eslint-disable import/no-unused-modules, import/no-unassigned-import */
+/* eslint-disable import/no-unassigned-import */
 
 // External node_module icon imports
 import 'feather-icons/dist/icons/heart.svg'

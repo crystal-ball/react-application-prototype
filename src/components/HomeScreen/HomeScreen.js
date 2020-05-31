@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Flex, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
@@ -88,3 +88,13 @@ export default function HomeScreen({ appInfo }) {
   )
 }
 HomeScreen.displayName = 'HomeScreen'
+
+HomeScreen.defaultProps = {
+  appInfo: null,
+}
+
+HomeScreen.propTypes = {
+  appInfo: PropTypes.shape({
+    title: PropTypes.string,
+  }),
+}

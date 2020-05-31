@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unused-modules */
-
 export enum PackagesActionTypes {
   SelectedPackageIdUpdated = 'PACKAGES/SELECTED_PACKAGE_ID_UPDATED',
   PackageSearchFilterUpdated = 'PACKAGES/PACKAGE_SEARCH_FILTER_UPDATED',

@@ -37,7 +37,6 @@ Link.defaultProps = {
 
 Link.propTypes = {
   children: node.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  searchParams: object,
+  searchParams: object, // eslint-disable-line -- search params shape is unknown
   to: string.isRequired,
 }

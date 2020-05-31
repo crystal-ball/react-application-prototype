@@ -1,5 +1,5 @@
 import React from 'react'
-import * as reactRedux from 'react-redux' // eslint-disable-line import/no-namespace
+import * as reactRedux from 'react-redux'
 import { createEvent, fireEvent, render, screen } from '@testing-library/react'
 
 import configureStore from '@/dux/store'

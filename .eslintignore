@@ -1,6 +1,0 @@
-
-# ESLint
-
-# Dot directories are ignored by default, force linting with an ignore negation
-!.jest
-!.storybook

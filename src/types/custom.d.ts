@@ -1,4 +1,3 @@
-/* eslint-disable */
 /** webpack SVG imports */
 
 declare module '*.svg' {
