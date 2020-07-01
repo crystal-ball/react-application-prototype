@@ -58,7 +58,7 @@
     "svg-symbol-sprite-loader": "5.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "7.10.3",
+    "@babel/preset-env": "7.10.4",
     "@crystal-ball/babel-base": "1.9.0",
     "@crystal-ball/commitizen-base": "2.7.1",
     "@crystal-ball/prettier-base": "2.2.0",
@@ -71,9 +71,9 @@
     "@storybook/addons": "5.3.19",
     "@storybook/react": "5.3.19",
     "@storybook/theming": "5.3.19",
-    "@testing-library/jest-dom": "5.10.1",
-    "@testing-library/react": "10.4.1",
-    "@types/jest": "26.0.0",
+    "@testing-library/jest-dom": "5.11.0",
+    "@testing-library/react": "10.4.3",
+    "@types/jest": "26.0.3",
     "cypress": "4.9.0",
     "eslint-config-eloquence": "14.5.0",
     "husky": "4.2.5",
