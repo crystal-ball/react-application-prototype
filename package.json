@@ -75,7 +75,7 @@
     "@testing-library/react": "10.4.4",
     "@types/jest": "26.0.4",
     "cypress": "4.10.0",
-    "eslint-config-eloquence": "14.6.0",
+    "eslint-config-eloquence": "14.7.0",
     "husky": "4.2.5",
     "jest": "26.1.0",
     "node-sass-utils": "1.1.3",
