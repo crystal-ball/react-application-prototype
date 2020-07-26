@@ -4,7 +4,7 @@
 FROM cypress/included:4.11.0
 
 # Install any packages used in Cypress test files
-RUN npm install @percy/cypress
+RUN npm install @percy/cypress @testing-library/cypress
 
 # Reset the `cypress run` entrypoint set by the `cypress/included` image
 ENTRYPOINT []
