@@ -6,8 +6,8 @@ import classes from './hero.scss'
 
 export default function Hero() {
   return (
-    <div className={classes.container} data-testid='hero-img'>
-      <div className={classes.background}>
+    <div className={classes.container}>
+      <div className={classes.background} data-testid='hero-img'>
         <Text variant='display-1' textAlign='center' mt={80}>
           React Application Prototype
         </Text>
