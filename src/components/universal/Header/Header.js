@@ -8,7 +8,7 @@ export default function Header() {
     <Flex borderBottom as='nav' justify='end' backgroundColor='overlay' borderColor='100'>
       <Block p='md'>
         <Link data-testid='nav-link' to='/'>
-          Introduction
+          Overview
         </Link>
       </Block>
       <Block p='md'>
@@ -18,7 +18,7 @@ export default function Header() {
       </Block>
       <Block p='md'>
         <Link data-testid='nav-link' to='/layouts'>
-          Creating Layouts
+          Application Layouts
         </Link>
       </Block>
     </Flex>
