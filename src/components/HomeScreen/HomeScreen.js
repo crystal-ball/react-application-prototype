@@ -5,31 +5,20 @@ import { Flex, Icon, Text } from 'componentry'
 import { Footer, Header } from '@/components/universal'
 import { PACKAGE_VERSION } from '@/config/environment'
 
-/**
- * @param {Object} props
- * @param {Object} [props.appInfo]
- * @param {string} [props.appInfo.title]
- */
-export default function HomeScreen({ appInfo }) {
+/** HomeScreen */
+export default function HomeScreen() {
   // Layout notes
   // Large screens ->
   //   40%/60% 2 column layout with a position sticky header
   // Small screens ->
   //   Flex column layout with title then contents
 
-  // Test optional chaining and nullish coalescing operators
-  const title = appInfo?.title ?? 'React Application Prototype'
-
   return (
-    <Flex direction='column' className='flex-grow-1'>
+    <Flex borderLeft direction='column' className='main-section' borderColor='300'>
       <Header />
 
       <Flex direction='column' px='xl' py='md'>
-        <Text variant='heading-1' textAlign='center' mb='xl'>
-          {title}
-        </Text>
-
-        <Text italic textAlign='center' maxWidth='unset'>
+        <Text variant='heading-2' textAlign='center'>
           Prototype React application for
           <span className='d-inline-block pr-xs' aria-label='crystal ball' role='img'>
             🔮

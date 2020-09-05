@@ -15,18 +15,18 @@ module.exports = {
   // --- PALETTE
   palette: {
     primary: {
-      '100': '#FEE9F1',
-      '300': '#FBA7C9',
-      '500': '#f52277',
-      '700': '#931447',
-      '900': '#4A0A24',
+      100: '#FEE9F1',
+      300: '#FBA7C9',
+      500: '#f52277',
+      700: '#931447',
+      900: '#4A0A24',
     },
     secondary: {
-      '100': '#F6FFFD',
-      '300': '#DCFFF9',
-      '500': '#A8FFEF',
-      '700': '#65998F',
-      '900': '#324D48',
+      100: '#F6FFFD',
+      300: '#DCFFF9',
+      500: '#A8FFEF',
+      700: '#65998F',
+      900: '#324D48',
     },
 
     backgrounds: {
@@ -38,6 +38,12 @@ module.exports = {
     borders: {
       mito: '#2c3258',
       ultra: '#681854',
+
+      100: '#1A1B46',
+      200: '#242560',
+      300: '#1D1E7D',
+      400: '#8C2C56',
+      500: '#FC0065',
     },
     shadows: {
       ultra: '#f52277',
@@ -58,9 +64,8 @@ module.exports = {
   // --- TYPOGRAPHY
   typography: {
     'font-families': {
-      primary: '"Raleway", sans-serif',
-      secondary: '"Crimson Text", serif',
-      display: '"Alex Brush", cursive',
+      primary: '"Nunito Sans", sans-serif',
+      secondary: '"Aldrich", monospace',
       monospace: '"Fira Code", monospace',
     },
     'font-weights': {
@@ -74,7 +79,7 @@ module.exports = {
       body: 1.555556,
     },
     'shadows': {
-      display: '#f52277 1px 0px 15px',
+      display: '#f52277 1px 0px 8px',
       subtitle: '#bf9afc 2px 2px 8px',
     },
   },

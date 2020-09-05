@@ -30,3 +30,17 @@
  * Escape hatch for global application styles
  */
 @import './styles/application/base';
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.list-inside {
+  list-style-position: inside;
+}
+
+code {
+  font-size: 15px;
+  color: #ffadc0;
+  font-family: theme('typography.font-families.monospace');
+}

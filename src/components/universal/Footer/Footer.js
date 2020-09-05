@@ -4,9 +4,11 @@ import { Flex, Icon, Text } from 'componentry'
 export default function Footer() {
   return (
     <Flex
+      borderTop
       as='footer'
       align='center'
       backgroundColor='ultra'
+      borderColor='100'
       justify='center'
       mt='auto'
       px='xl'
