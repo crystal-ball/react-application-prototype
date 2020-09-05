@@ -25,6 +25,12 @@ const routeConfigs = [
     ),
   },
   {
+    route: routes.react,
+    component: lazy(() =>
+      import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),
+    ),
+  },
+  {
     route: routes.layouts,
     component: lazy(() =>
       import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
