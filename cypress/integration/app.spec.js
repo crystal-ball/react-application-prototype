@@ -9,7 +9,7 @@ describe('Application', () => {
    * The entire application should build and render without errors
    */
   it('should have built without errors', () => {
-    cy.contains(/React Application Prototype/)
+    cy.contains(/Prototype application/)
     cy.percySnapshot()
   })
 
