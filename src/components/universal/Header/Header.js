@@ -17,6 +17,11 @@ export default function Header() {
         </Link>
       </Block>
       <Block p='md'>
+        <Link data-testid='nav-link' to='/react'>
+          React Handbook
+        </Link>
+      </Block>
+      <Block p='md'>
         <Link data-testid='nav-link' to='/layouts'>
           Application Layouts
         </Link>
