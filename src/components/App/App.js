@@ -6,7 +6,7 @@ import { getPathname, routeSwitch } from 'dux-routing'
 import { Hero } from '@/components/universal'
 import { routes } from '@/config/routing'
 
-import './app.scss' // eslint-disable-line import/no-unassigned-import
+import layoutClasses from './layouts.scss'
 
 // --------------------------------------------------------
 // App routing
@@ -49,7 +49,7 @@ function App() {
   const { component: Screen, params } = routeSwitch(pathname, routeConfigs)
 
   return (
-    <div className='app-layout'>
+    <div className={layoutClasses.appLayout}>
       <Hero />
       <Suspense fallback={<div className='loading' />}>
         <Screen params={params} />

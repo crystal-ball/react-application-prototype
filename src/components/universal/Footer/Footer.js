@@ -10,7 +10,7 @@ export default function Footer() {
       backgroundColor='ultra'
       borderColor='100'
       justify='center'
-      mt='auto'
+      mt='xl'
       px='xl'
       py='md'
     >

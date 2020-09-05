@@ -1,7 +1,6 @@
-:local .container {
-  grid-area: hero;
-  position: relative;
-}
+// The .container element will expand to match the height of the content in main,
+// then the inner .background element uses position sticky to stay in view when
+// app is scrolled
 
 :local .background {
   position: sticky;

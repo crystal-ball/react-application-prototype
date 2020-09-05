@@ -2,7 +2,7 @@ import { Button, Flex, Icon, Input, List, Text, Typography } from 'componentry'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Header, Link } from '@/components/universal'
+import { Footer, Header, Link } from '@/components/universal'
 import { APPLICATION_DEPENDENCIES } from '@/config/environment'
 import {
   getPackage,
@@ -16,6 +16,7 @@ import Github from '@/media/github.svg'
 import Renovate from '@/media/renovate.svg'
 import Zeit from '@/media/zeit.svg'
 
+import layoutClasses from '@/components/App/layouts.scss'
 import classes from './stack-screen.scss'
 
 /**
@@ -43,11 +44,11 @@ export default function StackScreen() {
   )
 
   return (
-    <Flex direction='column' className='main-section' mb='xl'>
+    <Flex className={layoutClasses.mainSection} direction='column'>
       <Header />
 
-      <Flex direction='column' px='xl'>
-        <Typography variant='heading-1' textAlign='center' pt='md'>
+      <Flex className='flex-grow-1' direction='column' px='xl'>
+        <Typography variant='heading-1' textAlign='center' pt='lg'>
           Application stack
         </Typography>
 
@@ -113,9 +114,10 @@ export default function StackScreen() {
           ))}
         </Flex>
       </Flex>
+
+      <Footer />
     </Flex>
   )
 }
-StackScreen.displayName = 'StackScreen'
 
 StackScreen.propTypes = {}

@@ -1,12 +1,13 @@
 import React from 'react'
-import { Anchor, Text } from 'componentry'
+import { Anchor, Block, Text } from 'componentry'
 
 import Github from '@/media/github.svg'
+import layoutClasses from '@/components/App/layouts.scss'
 import classes from './hero.scss'
 
 export default function Hero() {
   return (
-    <div className={classes.container}>
+    <Block borderRight className={layoutClasses.heroSection} borderColor='300'>
       <div className={classes.background} data-testid='hero-img'>
         <Text variant='display-1' textAlign='center' mt={80}>
           React Application Prototype
@@ -16,7 +17,7 @@ export default function Hero() {
           <Github className={classes.icon} />
         </Anchor>
       </div>
-    </div>
+    </Block>
   )
 }
 Hero.displayName = 'Hero'

@@ -4,23 +4,19 @@ import { Flex, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
 import { PACKAGE_VERSION } from '@/config/environment'
+import layoutClasses from '@/components/App/layouts.scss'
 
 /** HomeScreen */
 export default function HomeScreen() {
-  // Layout notes
-  // Large screens ->
-  //   40%/60% 2 column layout with a position sticky header
-  // Small screens ->
-  //   Flex column layout with title then contents
-
   return (
-    <Flex borderLeft direction='column' className='main-section' borderColor='300'>
+    <Flex className={layoutClasses.mainSection} direction='column'>
       <Header />
 
-      <Flex direction='column' px='xl' py='md'>
-        <Text variant='heading-2' textAlign='center'>
-          Prototype React application for
-          <span className='d-inline-block pr-xs' aria-label='crystal ball' role='img'>
+      <Flex className='flex-grow-1' direction='column' px='xl'>
+        <Text variant='heading-1' textAlign='center' mt='lg'>
+          Prototype application
+          <br /> for
+          <span className='d-inline-block px-xs' aria-label='crystal ball' role='img'>
             🔮
           </span>
           projects
@@ -76,7 +72,6 @@ export default function HomeScreen() {
     </Flex>
   )
 }
-HomeScreen.displayName = 'HomeScreen'
 
 HomeScreen.defaultProps = {
   appInfo: null,

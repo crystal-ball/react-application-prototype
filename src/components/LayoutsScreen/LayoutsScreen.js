@@ -2,14 +2,16 @@ import React from 'react'
 import { Flex, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
+import layoutClasses from '@/components/App/layouts.scss'
 
 /** LayoutsScreen */
 export default function LayoutsScreen() {
   return (
-    <Flex className='main-section' direction='column'>
+    <Flex className={layoutClasses.mainSection} direction='column'>
       <Header />
+
       <Flex className='flex-grow-1' direction='column' px='xl'>
-        <Text variant='heading-1' textAlign='center' pt='md'>
+        <Text variant='heading-1' textAlign='center' pt='lg'>
           Application layouts system
         </Text>
         <Text variant='heading-3'>System summary</Text>
@@ -22,6 +24,7 @@ export default function LayoutsScreen() {
           </li>
         </ol>
       </Flex>
+
       <Footer />
     </Flex>
   )
