@@ -5,21 +5,20 @@ import Link from '../Link/Link'
 
 export default function Header() {
   return (
-    <Flex
-      borderBottom
-      as='nav'
-      justify='end'
-      backgroundColor='overlay'
-      borderColor='mito'
-    >
+    <Flex borderBottom as='nav' justify='end' backgroundColor='overlay' borderColor='100'>
       <Block p='md'>
         <Link data-testid='nav-link' to='/'>
-          Introduction
+          Overview
         </Link>
       </Block>
       <Block p='md'>
         <Link data-testid='nav-link' to='/application-stack'>
           Application Stack
+        </Link>
+      </Block>
+      <Block p='md'>
+        <Link data-testid='nav-link' to='/layouts'>
+          Application Layouts
         </Link>
       </Block>
     </Flex>

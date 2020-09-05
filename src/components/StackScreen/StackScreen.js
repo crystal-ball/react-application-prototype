@@ -1,8 +1,8 @@
-import { Block, Button, Flex, Icon, Input, List, Typography } from 'componentry'
+import { Button, Flex, Icon, Input, List, Text, Typography } from 'componentry'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Header, Link } from '@/components/universal'
+import { Footer, Header, Link } from '@/components/universal'
 import { APPLICATION_DEPENDENCIES } from '@/config/environment'
 import {
   getPackage,
@@ -16,6 +16,7 @@ import Github from '@/media/github.svg'
 import Renovate from '@/media/renovate.svg'
 import Zeit from '@/media/zeit.svg'
 
+import layoutClasses from '@/components/App/layouts.scss'
 import classes from './stack-screen.scss'
 
 /**
@@ -43,17 +44,19 @@ export default function StackScreen() {
   )
 
   return (
-    <Flex direction='column' className='flex-grow-1'>
+    <Flex className={layoutClasses.mainSection} direction='column'>
       <Header />
 
-      <Flex direction='column' px='xl' py='md'>
-        <Typography variant='heading-1' textAlign='center' mb='xl'>
+      <Flex className='flex-grow-1' direction='column' px='xl'>
+        <Typography variant='heading-1' textAlign='center' pt='lg'>
           Application stack
         </Typography>
-        <Typography italic>Application dependencies</Typography>
-        <Flex>
-          <Flex direction='column'>
-            <Block>
+
+        <Text variant='heading-3'>Application dependencies</Text>
+
+        <Flex direction='column'>
+          <Flex>
+            <div className='flex-grow-1'>
               <Input>
                 <Input.Field
                   value={searchValue}
@@ -62,40 +65,42 @@ export default function StackScreen() {
                   }}
                 />
               </Input>
-              <Button
-                onClick={() => {
-                  dispatch(updatePackageSearchFilter(searchValue))
-                }}
+            </div>
+            <Button
+              ml='md'
+              onClick={() => {
+                dispatch(updatePackageSearchFilter(searchValue))
+              }}
+            >
+              Search
+            </Button>
+          </Flex>
+
+          <List mt='md' width='50%'>
+            {matchedDependencies.map((pkg) => (
+              <List.Item
+                key={pkg.id}
+                as={Link}
+                active={pkg.id === selectedPackage?.id}
+                to={`/application-stack/${encodeURIComponent(pkg.id)}${
+                  packageSearchFilter ? `?search=${packageSearchFilter}` : ''
+                }`}
               >
-                Search
-              </Button>
-            </Block>
-            <List>
-              {matchedDependencies.map((pkg) => (
-                <List.Item
-                  key={pkg.id}
-                  as={Link}
-                  active={pkg.id === selectedPackage?.id}
-                  to={`/application-stack/${encodeURIComponent(pkg.id)}${
-                    packageSearchFilter ? `?search=${packageSearchFilter}` : ''
-                  }`}
-                >
-                  {pkg.name}@{pkg.version}
-                </List.Item>
-              ))}
-            </List>
-          </Flex>
-          <Flex>
-            {selectedPackage && (
-              <>
-                <Typography variant='heading-2'>Package selected</Typography>
-                <Typography>Yay</Typography>
-              </>
-            )}
-          </Flex>
+                {pkg.name}@{pkg.version}
+              </List.Item>
+            ))}
+          </List>
+        </Flex>
+        <Flex>
+          {selectedPackage && (
+            <>
+              <Typography variant='heading-2'>Package selected</Typography>
+              <Typography>Yay</Typography>
+            </>
+          )}
         </Flex>
 
-        <Typography variant='heading-2'>
+        <Typography variant='heading-2' mt='xl'>
           <Icon id='education' /> Integrations
         </Typography>
         <Typography italic>Workflows supported by 3rd party integrations</Typography>
@@ -103,15 +108,16 @@ export default function StackScreen() {
         <Flex justify='center'>
           {[Renovate, CodeClimate, Github, Cypress, Zeit].map((Component, idx) => (
             // eslint-disable-next-line react/no-array-index-key
-            <Flex key={idx} width={75} height={75} align='center' mx='md'>
-              <Component className={classes.icon} />
+            <Flex key={idx} align='center' mx='md'>
+              <Component width={75} height={75} className={classes.icon} />
             </Flex>
           ))}
         </Flex>
       </Flex>
+
+      <Footer />
     </Flex>
   )
 }
-StackScreen.displayName = 'StackScreen'
 
 StackScreen.propTypes = {}

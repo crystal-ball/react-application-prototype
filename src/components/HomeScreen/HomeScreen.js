@@ -4,37 +4,22 @@ import { Flex, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
 import { PACKAGE_VERSION } from '@/config/environment'
+import layoutClasses from '@/components/App/layouts.scss'
 
-/**
- * @param {Object} props
- * @param {Object} [props.appInfo]
- * @param {string} [props.appInfo.title]
- */
-export default function HomeScreen({ appInfo }) {
-  // Layout notes
-  // Large screens ->
-  //   40%/60% 2 column layout with a position sticky header
-  // Small screens ->
-  //   Flex column layout with title then contents
-
-  // Test optional chaining and nullish coalescing operators
-  const title = appInfo?.title ?? 'React Application Prototype'
-
+/** HomeScreen */
+export default function HomeScreen() {
   return (
-    <Flex direction='column' className='flex-grow-1'>
+    <Flex className={layoutClasses.mainSection} direction='column'>
       <Header />
 
-      <Flex direction='column' px='xl' py='md'>
-        <Text variant='heading-1' textAlign='center' mb='xl'>
-          {title}
-        </Text>
-
-        <Text italic textAlign='center' maxWidth='unset'>
-          Prototype React application for
-          <span className='d-inline-block pr-xs' aria-label='crystal ball' role='img'>
+      <Flex className='flex-grow-1' direction='column' px='xl'>
+        <Text variant='heading-1' textAlign='center' mt='lg'>
+          Prototype application
+          <br /> for
+          <span className='d-inline-block px-xs' aria-label='crystal ball' role='img'>
             🔮
           </span>
-          Projects
+          projects
         </Text>
         <Text italic mt={0} textAlign='center' maxWidth='unset'>
           v{PACKAGE_VERSION}
@@ -87,7 +72,6 @@ export default function HomeScreen({ appInfo }) {
     </Flex>
   )
 }
-HomeScreen.displayName = 'HomeScreen'
 
 HomeScreen.defaultProps = {
   appInfo: null,

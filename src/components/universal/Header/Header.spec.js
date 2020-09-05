@@ -12,7 +12,7 @@ describe('<Header />', () => {
         <Header />
       </Provider>,
     )
-    expect(screen.getByText('Introduction')).toHaveAttribute('href', '/')
+    expect(screen.getByText('Overview')).toHaveAttribute('href', '/')
     expect(screen.getByText('Application Stack')).toHaveAttribute(
       'href',
       '/application-stack',

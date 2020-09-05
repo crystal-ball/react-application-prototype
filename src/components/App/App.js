@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
 import { getPathname, routeSwitch } from 'dux-routing'
 
-import { Hero, ScreenContainer } from '@/components/universal'
+import { Hero } from '@/components/universal'
 import { routes } from '@/config/routing'
+
+import layoutClasses from './layouts.scss'
 
 // --------------------------------------------------------
 // App routing
@@ -20,6 +22,12 @@ const routeConfigs = [
     route: routes.stack,
     component: lazy(() =>
       import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
+    ),
+  },
+  {
+    route: routes.layouts,
+    component: lazy(() =>
+      import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
     ),
   },
   {
@@ -41,19 +49,13 @@ function App() {
   const { component: Screen, params } = routeSwitch(pathname, routeConfigs)
 
   return (
-    <>
-      {/* Base container element with flexbox layout for sticky footers */}
-      <div className='d-flex flex-column w-100 min-100vh'>
-        <ScreenContainer direction='row'>
-          <Hero />
-          <Suspense fallback={<div className='loading' />}>
-            <Screen params={params} />
-          </Suspense>
-        </ScreenContainer>
-      </div>
-    </>
+    <div className={layoutClasses.appLayout}>
+      <Hero />
+      <Suspense fallback={<div className='loading' />}>
+        <Screen params={params} />
+      </Suspense>
+    </div>
   )
 }
-App.displayName = 'App'
 
 export default hot(App)

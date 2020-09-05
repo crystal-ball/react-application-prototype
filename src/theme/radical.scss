@@ -90,19 +90,19 @@ $icon: (
       stroke: currentColor,
       fill: none,
       // removes the media alignment
-        vertical-align: unset,
+      vertical-align: unset,
     ),
   ),
 );
 
+// --- <Text />
 $text: (
   variants: (
     display-1: (
-      color: theme('palette.typography.display'),
-      font-family: theme('typography.font-families.display'),
+      color: theme('palette.typography.primary'),
+      font-family: theme('typography.font-families.secondary'),
       font-size: var(--display1),
-      font-weight: 300,
-      line-height: 1.2,
+      font-weight: theme('typography.font-weights.heading'),
       text-shadow: theme('typography.shadows.display'),
     ),
     heading-1: (
@@ -126,14 +126,14 @@ $text: (
       font-weight: theme('typography.font-weights.heading'),
       letter-spacing: var(--heading-letter-spacing),
     ),
-    subheading-1: (
+    subtitle-1: (
       color: theme('palette.typography.heading'),
       font-family: theme('typography.font-families.secondary'),
       font-size: var(--subheading1),
       font-weight: theme('typography.font-weights.subtitle'),
       letter-spacing: theme('typography.letter-spacings.heading'),
     ),
-    subheading-2: (
+    subtitle-2: (
       color: theme('palette.typography.heading'),
       font-family: theme('typography.font-families.secondary'),
       font-size: var(--subheading2),
@@ -155,16 +155,7 @@ $text: (
   ),
 );
 
-.list-disc {
-  list-style-type: disc;
-}
+// v2 Componentry variables
 
-.list-inside {
-  list-style-position: inside;
-}
-
-code {
-  font-size: 15px;
-  color: #ffadc0;
-  font-family: theme('typography.font-families.monospace');
-}
+$input-bg: theme('palette.backgrounds.mito');
+$list-bg: theme('palette.backgrounds.mito');
