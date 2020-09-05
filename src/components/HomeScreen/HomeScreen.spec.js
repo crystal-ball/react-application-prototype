@@ -12,6 +12,6 @@ describe('<HomeScreen />', () => {
         <HomeScreen />
       </Provider>,
     )
-    expect(screen.getByText(/Prototype React application/))
+    expect(screen.getByText(/Prototype application/))
   })
 })
