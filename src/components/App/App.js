@@ -25,6 +25,12 @@ const routeConfigs = [
     ),
   },
   {
+    route: routes.layouts,
+    component: lazy(() =>
+      import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
+    ),
+  },
+  {
     route: routes.notFound,
     component: lazy(() =>
       import(

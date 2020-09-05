@@ -23,7 +23,7 @@ export default function HomeScreen() {
           <span className='d-inline-block pr-xs' aria-label='crystal ball' role='img'>
             🔮
           </span>
-          Projects
+          projects
         </Text>
         <Text italic mt={0} textAlign='center' maxWidth='unset'>
           v{PACKAGE_VERSION}

@@ -2,7 +2,7 @@
 
 exports[`<Footer /> Footer snapshot 1`] = `
 <footer
-  class="d-flex align-items-center justify-content-center background-color-ultra px-xl py-md"
+  class="d-flex align-items-center justify-content-center border-top background-color-ultra border-color-100 px-xl py-md"
   style="margin-top: auto;"
 >
   <svg

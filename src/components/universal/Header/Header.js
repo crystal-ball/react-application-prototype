@@ -16,6 +16,11 @@ export default function Header() {
           Application Stack
         </Link>
       </Block>
+      <Block p='md'>
+        <Link data-testid='nav-link' to='/layouts'>
+          Creating Layouts
+        </Link>
+      </Block>
     </Flex>
   )
 }
