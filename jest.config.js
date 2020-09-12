@@ -15,14 +15,14 @@ module.exports = {
   // text-summary for devs and lcov for reporting to Code Climate in CI/CD envs.
   collectCoverage: true,
   coverageReporters: ['text-summary', 'lcov'],
-  collectCoverageFrom: ['src/**/*.js', '!**/*.stories.js'],
+  collectCoverageFrom: ['src/**/*.{js,ts,tsx}', '!**/*.stories.{js,ts,tsx}'],
 
   // Require unit test coverage for Redux logic
   coverageThreshold: {
     'src/dux': {
       branches: 35,
       functions: 50,
-      statements: 65,
+      statements: 55,
     },
   },
 
