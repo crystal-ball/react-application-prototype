@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className={layoutClasses.appLayout}>
-      <Hero title='React Application Prototye' />
+      <Hero title='React Application Prototype' />
       <Suspense fallback={<div className='loading' />}>
         <Screen params={params} />
       </Suspense>
