@@ -1,7 +1,15 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks'
+
 import Footer from './Footer'
 
-<Meta title='Universal/Footer' />
+<Meta title='Universal/Footer' component={Footer} />
+
+# Footer
 
 Application footer component contains a fun message.
 
-<Footer />
+<Canvas>
+  <Story name='<Footer />'>
+    <Footer />
+  </Story>
+</Canvas>
