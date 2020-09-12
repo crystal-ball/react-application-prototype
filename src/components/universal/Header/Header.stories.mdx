@@ -1,8 +1,17 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { storeDecorator } from '@/utils/storybook'
 import Header from './Header'
 
-<Meta title='App/Header' />
+<Meta title='App/Header' component={Header} decorators={[storeDecorator()]} />
+
+# Header
 
 The header component will only render outside the landing screen. _(The application will
 render a hero element on the landing screen)_
 
-<Header />
+<Canvas>
+  <Story name='<Header />'>
+    <Header />
+  </Story>
+</Canvas>

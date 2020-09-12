@@ -1,37 +1,28 @@
 'use strict'
 
-const { resolve } = require('path')
+const path = require('path')
 const webpackBase = require('@crystal-ball/webpack-base')
 
-const featherIconsPath = resolve('node_modules/feather-icons/dist/icons')
-
-const { loaders, plugins } = webpackBase({
-  target: 'storybook',
-  paths: {
-    iconSpriteIncludes: [resolve('src/media/icons'), featherIconsPath],
-  },
-})
+const { loaders, plugins } = webpackBase({ target: 'storybook' })
 
 module.exports = {
-  stories: ['../src/**/*.stories.(js|mdx)'],
+  stories: ['../src/**/*.stories.@(js|mdx)'],
   addons: [
-    '@storybook/addon-actions',
-    '@storybook/addon-knobs',
+    '@storybook/preset-scss',
+    '@storybook/addon-essentials',
     '@storybook/addon-links',
-    '@storybook/addon-docs',
   ],
   webpackFinal: async (config) => {
     /* eslint-disable no-param-reassign */
 
-    config.resolve.extensions = ['.js', '.jsx', '.json', '.ts', '.tsx']
+    // ℹ️ In app this is resolved by a Babel plugin, but for Storybook we're
+    // using a webpack alias so we don't have to mess with its Babel configs
+    config.resolve.alias['@'] = path.resolve(__dirname, '../src')
 
     // --- Loaders ---
 
-    // Add loaders that are not included in default Storybook configs for SASS
-    // and SVG assets
+    // Add loaders for 🔮 SVG sprite and component patterns
     config.module.rules = config.module.rules.concat([
-      loaders.jsLoader,
-      loaders.sassLoader,
       loaders.svgSpriteLoader,
       loaders.svgComponentLoader,
     ])
@@ -39,11 +30,6 @@ module.exports = {
     // --- Plugins ---
 
     config.plugins = config.plugins.concat([plugins.svgSymbolSpritePlugin])
-
-    if (process.env.NODE_ENV === 'production') {
-      // Production must include the MiniCSS Extract plugin to match loader
-      config.plugins = config.plugins.concat([plugins.miniCSSExtractPlugin])
-    }
 
     return config
     /* eslint-enable no-param-reassign */

@@ -7,7 +7,7 @@ export default function FourOhFourScreen() {
   return (
     <div className='flex-grow-1'>
       <Text variant='heading-2' mt='xl' align='center'>
-        <Icon variant='feather' fontColor='warning' id='alert-triangle' /> The page you
+        <Icon variant='feather' fontColor='warning' id='mood-sad-outline' /> The page you
         are looking for can&apos;t be found 😣
       </Text>
       <Flex className='mt-xl' justify='center'>

@@ -1,48 +1,35 @@
 import React from 'react'
-import { addParameters } from '@storybook/react'
-import { create } from '@storybook/theming/create'
-import { DocsContainer, Meta } from '@storybook/addon-docs/blocks'
-import { Provider } from 'react-redux'
 import { Theme } from 'componentry'
+import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 
-import configureStore from '@/dux/store'
 import { componentryTheme } from '@/theme/componentry'
 
-// Include app global SASS in all stories for accurate styling representation
-/* eslint-disable-next-line -- Side effect: sets up app styles and svg icons */
-import './app-setup'
+/* eslint-disable-next-line -- Side effect: includes app SASS */
+import '../src/index.scss'
+/* eslint-disable-next-line -- Side effect: includes app svg icons */
+import '../src/utils/require-icons'
 
-const store = configureStore()
-
-addParameters({
-  options: {
-    // This is here instead of manager because of a bug in theming docs
-    theme: create({
-      base: 'dark',
-      brandTitle: 'React App Prototype',
-      appContentBg: '#181424',
-    }),
-
-    storySort: (a, b) => {
-      // Shift the intro story to the top
-      if (a[0] === 'react-application-prototype--page') return -1
-      if (b[0] === 'react-application-prototype--page') return 1
-      // Alphabetically sort the rest
-      return a[1].id.localeCompare(b[1].id)
-    },
-  },
-
-  docs: {
-    // eslint-disable-next-line react/prop-types
-    container: ({ children, context }) => (
-      <DocsContainer context={context}>
-        <Provider store={store}>
-          <Theme theme={componentryTheme}>{children}</Theme>
-        </Provider>
-      </DocsContainer>
-    ),
-    components: {
-      Meta,
-    },
-  },
+// Fetch and inject SVG symbol sprite
+svgSymbolSpriteLoader({
+  // Storybook webpack configs aren't setup with HTML plugin so we need to
+  // supply the sprite path
+  customSpriteId: 'static/media/icon-sprite.svg',
+  useCache: false,
 })
+
+export const decorators = [
+  // Global decorator sets Componentry prop defaults
+  (Story) => (
+    <Theme theme={componentryTheme}>
+      <Story />
+    </Theme>
+  ),
+]
+
+export const parameters = {
+  options: {
+    storySort: {
+      order: ['React Application Prototype', 'Universal', 'App'],
+    },
+  },
+}
