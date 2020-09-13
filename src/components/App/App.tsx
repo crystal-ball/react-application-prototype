@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { getPathname, routeSwitch } from 'dux-routing'
 
 import { Hero } from '@/components/universal'
-import { routes } from '@/config/routing'
+import { routeDetails } from '@/config/routing'
 
 import layoutClasses from './layouts.scss'
 
@@ -13,32 +13,32 @@ import layoutClasses from './layouts.scss'
 
 const routeConfigs = [
   {
-    route: routes.home,
+    route: routeDetails.Home.path,
     component: lazy(
       () => import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
     ),
   },
   {
-    route: routes.stack,
+    route: routeDetails.Stack.path,
     component: lazy(
       () => import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
     ),
   },
   {
-    route: routes.react,
+    route: routeDetails.React.path,
     component: lazy(
       () => import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),
     ),
   },
   {
-    route: routes.layouts,
+    route: routeDetails.Layouts.path,
     component: lazy(
       () =>
         import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
     ),
   },
   {
-    route: routes.notFound,
+    route: routeDetails.NotFound.path,
     component: lazy(
       () =>
         import(

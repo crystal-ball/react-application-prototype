@@ -5,7 +5,7 @@ import {
   updatePathname,
 } from 'dux-routing'
 
-import { routes } from '@/config/routing'
+import { routeDetails } from '@/config/routing'
 import { ReduxState } from '@/dux/types'
 import {
   Package,
@@ -54,7 +54,7 @@ export default function reducer(state = initialState, action: Action): PackagesS
 
     case PATHNAME_UPDATED: {
       const { pathname } = action.payload
-      const packagePathnameMatch = matchRoute(pathname, routes.stack)
+      const packagePathnameMatch = matchRoute(pathname, routeDetails.Stack.path)
 
       if (packagePathnameMatch) {
         const selectedPackageId = packagePathnameMatch.params.package

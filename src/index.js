@@ -29,7 +29,7 @@ import App from './components/App/App'
 import { CodeBlock } from './components/universal'
 import { NODE_ENV } from './config/environment'
 import { createStore } from './dux/store'
-import logger from './utils/logger'
+import { logger } from './utils/logger'
 import { componentryTheme } from './theme/componentry'
 
 // Injects SVG symbol sprite into document from local storage if it exists,
