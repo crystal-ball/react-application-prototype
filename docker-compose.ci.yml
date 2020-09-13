@@ -5,6 +5,8 @@ services:
     # Reference built image name in CI to prevent double building with the
     # `build` config defined in `docker-compose.yml`
     image: crystal-ball/react-application-prototype
+    environment:
+      - BABEL_ENV=cypress
 
   cypress:
     # The image field will be used to name the built image, overriding to

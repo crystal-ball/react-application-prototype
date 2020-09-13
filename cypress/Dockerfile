@@ -10,4 +10,4 @@ RUN npm install @percy/cypress @testing-library/cypress
 ENTRYPOINT []
 
 # Wrap Cypress call with Percy for snapshot testing
-CMD [ "BABEL_ENV=cypress" "npx", "percy", "exec", "--", "cypress", "run", "--record"]
+CMD [ "npx", "percy", "exec", "--", "cypress", "run", "--record"]
