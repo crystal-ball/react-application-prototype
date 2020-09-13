@@ -1,0 +1,24 @@
+# React conventions 📝
+
+- **Working with dependency arrays:** Consider structures used in dependency arrays
+  immutable and use `immer` to update them, this lets you include the structures in
+  dependency arrays for hooks without having to perform any serialization.
+- **Component definitions:** Define components with arrow fns, it makes converting them to
+  TS simple
+
+### Component prototype
+
+```typescript
+import React from 'react'
+
+interface ExampleProps {
+  /** Indicator of how rad this component is */
+  status: 'pretty' | 'hecka'
+}
+
+export const Example: React.FC<ExampleProps> = ({ status }: ExampleProps) => {
+  return {
+    <div>This example component is {status} rad</div>
+  }
+}
+```

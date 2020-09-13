@@ -2,7 +2,7 @@ import React from 'react'
 import * as reactRedux from 'react-redux'
 
 import { createEvent, fireEvent, render, screen } from '@/utils/testing-library'
-import Link from './Link'
+import { Link } from './Link'
 
 describe('<Link />', () => {
   test('When Link renders, it includes anchor class and href', () => {

@@ -14,3 +14,8 @@ declare module '*.scss' {
   const styles: { [key: string]: string }
   export default styles
 }
+
+declare module '*.mdx' {
+  const MarkdownComponent: React.FunctionComponent
+  export default MarkdownComponent
+}

@@ -1,16 +1,22 @@
 import React from 'react'
-import { node, object, string } from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { Anchor } from 'componentry'
 import { updatePathname } from 'dux-routing'
 
-/**
- * @param {Object} props
- * @param {import('react').ReactNode} props.children
- * @param {string} props.to
- * @param {{ [x: string]: string }} props.searchParams
- */
-export default function Link({ children, to, searchParams, ...rest }) {
+interface LinkProps {
+  children: React.ReactNode
+  /** Route path to link to */
+  to: string
+  /** Search params to append to route path */
+  searchParams?: { [x: string]: string }
+}
+
+export const Link: React.FC<LinkProps> = ({
+  children,
+  to,
+  searchParams,
+  ...rest
+}: LinkProps) => {
   const dispatch = useDispatch()
 
   return (
@@ -33,10 +39,4 @@ Link.displayName = 'Link'
 
 Link.defaultProps = {
   searchParams: {},
-}
-
-Link.propTypes = {
-  children: node.isRequired,
-  searchParams: object, // eslint-disable-line -- search params shape is unknown
-  to: string.isRequired,
 }
