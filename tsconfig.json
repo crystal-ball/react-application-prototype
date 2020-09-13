@@ -17,5 +17,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["cypress/**/*", "src/**/*"]
+  "include": ["src/**/*"]
 }
