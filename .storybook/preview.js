@@ -4,9 +4,10 @@ import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 
 import { componentryTheme } from '@/theme/componentry'
 
-/* eslint-disable-next-line -- Side effect: includes app SASS */
+// Include app base styles
 import '../src/index.scss'
-/* eslint-disable-next-line -- Side effect: includes app svg icons */
+
+// Import app icon sprite
 import '../src/utils/require-icons'
 
 // Fetch and inject SVG symbol sprite

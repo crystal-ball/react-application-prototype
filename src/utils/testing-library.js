@@ -1,11 +1,12 @@
+/* eslint-disable no-restricted-imports -- App RTL utils setup file */
 import React from 'react'
-// eslint-disable-next-line no-restricted-imports
+import PropTypes from 'prop-types'
 import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 
 import { createStore } from '@/dux/store'
 
-// ℹ️ Convenience wrapper for rendering components with a Redux provider
+// ℹ️ Setup a convenience wrapper for rendering components with a Redux provider
 // Ref: https://redux.js.org/recipes/writing-tests#connected-components
 
 function decoratedRender(
@@ -16,15 +17,20 @@ function decoratedRender(
     ...renderOptions
   } = {},
 ) {
-  // eslint-disable-next-line react/prop-types
   function StoreDecorator({ children }) {
     return <Provider store={store}>{children}</Provider>
   }
+  StoreDecorator.defaultProps = {
+    children: null,
+  }
+  StoreDecorator.propTypes = {
+    children: PropTypes.node,
+  }
+
   return render(ui, { wrapper: StoreDecorator, ...renderOptions })
 }
 
-// re-export everything
-// eslint-disable-next-line no-restricted-imports
+// Re-export everything
 export * from '@testing-library/react'
-// override render method
+// Override RTL render method with store decorated method
 export { decoratedRender as render }

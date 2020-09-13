@@ -19,6 +19,14 @@ import Zeit from '@/media/zeit.svg'
 import layoutClasses from '@/components/App/layouts.scss'
 import classes from './stack-screen.scss'
 
+const integrations = [
+  { id: 'codeclimate', Logo: CodeClimate },
+  { id: 'cypress', Logo: Cypress },
+  { id: 'github', Logo: Github },
+  { id: 'renovate', Logo: Renovate },
+  { id: 'zeit', Logo: Zeit },
+]
+
 /**
  * @typedef {Object} Dependency
  * @property {string} id
@@ -106,10 +114,9 @@ export default function StackScreen() {
         <Typography italic>Workflows supported by 3rd party integrations</Typography>
 
         <Flex justify='center'>
-          {[Renovate, CodeClimate, Github, Cypress, Zeit].map((Component, idx) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Flex key={idx} align='center' mx='md'>
-              <Component width={75} height={75} className={classes.icon} />
+          {integrations.map(({ Logo, id }) => (
+            <Flex key={id} align='center' mx='md'>
+              <Logo className={classes.icon} />
             </Flex>
           ))}
         </Flex>

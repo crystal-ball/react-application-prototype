@@ -14,7 +14,7 @@
 // ***********************************************************
 
 // Setup Percy snapshots
-import '@percy/cypress' // eslint-disable-line import/no-unassigned-import -- Side effect: Percy setup
+import '@percy/cypress'
 
-// Import custom application commands
-import './commands' // eslint-disable-line import/no-unassigned-import -- Side effect: registers Cypress commands
+// Register custom application commands
+import './commands'

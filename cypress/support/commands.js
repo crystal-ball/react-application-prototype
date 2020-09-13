@@ -1,5 +1,5 @@
 // --------------------------------------------------------
 // Cypress custom commands
 
-// eslint-disable-next-line import/no-unassigned-import -- Setup RTL queries for Cypress
+// Setup the React Testing Library commands in Cypress
 import '@testing-library/cypress/add-commands'
