@@ -3,6 +3,8 @@
 import React from 'react'
 import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 
+import { radicalTheme } from './radical-prism-theme'
+
 interface CodeBlockProps {
   children: string
   className?: string
@@ -17,7 +19,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   const language = className.replace(/language-/, '') as Language
 
   return (
-    <Highlight {...defaultProps} code={children} language={language}>
+    <Highlight {...defaultProps} code={children} language={language} theme={radicalTheme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style, padding: '20px' }}>
           {tokens.map((line, i) => (
