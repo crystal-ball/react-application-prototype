@@ -26,7 +26,7 @@ import './utils/require-icons' // eslint-disable-line import/no-unassigned-impor
 import App from './components/App/App'
 import { CodeBlock } from './components/universal'
 import { NODE_ENV } from './config/environment'
-import configureStore from './dux/store'
+import { createStore } from './dux/store'
 import logger from './utils/logger'
 import { componentryTheme } from './theme/componentry'
 
@@ -34,7 +34,7 @@ import { componentryTheme } from './theme/componentry'
 // otherwise fetch, cache in local storage and inject.
 svgSymbolSpriteLoader({ useCache: NODE_ENV === 'production' })
 
-const store = configureStore()
+const store = createStore()
 
 // Configure components that will be used to render elements parsed out by MDX
 const components = {
