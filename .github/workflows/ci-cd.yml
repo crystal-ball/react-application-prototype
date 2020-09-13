@@ -45,7 +45,12 @@ jobs:
         if: success()
         run: |
           export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
-          ./cc-test-reporter after-build --prefix /usr/src/app
+
+          ./cc-test-reporter format-coverage -t lcov --prefix /usr/src/app -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
+          ./cc-test-reporter format-coverage -t lcov --prefix /usr/src/app -o coverage/codeclimate.jest.json coverage_jest/lcov.info
+
+          ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
+          ./cc-test-reporter upload-coverage
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           GIT_BRANCH: ${{ github.head_ref }}

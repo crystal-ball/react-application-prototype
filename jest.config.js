@@ -16,6 +16,7 @@ module.exports = {
   collectCoverage: true,
   coverageReporters: ['text-summary', 'lcov'],
   collectCoverageFrom: ['src/**/*.{js,ts,tsx}', '!**/*.stories.{js,ts,tsx}'],
+  coverageDirectory: 'coverage_jest',
 
   // Require unit test coverage for Redux logic
   coverageThreshold: {

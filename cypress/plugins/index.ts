@@ -12,15 +12,17 @@
 // the project's config changing)
 
 import { percyHealthCheck } from '@percy/cypress/task'
+import codeCoverageTask from '@cypress/code-coverage/task'
 
 /**
  * @param on Used to hook into various events Cypress emits
  * @param config The resolved Cypress config
  */
-export default function pulgins(on, config) {
+export default function plugins(on, config) {
   on('task', {
     percyHealthCheck,
   })
 
+  codeCoverageTask(on, config)
   return config
 }

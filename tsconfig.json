@@ -13,9 +13,9 @@
     // --- Alias resolution
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"] // Configuration to resolve project `@` relative imports
+      // Configuration to resolve project `@` relative imports
+      "@/*": ["src/*"]
     }
   },
   "include": ["cypress/**/*", "src/**/*"]
-  // "files": ["src/types/custom.d.ts"]
 }

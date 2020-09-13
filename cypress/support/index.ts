@@ -13,6 +13,9 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+// Setup code coverage tools
+import '@cypress/code-coverage/support'
+
 // Setup Percy snapshots
 import '@percy/cypress'
 
