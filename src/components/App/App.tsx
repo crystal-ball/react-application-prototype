@@ -14,34 +14,36 @@ import layoutClasses from './layouts.scss'
 const routeConfigs = [
   {
     route: routes.home,
-    component: lazy(() =>
-      import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
+    component: lazy(
+      () => import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
     ),
   },
   {
     route: routes.stack,
-    component: lazy(() =>
-      import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
+    component: lazy(
+      () => import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
     ),
   },
   {
     route: routes.react,
-    component: lazy(() =>
-      import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),
+    component: lazy(
+      () => import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),
     ),
   },
   {
     route: routes.layouts,
-    component: lazy(() =>
-      import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
+    component: lazy(
+      () =>
+        import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
     ),
   },
   {
     route: routes.notFound,
-    component: lazy(() =>
-      import(
-        /* webpackChunkName: "FourOhFourScreen" */ '../FourOhFourScreen/FourOhFourScreen'
-      ),
+    component: lazy(
+      () =>
+        import(
+          /* webpackChunkName: "FourOhFourScreen" */ '../FourOhFourScreen/FourOhFourScreen'
+        ),
     ),
   },
 ]
@@ -56,7 +58,7 @@ function App() {
 
   return (
     <div className={layoutClasses.appLayout}>
-      <Hero />
+      <Hero title='React Application Prototype' />
       <Suspense fallback={<div className='loading' />}>
         <Screen params={params} />
       </Suspense>

@@ -1,16 +1,21 @@
-import React from 'react'
+import * as React from 'react'
 import { Anchor, Block, Text } from 'componentry'
 
 import Github from '@/media/github.svg'
 import layoutClasses from '@/components/App/layouts.scss'
 import classes from './hero.scss'
 
-export default function Hero() {
+interface HeroProps {
+  /** Application title */
+  title: string
+}
+
+export const Hero: React.FC<HeroProps> = ({ title }: HeroProps) => {
   return (
     <Block borderRight className={layoutClasses.heroSection} borderColor='300'>
       <div className={classes.background} data-testid='hero-img'>
         <Text variant='display-1' textAlign='center' mt={80}>
-          React Application Prototype
+          {title}
         </Text>
 
         <Anchor data-testid='github-anchor' href='https://github.com/crystal-ball'>
@@ -20,4 +25,3 @@ export default function Hero() {
     </Block>
   )
 }
-Hero.displayName = 'Hero'
