@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Icon, Text } from 'componentry'
 
-export default function Footer() {
+export const Footer: React.FC = () => {
   return (
     <Flex
       borderTop

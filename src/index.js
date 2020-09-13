@@ -15,7 +15,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { MDXProvider } from '@mdx-js/react'
-import { Theme } from 'componentry'
+import { Text, Theme } from 'componentry'
 import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 
 /**
@@ -40,6 +40,12 @@ const store = createStore()
 
 // Configure components that will be used to render elements parsed out by MDX
 const components = {
+  /* eslint-disable react/no-multi-comp */
+  h1: (props) => <Text variant='heading-1' {...props} />,
+  h2: (props) => <Text variant='heading-2' {...props} />,
+  h3: (props) => <Text variant='heading-3' {...props} />,
+  ol: (props) => <ol className='list-disc list-inside' {...props} />,
+  ul: (props) => <ul className='list-disc list-inside' {...props} />,
   pre: (props) => <div {...props} />,
   code: CodeBlock,
 }

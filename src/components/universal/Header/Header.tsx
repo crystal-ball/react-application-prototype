@@ -1,9 +1,9 @@
 import React from 'react'
 import { Block, Flex } from 'componentry'
 
-import Link from '../Link/Link'
+import { Link } from '../Link/Link'
 
-export default function Header() {
+export const Header: React.FC = () => {
   return (
     <Flex borderBottom as='nav' justify='end' backgroundColor='overlay' borderColor='100'>
       <Block p='md'>

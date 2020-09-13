@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render, screen } from '@/utils/testing-library'
-import Header from './Header'
+import { Header } from './Header'
 
 describe('<Header />', () => {
   test('When header renders, then links to pages are returned', () => {

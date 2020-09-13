@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render, screen } from '@/utils/testing-library'
-import Footer from './Footer'
+import { Footer } from './Footer'
 
 describe('<Footer />', () => {
   // ℹ️ example of testing classes, attrs and styles
