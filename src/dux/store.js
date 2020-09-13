@@ -7,7 +7,7 @@ import { NODE_ENV } from '@/config/environment'
 import rootReducer from './reducers'
 import rootSaga from './sagas'
 
-export default function createStore(preloadedState) {
+export function createStore(preloadedState) {
   // Create the middleware "thread" that the sagas run in. From the middleware
   // the root saga is able to respond to incoming actions and dispatch new actions
   const sagaMiddleware = createSagaMiddleware()

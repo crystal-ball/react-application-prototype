@@ -1,17 +1,12 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import { render, screen } from '@testing-library/react'
 
-import configureStore from '@/dux/store'
+import { render, screen } from '@/utils/testing-library'
 import FourOhFourScreen from './FourOhFourScreen'
 
 describe('<FourOhFourScreen />', () => {
   test('When screen renders, then page title is included', () => {
-    render(
-      <Provider store={configureStore()}>
-        <FourOhFourScreen />
-      </Provider>,
-    )
+    render(<FourOhFourScreen />)
+
     expect(screen.getByText('Introduction')).toHaveAttribute('href', '/')
     expect(screen.getByText('Application Stack')).toHaveAttribute(
       'href',

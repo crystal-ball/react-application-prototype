@@ -1,17 +1,12 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import { render, screen } from '@testing-library/react'
 
-import configureStore from '@/dux/store'
+import { render, screen } from '@/utils/testing-library'
 import HomeScreen from './HomeScreen'
 
 describe('<HomeScreen />', () => {
   test('When screen renders, then page title is included', () => {
-    render(
-      <Provider store={configureStore()}>
-        <HomeScreen />
-      </Provider>,
-    )
+    render(<HomeScreen />)
+
     expect(screen.getByText(/Prototype application/))
   })
 })
