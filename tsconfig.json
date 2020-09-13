@@ -16,6 +16,6 @@
       "@/*": ["src/*"] // Configuration to resolve project `@` relative imports
     }
   },
-  "include": ["src/**/*"],
-  "files": ["src/types/custom.d.ts"]
+  "include": ["cypress/**/*", "src/**/*"]
+  // "files": ["src/types/custom.d.ts"]
 }
