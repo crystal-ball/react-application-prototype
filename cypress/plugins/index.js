@@ -1,26 +1,18 @@
-/* eslint-disable */
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
-
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
-
-let percyHealthCheck = require('@percy/cypress/task')
-const codeCoverageTask = require('@cypress/code-coverage/task')
+import { percyHealthCheck } from '@percy/cypress/task'
+import codeCoverageTask from '@cypress/code-coverage/task'
 
 /**
+ * This function is called when a project is opened or re-opened (e.g. due to
+ * the project's config changing). It can be used to load plugins.
+ *
+ * 📝 https://on.cypress.io/plugins-guide
  * @param on Used to hook into various events Cypress emits
  * @param config The resolved Cypress config
  */
-module.exports = (on, config) => {
-  on('task', percyHealthCheck)
+export default function plugins(on, config) {
+  on('task', {
+    percyHealthCheck,
+  })
 
   codeCoverageTask(on, config)
   return config
