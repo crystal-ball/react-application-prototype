@@ -30,7 +30,7 @@ jobs:
           # Prefix Cypress command with Percy command for screenshots
           command-prefix: 'percy exec -- npx'
           record: true
-          start: BABEL_ENV=cypress npm start
+          start: 'BABEL_ENV=cypress npm start'
           wait-on: 'http://localhost:3000'
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
