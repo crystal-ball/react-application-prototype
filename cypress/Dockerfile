@@ -4,7 +4,8 @@
 FROM cypress/included:5.1.0
 
 # Install any packages used in Cypress test files
-RUN npm install @percy/cypress @testing-library/cypress @cypress/code-coverage
+COPY ./package*.json ./
+RUN CI=true CYPRESS_INSTALL_BINARY=0 npm ci --no-optiona
 
 # Reset the `cypress run` entrypoint set by the `cypress/included` image
 ENTRYPOINT []

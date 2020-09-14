@@ -10,7 +10,6 @@ services:
     # The image field will be used to name the built image, overriding to
     # include /percy for easier identification
     image: cypress/included/percy:5.1.0
-    command: ['npx', 'percy', 'exec', '--', 'cypress', 'run']
     build:
       context: .
       dockerfile: ./cypress/Dockerfile
