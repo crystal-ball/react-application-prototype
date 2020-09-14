@@ -49,7 +49,8 @@ jobs:
       - name: 'Code Climate: Report'
         if: success()
         run: |
-          export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
+          export GIT_BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF:11}}"
+          export GIT_COMMIT="${GIT_COMMIT_SHA}"
 
           ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
           ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.jest.json coverage_jest/lcov.info
@@ -58,4 +59,3 @@ jobs:
           ./cc-test-reporter upload-coverage
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          GIT_BRANCH: ${{ github.head_ref }}
