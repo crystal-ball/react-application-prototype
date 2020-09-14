@@ -6,17 +6,18 @@ jobs:
     name: Continuous Integration
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
         with:
           node-version: '12'
 
-      - name: Code Climate - Setup
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
+      # - name: Code Climate - Setup
+      #   run: |
+      #     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      #     chmod +x ./cc-test-reporter
+      #     ./cc-test-reporter before-build
 
       # Application tests workflow manages:
       #  1. Setting Cypress+Percy git branch env vars (Github actions aren't supported yet)
@@ -24,33 +25,29 @@ jobs:
       #  3. Copy code coverage output from Docker image to workspace for uploading later
       #  4. Running Cypress tests using Docker Compose and NGINX
       - name: Test
-        run: |
-          export COMMIT_INFO_BRANCH="${COMMIT_INFO_BRANCH:-${GITHUB_REF:11}}"
-          export PERCY_BRANCH="${PERCY_BRANCH:-${GITHUB_REF:11}}"
-
-          docker build -t crystal-ball/react-application-prototype .
-          docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress
-
-          # Create a named container to copy out unit test code coverage for CodeClimate
-          docker create --name coverage-container crystal-ball/react-application-prototype
-          docker cp coverage-container:/usr/src/app/coverage_jest .
+        uses: cypress-io/github-action@v2
+        with:
+          # Prefix Cypress command with Percy command for screenshots
+          command-prefix: 'percy exec -- npx'
+          record: true
+          start: BABEL_ENV=cypress npm start
+          wait-on: 'http://localhost:3000'
         env:
-          COMMIT_INFO_BRANCH: ${{ github.head_ref }}
-          PERCY_BRANCH: ${{ github.head_ref }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Allows accurately detecting a build vs a re-run build
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
       # Upload test code coverage report to Code Climate (branch must be explicitly set)
-      - name: Code Climate - Report
-        if: success()
-        run: |
-          export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
+      # - name: Code Climate - Report
+      #   if: success()
+      #   run: |
+      #     export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
 
-          ./cc-test-reporter format-coverage -t lcov --prefix /e2e -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
-          ./cc-test-reporter format-coverage -t lcov --prefix /usr/src/app -o coverage/codeclimate.jest.json coverage_jest/lcov.info
+      #     ./cc-test-reporter format-coverage -t lcov --prefix /e2e -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
+      #     ./cc-test-reporter format-coverage -t lcov --prefix /usr/src/app -o coverage/codeclimate.jest.json coverage_jest/lcov.info
 
-          ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
-          ./cc-test-reporter upload-coverage
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          GIT_BRANCH: ${{ github.head_ref }}
+      #     ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
+      #     ./cc-test-reporter upload-coverage
+      #   env:
+      #     CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      #     GIT_BRANCH: ${{ github.head_ref }}
