@@ -31,9 +31,9 @@ jobs:
           docker build -t crystal-ball/react-application-prototype .
           docker-compose -f docker-compose.yml -f docker-compose.ci.yml up --exit-code-from cypress
 
-          # Create a named container to copy out code coverage report for CodeClimate
+          # Create a named container to copy out unit test code coverage for CodeClimate
           docker create --name coverage-container crystal-ball/react-application-prototype
-          docker cp coverage-container:/usr/src/app/coverage .
+          docker cp coverage-container:/usr/src/app/coverage_jest .
         env:
           COMMIT_INFO_BRANCH: ${{ github.head_ref }}
           PERCY_BRANCH: ${{ github.head_ref }}
@@ -46,7 +46,7 @@ jobs:
         run: |
           export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
 
-          ./cc-test-reporter format-coverage -t lcov --prefix /usr/src/app -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
+          ./cc-test-reporter format-coverage -t lcov --prefix /e2e -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
           ./cc-test-reporter format-coverage -t lcov --prefix /usr/src/app -o coverage/codeclimate.jest.json coverage_jest/lcov.info
 
           ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2

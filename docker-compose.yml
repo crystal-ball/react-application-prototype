@@ -17,10 +17,5 @@ services:
       - TERM=xterm
     depends_on:
       - application
-    working_dir: /e2e
     volumes:
-      # Only copy Cypress configs, the docs example of mounting the entire repo
-      # like `./:/e2e` fails Cypress because then the `babel.config.js` is picked
-      # up and Cypress tries to use it to transpile tests which is bad
-      - ./cypress.json:/e2e/cypress.json
-      - ./cypress:/e2e/cypress
+      - .:/e2e

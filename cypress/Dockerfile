@@ -3,6 +3,8 @@
 
 FROM cypress/included:5.1.0
 
+WORKDIR /e2e
+
 # Install any packages used in Cypress test files
 RUN npm install @percy/cypress @testing-library/cypress @cypress/code-coverage
 
