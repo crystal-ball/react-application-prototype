@@ -13,12 +13,6 @@ jobs:
         with:
           node-version: '12'
 
-      - name: 'Code Climate: Setup'
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-
       # Take advantage of smart caching built into Cypress GH action to install
       # dependencies
       - name: Install dependencies
@@ -52,10 +46,19 @@ jobs:
           export GIT_BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF:11}}"
           export GIT_COMMIT="${GIT_COMMIT_SHA}"
 
+          # Fetch Code Climate binary
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+
+          # Notify Code Climate of the pending report
+          ./cc-test-reporter before-build
+
+          # Format and merge unit and e2e coverage reports
           ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
           ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.jest.json coverage_jest/lcov.info
-
           ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
+
+          # Send final report to Code Climate
           ./cc-test-reporter upload-coverage
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
