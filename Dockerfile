@@ -24,10 +24,10 @@ RUN npm run test:lint
 RUN npm run test:unit
 
 # Run a prod build
-RUN npm run build
+RUN BABEL_ENV=cypress npm run build
 
 # Create a config file for `serve`
-RUN echo "{ \"public\": \"public\" }" >> ./serve.json
+RUN echo "{ \"public\": \"public\", \"rewrites\": [{ \"source\": \"*\", \"destination\": \"/index.html\" }] }" >> ./serve.json
 
 # Serve the app in the container on :5000
 CMD ["serve"]

@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('Application', () => {
+describe('Application screen', () => {
   beforeEach(() => {
     cy.visit('/')
   })
@@ -22,13 +22,13 @@ describe('Application', () => {
   })
 
   it('should produce anchor tags with hrefs', () => {
-    cy.get('[data-testid=nav-link]').each(($link) => {
+    cy.findAllByRole('link').each(($link) => {
       expect($link).to.have.attr('href')
     })
   })
 
   it('should navigate', () => {
-    cy.get('[data-testid=nav-link]').eq(1).click()
+    cy.findByRole('link', { name: /Application Stack/i }).click()
 
     cy.url().should('include', '/application-stack')
     cy.contains('Application stack')

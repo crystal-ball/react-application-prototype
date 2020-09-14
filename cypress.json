@@ -1,7 +1,8 @@
 {
   "baseUrl": "http://localhost:3000",
-  "video": false,
+  "integrationFolder": "cypress/tests",
   "projectId": "v3cpt4",
+  "video": false,
   "viewportHeight": 900,
   "viewportWidth": 1280
 }
