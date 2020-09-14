@@ -9,6 +9,7 @@ services:
 
   cypress:
     image: cypress/included:5.1.0
+    working_dir: /e2e
     # See https://github.com/cypress-io/cypress/issues/350
     ipc: host
     environment:
