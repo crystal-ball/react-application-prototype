@@ -100,6 +100,25 @@ npm run test:watch
 npm run test:acceptance
 ```
 
+### Code coverage
+
+In CI runs code coverage is collected for unit and E2E tests and uploaded to
+Code Climate.
+
+**Cypress** code coverage uses the Istanbul Babel plugin using the `BABEL_ENV`
+environment variabel and the Cypress code coverage plugin.
+
+- [Cypress code coverage](https://docs.cypress.io/guides/tooling/code-coverage.html)
+- [NYC configs for Istanbul](https://github.com/istanbuljs/nyc#common-configuration-options)
+
+**Jest** code coverage is reported by Jest and is configured in
+`jest.config.js`.
+
+- [Jest coverage docs](https://jestjs.io/docs/en/configuration#coveragedirectory-string)
+
+The tests each output to their own directories and the reports are formatted,
+merged and uploaded in the [CI/CD action](./.github/workflows/ci-cd.yml)
+
 ### Testing patterns
 
 - _React Router_ management requires the addition of a `MemoryRouter` (reference
@@ -126,25 +145,3 @@ _Miscellaneous project notes and explanations_
 
 - Jest IntelliSense isn't working unless the `@types/jest` package is installed
   as a project dependency.
-
-## Code coverage deets
-
-Ideal for Cypress:
-
-- Setup to run locally in Docker to mimic CI/CD
-- docker-compose.ci.yml with additional env values and --record
-
-Cypress code coverage tutorial:
-https://docs.cypress.io/guides/tooling/code-coverage.html
-
-- Add the Babel Istanbul plugin to instrument code, using `BABEL_ENV` to only
-  instrument the app for Cypress runs. Ref:
-  https://github.com/istanbuljs/babel-plugin-istanbul
-- Add Cypress code coverage plugin to report coverage after test run Ref:
-  https://github.com/cypress-io/code-coverage
-- Configure Cypress coverage to output to `coverage_cypress` Ref:
-  https://github.com/istanbuljs/nyc#common-configuration-options
-- Configure Jest coverage to output to `coverage_jest` Ref:
-  https://jestjs.io/docs/en/configuration#coveragedirectory-string
-
-Possible to get coverage running locally?
