@@ -12,7 +12,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ title }: HeroProps) => {
   return (
-    <Block borderRight className={layoutClasses.heroSection} borderColor='300'>
+    <Block className={layoutClasses.heroSection} borderColor='300' borderRight>
       <div className={classes.background} data-testid='hero-img'>
         <Text variant='display-1' textAlign='center' mt={80}>
           {title}

@@ -5,7 +5,7 @@ import { Link } from '../Link/Link'
 
 export const Header: React.FC = () => {
   return (
-    <Flex borderBottom as='nav' justify='end' backgroundColor='overlay' borderColor='100'>
+    <Flex as='nav' justify='end' backgroundColor='overlay' borderColor='100' borderBottom>
       <Block p='md'>
         <Link data-testid='nav-link' to='/'>
           Overview

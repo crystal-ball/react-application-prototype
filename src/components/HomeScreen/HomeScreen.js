@@ -21,7 +21,7 @@ export default function HomeScreen() {
           </span>
           projects
         </Text>
-        <Text italic mt={0} textAlign='center' maxWidth='unset'>
+        <Text mt={0} textAlign='center' maxWidth='unset' italic>
           v{PACKAGE_VERSION}
         </Text>
 

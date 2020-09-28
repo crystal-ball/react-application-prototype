@@ -40,7 +40,6 @@ const store = createStore()
 
 // Configure components that will be used to render elements parsed out by MDX
 const components = {
-  /* eslint-disable react/no-multi-comp */
   h1: (props) => <Text variant='heading-1' {...props} />,
   h2: (props) => <Text variant='heading-2' {...props} />,
   h3: (props) => <Text variant='heading-3' {...props} />,

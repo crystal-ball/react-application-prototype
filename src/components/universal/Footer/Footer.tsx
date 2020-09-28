@@ -4,7 +4,6 @@ import { Flex, Icon, Text } from 'componentry'
 export const Footer: React.FC = () => {
   return (
     <Flex
-      borderTop
       as='footer'
       align='center'
       backgroundColor='ultra'
@@ -13,6 +12,7 @@ export const Footer: React.FC = () => {
       mt='xl'
       px='xl'
       py='md'
+      borderTop
     >
       <Icon
         data-testid='heart'
