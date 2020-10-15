@@ -1,15 +1,9 @@
-import { Button, Flex, Icon, Input, List, Text, Typography } from 'componentry'
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useMemo, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Flex, Icon, Input, List, Text, Typography } from 'componentry'
 
 import { Footer, Header, Link } from '@/components/universal'
-import { APPLICATION_DEPENDENCIES } from '@/config/environment'
-import {
-  getPackage,
-  getPackageSearchFilter,
-  getSelectedPackageId,
-  updatePackageSearchFilter,
-} from '@/dux/packages'
+import { selectPackagesById, selectSelectedPackageId } from '@/dux/packages'
 import CodeClimate from '@/media/code-climate.svg'
 import Cypress from '@/media/cypress.svg'
 import Github from '@/media/github.svg'
@@ -27,29 +21,21 @@ const integrations = [
   { id: 'zeit', Logo: Zeit },
 ]
 
-/**
- * @typedef {Object} Dependency
- * @property {string} id
- * @property {string} name
- * @property {string} version
- */
+const StackScreen: React.FC = () => {
+  const packages = useSelector(selectPackagesById)
+  const selectedPackageId = useSelector(selectSelectedPackageId)
 
-/** @type {Dependency[]} */
-const dependencies = JSON.parse(APPLICATION_DEPENDENCIES)
+  const [searchValue, setSearchValue] = useState('')
 
-export default function StackScreen() {
-  const dispatch = useDispatch()
+  // --------------------------------------------------------
+  // Effects
 
-  const packageSearchFilter = useSelector(getPackageSearchFilter)
-  const selectedPackageId = useSelector(getSelectedPackageId)
-  const selectedPackage = useSelector(getPackage(selectedPackageId))
+  const matchedDependencies = useMemo(() => {
+    return Object.values(packages).filter((pkg) => pkg.name.includes(searchValue))
+  }, [packages, searchValue])
 
-  const [searchValue, setSearchValue] = useState(packageSearchFilter)
-
-  // ℹ️ Possible example for memoization?
-  const matchedDependencies = dependencies.filter((dependency) =>
-    dependency.name.includes(packageSearchFilter),
-  )
+  // --------------------------------------------------------
+  // Render
 
   return (
     <Flex className={layoutClasses.mainSection} direction='column'>
@@ -74,38 +60,22 @@ export default function StackScreen() {
                 />
               </Input>
             </div>
-            <Button
-              ml='md'
-              onClick={() => {
-                dispatch(updatePackageSearchFilter(searchValue))
-              }}
-            >
-              Search
-            </Button>
           </Flex>
 
           <List mt='md' width='50%'>
             {matchedDependencies.map((pkg) => (
               <List.Item
-                key={pkg.id}
+                key={pkg.name}
                 as={Link}
-                active={pkg.id === selectedPackage?.id}
-                to={`/application-stack/${encodeURIComponent(pkg.id)}${
-                  packageSearchFilter ? `?search=${packageSearchFilter}` : ''
+                active={pkg.name === selectedPackageId}
+                to={`/application-stack/${encodeURIComponent(pkg.name)}${
+                  searchValue ? `?search=${searchValue}` : ''
                 }`}
               >
                 {pkg.name}@{pkg.version}
               </List.Item>
             ))}
           </List>
-        </Flex>
-        <Flex>
-          {selectedPackage && (
-            <>
-              <Typography variant='heading-2'>Package selected</Typography>
-              <Typography>Yay</Typography>
-            </>
-          )}
         </Flex>
 
         <Typography variant='heading-2' mt='xl'>
@@ -127,4 +97,4 @@ export default function StackScreen() {
   )
 }
 
-StackScreen.propTypes = {}
+export default StackScreen

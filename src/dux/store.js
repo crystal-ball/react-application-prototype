@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import { routingMiddleware, setupRoutingListeners } from 'dux-routing'
 
 import { NODE_ENV } from '@/config/environment'
-import rootReducer from './reducers'
+import { rootReducer } from './root-reducer'
 import rootSaga from './sagas'
 
 export function createStore(preloadedState) {
@@ -15,7 +15,8 @@ export function createStore(preloadedState) {
   // Create store, overriding preloaded state if needed
   const store = configureStore({
     reducer: rootReducer,
-    middleware: [routingMiddleware, sagaMiddleware],
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(routingMiddleware, sagaMiddleware),
     preloadedState,
   })
 
@@ -24,10 +25,13 @@ export function createStore(preloadedState) {
 
   // Accept hot reload for reducers in dev envs
   if (NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('./reducers', () => store.replaceReducer(rootReducer))
+    module.hot.accept('./root-reducer', () => store.replaceReducer(rootReducer))
   }
 
   setupRoutingListeners(store)
 
   return store
 }
+
+// ?? How to export the type of dispatch with `createStore` pattern?
+// export type AppDispatch = typeof store.dispatch
