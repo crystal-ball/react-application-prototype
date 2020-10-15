@@ -1,6 +1,25 @@
 import { Package } from '@/models/Package'
 import { logger } from '@/utils/logger'
 
+/** Decorates the package.json JSON with Package fields */
+const decoratePackages = (
+  packages: Record<string, string>,
+  devDependencies: boolean,
+): Record<string, Package> => {
+  const decoratedPackages: Record<string, Package> = {}
+
+  Object.keys(packages).forEach((pkgName) => {
+    decoratedPackages[pkgName] = {
+      name: pkgName,
+      version: packages[pkgName],
+      devDependency: devDependencies,
+      description: '',
+    }
+  })
+
+  return decoratedPackages
+}
+
 const fetchPackages = async (): Promise<null | { [name: string]: Package }> => {
   try {
     const res = await fetch('/static/json/package.json')
@@ -8,26 +27,10 @@ const fetchPackages = async (): Promise<null | { [name: string]: Package }> => {
 
     logger('packages loaded')
 
-    const { dependencies, devDependencies } = json
-    const packages = {}
-
-    Object.keys(json.dependencies).forEach((pkgName) => {
-      packages[pkgName] = {
-        name: pkgName,
-        version: dependencies[pkgName],
-        devDependencies: false,
-      }
-    })
-
-    Object.keys(json.devDependencies).forEach((pkgName) => {
-      packages[pkgName] = {
-        name: pkgName,
-        version: devDependencies[pkgName],
-        devDependencies: true,
-      }
-    })
-
-    return packages
+    return {
+      ...decoratePackages(json.dependencies, false),
+      ...decoratePackages(json.devDependencies, true),
+    }
   } catch (err) {
     logger(err.mesage)
     return null
