@@ -3,7 +3,7 @@ import { Block, Flex, Icon, Text } from 'componentry'
 
 import { Link } from '@/components/universal'
 
-export default function FourOhFourScreen() {
+const FourOhFourScreen: React.FC = () => {
   return (
     <div className='flex-grow-1'>
       <Text variant='heading-2' mt='xl' align='center'>
@@ -22,3 +22,5 @@ export default function FourOhFourScreen() {
   )
 }
 FourOhFourScreen.displayName = 'FourOhFourScreen'
+
+export default FourOhFourScreen

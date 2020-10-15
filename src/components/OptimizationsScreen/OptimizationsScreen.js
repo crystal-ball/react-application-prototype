@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux'
 import { Flex, Typography } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
-import { getPackage } from '@/dux/packages'
+import { selectPackage } from '@/dux/packages'
 
 export default function OptimizationsScreen() {
-  const selectedPackage = useSelector(getPackage)
+  const selectedPackage = useSelector(selectPackage('componentry'))
 
   return (
     <Flex direction='column' className='flex-grow-1'>
@@ -20,7 +20,7 @@ export default function OptimizationsScreen() {
           <div>
             <Typography variant='heading-3'>Package details</Typography>
             <Typography>{selectedPackage.name}</Typography>
-            <Typography>{selectedPackage.size}</Typography>
+            <Typography>{selectedPackage.description}</Typography>
           </div>
         )}
       </Flex>

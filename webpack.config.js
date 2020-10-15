@@ -1,6 +1,7 @@
 'use strict'
 
 const webpackBase = require('@crystal-ball/webpack-base')
+const CopyPlugin = require('copy-webpack-plugin')
 
 const { themeAccessor } = require('./webpack/theme-accessor')
 const packageJSON = require('./package.json')
@@ -15,16 +16,6 @@ const packageJSON = require('./package.json')
 const { configs } = webpackBase({
   envVars: {
     PACKAGE_VERSION: packageJSON.version,
-    APPLICATION_DEPENDENCIES: JSON.stringify(
-      Object.entries(packageJSON.dependencies).map((pkg) => {
-        const [name, version] = pkg
-        return {
-          id: `${name}@${version}`,
-          name,
-          version,
-        }
-      }),
-    ),
   },
   sassOptions: {
     functions: {
@@ -40,5 +31,11 @@ const { configs } = webpackBase({
 if (process.env.NODE_ENV === 'development') {
   configs.resolve.alias['react-dom'] = '@hot-loader/react-dom'
 }
+
+configs.plugins.push(
+  new CopyPlugin({
+    patterns: [{ from: './package.json', to: 'static/json/package.json' }],
+  }),
+)
 
 module.exports = configs

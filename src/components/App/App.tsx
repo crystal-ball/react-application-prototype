@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
 import { getPathname, routeSwitch } from 'dux-routing'
 
+import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
 import { Hero } from '@/components/universal'
 import { routeDetails } from '@/config/routing'
 
@@ -20,9 +21,7 @@ const routeConfigs = [
   },
   {
     route: routeDetails.Stack.path,
-    component: lazy(
-      () => import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
-    ),
+    component: StackScreenLoader,
   },
   {
     route: routeDetails.React.path,

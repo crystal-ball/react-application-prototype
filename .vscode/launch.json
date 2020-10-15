@@ -17,7 +17,7 @@
     // Launch the application in Edge pointing to webpack-dev-server
     {
       "name": "Launch App - Edge",
-      "type": "edge",
+      "type": "pwa-msedge",
       "request": "launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}",

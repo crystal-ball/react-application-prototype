@@ -32,7 +32,7 @@
     "test:acceptance": "docker-compose up --exit-code-from cypress",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "format": "prettier --write . !CHANGELOG.md !coverage !public"
+    "format": "prettier --write . !CHANGELOG.md !coverage_cypress !coverage_jest !public"
   },
   "dependencies": {
     "@babel/runtime": "7.11.2",
@@ -75,6 +75,7 @@
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.0.4",
     "@types/jest": "26.0.14",
+    "@types/react-redux": "7.1.9",
     "babel-plugin-istanbul": "6.0.0",
     "cypress": "5.3.0",
     "eslint-config-eloquence": "16.3.1",
