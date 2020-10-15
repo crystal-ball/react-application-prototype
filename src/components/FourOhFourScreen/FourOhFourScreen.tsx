@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC } from 'react'
 import { Block, Flex, Icon, Text } from 'componentry'
 
 import { Link } from '@/components/universal'
 
-const FourOhFourScreen: React.FC = () => {
+const FourOhFourScreen: FC = () => {
   return (
     <div className='flex-grow-1'>
       <Text variant='heading-2' mt='xl' align='center'>

@@ -1,17 +1,17 @@
-import React from 'react'
+import { FC, ReactNode } from 'react'
 import { useDispatch } from 'react-redux'
 import { Anchor } from 'componentry'
 import { updatePathname } from 'dux-routing'
 
 interface LinkProps {
-  children: React.ReactNode
+  children: ReactNode
   /** Route path to link to */
   to: string
   /** Search params to append to route path */
   searchParams?: { [x: string]: string }
 }
 
-export const Link: React.FC<LinkProps> = ({
+export const Link: FC<LinkProps> = ({
   children,
   to,
   searchParams,

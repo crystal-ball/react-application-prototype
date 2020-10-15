@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { Anchor, Block, Text } from 'componentry'
 
 import Github from '@/media/github.svg'
@@ -10,7 +10,7 @@ interface HeroProps {
   title: string
 }
 
-export const Hero: React.FC<HeroProps> = ({ title }: HeroProps) => {
+export const Hero: FC<HeroProps> = ({ title }: HeroProps) => {
   return (
     <Block className={layoutClasses.heroSection} borderColor='300' borderRight>
       <div className={classes.background} data-testid='hero-img'>

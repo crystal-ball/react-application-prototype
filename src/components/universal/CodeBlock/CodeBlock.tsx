@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 
-import React from 'react'
+import { FC } from 'react'
 import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 
 import { radicalTheme } from './radical-prism-theme'
@@ -11,7 +11,7 @@ interface CodeBlockProps {
 }
 
 // https://mdxjs.com/guides/syntax-highlighting#build-a-codeblock-component
-export const CodeBlock: React.FC<CodeBlockProps> = ({
+export const CodeBlock: FC<CodeBlockProps> = ({
   children,
   className,
 }: CodeBlockProps) => {
