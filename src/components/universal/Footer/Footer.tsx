@@ -1,7 +1,7 @@
-import React from 'react'
+import { FC } from 'react'
 import { Flex, Icon, Text } from 'componentry'
 
-export const Footer: React.FC = () => {
+export const Footer: FC = () => {
   return (
     <Flex
       as='footer'

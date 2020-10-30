@@ -2,6 +2,7 @@
 
 const path = require('path')
 const webpackBase = require('@crystal-ball/webpack-base')
+const babelBase = require('@crystal-ball/babel-base').default
 
 const { loaders, plugins } = webpackBase({ target: 'storybook' })
 
@@ -12,6 +13,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
+  babel: async () => babelBase({ env: process.env.NODE_ENV, target: 'react' }),
   webpackFinal: async (config) => {
     /* eslint-disable no-param-reassign */
 

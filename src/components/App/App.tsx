@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
 import { getPathname, routeSwitch } from 'dux-routing'

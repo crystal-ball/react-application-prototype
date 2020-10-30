@@ -4,7 +4,7 @@
  * @module
  */
 
-import React, { lazy, useEffect } from 'react'
+import { FC, lazy, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { packagesAPI } from '@/api/packages'
@@ -14,7 +14,7 @@ const StackScreen = lazy(
   () => import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
 )
 
-export const StackScreenLoader: React.FC = () => {
+export const StackScreenLoader: FC = () => {
   const dispatch = useDispatch()
 
   useEffect(

@@ -11,7 +11,7 @@ import 'regenerator-runtime/runtime'
  * development react-dom is aliased to @hot-loader/react-dom in webpack configs
  */
 import 'react-hot-loader'
-import React from 'react'
+import { StrictMode } from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { MDXProvider } from '@mdx-js/react'
@@ -52,7 +52,7 @@ const components = {
 // Start the party 🎉
 // Render all the application root providers and application root component
 render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <Theme theme={componentryTheme}>
         <MDXProvider components={components}>
@@ -60,7 +60,7 @@ render(
         </MDXProvider>
       </Theme>
     </Provider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root'),
 )
 

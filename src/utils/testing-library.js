@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-imports -- App RTL utils setup file */
-import React from 'react'
 import PropTypes from 'prop-types'
 import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'

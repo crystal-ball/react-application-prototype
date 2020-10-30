@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import { FC, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Flex, Icon, Input, List, Text, Typography } from 'componentry'
 
@@ -21,7 +21,7 @@ const integrations = [
   { id: 'zeit', Logo: Zeit },
 ]
 
-const StackScreen: React.FC = () => {
+const StackScreen: FC = () => {
   const packages = useSelector(selectPackagesById)
   const selectedPackageId = useSelector(selectSelectedPackageId)
 

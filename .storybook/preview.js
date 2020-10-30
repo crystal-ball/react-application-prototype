@@ -1,4 +1,3 @@
-import React from 'react'
 import { Theme } from 'componentry'
 import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 

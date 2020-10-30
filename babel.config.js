@@ -3,7 +3,9 @@
 const babelBase = require('@crystal-ball/babel-base').default
 
 module.exports = function babelConfigs(api) {
-  const configs = babelBase({ env: api.env, target: 'react' })
+  api.cache(() => process.env.NODE_ENV)
+
+  const configs = babelBase({ env: process.env.NODE_ENV, target: 'react' })
 
   /**
    * Target environment for collecting code coverage against the application

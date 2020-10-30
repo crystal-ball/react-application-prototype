@@ -1,6 +1,4 @@
-import React from 'react'
 import * as reactRedux from 'react-redux'
-
 import { createEvent, fireEvent, render, screen } from '@/utils/testing-library'
 import { Link } from './Link'
 
