@@ -35,13 +35,13 @@
     "format": "prettier --write . !CHANGELOG.md !coverage_cypress !coverage_jest !public"
   },
   "dependencies": {
-    "@babel/runtime": "7.12.1",
+    "@babel/runtime": "7.12.5",
     "@hot-loader/react-dom": "17.0.0",
-    "@mdx-js/react": "1.6.19",
+    "@mdx-js/react": "1.6.21",
     "@reduxjs/toolkit": "1.4.0",
     "classnames": "2.2.6",
     "componentry": "3.0.0",
-    "core-js": "3.6.5",
+    "core-js": "3.7.0",
     "dux-routing": "0.5.0",
     "nanoid": "3.1.16",
     "path-to-regexp": "6.2.0",
