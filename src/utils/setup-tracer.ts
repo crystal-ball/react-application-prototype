@@ -3,13 +3,17 @@ import { WebTracerProvider } from '@opentelemetry/web'
 import { BatchSpanProcessor } from '@opentelemetry/tracing'
 import { CollectorTraceExporter } from '@opentelemetry/exporter-collector'
 import { DocumentLoad } from '@opentelemetry/plugin-document-load'
+import { Resource } from '@opentelemetry/resources'
 
-import { LS_ACCESS_TOKEN, NODE_ENV } from '@/config/environment'
+import { LS_ACCESS_TOKEN, NODE_ENV, RELEASE_VERSION } from '@/config/environment'
 
 if (NODE_ENV === 'production') {
   // Create a provider for activating and tracking spans
   const tracerProvider = new WebTracerProvider({
     plugins: [new DocumentLoad()],
+    resource: Resource.createTelemetrySDKResource().merge(
+      new Resource({ 'service.version': RELEASE_VERSION }),
+    ),
   })
 
   // Connect to Lightsstep by configuring the exporter with your endpoint and access token.
