@@ -17,6 +17,7 @@ const { configs } = webpackBase({
   envVars: {
     PACKAGE_VERSION: packageJSON.version,
     LS_ACCESS_TOKEN: process.env.LS_ACCESS_TOKEN || '',
+    RELEASE_VERSION: (process.env.VERCEL_GITHUB_COMMIT_SHA || '').slice(0, 7),
   },
   sassOptions: {
     functions: {
