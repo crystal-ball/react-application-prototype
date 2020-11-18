@@ -22,6 +22,9 @@ if (NODE_ENV === 'production') {
           'Lightstep-Access-Token': LS_ACCESS_TOKEN,
         },
       }),
+      {
+        bufferTimeout: 1000,
+      },
     ),
   )
 
