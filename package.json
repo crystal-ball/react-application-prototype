@@ -62,7 +62,7 @@
     "@crystal-ball/babel-base": "2.0.0",
     "@crystal-ball/commitizen-base": "2.8.0",
     "@crystal-ball/prettier-base": "2.4.0",
-    "@crystal-ball/webpack-base": "9.15.0",
+    "@crystal-ball/webpack-base": "10.0.0",
     "@cypress/code-coverage": "3.8.3",
     "@percy/cypress": "2.3.2",
     "@storybook/addon-essentials": "6.0.28",
