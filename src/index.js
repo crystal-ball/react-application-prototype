@@ -7,6 +7,11 @@ import 'core-js'
 import 'regenerator-runtime/runtime'
 
 /**
+ * Setup OTel tracing
+ */
+import './utils/setup-tracer'
+
+/**
  * ℹ️ RHL must be imported before React/DOM for some setup magic, note during
  * development react-dom is aliased to @hot-loader/react-dom in webpack configs
  */

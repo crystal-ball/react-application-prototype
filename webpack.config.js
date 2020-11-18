@@ -16,6 +16,7 @@ const packageJSON = require('./package.json')
 const { configs } = webpackBase({
   envVars: {
     PACKAGE_VERSION: packageJSON.version,
+    LS_ACCESS_TOKEN: process.env.LS_ACCESS_TOKEN || '',
   },
   sassOptions: {
     functions: {

@@ -7,3 +7,4 @@
 export const DEBUG = process.env.DEBUG
 export const NODE_ENV = process.env.NODE_ENV
 export const PACKAGE_VERSION = process.env.PACKAGE_VERSION
+export const LS_ACCESS_TOKEN = process.env.LS_ACCESS_TOKEN
