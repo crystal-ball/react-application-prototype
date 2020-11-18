@@ -16,7 +16,7 @@ if (NODE_ENV === 'production') {
   tracerProvider.addSpanProcessor(
     new BatchSpanProcessor(
       new CollectorTraceExporter({
-        serviceName: 'ReactApplicationPrototype',
+        serviceName: 'react-application-prototype',
         url: 'https://ingest.lightstep.com:443/api/v2/otel/trace',
         headers: {
           'Lightstep-Access-Token': LS_ACCESS_TOKEN,
