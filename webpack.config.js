@@ -4,7 +4,6 @@ const webpackBase = require('@crystal-ball/webpack-base')
 const CopyPlugin = require('copy-webpack-plugin')
 
 const { themeAccessor } = require('./webpack/theme-accessor')
-const packageJSON = require('./package.json')
 
 /*
  * Generate the base configuration object by passing the environment flags and
@@ -15,7 +14,6 @@ const packageJSON = require('./package.json')
 
 const { configs } = webpackBase({
   envVars: {
-    PACKAGE_VERSION: packageJSON.version,
     LS_ACCESS_TOKEN: process.env.LS_ACCESS_TOKEN || '',
     RELEASE_VERSION: (process.env.VERCEL_GITHUB_COMMIT_SHA || '').slice(0, 7),
   },

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import { Flex, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
-import { PACKAGE_VERSION } from '@/config/environment'
 import layoutClasses from '@/components/App/layouts.scss'
 
 /** HomeScreen */
@@ -20,9 +19,6 @@ export default function HomeScreen() {
           </span>
           projects
         </Text>
-        <Text mt={0} textAlign='center' maxWidth='unset' italic>
-          v{PACKAGE_VERSION}
-        </Text>
 
         <div className='mx-xl mt-xl'>
           <Text variant='heading-3'>
@@ -30,31 +26,15 @@ export default function HomeScreen() {
           </Text>
           <ul className='list-disc list-inside mt-md'>
             <li>
-              JS loader setup to transpile all source in the{' '}
-              <code>babelLoaderInclude</code> with the <code>babel-loader</code>
-            </li>
-            <li>Appropriate sourcemaps for dev vs prod builds</li>
-            <li>
-              Handles adding scripts to <code>index.html</code>
-            </li>
-            <li>Friendly errors</li>
-            <li>Dev server with hot reloading</li>
-            <li>Progress indicators</li>
-            <li>Production optimizations including uglify and module concatenation</li>
-            <li>Output directory cleaning</li>
-            <li>
-              Injected <code>PUBLIC_PATH</code> for routing
-            </li>
-            <li>
-              Auto deploy with Zeit{' '}
+              Automaic deployments with Vercel{' '}
               <span aria-label='mindblown' role='img'>
-                🤯
+                🚀
               </span>
             </li>
             <li>
               All the notifications in Slack{' '}
               <span aria-label='yay' role='img'>
-                🎉
+                📣
               </span>
             </li>
             <li>
@@ -62,6 +42,27 @@ export default function HomeScreen() {
               <span aria-label='hedgehog' role='img'>
                 🦔
               </span>
+            </li>
+            <li>
+              Application observability with OpenTelemetry and Lightstep{' '}
+              <span aria-label='telescope' role='img'>
+                🔭
+              </span>
+            </li>
+            <li>JS compilation with Babel+webpack</li>
+            <li>Sourcemaps for dev and prod workflows</li>
+            <li>
+              Automatic script injection with <code>html-webpack-plugin</code>
+            </li>
+            <li>
+              Friendly webpack errors with <code>friendly-errors-webpack-plugin</code>
+            </li>
+            <li>Dev server with hot reloading</li>
+            <li>Progress indicators</li>
+            <li>Production optimizations including uglify and module concatenation</li>
+            <li>Output directory cleaning</li>
+            <li>
+              Injected <code>PUBLIC_PATH</code> for routing
             </li>
           </ul>
         </div>
