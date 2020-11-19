@@ -20,7 +20,18 @@ const decoratePackages = (
   return decoratedPackages
 }
 
-const fetchPackages = async (): Promise<null | { [name: string]: Package }> => {
+export const fetchPackageSize = async (packageId: string): Promise<null | number> => {
+  try {
+    const res = await fetch(`https://bundlephobia.com/api/size?package=${packageId}`)
+    const packageDetails = await res.json()
+    return packageDetails.gzip
+  } catch (err) {
+    logger(err)
+    return null
+  }
+}
+
+export const fetchPackages = async (): Promise<null | { [name: string]: Package }> => {
   try {
     const res = await fetch('/static/json/package.json')
     const json = await res.json()
@@ -35,8 +46,4 @@ const fetchPackages = async (): Promise<null | { [name: string]: Package }> => {
     logger(err.mesage)
     return null
   }
-}
-
-export const packagesAPI = {
-  fetchPackages,
 }

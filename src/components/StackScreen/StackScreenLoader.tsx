@@ -7,7 +7,7 @@
 import { FC, lazy, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { packagesAPI } from '@/api/packages'
+import { fetchPackages } from '@/api/packages'
 import { updatePackages } from '@/dux/packages'
 
 const StackScreen = lazy(
@@ -20,7 +20,7 @@ export const StackScreenLoader: FC = () => {
   useEffect(
     function fetchAndUpdatePackages() {
       async function initializePackages() {
-        dispatch(updatePackages(await packagesAPI.fetchPackages()))
+        dispatch(updatePackages(await fetchPackages()))
       }
 
       initializePackages()

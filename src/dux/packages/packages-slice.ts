@@ -3,9 +3,18 @@
  * @module
  */
 
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { AnyAction, PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { PATHNAME_UPDATED, matchRoute, updatePathname } from 'dux-routing'
 
+import { routeDetails } from '@/config/routing'
 import { PackagesById } from './types'
+
+type UpdatePathnameAction = ReturnType<typeof updatePathname>
+
+/** Redux Toolkit matcher for handling PATHNAME_UPDATED actions */
+function isPathnameAction(action: AnyAction): action is UpdatePathnameAction {
+  return action.type === PATHNAME_UPDATED
+}
 
 /** Packages' Redux state */
 type PackagesState = {
@@ -29,9 +38,17 @@ export const packagesSlice = createSlice({
       state.packagesById = action.payload
     },
   },
-  /* eslint-enable no-param-reassign */
-  // TODO: Add a builder updating selectedPackage when route changes
-  // extraReducers: (builder) => {}
+
+  extraReducers: (builder) => {
+    builder.addMatcher(isPathnameAction, (state, action) => {
+      // 🤩 THIS ACTION IS TYPE SAFE
+      const match = matchRoute(action.payload.pathname, routeDetails.Stack.path)
+      if (match) {
+        state.selectedPackageId = match.params.package
+      }
+    })
+    /* eslint-enable no-param-reassign */
+  },
 })
 
 export const { updatePackages } = packagesSlice.actions
