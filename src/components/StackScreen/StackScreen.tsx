@@ -1,9 +1,12 @@
-import { FC, useMemo, useState } from 'react'
+import { FC, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Flex, Icon, Input, List, Text, Typography } from 'componentry'
+import numeral from 'numeral'
+import { Block, Flex, Icon, Input, List, Text, Typography } from 'componentry'
 
+import { fetchPackageSize } from '@/api/packages'
 import { Footer, Header, Link } from '@/components/universal'
 import { selectPackagesById, selectSelectedPackageId } from '@/dux/packages'
+import Bundlephobia from '@/media/bundlephobia.svg'
 import CodeClimate from '@/media/code-climate.svg'
 import Cypress from '@/media/cypress.svg'
 import Github from '@/media/github.svg'
@@ -26,9 +29,20 @@ const StackScreen: FC = () => {
   const selectedPackageId = useSelector(selectSelectedPackageId)
 
   const [searchValue, setSearchValue] = useState('')
+  const [packageSize, setPackageSize] = useState<number>(null)
 
   // --------------------------------------------------------
   // Effects
+
+  useEffect(() => {
+    const getPackageDetails = async (selectedPackageId: string) => {
+      setPackageSize(await fetchPackageSize(selectedPackageId))
+    }
+
+    if (selectedPackageId) {
+      getPackageDetails(selectedPackageId)
+    }
+  }, [selectedPackageId])
 
   const matchedDependencies = useMemo(() => {
     return Object.values(packages).filter((pkg) => pkg.name.includes(searchValue))
@@ -48,21 +62,19 @@ const StackScreen: FC = () => {
 
         <Text variant='heading-3'>Application dependencies</Text>
 
-        <Flex direction='column'>
-          <Flex>
-            <div className='flex-grow-1'>
-              <Input>
-                <Input.Field
-                  value={searchValue}
-                  onChange={(evt) => {
-                    setSearchValue(evt.target.value)
-                  }}
-                />
-              </Input>
-            </div>
-          </Flex>
+        <Flex width='90%'>
+          <Input>
+            <Input.Field
+              value={searchValue}
+              onChange={(evt) => {
+                setSearchValue(evt.target.value)
+              }}
+            />
+          </Input>
+        </Flex>
 
-          <List mt='md' width='50%'>
+        <Flex mt='md'>
+          <List width='50%'>
             {matchedDependencies.map((pkg) => (
               <List.Item
                 key={pkg.name}
@@ -76,6 +88,20 @@ const StackScreen: FC = () => {
               </List.Item>
             ))}
           </List>
+
+          <Flex width='50%' pl='md'>
+            <div>
+              <Flex className='sticky-top'>
+                <Block pr='sm'>
+                  <Text variant='heading-3'>
+                    GZIP size: {numeral(packageSize).format('0.0 b')}
+                  </Text>
+                  <Text italic>Sizes provided by Bundlephobia</Text>
+                </Block>
+                <Bundlephobia className={classes.bundlephobia} />
+              </Flex>
+            </div>
+          </Flex>
         </Flex>
 
         <Typography variant='heading-2' mt='xl'>
