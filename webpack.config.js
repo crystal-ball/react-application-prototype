@@ -1,6 +1,7 @@
 'use strict'
 
 const webpackBase = require('@crystal-ball/webpack-base')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
 const { themeAccessor } = require('./webpack/theme-accessor')
@@ -25,13 +26,14 @@ const { configs } = webpackBase({
 })
 
 // --------------------------------------------------------
-// Advanced config customizations
+// Application config customizations
 
-// During development use the RHL patched version of react-dom
 if (process.env.NODE_ENV === 'development') {
-  configs.resolve.alias['react-dom'] = '@hot-loader/react-dom'
+  // Enable fast refresh in development
+  configs.plugins.push(new ReactRefreshWebpackPlugin())
 }
 
+// Copy the package.json to the static directory for easy fetch demo
 configs.plugins.push(
   new CopyPlugin({
     patterns: [{ from: './package.json', to: 'static/json/package.json' }],
