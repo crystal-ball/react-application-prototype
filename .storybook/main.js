@@ -1,8 +1,8 @@
 'use strict'
 
-const path = require('path')
 const webpackBase = require('@crystal-ball/webpack-base')
-const babelBase = require('@crystal-ball/babel-base').default
+const { babelBase } = require('@crystal-ball/babel-base')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 const { loaders, plugins } = webpackBase({ target: 'storybook' })
 
@@ -17,10 +17,6 @@ module.exports = {
   webpackFinal: async (config) => {
     /* eslint-disable no-param-reassign */
 
-    // ℹ️ In app this is resolved by a Babel plugin, but for Storybook we're
-    // using a webpack alias so we don't have to mess with its Babel configs
-    config.resolve.alias['@'] = path.resolve(__dirname, '../src')
-
     // --- Loaders ---
 
     // Add loaders for 🔮 SVG sprite and component patterns
@@ -30,6 +26,11 @@ module.exports = {
     ])
 
     // --- Plugins ---
+
+    if (process.env.NODE_ENV === 'development') {
+      // Enable fast refresh in development
+      config.plugins.push(new ReactRefreshWebpackPlugin())
+    }
 
     config.plugins = config.plugins.concat([plugins.svgSymbolSpritePlugin])
 
