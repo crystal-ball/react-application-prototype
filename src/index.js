@@ -11,11 +11,6 @@ import 'regenerator-runtime/runtime'
  */
 import './utils/setup-tracer'
 
-/**
- * ℹ️ RHL must be imported before React/DOM for some setup magic, note during
- * development react-dom is aliased to @hot-loader/react-dom in webpack configs
- */
-import 'react-hot-loader'
 import { StrictMode } from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -30,7 +25,7 @@ import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 import './index.scss'
 import './utils/require-icons'
 
-import App from './components/App/App'
+import { App } from './components/App/App'
 import { CodeBlock } from './components/universal'
 import { NODE_ENV } from './config/environment'
 import { createStore } from './dux/store'

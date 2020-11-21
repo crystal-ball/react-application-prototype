@@ -1,6 +1,5 @@
-import { Suspense, lazy } from 'react'
+import { FC, Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
-import { hot } from 'react-hot-loader/root'
 import { getPathname, routeSwitch } from 'dux-routing'
 
 import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
@@ -51,7 +50,7 @@ const routeConfigs = [
  * Application class component is responsible for setting the base application
  * behaviors and screen layouts+routing.
  */
-function App() {
+export const App: FC = () => {
   const pathname = useSelector(getPathname)
   const { component: Screen, params } = routeSwitch(pathname, routeConfigs)
 
@@ -64,5 +63,3 @@ function App() {
     </div>
   )
 }
-
-export default hot(App)
