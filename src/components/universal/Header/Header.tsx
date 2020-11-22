@@ -1,9 +1,8 @@
-import { FC } from 'react'
 import { Block, Flex } from 'componentry'
 
 import { Link } from '../Link/Link'
 
-export const Header: FC = () => {
+export function Header(): JSX.Element {
   return (
     <Flex as='nav' justify='end' backgroundColor='overlay' borderColor='100' borderBottom>
       <Block p='md'>
@@ -29,4 +28,3 @@ export const Header: FC = () => {
     </Flex>
   )
 }
-Header.displayName = 'Header'

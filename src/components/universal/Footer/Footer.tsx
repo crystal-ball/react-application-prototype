@@ -1,7 +1,6 @@
-import { FC } from 'react'
 import { Flex, Icon, Text } from 'componentry'
 
-export const Footer: FC = () => {
+export function Footer(): JSX.Element {
   return (
     <Flex
       as='footer'
@@ -28,4 +27,3 @@ export const Footer: FC = () => {
     </Flex>
   )
 }
-Footer.displayName = 'Footer'

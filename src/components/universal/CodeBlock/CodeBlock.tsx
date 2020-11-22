@@ -1,20 +1,19 @@
 /* eslint-disable react/no-array-index-key */
 
-import { FC } from 'react'
 import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 
 import { radicalTheme } from './radical-prism-theme'
 
-interface CodeBlockProps {
+type CodeBlockProps = {
   children: string
   className?: string
 }
 
 // https://mdxjs.com/guides/syntax-highlighting#build-a-codeblock-component
-export const CodeBlock: FC<CodeBlockProps> = ({
+export function CodeBlock({
   children,
-  className,
-}: CodeBlockProps) => {
+  className = 'language-text',
+}: CodeBlockProps): JSX.Element {
   // ℹ️ Passed className is from MDX parser
   const language = className.replace(/language-/, '') as Language
 
@@ -33,9 +32,4 @@ export const CodeBlock: FC<CodeBlockProps> = ({
       )}
     </Highlight>
   )
-}
-CodeBlock.displayName = 'CodeBlock'
-
-CodeBlock.defaultProps = {
-  className: 'language-text',
 }

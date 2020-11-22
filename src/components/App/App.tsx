@@ -1,4 +1,4 @@
-import { FC, Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
 import { getPathname, routeSwitch } from 'dux-routing'
 
@@ -50,7 +50,7 @@ const routeConfigs = [
  * Application class component is responsible for setting the base application
  * behaviors and screen layouts+routing.
  */
-export const App: FC = () => {
+export function App(): JSX.Element {
   const pathname = useSelector(getPathname)
   const { component: Screen, params } = routeSwitch(pathname, routeConfigs)
 

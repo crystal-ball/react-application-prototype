@@ -1,9 +1,8 @@
-import { FC } from 'react'
 import { Block, Flex, Icon, Text } from 'componentry'
 
 import { Link } from '@/components/universal'
 
-const FourOhFourScreen: FC = () => {
+export default function FourOhFourScreen(): JSX.Element {
   return (
     <div className='flex-grow-1'>
       <Text variant='heading-2' mt='xl' align='center'>
@@ -21,6 +20,3 @@ const FourOhFourScreen: FC = () => {
     </div>
   )
 }
-FourOhFourScreen.displayName = 'FourOhFourScreen'
-
-export default FourOhFourScreen
