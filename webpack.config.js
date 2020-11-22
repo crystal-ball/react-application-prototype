@@ -3,8 +3,19 @@
 const webpackBase = require('@crystal-ball/webpack-base')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const { themeAccessor } = require('./webpack/theme-accessor')
+
+const cssLoader = {
+  loader: 'css-loader',
+  options: { sourceMap: true },
+}
+
+const postCSSLoader = {
+  loader: 'postcss-loader',
+  options: { sourceMap: true },
+}
 
 /*
  * Generate the base configuration object by passing the environment flags and
@@ -23,6 +34,17 @@ const { configs } = webpackBase({
       'theme($theme-path: null)': themeAccessor,
     },
   },
+})
+
+// --------------------------------------------------------
+// Tailwind support
+
+configs.module.rules.push({
+  test: /\.css$/,
+  use:
+    process.env.NODE_ENV === 'production'
+      ? [MiniCssExtractPlugin.loader, cssLoader, postCSSLoader]
+      : [{ loader: 'style-loader' }, cssLoader, postCSSLoader],
 })
 
 // --------------------------------------------------------

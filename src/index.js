@@ -22,6 +22,7 @@ import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
  * ℹ️ Import SASS styles before any components to include base styles in DOM
  * first and ensure component styles have greater specificity
  */
+import 'tailwindcss/tailwind.css'
 import './index.scss'
 import './utils/require-icons'
 

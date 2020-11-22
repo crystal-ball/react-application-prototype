@@ -20,6 +20,8 @@ export default function HomeScreen() {
           projects
         </Text>
 
+        <div className='text-primary-700 text-opacity-80'>Tailwind testing</div>
+
         <div className='mx-xl mt-xl'>
           <Text variant='heading-3'>
             <Icon id='coffee' /> Application featureset
