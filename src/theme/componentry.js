@@ -1,5 +1,4 @@
-// Application theming for Componentry component behavior, Componentry styles
-// theming is set in theme.scss
+// Default props theme for Componentry components
 export const componentryTheme = {
   Button: {
     color: 'primary',

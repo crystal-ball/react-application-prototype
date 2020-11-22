@@ -1,5 +1,4 @@
 export { CodeBlock } from './CodeBlock/CodeBlock'
 export { Footer } from './Footer/Footer'
 export { Header } from './Header/Header'
-export { Hero } from './Hero/Hero'
 export { Link } from './Link/Link'

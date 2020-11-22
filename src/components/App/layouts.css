@@ -1,11 +1,11 @@
-:local .appLayout {
+.app {
   display: grid;
   width: 100%;
   min-height: 100vh;
 
   grid-template-areas: 'hero' 'main';
 
-  @media (min-width: 1280px) {
+  @media (min-width: theme('breakpoints.lg')) {
     & {
       grid-template-columns: 2fr 3fr;
       grid-template-areas: 'hero main';
@@ -13,10 +13,10 @@
   }
 }
 
-:local .heroSection {
+.hero {
   grid-area: hero;
 }
 
-:local .mainSection {
+.main {
   grid-area: main;
 }
