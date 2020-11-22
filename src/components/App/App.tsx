@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux'
 import { getPathname, routeSwitch } from 'dux-routing'
 
 import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
-import { Hero } from '@/components/universal'
 import { routeDetails } from '@/config/routing'
 
-import layoutClasses from './layouts.scss'
+import { Hero } from './Hero/Hero'
+import layoutClasses from './layouts.css'
 
 // --------------------------------------------------------
 // App routing
@@ -55,7 +55,7 @@ export const App: FC = () => {
   const { component: Screen, params } = routeSwitch(pathname, routeConfigs)
 
   return (
-    <div className={layoutClasses.appLayout}>
+    <div className={layoutClasses.app}>
       <Hero title='React Application Prototype' />
       <Suspense fallback={<div className='loading' />}>
         <Screen params={params} />

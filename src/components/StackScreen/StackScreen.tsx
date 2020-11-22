@@ -13,8 +13,8 @@ import Github from '@/media/github.svg'
 import Renovate from '@/media/renovate.svg'
 import Zeit from '@/media/zeit.svg'
 
-import layoutClasses from '@/components/App/layouts.scss'
-import classes from './stack-screen.scss'
+import layoutClasses from '@/components/App/layouts.css'
+import classes from './stack-screen.css'
 
 const integrations = [
   { id: 'codeclimate', Logo: CodeClimate },
@@ -52,7 +52,7 @@ const StackScreen: FC = () => {
   // Render
 
   return (
-    <Flex className={layoutClasses.mainSection} direction='column'>
+    <Flex className={layoutClasses.main} direction='column'>
       <Header />
 
       <Flex className='flex-grow-1' direction='column' px='xl'>

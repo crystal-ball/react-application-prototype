@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import { Flex, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
-import layoutClasses from '@/components/App/layouts.scss'
+import layoutClasses from '@/components/App/layouts.css'
 
 /** HomeScreen */
 export default function HomeScreen() {
   return (
-    <Flex className={layoutClasses.mainSection} direction='column'>
+    <Flex className={layoutClasses.main} direction='column'>
       <Header />
 
       <Flex className='flex-grow-1' direction='column' px='xl'>

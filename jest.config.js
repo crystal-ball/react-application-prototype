@@ -39,6 +39,7 @@ module.exports = {
     // webpack non-js resources loader mocks
     '\\.(png|jpg)$': '<rootDir>/__mocks__/file-loader-mock.js',
     '\\.svg$': '<rootDir>/__mocks__/svgr-loader-mock.js',
+    '\\.css$': '<rootDir>/__mocks__/css-loader-mock.js',
     '\\.scss$': '<rootDir>/__mocks__/scss-loader-mock.js',
   },
 }

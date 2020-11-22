@@ -2,17 +2,17 @@ import { FC } from 'react'
 import { Anchor, Block, Text } from 'componentry'
 
 import Github from '@/media/github.svg'
-import layoutClasses from '@/components/App/layouts.scss'
-import classes from './hero.scss'
+import layoutClasses from '@/components/App/layouts.css'
+import classes from './hero.css'
 
-interface HeroProps {
+type HeroProps = {
   /** Application title */
   title: string
 }
 
 export const Hero: FC<HeroProps> = ({ title }: HeroProps) => {
   return (
-    <Block className={layoutClasses.heroSection} borderColor='300' borderRight>
+    <Block className={layoutClasses.hero} borderColor='300' borderRight>
       <div className={classes.background} data-testid='hero-img'>
         <Text variant='display-1' textAlign='center' mt={80}>
           {title}

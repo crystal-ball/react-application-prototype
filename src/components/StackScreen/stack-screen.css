@@ -1,10 +1,10 @@
-:local .icon {
+.icon {
   fill: #fff;
   width: 75px;
   height: 75px;
 }
 
-:local .bundlephobia {
+.bundlephobia {
   width: 50px;
   height: 61px;
 }

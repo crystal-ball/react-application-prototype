@@ -1,10 +1,30 @@
 'use strict'
 
+const path = require('path')
 const webpackBase = require('@crystal-ball/webpack-base')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const { themeAccessor } = require('./webpack/theme-accessor')
+
+const componentsDir = path.resolve('./src/components')
+
+const cssLoader = (mode) => ({
+  loader: 'css-loader',
+  options: {
+    sourceMap: true,
+    modules: {
+      mode,
+      localIdentName: '[name]-[local]--[hash:5]',
+    },
+  },
+})
+
+const postCSSLoader = {
+  loader: 'postcss-loader',
+  options: { sourceMap: true },
+}
 
 /*
  * Generate the base configuration object by passing the environment flags and
@@ -23,6 +43,27 @@ const { configs } = webpackBase({
       'theme($theme-path: null)': themeAccessor,
     },
   },
+})
+
+// --------------------------------------------------------
+// Tailwind support
+
+configs.module.rules.push({
+  test: /\.css$/,
+  include: componentsDir,
+  use:
+    process.env.NODE_ENV === 'production'
+      ? [MiniCssExtractPlugin.loader, cssLoader('local'), postCSSLoader]
+      : [{ loader: 'style-loader' }, cssLoader('local'), postCSSLoader],
+})
+
+configs.module.rules.push({
+  test: /\.css$/,
+  exclude: componentsDir,
+  use:
+    process.env.NODE_ENV === 'production'
+      ? [MiniCssExtractPlugin.loader, cssLoader('global'), postCSSLoader]
+      : [{ loader: 'style-loader' }, cssLoader('global'), postCSSLoader],
 })
 
 // --------------------------------------------------------

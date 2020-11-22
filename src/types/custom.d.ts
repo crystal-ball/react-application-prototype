@@ -10,8 +10,13 @@ declare module '*.jpg' {
   export default jpg
 }
 
+declare module '*.css' {
+  const styles: Record<string, string>
+  export default styles
+}
+
 declare module '*.scss' {
-  const styles: { [key: string]: string }
+  const styles: Record<string, string>
   export default styles
 }
 
