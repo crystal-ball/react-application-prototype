@@ -1,30 +1,20 @@
 /* eslint-disable */
 'use strict'
 
+const theme = require('./src/theme/radical')
+
 module.exports = {
   purge: false,
   darkMode: false,
   theme: {
     extend: {},
     screens: {
-      lg: '1200px',
+      lg: theme.breakpoints.lg,
     },
     colors: {
-      primary: {
-        100: '#FEE9F1',
-        300: '#FBA7C9',
-        500: '#f52277',
-        700: '#931447',
-        900: '#4A0A24',
-      },
+      primary: theme.palette.primary,
     },
-    secondary: {
-      100: '#F6FFFD',
-      300: '#DCFFF9',
-      500: '#A8FFEF',
-      700: '#65998F',
-      900: '#324D48',
-    },
+    secondary: theme.palette.secondary,
   },
   variants: {
     extend: {},

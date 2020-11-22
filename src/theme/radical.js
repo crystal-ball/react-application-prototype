@@ -2,6 +2,12 @@
 const spacing = (space) => `${space * 0.5}rem`
 
 module.exports = {
+  // --- Breakpoints
+  breakpoints: {
+    xs: 0,
+    lg: '1200px',
+  },
+
   // --- SPACING
   spacing: {
     0: spacing(0),
