@@ -5,6 +5,7 @@ const webpackBase = require('@crystal-ball/webpack-base')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const { themeAccessor } = require('./webpack/theme-accessor')
 
@@ -44,6 +45,19 @@ const { configs } = webpackBase({
     },
   },
 })
+
+// --------------------------------------------------------
+// Terser optimizations
+
+configs.optimization.minimizer = [
+  new TerserPlugin({
+    exclude: /node_modules/,
+    terserOptions: {
+      // Don't mangle component names
+      keep_fnames: /^[A-Z]/,
+    },
+  }),
+]
 
 // --------------------------------------------------------
 // Tailwind support
