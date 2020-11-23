@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { Anchor, Block, Text } from 'componentry'
 
 import Github from '@/media/github.svg'
@@ -10,7 +9,7 @@ type HeroProps = {
   title: string
 }
 
-export const Hero: FC<HeroProps> = ({ title }: HeroProps) => {
+export function Hero({ title }: HeroProps): JSX.Element {
   return (
     <Block className={layoutClasses.hero} borderColor='300' borderRight>
       <div className={classes.background} data-testid='hero-img'>

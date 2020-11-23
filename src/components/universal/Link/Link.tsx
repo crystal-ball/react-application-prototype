@@ -1,22 +1,17 @@
-import { FC, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { useDispatch } from 'react-redux'
 import { Anchor } from 'componentry'
 import { updatePathname } from 'dux-routing'
 
-interface LinkProps {
+type LinkProps = {
   children: ReactNode
   /** Route path to link to */
   to: string
   /** Search params to append to route path */
-  searchParams?: { [x: string]: string }
+  searchParams?: Record<string, string>
 }
 
-export const Link: FC<LinkProps> = ({
-  children,
-  to,
-  searchParams,
-  ...rest
-}: LinkProps) => {
+export function Link({ children, to, searchParams, ...rest }: LinkProps): JSX.Element {
   const dispatch = useDispatch()
 
   return (
@@ -34,9 +29,4 @@ export const Link: FC<LinkProps> = ({
       {children}
     </Anchor>
   )
-}
-Link.displayName = 'Link'
-
-Link.defaultProps = {
-  searchParams: {},
 }

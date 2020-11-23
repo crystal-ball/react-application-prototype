@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import numeral from 'numeral'
 import { Block, Flex, Icon, Input, List, Text, Typography } from 'componentry'
@@ -24,7 +24,7 @@ const integrations = [
   { id: 'zeit', Logo: Zeit },
 ]
 
-const StackScreen: FC = () => {
+export default function StackScreen(): JSX.Element {
   const packages = useSelector(selectPackagesById)
   const selectedPackageId = useSelector(selectSelectedPackageId)
 
@@ -122,5 +122,3 @@ const StackScreen: FC = () => {
     </Flex>
   )
 }
-
-export default StackScreen

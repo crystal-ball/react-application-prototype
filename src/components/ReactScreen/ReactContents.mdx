@@ -9,14 +9,12 @@
 ### Component template
 
 ```tsx
-import React from 'react'
-
-interface ExampleProps {
+type ExampleProps {
   /** Indicator of how rad this component is */
   status: 'pretty' | 'hecka'
 }
 
-export const Example: React.FC<ExampleProps> = ({ status }: ExampleProps) => {
+export function Example({ status }: ExampleProps): JSX.Element {
   return {
     <div>This example component is {status} rad</div>
   }
