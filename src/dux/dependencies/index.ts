@@ -3,5 +3,5 @@
  * @module
  */
 
-export * from './packages-slice'
+export * from './dependencies-slice'
 export * from './selectors'
