@@ -1,5 +1,5 @@
 /**
- * Sets up the reducer and actions for the packages slice use Redux Toolkit
+ * Sets up the reducer and actions for the dependencies slice use Redux Toolkit
  * @module
  */
 
@@ -7,7 +7,7 @@ import { AnyAction, PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { PATHNAME_UPDATED, matchRoute, updatePathname } from 'dux-routing'
 
 import { routeDetails } from '@/config/routing'
-import { PackagesById } from './types'
+import { DependenciesById } from './types'
 
 type UpdatePathnameAction = ReturnType<typeof updatePathname>
 
@@ -17,25 +17,25 @@ function isPathnameAction(action: AnyAction): action is UpdatePathnameAction {
 }
 
 /** Packages' Redux state */
-type PackagesState = {
-  /** Map of packages with package ids as keys */
-  packagesById: PackagesById
-  /** Id of the currently selected package */
-  selectedPackageId: string
+type DependenciesState = {
+  /** Map of dependencies with dependency ids as keys */
+  dependenciesById: DependenciesById
+  /** Id of the currently selected dependency */
+  selectedDependencyId: string
 }
 
-const initialState: PackagesState = {
-  packagesById: {},
-  selectedPackageId: '',
+const initialState: DependenciesState = {
+  dependenciesById: {},
+  selectedDependencyId: '',
 }
 
-export const packagesSlice = createSlice({
-  name: 'packages',
+export const dependenciesSlice = createSlice({
+  name: 'dependencies',
   initialState,
   /* eslint-disable no-param-reassign */
   reducers: {
-    updatePackages(state, action: PayloadAction<PackagesById>) {
-      state.packagesById = action.payload
+    updateDependencies(state, action: PayloadAction<DependenciesById>) {
+      state.dependenciesById = action.payload
     },
   },
 
@@ -44,13 +44,13 @@ export const packagesSlice = createSlice({
       // 🤩 THIS ACTION IS TYPE SAFE
       const match = matchRoute(action.payload.pathname, routeDetails.Stack.path)
       if (match) {
-        state.selectedPackageId = match.params.package
+        state.selectedDependencyId = match.params.package
       }
     })
     /* eslint-enable no-param-reassign */
   },
 })
 
-export const { updatePackages } = packagesSlice.actions
+export const { updateDependencies } = dependenciesSlice.actions
 
-export default packagesSlice.reducer
+export default dependenciesSlice.reducer

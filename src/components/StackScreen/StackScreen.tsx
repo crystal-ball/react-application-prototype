@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import numeral from 'numeral'
 import { Block, Flex, Icon, Input, List, Text, Typography } from 'componentry'
 
-import { fetchPackageSize } from '@/api/packages'
+import { fetchDependencySize } from '@/api/dependencies'
 import { Footer, Header, Link } from '@/components/universal'
-import { selectPackagesById, selectSelectedPackageId } from '@/dux/packages'
+import { selectDependenciesById, selectSelectedDependencyId } from '@/dux/dependencies'
 import Bundlephobia from '@/media/bundlephobia.svg'
 import CodeClimate from '@/media/code-climate.svg'
 import Cypress from '@/media/cypress.svg'
@@ -25,28 +25,28 @@ const integrations = [
 ]
 
 export default function StackScreen(): JSX.Element {
-  const packages = useSelector(selectPackagesById)
-  const selectedPackageId = useSelector(selectSelectedPackageId)
+  const dependencies = useSelector(selectDependenciesById)
+  const selectedDependencyId = useSelector(selectSelectedDependencyId)
 
   const [searchValue, setSearchValue] = useState('')
-  const [packageSize, setPackageSize] = useState<number>(null)
+  const [dependencySize, setDependencySize] = useState<number>(null)
 
   // --------------------------------------------------------
   // Effects
 
   useEffect(() => {
-    const getPackageDetails = async (selectedPackageId: string) => {
-      setPackageSize(await fetchPackageSize(selectedPackageId))
+    const getDependencyDetails = async (selectedDependencyId: string) => {
+      setDependencySize(await fetchDependencySize(selectedDependencyId))
     }
 
-    if (selectedPackageId) {
-      getPackageDetails(selectedPackageId)
+    if (selectedDependencyId) {
+      getDependencyDetails(selectedDependencyId)
     }
-  }, [selectedPackageId])
+  }, [selectedDependencyId])
 
   const matchedDependencies = useMemo(() => {
-    return Object.values(packages).filter((pkg) => pkg.name.includes(searchValue))
-  }, [packages, searchValue])
+    return Object.values(dependencies).filter((pkg) => pkg.name.includes(searchValue))
+  }, [dependencies, searchValue])
 
   // --------------------------------------------------------
   // Render
@@ -79,7 +79,7 @@ export default function StackScreen(): JSX.Element {
               <List.Item
                 key={pkg.name}
                 as={Link}
-                active={pkg.name === selectedPackageId}
+                active={pkg.name === selectedDependencyId}
                 to={`/application-stack/${encodeURIComponent(pkg.name)}${
                   searchValue ? `?search=${searchValue}` : ''
                 }`}
@@ -94,7 +94,7 @@ export default function StackScreen(): JSX.Element {
               <Flex className='sticky-top'>
                 <Block pr='sm'>
                   <Text variant='heading-3'>
-                    GZIP size: {numeral(packageSize).format('0.0 b')}
+                    GZIP size: {numeral(dependencySize).format('0.0 b')}
                   </Text>
                   <Text italic>Sizes provided by Bundlephobia</Text>
                 </Block>

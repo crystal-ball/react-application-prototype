@@ -7,8 +7,8 @@
 import { lazy, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { fetchPackages } from '@/api/packages'
-import { updatePackages } from '@/dux/packages'
+import { fetchDependencies } from '@/api/dependencies'
+import { updateDependencies } from '@/dux/dependencies'
 
 const StackScreen = lazy(
   () => import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
@@ -18,12 +18,12 @@ export function StackScreenLoader(): JSX.Element {
   const dispatch = useDispatch()
 
   useEffect(
-    function fetchAndUpdatePackages() {
-      async function initializePackages() {
-        dispatch(updatePackages(await fetchPackages()))
+    function fetchAndUpdateDependencies() {
+      async function initializeDependencies() {
+        dispatch(updateDependencies(await fetchDependencies()))
       }
 
-      initializePackages()
+      initializeDependencies()
     },
     [dispatch],
   )
