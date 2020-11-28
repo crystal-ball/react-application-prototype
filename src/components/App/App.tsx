@@ -13,30 +13,30 @@ import layoutClasses from './layouts.css'
 
 const routeConfigs = [
   {
-    route: routeDetails.Home.path,
+    route: routeDetails.home.path,
     component: lazy(
       () => import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
     ),
   },
   {
-    route: routeDetails.Stack.path,
+    route: routeDetails.stack.path,
     component: StackScreenLoader,
   },
   {
-    route: routeDetails.React.path,
+    route: routeDetails.react.path,
     component: lazy(
       () => import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),
     ),
   },
   {
-    route: routeDetails.Layouts.path,
+    route: routeDetails.layouts.path,
     component: lazy(
       () =>
         import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
     ),
   },
   {
-    route: routeDetails.NotFound.path,
+    route: routeDetails.notFound.path,
     component: lazy(
       () =>
         import(

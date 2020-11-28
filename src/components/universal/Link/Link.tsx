@@ -9,6 +9,9 @@ type LinkProps = {
   to: string
   /** Search params to append to route path */
   searchParams?: Record<string, string>
+
+  // TODO: remove with Componentry types
+  mr?: string
 }
 
 export function Link({ children, to, searchParams, ...rest }: LinkProps): JSX.Element {
