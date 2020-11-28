@@ -1,25 +1,19 @@
-export enum Route {
-  Home = 'Home',
-  Stack = 'Stack',
-  React = 'React',
-  Layouts = 'Layouts',
-  NotFound = 'NotFound',
-}
+type ApplicationRoute = 'home' | 'stack' | 'react' | 'layouts' | 'notFound'
 
-export const routeDetails: Record<Route, { path: string }> = {
-  [Route.Home]: {
+export const routeDetails: Record<ApplicationRoute, { path: string }> = {
+  home: {
     path: '/',
   },
-  [Route.Stack]: {
+  stack: {
     path: '/application-stack/:package?',
   },
-  [Route.React]: {
+  react: {
     path: '/react',
   },
-  [Route.Layouts]: {
+  layouts: {
     path: '/layouts',
   },
-  [Route.NotFound]: {
+  notFound: {
     path: '(.*)',
   },
 }

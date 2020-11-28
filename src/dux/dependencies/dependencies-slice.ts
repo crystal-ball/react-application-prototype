@@ -42,7 +42,7 @@ export const dependenciesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addMatcher(isPathnameAction, (state, action) => {
       // 🤩 THIS ACTION IS TYPE SAFE
-      const match = matchRoute(action.payload.pathname, routeDetails.Stack.path)
+      const match = matchRoute(action.payload.pathname, routeDetails.stack.path)
       if (match) {
         state.selectedDependencyId = match.params.package
       }

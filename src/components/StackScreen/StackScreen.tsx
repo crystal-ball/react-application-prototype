@@ -2,18 +2,22 @@ import { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import numeral from 'numeral'
 import { Block, Flex, Icon, Input, List, Text, Typography } from 'componentry'
+import { getSearchParams } from 'dux-routing'
 
 import { fetchDependencySize } from '@/api/dependencies'
 import { Footer, Header, Link } from '@/components/universal'
 import { selectDependenciesById, selectSelectedDependencyId } from '@/dux/dependencies'
+import { Dependency } from '@/entities/dependency'
+import { DependenciesFilter } from '@/entities/dependencies-filter'
 import Bundlephobia from '@/media/bundlephobia.svg'
 import CodeClimate from '@/media/code-climate.svg'
 import Cypress from '@/media/cypress.svg'
 import Github from '@/media/github.svg'
 import Renovate from '@/media/renovate.svg'
 import Zeit from '@/media/zeit.svg'
-
 import layoutClasses from '@/components/App/layouts.css'
+
+import { Filter } from './Filter/Filter'
 import classes from './stack-screen.css'
 
 const integrations = [
@@ -27,9 +31,20 @@ const integrations = [
 export default function StackScreen(): JSX.Element {
   const dependencies = useSelector(selectDependenciesById)
   const selectedDependencyId = useSelector(selectSelectedDependencyId)
+  const searchParams: { filter?: DependenciesFilter } = useSelector(getSearchParams)
 
   const [searchValue, setSearchValue] = useState('')
   const [dependencySize, setDependencySize] = useState<number>(null)
+
+  const filteredDependencies: Dependency[] = useMemo(() => {
+    if (!searchParams.filter || searchParams.filter === 'all') {
+      return Object.values(dependencies)
+    }
+
+    return Object.values(dependencies).filter(
+      (dependency) => dependency.type === searchParams.filter,
+    )
+  }, [dependencies, searchParams.filter])
 
   // --------------------------------------------------------
   // Effects
@@ -44,9 +59,9 @@ export default function StackScreen(): JSX.Element {
     }
   }, [selectedDependencyId])
 
-  const matchedDependencies = useMemo(() => {
-    return Object.values(dependencies).filter((pkg) => pkg.name.includes(searchValue))
-  }, [dependencies, searchValue])
+  const matchedDependencies: Dependency[] = useMemo(() => {
+    return filteredDependencies.filter((pkg) => pkg.name.includes(searchValue))
+  }, [filteredDependencies, searchValue])
 
   // --------------------------------------------------------
   // Render
@@ -62,7 +77,9 @@ export default function StackScreen(): JSX.Element {
 
         <Text variant='heading-3'>Application dependencies</Text>
 
-        <Flex width='90%'>
+        <Filter />
+
+        <Flex width='90%' mt='sm'>
           <Input>
             <Input.Field
               value={searchValue}

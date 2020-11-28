@@ -38,8 +38,8 @@ export const fetchDependencies = async (): Promise<null | Record<string, Depende
     logger('dependencies loaded')
 
     return {
-      ...decorateDependencies(json.dependencies, { type: 'dependency' }),
-      ...decorateDependencies(json.devDependencies, { type: 'devDependency' }),
+      ...decorateDependencies(json.dependencies, { type: 'dependencies' }),
+      ...decorateDependencies(json.devDependencies, { type: 'devDependencies' }),
     }
   } catch (err) {
     logger(err.mesage)

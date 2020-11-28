@@ -4,7 +4,7 @@
  */
 
 /** Dependency development vs production type */
-export type DependencyType = 'dependency' | 'devDependency'
+export type DependencyType = 'dependencies' | 'devDependencies'
 
 export type Dependency = {
   /** Dependency development vs production type */
