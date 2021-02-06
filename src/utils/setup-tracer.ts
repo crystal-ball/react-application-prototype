@@ -12,6 +12,7 @@ import { LS_ACCESS_TOKEN, NODE_ENV, RELEASE_VERSION } from '@/config/environment
 if (NODE_ENV === 'production') {
   // Create a provider for activating and tracking spans
   const tracerProvider = new WebTracerProvider({
+    // @ts-ignore OTel libraries type errors
     plugins: [new DocumentLoad(), new FetchPlugin()],
     // Include a service.version attribute in all spans to enable Lightstep deployment markers
     resource: Resource.createTelemetrySDKResource().merge(
