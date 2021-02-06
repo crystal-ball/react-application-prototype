@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "github>crystal-ball/renovate-base:project"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "terser-webpack-plugin"
+      ],
+      "allowedVersions": "<=4.2"
+    }
+  ]
+}
