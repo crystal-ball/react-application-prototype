@@ -27,7 +27,7 @@
     "build:storybook": "NODE_ENV=production build-storybook",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "NODE_ENV=test eslint --format=pretty .",
-    "test:types": "tsc --noEmit",
+    "test:types": "tsc",
     "test:unit": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
     "test:acceptance": "docker-compose up --exit-code-from cypress",

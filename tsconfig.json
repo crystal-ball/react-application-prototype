@@ -1,20 +1,26 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "allowJs": true,
-    "checkJs": true,
+    // --- Code generation
+    "noEmit": true, // Don't emit files (Compilation handled by Babel)
+
+    // --- Type checking
+    "allowJs": true, // Allow JS file to be compiled
+    "checkJs": true, // Check all JS files by default
     "strict": false,
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "noUncheckedIndexedAccess": true, // Every property access with an index could be undefined
+    "skipLibCheck": true, // Skip type checking .d.ts declaration files (recommended by TS)
+    "forceConsistentCasingInFileNames": true, // Check import path casing matches file system (recommended by TS)
+
+    // --- Module resolution and file parsing
+    "moduleResolution": "node", // Use Node.js algorithm to resolve modules
+    "esModuleInterop": true, // Interop commonJS and ESM, fixes some issues importing commonJS (recommended by TS)
+    "isolatedModules": true, // Disallow features that require cross-file information for compilation (Babel safety check)
+    "jsx": "preserve", // JSX transforms not needed (Compilation handled by Babel)
 
     // --- Alias resolution
     "baseUrl": ".",
     "paths": {
-      // Configuration to resolve project `@` relative imports
-      "@/*": ["src/*"]
+      "@/*": ["src/*"] // Resolve `@/` import base to scr/
     }
   },
   "include": ["src/**/*"]
