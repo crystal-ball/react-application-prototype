@@ -4,7 +4,7 @@ import { BatchSpanProcessor } from '@opentelemetry/tracing'
 import { CollectorTraceExporter } from '@opentelemetry/exporter-collector'
 import { DocumentLoad } from '@opentelemetry/plugin-document-load'
 import { Resource } from '@opentelemetry/resources'
-import { FetchPlugin } from '@opentelemetry/plugin-fetch'
+import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch'
 import { ZoneContextManager } from '@opentelemetry/context-zone'
 
 import { LS_ACCESS_TOKEN, NODE_ENV, RELEASE_VERSION } from '@/config/environment'
@@ -13,7 +13,7 @@ if (NODE_ENV === 'production') {
   // Create a provider for activating and tracking spans
   const tracerProvider = new WebTracerProvider({
     // @ts-ignore OTel libraries type errors
-    plugins: [new DocumentLoad(), new FetchPlugin()],
+    plugins: [new DocumentLoad(), new FetchInstrumentation()],
     // Include a service.version attribute in all spans to enable Lightstep deployment markers
     resource: Resource.createTelemetrySDKResource().merge(
       new Resource({ 'service.version': RELEASE_VERSION }),
