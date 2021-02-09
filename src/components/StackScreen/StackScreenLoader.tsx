@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 
 import { fetchDependencies } from '@/api/dependencies'
 import { updateDependencies } from '@/dux/dependencies'
+import { logger } from '@/utils/logger'
 
 const StackScreen = lazy(
   () => import(/* webpackChunkName: "StackScreen" */ '../StackScreen/StackScreen'),
@@ -20,6 +21,12 @@ export function StackScreenLoader(): JSX.Element {
   useEffect(
     function fetchAndUpdateDependencies() {
       async function initializeDependencies() {
+        try {
+          const deps = await fetchDependencies()
+          if (deps) dispatch(updateDependencies(deps))
+        } catch (err) {
+          logger(err)
+        }
         dispatch(updateDependencies(await fetchDependencies()))
       }
 
