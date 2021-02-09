@@ -25,9 +25,8 @@ export function StackScreenLoader(): JSX.Element {
           const deps = await fetchDependencies()
           if (deps) dispatch(updateDependencies(deps))
         } catch (err) {
-          logger(err)
+          logger(err.message)
         }
-        dispatch(updateDependencies(await fetchDependencies()))
       }
 
       initializeDependencies()
