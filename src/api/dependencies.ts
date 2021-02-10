@@ -42,6 +42,8 @@ export const fetchDependencies = async (): Promise<null | Record<string, Depende
       ...decorateDependencies(json.devDependencies, { type: 'devDependencies' }),
     }
   } catch (err) {
+    logger('Failed to fetch dependencies')
+    logger(err)
     logger(err.mesage)
     return null
   }
