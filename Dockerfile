@@ -2,7 +2,7 @@
 # Dockerfile will install app dependencies and run lint+unit tests before
 # creating a production build of the app.
 
-FROM node:12.20.2-alpine as base
+FROM node:12.21.0-alpine as base
 LABEL maintainer="hedgecock.d@gmail.com"
 
 WORKDIR /usr/src/app
