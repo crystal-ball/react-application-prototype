@@ -15,7 +15,7 @@
     "url": "https://github.com/crystal-ball/react-app-prototype.git"
   },
   "engines": {
-    "node": "12"
+    "node": "14"
   },
   "scripts": {
     "start": "NODE_ENV=development webpack serve --mode=development",
