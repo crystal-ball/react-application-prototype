@@ -23,6 +23,12 @@ const routeConfigs = [
     component: StackScreenLoader,
   },
   {
+    route: routeDetails.jest.path,
+    component: lazy(
+      () => import(/* webpackChunkName: "JestScreen" */ '../JestScreen/JestScreen'),
+    ),
+  },
+  {
     route: routeDetails.react.path,
     component: lazy(
       () => import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),

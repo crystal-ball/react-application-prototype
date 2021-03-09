@@ -1,0 +1,25 @@
+# Jest quick reference
+
+## Additional tools
+
+The Jest setup is enhanced with:
+
+1. `@testing-library/react` provides selectors for testing elements like a user.
+1. `@testing-library/react-hooks` provides utility fns for unit testing custom hooks.
+1. `@testing-library/jest-dom` provides helpful matchers for component tests.
+1. `jest-extended` provides helpful matchers for logic tests.
+
+## VSCode
+
+Commands to run the test suite, or a single test file are configured in the `launch.json`
+configuration. The single file command is especially helpful for running tests with a
+debugger.
+
+The [Jest extension][extension] can be helpful when working on code coverage.
+
+[extension]: https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest
+
+## Types
+
+Types for Jest and the extended matchers are provided by installing `@types/jest`, and
+importing the libraries into `src/@types/global.d.ts`.
