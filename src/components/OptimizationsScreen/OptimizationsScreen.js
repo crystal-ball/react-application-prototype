@@ -8,7 +8,7 @@ export default function OptimizationsScreen() {
   const selectedPackage = useSelector(selectDependency('componentry'))
 
   return (
-    <Flex direction='column' className='flex-grow-1'>
+    <Flex direction='column' className='flex-grow'>
       <Header />
       <Flex direction='column' px='xl' py='md'>
         <Typography variant='heading-1' textAlign='center' mb='xl'>

@@ -31,11 +31,11 @@ export function Filter(): JSX.Element {
   const detailsList = Object.values(dependenciesFiltersDetails)
 
   return (
-    <Flex justify='flex-end' mt='md' align='center'>
+    <Flex justify='end' mt='md' align='center'>
       <Tooltip>
-        <Tooltip.Trigger>
+        <Tooltip.Action>
           <Icon id='information' />
-        </Tooltip.Trigger>
+        </Tooltip.Action>
         <Tooltip.Content>
           {detailsList.map(({ id, description, label }) => (
             <div key={id}>

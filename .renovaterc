@@ -8,6 +8,48 @@
         "terser-webpack-plugin"
       ],
       "allowedVersions": "<=4.2"
+    },
+    {
+      "matchPackageNames": [
+        "@opentelemetry/api"
+      ],
+      "allowedVersions": "<=0.16"
+    },
+    {
+      "matchPackageNames": [
+        "@opentelemetry/context-zone"
+      ],
+      "allowedVersions": "<=0.16"
+    },
+    {
+      "matchPackageNames": [
+        "@opentelemetry/exporter-collector"
+      ],
+      "allowedVersions": "<=0.16"
+    },
+    {
+      "matchPackageNames": [
+        "@opentelemetry/instrumentation-fetch"
+      ],
+      "allowedVersions": "<=0.16"
+    },
+    {
+      "matchPackageNames": [
+        "@opentelemetry/resources"
+      ],
+      "allowedVersions": "<=0.16"
+    },
+    {
+      "matchPackageNames": [
+        "@opentelemetry/tracing"
+      ],
+      "allowedVersions": "<=0.16"
+    },
+    {
+      "matchPackageNames": [
+        "@opentelemetry/web"
+      ],
+      "allowedVersions": "<=0.16"
     }
   ]
 }

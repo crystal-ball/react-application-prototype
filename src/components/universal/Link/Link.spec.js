@@ -7,7 +7,7 @@ describe('<Link />', () => {
     render(<Link to='/rad/route'>Test Link</Link>)
 
     expect(screen.getByText('Test Link')).toHaveAttribute('href', '/rad/route')
-    expect(screen.getByText('Test Link')).toHaveClass('a')
+    expect(screen.getByText('Test Link')).toHaveClass('🅲-link link-primary')
   })
 
   test('When Link is clicked, then defaults are prevented and routing action is dispatched', () => {

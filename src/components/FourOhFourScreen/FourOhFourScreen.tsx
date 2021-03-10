@@ -4,7 +4,7 @@ import { Link } from '@/components/universal'
 
 export default function FourOhFourScreen(): JSX.Element {
   return (
-    <div className='flex-grow-1'>
+    <div className='flex-grow'>
       <Text variant='heading-2' mt='xl' align='center'>
         <Icon variant='feather' fontColor='warning' id='mood-sad-outline' /> The page you
         are looking for can&apos;t be found 😣
