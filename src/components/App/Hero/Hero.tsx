@@ -13,7 +13,7 @@ export function Hero({ title }: HeroProps): JSX.Element {
   return (
     <Block className={layoutClasses.hero} borderColor='300' borderRight>
       <div className={classes.background} data-testid='hero-img'>
-        <Text variant='display-1' textAlign='center' mt={80}>
+        <Text variant='display-1' align='center' mt={80}>
           {title}
         </Text>
 

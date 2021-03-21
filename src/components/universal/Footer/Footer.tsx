@@ -21,7 +21,7 @@ export function Footer(): JSX.Element {
         // Stroke is to provide an example of toHaveStyle
         style={{ stroke: '##a8ffdb' }}
       />
-      <Text fontColor='accent' mb={0}>
+      <Text color='accent' mb={0}>
         Make something awesome!
       </Text>
     </Flex>

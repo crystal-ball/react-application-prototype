@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import numeral from 'numeral'
-import { Block, Flex, Icon, Input, List, Text, Typography } from 'componentry'
+import { Block, Flex, Icon, Input, List, Text } from 'componentry'
 import { getSearchParams } from 'dux-routing'
 
 import { fetchDependencySize } from '@/api/dependencies'
@@ -71,9 +71,9 @@ export default function StackScreen(): JSX.Element {
       <Header />
 
       <Flex className='flex-grow' direction='column' px='xl'>
-        <Typography variant='heading-1' textAlign='center' pt='lg'>
+        <Text variant='heading-1' align='center' pt='lg'>
           Application stack
-        </Typography>
+        </Text>
 
         <Text variant='heading-3'>Application dependencies</Text>
 
@@ -121,10 +121,10 @@ export default function StackScreen(): JSX.Element {
           </Flex>
         </Flex>
 
-        <Typography variant='heading-2' mt='xl'>
+        <Text variant='heading-2' mt='xl'>
           <Icon id='education' /> Integrations
-        </Typography>
-        <Typography italic>Workflows supported by 3rd party integrations</Typography>
+        </Text>
+        <Text italic>Workflows supported by 3rd party integrations</Text>
 
         <Flex justify='center'>
           {integrations.map(({ Logo, id }) => (

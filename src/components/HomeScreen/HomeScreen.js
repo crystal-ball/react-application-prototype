@@ -11,7 +11,7 @@ export default function HomeScreen() {
       <Header />
 
       <Flex className='flex-grow' direction='column' px='xl'>
-        <Text variant='heading-1' textAlign='center' mt='lg'>
+        <Text variant='heading-1' align='center' mt='lg'>
           Prototype application
           <br /> for
           <span className='d-inline-block px-xs' aria-label='crystal ball' role='img'>
