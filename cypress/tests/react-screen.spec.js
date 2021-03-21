@@ -1,3 +1,4 @@
+/* eslint-disable jest/expect-expect */
 /// <reference types="Cypress" />
 
 describe('React screen', () => {

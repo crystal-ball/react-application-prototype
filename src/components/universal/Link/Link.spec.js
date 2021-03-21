@@ -3,14 +3,14 @@ import { createEvent, fireEvent, render, screen } from '@/utils/testing-library'
 import { Link } from './Link'
 
 describe('<Link />', () => {
-  test('When Link renders, it includes anchor class and href', () => {
+  it('When Link renders, it includes anchor class and href', () => {
     render(<Link to='/rad/route'>Test Link</Link>)
 
     expect(screen.getByText('Test Link')).toHaveAttribute('href', '/rad/route')
-    expect(screen.getByText('Test Link')).toHaveClass('a')
+    expect(screen.getByText('Test Link')).toHaveClass('🅲-link link-primary')
   })
 
-  test('When Link is clicked, then defaults are prevented and routing action is dispatched', () => {
+  it('When Link is clicked, then defaults are prevented and routing action is dispatched', () => {
     const dispatchMock = jest.fn()
     jest.spyOn(reactRedux, 'useDispatch').mockImplementation(() => dispatchMock)
 

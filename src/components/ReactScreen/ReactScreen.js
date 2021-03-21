@@ -10,7 +10,7 @@ export default function LayoutsScreen() {
     <Flex className={layoutClasses.main} direction='column'>
       <Header />
 
-      <Flex className='flex-grow-1' direction='column' px='xl'>
+      <Flex className='flex-grow' direction='column' px='xl'>
         <ReactContents />
       </Flex>
 

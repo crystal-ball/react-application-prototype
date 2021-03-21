@@ -66,14 +66,6 @@ $theme: theme();
 // --------------------------------------------------------
 // Components
 
-// --- <Anchor />
-$a-primary: (
-  color: theme('palette.secondary.500'),
-  '&:hover': (
-    color: theme('palette.secondary.700'),
-  ),
-);
-
 // --- <Icon />
 $icon: (
   variants: (
@@ -91,6 +83,18 @@ $icon: (
       fill: none,
       // removes the media alignment
       vertical-align: unset,
+    ),
+  ),
+);
+
+// --- <Link />
+$link: (
+  variants: (
+    primary: (
+      color: theme('palette.secondary.500'),
+      '&:hover': (
+        color: theme('palette.secondary.700'),
+      ),
     ),
   ),
 );

@@ -9,8 +9,8 @@ export default function LayoutsScreen() {
     <Flex className={layoutClasses.main} direction='column'>
       <Header />
 
-      <Flex className='flex-grow-1' direction='column' px='xl'>
-        <Text variant='heading-1' textAlign='center' pt='lg'>
+      <Flex className='flex-grow' direction='column' px='xl'>
+        <Text variant='heading-1' align='center' pt='lg'>
           Application layouts system
         </Text>
         <Text variant='heading-3'>System summary</Text>

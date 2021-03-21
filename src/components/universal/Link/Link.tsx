@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { useDispatch } from 'react-redux'
-import { Anchor } from 'componentry'
+import { Link as ComponentryLink } from 'componentry'
 import { updatePathname } from 'dux-routing'
 
 type LinkProps = {
@@ -18,7 +18,7 @@ export function Link({ children, to, searchParams, ...rest }: LinkProps): JSX.El
   const dispatch = useDispatch()
 
   return (
-    <Anchor
+    <ComponentryLink
       href={to}
       onClick={(evt) => {
         // Allow browser to handle clicks with special keys
@@ -30,6 +30,6 @@ export function Link({ children, to, searchParams, ...rest }: LinkProps): JSX.El
       {...rest}
     >
       {children}
-    </Anchor>
+    </ComponentryLink>
   )
 }

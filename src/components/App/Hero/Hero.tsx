@@ -1,4 +1,4 @@
-import { Anchor, Block, Text } from 'componentry'
+import { Block, Link, Text } from 'componentry'
 
 import Github from '@/media/github.svg'
 import layoutClasses from '@/components/App/layouts.css'
@@ -13,13 +13,13 @@ export function Hero({ title }: HeroProps): JSX.Element {
   return (
     <Block className={layoutClasses.hero} borderColor='300' borderRight>
       <div className={classes.background} data-testid='hero-img'>
-        <Text variant='display-1' textAlign='center' mt={80}>
+        <Text variant='display-1' align='center' mt={80}>
           {title}
         </Text>
 
-        <Anchor data-testid='github-anchor' href='https://github.com/crystal-ball'>
+        <Link data-testid='github-anchor' href='https://github.com/crystal-ball'>
           <Github className={classes.icon} />
-        </Anchor>
+        </Link>
       </div>
     </Block>
   )
