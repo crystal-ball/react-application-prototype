@@ -23,6 +23,13 @@ const routeConfigs = [
     component: StackScreenLoader,
   },
   {
+    route: routeDetails.testing.path,
+    component: lazy(
+      () =>
+        import(/* webpackChunkName: "TestingScreen" */ '../TestingScreen/TestingScreen'),
+    ),
+  },
+  {
     route: routeDetails.react.path,
     component: lazy(
       () => import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),

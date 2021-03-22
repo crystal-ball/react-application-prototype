@@ -1,0 +1,77 @@
+# Testing applications
+
+**Writing a maintainable, effective test suite is incredibly difficult.**
+
+One of the biggest challenges testing applications is that they are composed of
+interconnected workflows that involve multiple features over long running sessions. Unit
+testing often requires jumping through hoops to isolate some application feature, or to
+replicate a specific state to test.
+
+### Goals
+
+The goal of testing is to provide confidence that application behavior is not impacted by
+some change.
+
+_The goal is NOT to reach 100% code coverage at the expense of useful tests._
+
+## Testing principles
+
+1. Test behavior, not implementation. Testing mechanisms should mimic user behaviors as
+   closely as possible, and should test user actions.
+2. Write just enough tests. All tests introduce a maintenance burden. Too many tests
+   introduce too much maintenance without increasing confidence.
+
+## Static analysis
+
+Static analysis includes linting with ESLint and type checking with TypeScript.
+
+### Tools
+
+1. `eslint`
+1. `typescript`
+1. Copious ESLint plugins...
+
+## Unit/Integration tests
+
+Testing a single unit or related group of units with Jest.
+
+### Tools
+
+1. `jest` provides the test runner, mocking, and spys
+1. `@testing-library/jest-dom` provides helpful matchers for component tests.
+1. `@testing-library/react-hooks` provides utility fns for unit testing custom hooks.
+1. `@testing-library/react` provides selectors for testing elements like a user.
+1. `jest-extended` provides helpful matchers for logic tests.
+
+### Types
+
+- Types for Jest are provided by installing `@types/jest`
+- Types for `jest-extended` and `@testing-library/jest-dom` are provided by importing them
+  into a setup file or definition file.
+
+### VSCode
+
+Commands to run the test suite, or a single test file are configured in the `launch.json`
+configuration. The single file command is especially helpful for running tests with a
+debugger.
+
+The [Jest extension][extension] can be helpful when working on code coverage.
+
+[extension]: https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest
+
+## End to end tests
+
+Testing user flows from start to finish with Cypress.
+
+### Tools
+
+1. `cypress` provides the test runner and assertions
+1. `@cypress/code-coverage` collects/reports code coverage
+1. `@percy/cypress` enables taking screenshots in tests for making visual assertions
+1. `@testing-library/cypress` provides DOM selectors/actions matching user behavior
+1. `babel-plugin-istanbul` instruments code so code coverage can be collected
+
+### Types
+
+1. Types for Cypress, Percy and Testing Library are all provided by adding an additional
+   `tsconfig.json` in the `/cypress` directory.

@@ -23,6 +23,11 @@ export function Header(): JSX.Element {
         </Link>
       </Block>
       <Block p='md'>
+        <Link data-testid='nav-link' to={routeDetails.testing.path}>
+          Testing
+        </Link>
+      </Block>
+      <Block p='md'>
         <Link data-testid='nav-link' to={routeDetails.layouts.path}>
           Application Layouts
         </Link>
