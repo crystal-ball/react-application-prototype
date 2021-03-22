@@ -23,8 +23,8 @@ export function Header(): JSX.Element {
         </Link>
       </Block>
       <Block p='md'>
-        <Link data-testid='nav-link' to={routeDetails.jest.path}>
-          Jest
+        <Link data-testid='nav-link' to={routeDetails.testing.path}>
+          Testing
         </Link>
       </Block>
       <Block p='md'>

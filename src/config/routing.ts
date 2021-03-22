@@ -1,4 +1,4 @@
-type ApplicationRoute = 'home' | 'stack' | 'jest' | 'react' | 'layouts' | 'notFound'
+type ApplicationRoute = 'home' | 'stack' | 'react' | 'testing' | 'layouts' | 'notFound'
 
 export const routeDetails: Record<ApplicationRoute, { path: string }> = {
   home: {
@@ -7,11 +7,11 @@ export const routeDetails: Record<ApplicationRoute, { path: string }> = {
   stack: {
     path: '/application-stack/:package?',
   },
-  jest: {
-    path: '/jest',
-  },
   react: {
     path: '/react',
+  },
+  testing: {
+    path: '/testing',
   },
   layouts: {
     path: '/layouts',

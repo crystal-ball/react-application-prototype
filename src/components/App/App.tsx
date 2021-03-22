@@ -23,9 +23,10 @@ const routeConfigs = [
     component: StackScreenLoader,
   },
   {
-    route: routeDetails.jest.path,
+    route: routeDetails.testing.path,
     component: lazy(
-      () => import(/* webpackChunkName: "JestScreen" */ '../JestScreen/JestScreen'),
+      () =>
+        import(/* webpackChunkName: "TestingScreen" */ '../TestingScreen/TestingScreen'),
     ),
   },
   {
