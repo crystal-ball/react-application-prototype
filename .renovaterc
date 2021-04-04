@@ -5,51 +5,51 @@
   "packageRules": [
     {
       "matchPackageNames": [
-        "terser-webpack-plugin"
-      ],
-      "allowedVersions": "<=4.2"
-    },
-    {
-      "matchPackageNames": [
         "@opentelemetry/api"
       ],
-      "allowedVersions": "<=0.16"
+      "allowedVersions": "<=0.18.1"
     },
     {
       "matchPackageNames": [
         "@opentelemetry/context-zone"
       ],
-      "allowedVersions": "<=0.16"
+      "allowedVersions": "<=0.18.2"
     },
     {
       "matchPackageNames": [
         "@opentelemetry/exporter-collector"
       ],
-      "allowedVersions": "<=0.16"
+      "allowedVersions": "<=0.18.2"
     },
     {
       "matchPackageNames": [
         "@opentelemetry/instrumentation-fetch"
       ],
-      "allowedVersions": "<=0.16"
+      "allowedVersions": "<=0.18.2"
     },
     {
       "matchPackageNames": [
         "@opentelemetry/resources"
       ],
-      "allowedVersions": "<=0.16"
+      "allowedVersions": "<=0.18.2"
     },
     {
       "matchPackageNames": [
         "@opentelemetry/tracing"
       ],
-      "allowedVersions": "<=0.16"
+      "allowedVersions": "<=0.18.2"
     },
     {
       "matchPackageNames": [
         "@opentelemetry/web"
       ],
-      "allowedVersions": "<=0.16"
+      "allowedVersions": "<=0.18.2"
+    },
+    {
+      "matchPackageNames": [
+        "react-refresh"
+      ],
+      "allowedVersions": "<=0.9"
     }
   ]
 }

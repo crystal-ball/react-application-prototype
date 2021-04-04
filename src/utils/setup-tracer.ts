@@ -2,22 +2,31 @@ import opentelemetry from '@opentelemetry/api' // eslint-disable-line -- Import 
 import { WebTracerProvider } from '@opentelemetry/web'
 import { BatchSpanProcessor } from '@opentelemetry/tracing'
 import { CollectorTraceExporter } from '@opentelemetry/exporter-collector'
-import { DocumentLoad } from '@opentelemetry/plugin-document-load'
 import { Resource } from '@opentelemetry/resources'
-import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch'
 import { ZoneContextManager } from '@opentelemetry/context-zone'
+import { DocumentLoadInstrumentation } from '@opentelemetry/instrumentation-document-load'
+import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch'
+import { registerInstrumentations } from '@opentelemetry/instrumentation'
 
 import { LS_ACCESS_TOKEN, NODE_ENV, RELEASE_VERSION } from '@/config/environment'
 
 if (NODE_ENV === 'production') {
   // Create a provider for activating and tracking spans
   const tracerProvider = new WebTracerProvider({
-    // @ts-ignore OTel libraries type errors
-    plugins: [new DocumentLoad(), new FetchInstrumentation()],
     // Include a service.version attribute in all spans to enable Lightstep deployment markers
     resource: Resource.createTelemetrySDKResource().merge(
       new Resource({ 'service.version': RELEASE_VERSION }),
     ),
+  })
+
+  registerInstrumentations({
+    instrumentations: [
+      new DocumentLoadInstrumentation(),
+      new FetchInstrumentation({
+        ignoreUrls: [/localhost:8090\/sockjs-node/],
+      }),
+    ],
+    tracerProvider,
   })
 
   // Connect to Lightsstep by configuring the exporter with your endpoint and access token.
@@ -31,7 +40,7 @@ if (NODE_ENV === 'production') {
         },
       }),
       {
-        bufferTimeout: 1000,
+        exportTimeoutMillis: 1000,
       },
     ),
   )
