@@ -1,4 +1,3 @@
-import { percyHealthCheck } from '@percy/cypress/task'
 import codeCoverageTask from '@cypress/code-coverage/task'
 
 /**
@@ -10,10 +9,6 @@ import codeCoverageTask from '@cypress/code-coverage/task'
  * @param config The resolved Cypress config
  */
 export default function plugins(on, config) {
-  on('task', {
-    percyHealthCheck,
-  })
-
   codeCoverageTask(on, config)
   return config
 }
