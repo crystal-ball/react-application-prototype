@@ -25,7 +25,7 @@
       "matchPackageNames": [
         "@opentelemetry/instrumentation-document-load"
       ],
-      "allowedVersions": "<=0.18.2"
+      "allowedVersions": "<=0.15.0"
     },
     {
       "matchPackageNames": [
