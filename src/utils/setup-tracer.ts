@@ -34,7 +34,7 @@ if (NODE_ENV === 'production') {
     new BatchSpanProcessor(
       new CollectorTraceExporter({
         serviceName: 'react-application-prototype',
-        url: 'https://ingest.lightstep.com:443',
+        url: 'https://ingest.lightstep.com:443/traces/otlp/v0.6',
         headers: {
           'Lightstep-Access-Token': LS_ACCESS_TOKEN,
         },
