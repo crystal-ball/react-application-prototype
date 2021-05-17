@@ -5,54 +5,6 @@
   "packageRules": [
     {
       "matchPackageNames": [
-        "@opentelemetry/context-zone"
-      ],
-      "allowedVersions": "<=0.18.2"
-    },
-    {
-      "matchPackageNames": [
-        "@opentelemetry/exporter-collector"
-      ],
-      "allowedVersions": "<=0.18.2"
-    },
-    {
-      "matchPackageNames": [
-        "@opentelemetry/instrumentation"
-      ],
-      "allowedVersions": "<=0.18.2"
-    },
-    {
-      "matchPackageNames": [
-        "@opentelemetry/instrumentation-document-load"
-      ],
-      "allowedVersions": "<=0.15.0"
-    },
-    {
-      "matchPackageNames": [
-        "@opentelemetry/instrumentation-fetch"
-      ],
-      "allowedVersions": "<=0.18.2"
-    },
-    {
-      "matchPackageNames": [
-        "@opentelemetry/resources"
-      ],
-      "allowedVersions": "<=0.18.2"
-    },
-    {
-      "matchPackageNames": [
-        "@opentelemetry/tracing"
-      ],
-      "allowedVersions": "<=0.18.2"
-    },
-    {
-      "matchPackageNames": [
-        "@opentelemetry/web"
-      ],
-      "allowedVersions": "<=0.18.2"
-    },
-    {
-      "matchPackageNames": [
         "react"
       ],
       "allowedVersions": "<=16.14.0"
