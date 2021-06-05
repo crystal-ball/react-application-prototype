@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { render, screen } from '@/utils/testing-library'
 import { Header } from './Header'
 
