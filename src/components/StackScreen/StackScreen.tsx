@@ -16,7 +16,7 @@ import Cypress from '@/media/cypress.svg'
 import Github from '@/media/github.svg'
 import Renovate from '@/media/renovate.svg'
 import Zeit from '@/media/zeit.svg'
-import { mainArea } from '@/components/App/layout'
+import { mainAreaCx } from '@/components/App/layout'
 
 import { Filter } from './Filter/Filter'
 
@@ -78,7 +78,7 @@ export default function StackScreen(): JSX.Element {
   // Render
 
   return (
-    <Flex className={mainArea} direction='column'>
+    <Flex className={mainAreaCx} direction='column'>
       <Header />
 
       <Flex className='flex-grow' direction='column' px='xl'>

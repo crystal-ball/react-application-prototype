@@ -6,7 +6,7 @@ import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
 import { routeDetails } from '@/config/routing'
 
 import { Hero } from './Hero/Hero'
-import { appGrid } from './layout'
+import { appGridCx } from './layout'
 
 // --------------------------------------------------------
 // App routing
@@ -62,7 +62,7 @@ export function App(): JSX.Element {
   const { component: Screen, params } = routeSwitch(pathname, routeConfigs)
 
   return (
-    <div className={appGrid}>
+    <div className={appGridCx}>
       <Hero title='React Application Prototype' />
       <Suspense fallback={<div className='loading' />}>
         <Screen params={params} />

@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import { Flex, Icon, Text } from 'componentry'
 
 import { Footer, Header } from '@/components/universal'
-import { mainArea } from '@/components/App/layout'
+import { mainAreaCx } from '@/components/App/layout'
 
 /** HomeScreen */
 export default function HomeScreen() {
   return (
-    <Flex className={mainArea} direction='column'>
+    <Flex className={mainAreaCx} direction='column'>
       <Header />
 
       <Flex className='flex-grow' direction='column' px='xl'>
