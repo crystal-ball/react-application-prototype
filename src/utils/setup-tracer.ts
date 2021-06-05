@@ -14,9 +14,10 @@ if (NODE_ENV === 'production') {
   // Create a provider for activating and tracking spans
   const tracerProvider = new WebTracerProvider({
     // Include a service.version attribute in all spans to enable Lightstep deployment markers
-    resource: Resource.createTelemetrySDKResource().merge(
-      new Resource({ 'service.version': RELEASE_VERSION }),
-    ),
+    resource: new Resource({
+      'service.name': 'react-application-prototype',
+      'service.version': RELEASE_VERSION,
+    }),
   })
 
   registerInstrumentations({
@@ -33,7 +34,6 @@ if (NODE_ENV === 'production') {
   tracerProvider.addSpanProcessor(
     new BatchSpanProcessor(
       new CollectorTraceExporter({
-        serviceName: 'react-application-prototype',
         url: 'https://ingest.lightstep.com:443/traces/otlp/v0.6',
         headers: {
           'Lightstep-Access-Token': LS_ACCESS_TOKEN,

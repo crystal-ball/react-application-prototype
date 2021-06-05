@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { updatePathname } from 'dux-routing'
 import { dependenciesSlice } from './dependencies-slice'
 
