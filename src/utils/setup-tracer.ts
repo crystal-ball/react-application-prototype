@@ -14,9 +14,7 @@ if (NODE_ENV === 'production') {
   // Create a provider for activating and tracking spans
   const tracerProvider = new WebTracerProvider({
     // Include a service.version attribute in all spans to enable Lightstep deployment markers
-    resource: Resource.createTelemetrySDKResource().merge(
-      new Resource({ 'service.version': RELEASE_VERSION }),
-    ),
+    resource: new Resource({ 'service.version': RELEASE_VERSION }),
   })
 
   registerInstrumentations({
