@@ -2,7 +2,7 @@ import { css } from '@linaria/core'
 import { Block, Link, Text } from 'componentry'
 
 import Github from '@/media/github.svg'
-import layoutClasses from '@/components/App/layouts.css'
+import { heroArea } from '@/components/App/layout'
 import theme from '@/theme/radical-esm'
 
 type HeroProps = {
@@ -33,7 +33,7 @@ const iconCx = css`
 
 export function Hero({ title }: HeroProps): JSX.Element {
   return (
-    <Block className={layoutClasses.hero} borderColor='300' borderRight>
+    <Block className={heroArea} borderColor='300' borderRight>
       <div className={backgroundCx} data-testid='hero-img'>
         <Text variant='display-1' align='center' mt={80}>
           {title}
