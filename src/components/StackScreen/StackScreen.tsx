@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { css } from '@linaria/core'
 import numeral from 'numeral'
 import { Block, Flex, Icon, Input, List, Text } from 'componentry'
 import { getSearchParams } from 'dux-routing'
@@ -15,10 +16,9 @@ import Cypress from '@/media/cypress.svg'
 import Github from '@/media/github.svg'
 import Renovate from '@/media/renovate.svg'
 import Zeit from '@/media/zeit.svg'
-import layoutClasses from '@/components/App/layouts.css'
+import { mainAreaCx } from '@/components/App/layout'
 
 import { Filter } from './Filter/Filter'
-import classes from './stack-screen.css'
 
 const integrations = [
   { id: 'codeclimate', Logo: CodeClimate },
@@ -27,6 +27,17 @@ const integrations = [
   { id: 'renovate', Logo: Renovate },
   { id: 'zeit', Logo: Zeit },
 ]
+
+const iconCx = css`
+  fill: #fff;
+  width: 75px;
+  height: 75px;
+`
+
+const bundlephobiaCx = css`
+  width: 50px;
+  height: 61px;
+`
 
 export default function StackScreen(): JSX.Element {
   const dependencies = useSelector(selectDependenciesById)
@@ -67,7 +78,7 @@ export default function StackScreen(): JSX.Element {
   // Render
 
   return (
-    <Flex className={layoutClasses.main} direction='column'>
+    <Flex className={mainAreaCx} direction='column'>
       <Header />
 
       <Flex className='flex-grow' direction='column' px='xl'>
@@ -115,7 +126,7 @@ export default function StackScreen(): JSX.Element {
                   </Text>
                   <Text italic>Sizes provided by Bundlephobia</Text>
                 </Block>
-                <Bundlephobia className={classes.bundlephobia} />
+                <Bundlephobia className={bundlephobiaCx} />
               </Flex>
             </div>
           </Flex>
@@ -129,7 +140,7 @@ export default function StackScreen(): JSX.Element {
         <Flex justify='center'>
           {integrations.map(({ Logo, id }) => (
             <Flex key={id} align='center' mx='md'>
-              <Logo className={classes.icon} />
+              <Logo className={iconCx} />
             </Flex>
           ))}
         </Flex>

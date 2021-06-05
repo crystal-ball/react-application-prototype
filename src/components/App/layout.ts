@@ -1,4 +1,6 @@
-.app {
+import { css } from '@linaria/core'
+
+export const appGridCx = css`
   display: grid;
   width: 100%;
   min-height: 100vh;
@@ -11,12 +13,12 @@
       grid-template-areas: 'hero main';
     }
   }
-}
+`
 
-.hero {
+export const heroAreaCx = css`
   grid-area: hero;
-}
+`
 
-.main {
+export const mainAreaCx = css`
   grid-area: main;
-}
+`
