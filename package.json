@@ -68,7 +68,7 @@
     "svg-symbol-sprite-loader": "5.1.0"
   },
   "devDependencies": {
-    "@crystal-ball/babel-base": "3.0.0",
+    "@crystal-ball/babel-base": "4.0.0",
     "@crystal-ball/commitizen-base": "2.11.0",
     "@crystal-ball/prettier-base": "2.7.0",
     "@crystal-ball/webpack-base": "11.3.0",
