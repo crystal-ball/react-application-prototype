@@ -41,7 +41,7 @@
     "@linaria/core": "3.0.0-beta.4",
     "@linaria/react": "3.0.0-beta.4",
     "@mdx-js/react": "1.6.22",
-    "@opentelemetry/api": "0.20.0",
+    "@opentelemetry/api": "1.0.2",
     "@opentelemetry/context-zone": "0.20.0",
     "@opentelemetry/exporter-collector": "0.20.0",
     "@opentelemetry/instrumentation": "0.20.0",
