@@ -14,9 +14,7 @@ import { appGridCx } from './layout'
 const routeConfigs = [
   {
     route: routeDetails.home.path,
-    component: lazy(
-      () => import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
-    ),
+    component: lazy(() => import('../HomeScreen/HomeScreen')),
   },
   {
     route: routeDetails.stack.path,

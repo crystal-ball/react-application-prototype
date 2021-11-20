@@ -1,13 +1,55 @@
 'use strict'
 
-const eloquence = require('eslint-config-eloquence')
+module.exports = {
+  extends: ['eloquence/react'],
+  parserOptions: {
+    // Project configure eslint-typescript
+    project: ['./tsconfig.json', './cypress/tsconfig.json'],
+  },
 
-module.exports = eloquence({
-  target: 'react',
-  tsconfigs: ['./tsconfig.json', './cypress/tsconfig.json'],
-  enableMDX: true,
   rules: {
     // Enforce that testing library is used through utils/testing-library only
     'no-restricted-imports': ['error', { paths: ['@testing-library/react'] }],
+    'import/dynamic-import-chunkname': 'off',
+
+    'import/order': [
+      'error',
+      {
+        'pathGroups': [
+          {
+            pattern: '@/**',
+            group: 'internal',
+          },
+        ],
+        'groups': [
+          'builtin',
+          'external', // includes configured `import/external-module-folders`
+          'internal', // includes configured `import/internal-regex`
+          'parent',
+          'sibling',
+          'index',
+          'unknown',
+        ],
+        // Currently not enforced... validate that alphabetize doesn't require mixing
+        // within larger groups, eg node built-in and a node_module
+        // 'alphabetize': {
+        //   order: 'asc',
+        // },
+        // Require a newline between builtins+external and source code modules.
+        // Allow but don't require a newline inside groups
+        'newlines-between': 'ignore',
+      },
+    ],
   },
-})
+
+  overrides: [
+    {
+      files: ['webpack/**'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+
+      env: { node: true },
+    },
+  ],
+}

@@ -25,7 +25,13 @@ export function createStore(preloadedState) {
 
   // Accept hot reload for reducers in dev envs
   if (NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('./root-reducer', () => store.replaceReducer(rootReducer))
+    module.hot.accept(
+      './root-reducer',
+
+      () => {
+        store.replaceReducer(rootReducer)
+      },
+    )
   }
 
   setupRoutingListeners(store)
