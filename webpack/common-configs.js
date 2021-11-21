@@ -2,7 +2,6 @@
 
 const fs = require('fs')
 const path = require('path')
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -47,8 +46,8 @@ module.exports = {
     // The default config set here ensures that requests are absolute, eg:
     // '/static/js/main.js'
     publicPath,
-    // Configures the lengths of [contenthash] globally
-    hashDigestLength: 12,
+    clean: true, // Clears /public before builds
+    hashDigestLength: 12, // Configures the lengths of [contenthash] globally
   },
 
   // These options control how modules are resolved.
@@ -226,12 +225,8 @@ module.exports = {
   // Common plugins
   // ---------------------------------------------------------------------------
   plugins: [
-    // --- Progress
+    // --- 📣 Progress
     new ProgressPlugin(),
-
-    // --- ✅ Path validation
-    // Ensure that import paths are case sensitive to ensure Linux/MacOS  compatability
-    new CaseSensitivePathsPlugin(),
 
     // --- 💉 Variable injections
     // Define environment variables in build.

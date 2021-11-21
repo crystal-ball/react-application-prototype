@@ -1,7 +1,5 @@
 'use strict'
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
 /** Production environment specific configurations. */
 module.exports = {
   mode: 'production',
@@ -17,11 +15,6 @@ module.exports = {
     assetFilter: (assetFilename) => !/\.(map|jpe?g|png|gif|svg)$/i.test(assetFilename),
   },
 
-  plugins: [
-    // --- 📦 Build Prep
-    // Wipe output folder before the build
-    new CleanWebpackPlugin(),
-  ],
   // --- ✅ Validations + Optimizations
   // Check for duplicate versions of the same package, ie React 15 && React 16
   // in the same build (No longer maintained)
