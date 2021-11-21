@@ -13,7 +13,7 @@ const { EnvironmentPlugin, ProgressPlugin } = require('webpack')
 const { themeAccessor } = require('./theme-accessor')
 
 const isProduction = process.env.NODE_ENV === 'production'
-const fileHash = isProduction ? '[contenthash]' : ''
+const fileHash = isProduction ? '.[contenthash]' : ''
 const publicPath = '/'
 
 const context = fs.realpathSync(process.cwd())
