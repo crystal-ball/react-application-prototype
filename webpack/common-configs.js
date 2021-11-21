@@ -68,14 +68,6 @@ module.exports = {
   // Optimization tweaks for A++ asset caching
   // https://webpack.js.org/guides/caching
   optimization: {
-    // Use hashed module ids instead of incrementing module ids so they are consistent
-    // across module resolution order changes
-    // ref: https://webpack.js.org/guides/caching/#module-identifiers
-    moduleIds: 'deterministic',
-    // Keep the runtime chunk seperated to enable long term caching
-    // Ref: https://webpack.js.org/guides/caching/#extracting-boilerplate
-    runtimeChunk: 'single',
-    // ref: https://webpack.js.org/plugins/split-chunks-plugin/
     splitChunks: {
       // This indicates which chunks will be selected for optimization, setting
       // 'all' mmeans that chunks can be shared even between async and non-async
