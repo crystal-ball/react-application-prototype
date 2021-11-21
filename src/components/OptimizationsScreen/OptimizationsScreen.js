@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux'
 import { Flex, Text } from 'componentry'
+import { useSelector } from 'react-redux'
 
 import { Footer, Header } from '@/components/universal'
 import { selectDependency } from '@/dux/dependencies'

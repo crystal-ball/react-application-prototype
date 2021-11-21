@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
-import { useDispatch } from 'react-redux'
 import { Link as ComponentryLink } from 'componentry'
 import { updatePathname } from 'dux-routing'
+import { ReactNode } from 'react'
+import { useDispatch } from 'react-redux'
 
 type LinkProps = {
   children: ReactNode

@@ -1,10 +1,9 @@
+import { getPathname, routeSwitch } from 'dux-routing'
 import { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
-import { getPathname, routeSwitch } from 'dux-routing'
 
 import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
 import { routeDetails } from '@/config/routing'
-
 import { Hero } from './Hero/Hero'
 import { appGridCx } from './layout'
 

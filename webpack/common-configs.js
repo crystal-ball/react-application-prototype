@@ -2,8 +2,8 @@
 
 const fs = require('fs')
 const path = require('path')
-const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')

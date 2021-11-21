@@ -1,8 +1,8 @@
 import { Block, Flex } from 'componentry'
 import { createURI } from 'dux-routing'
 
-import { routeDetails } from '@/config/routing'
 import { Link } from '../Link/Link'
+import { routeDetails } from '@/config/routing'
 
 export function Header(): JSX.Element {
   return (

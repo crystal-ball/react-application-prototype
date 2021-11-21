@@ -15,6 +15,6 @@ export const selectSelectedDependencyId = (state: RootState): string => {
 /** Select a package's details by id */
 export const selectDependency =
   (packageId: string) =>
-  (state: RootState): Dependency => {
+  (state: RootState): Dependency | undefined => {
     return selectDependenciesById(state)[packageId]
   }

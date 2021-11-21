@@ -1,7 +1,7 @@
 import { Flex } from 'componentry'
 
-import { Footer, Header } from '@/components/universal'
 import { mainAreaCx } from '@/components/App/layout'
+import { Footer, Header } from '@/components/universal'
 import TestingContents from './TestingContents.mdx'
 
 export default function TestingScreen(): JSX.Element {

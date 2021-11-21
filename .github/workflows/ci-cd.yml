@@ -20,9 +20,8 @@ jobs:
         with:
           runTests: false # Just perform install
 
-
-      # - name: 'Test: Lint'
-      #   run: npm run test:lint
+      - name: 'Test: Lint'
+        run: npm run test:lint
 
       # - name: 'Test: Unit'
       #   run: npm run test:unit

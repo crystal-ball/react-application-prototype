@@ -1,7 +1,7 @@
 /* global module */
 import { configureStore } from '@reduxjs/toolkit'
-import createSagaMiddleware from 'redux-saga'
 import { routingMiddleware, setupRoutingListeners } from 'dux-routing'
+import createSagaMiddleware from 'redux-saga'
 
 import { NODE_ENV } from '@/config/environment'
 import { rootReducer } from './root-reducer'

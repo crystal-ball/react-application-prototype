@@ -1,6 +1,8 @@
+/* eslint-disable import/export */
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-restricted-imports -- App RTL utils setup file */
-import PropTypes from 'prop-types'
 import { render } from '@testing-library/react'
+import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 
 import { createStore } from '@/dux/store'

@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-  extends: ['eloquence/react'],
+  extends: 'eloquence/react',
   parserOptions: {
     // Project configure eslint-typescript
     project: ['./tsconfig.json', './cypress/tsconfig.json'],
@@ -10,7 +10,6 @@ module.exports = {
   rules: {
     // Enforce that testing library is used through utils/testing-library only
     'no-restricted-imports': ['error', { paths: ['@testing-library/react'] }],
-    'import/dynamic-import-chunkname': 'off',
 
     'import/order': [
       'error',
@@ -18,7 +17,7 @@ module.exports = {
         'pathGroups': [
           {
             pattern: '@/**',
-            group: 'internal',
+            group: 'parent',
           },
         ],
         'groups': [
@@ -30,11 +29,12 @@ module.exports = {
           'index',
           'unknown',
         ],
+
         // Currently not enforced... validate that alphabetize doesn't require mixing
         // within larger groups, eg node built-in and a node_module
-        // 'alphabetize': {
-        //   order: 'asc',
-        // },
+        'alphabetize': {
+          order: 'asc',
+        },
         // Require a newline between builtins+external and source code modules.
         // Allow but don't require a newline inside groups
         'newlines-between': 'ignore',
@@ -43,14 +43,6 @@ module.exports = {
   },
 
   overrides: [
-    {
-      files: ['webpack/**'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-
-      env: { node: true },
-    },
     {
       files: 'src/**/*.js',
       rules: {

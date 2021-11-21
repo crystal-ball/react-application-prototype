@@ -16,10 +16,4 @@ describe('<Footer />', () => {
     expect(heartIcon).toHaveAttribute('role', 'img')
     expect(heartIcon).toHaveStyle('stroke: ##a8ffdb')
   })
-
-  it('Footer snapshot', () => {
-    const { container } = render(<Footer />)
-
-    expect(container.firstChild).toMatchSnapshot()
-  })
 })
