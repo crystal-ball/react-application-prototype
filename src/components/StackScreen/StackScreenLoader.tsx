@@ -11,10 +11,7 @@ import { fetchDependencies } from '@/api/dependencies'
 import { updateDependencies } from '@/dux/dependencies'
 import { logger } from '@/utils/logger'
 
-const StackScreen = lazy(
-  () =>
-    import(/* webpackChunkName: "StackScreen" */ '@/components/StackScreen/StackScreen'),
-)
+const StackScreen = lazy(() => import('@/components/StackScreen/StackScreen'))
 
 export function StackScreenLoader(): JSX.Element {
   const dispatch = useDispatch()

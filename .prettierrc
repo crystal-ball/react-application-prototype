@@ -1,1 +1,26 @@
-"@crystal-ball/prettier-base"
+{
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "jsxSingleQuote": true,
+  "printWidth": 90,
+  "proseWrap": "always",
+  "quoteProps": "consistent",
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 80
+      }
+    },
+    {
+      "files": ["*.html", "*.yml", "*.yaml"],
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ]
+}

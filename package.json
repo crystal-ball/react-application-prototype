@@ -18,7 +18,6 @@
     "node": "14"
   },
   "scripts": {
-    "commit": "cz",
     "start": "NODE_ENV=development webpack serve",
     "start:instrument": "NODE_ENV=production BABEL_ENV=instrument webpack serve",
     "start:docker": "NODE_ENV=development webpack serve --host=0.0.0.0",
@@ -70,9 +69,11 @@
     "svg-symbol-sprite-loader": "5.1.0"
   },
   "devDependencies": {
-    "@crystal-ball/babel-base": "4.0.0",
-    "@crystal-ball/commitizen-base": "2.11.0",
-    "@crystal-ball/prettier-base": "2.9.0",
+    "@babel/core": "7.16.0",
+    "@babel/plugin-transform-runtime": "7.16.4",
+    "@babel/preset-env": "7.16.4",
+    "@babel/preset-react": "7.16.0",
+    "@babel/preset-typescript": "7.16.0",
     "@cypress/code-coverage": "3.9.11",
     "@linaria/shaker": "3.0.0-beta.13",
     "@linaria/webpack-loader": "3.0.0-beta.13",
@@ -101,6 +102,8 @@
     "autoprefixer": "10.4.0",
     "babel-loader": "8.2.3",
     "babel-plugin-istanbul": "6.1.1",
+    "babel-plugin-transform-import-aliases": "1.2.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "case-sensitive-paths-webpack-plugin": "2.4.0",
     "clean-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "10.0.0",
@@ -119,6 +122,7 @@
     "postcss": "8.3.11",
     "postcss-loader": "6.2.0",
     "postcss-nested": "5.0.6",
+    "prettier": "2.4.1",
     "react-is": "17.0.2",
     "react-refresh": "0.11.0",
     "sass": "1.43.4",

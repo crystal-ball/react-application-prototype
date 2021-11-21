@@ -51,5 +51,11 @@ module.exports = {
 
       env: { node: true },
     },
+    {
+      files: 'src/**/*.js',
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+      },
+    },
   ],
 }
