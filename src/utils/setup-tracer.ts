@@ -33,7 +33,7 @@ if (NODE_ENV === 'production') {
   tracerProvider.addSpanProcessor(
     new BatchSpanProcessor(
       new CollectorTraceExporter({
-        url: 'https://ingest.lightstep.com:443',
+        url: 'https://ingest.lightstep.com:443/traces/otlp/v0.6',
         headers: {
           'Lightstep-Access-Token': LS_ACCESS_TOKEN,
         },
