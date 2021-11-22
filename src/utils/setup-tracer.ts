@@ -1,12 +1,12 @@
 import opentelemetry from '@opentelemetry/api' // eslint-disable-line -- Import required to get a tracer in application
-import { WebTracerProvider } from '@opentelemetry/web'
-import { BatchSpanProcessor } from '@opentelemetry/tracing'
-import { CollectorTraceExporter } from '@opentelemetry/exporter-collector'
-import { Resource } from '@opentelemetry/resources'
 import { ZoneContextManager } from '@opentelemetry/context-zone'
+import { CollectorTraceExporter } from '@opentelemetry/exporter-collector'
+import { registerInstrumentations } from '@opentelemetry/instrumentation'
 import { DocumentLoadInstrumentation } from '@opentelemetry/instrumentation-document-load'
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch'
-import { registerInstrumentations } from '@opentelemetry/instrumentation'
+import { Resource } from '@opentelemetry/resources'
+import { BatchSpanProcessor } from '@opentelemetry/tracing'
+import { WebTracerProvider } from '@opentelemetry/web'
 
 import { LS_ACCESS_TOKEN, NODE_ENV, RELEASE_VERSION } from '@/config/environment'
 

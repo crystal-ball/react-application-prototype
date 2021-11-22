@@ -1,8 +1,8 @@
 import { css } from '@linaria/core'
 import { Block, Link, Text } from 'componentry'
 
-import Github from '@/media/github.svg'
 import { heroAreaCx } from '@/components/App/layout'
+import Github from '@/media/github.svg'
 import theme from '@/theme/radical-esm'
 
 type HeroProps = {

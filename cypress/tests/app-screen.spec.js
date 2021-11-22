@@ -1,5 +1,3 @@
-/* eslint-disable jest/valid-expect */
-/* eslint-disable jest/expect-expect */
 /// <reference types="Cypress" />
 
 describe('Application screen', () => {

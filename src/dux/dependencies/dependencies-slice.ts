@@ -3,7 +3,8 @@
  * @module
  */
 
-import { AnyAction, PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+import type { AnyAction, PayloadAction } from '@reduxjs/toolkit'
 import { PATHNAME_UPDATED, matchRoute, updatePathname } from 'dux-routing'
 
 import { routeDetails } from '@/config/routing'
@@ -43,6 +44,7 @@ export const dependenciesSlice = createSlice({
     builder.addMatcher(isPathnameAction, (state, action) => {
       // 🤩 THIS ACTION IS TYPE SAFE
       const match = matchRoute(action.payload.pathname, routeDetails.stack.path)
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- matchRoute type is incorrect
       if (match) {
         state.selectedDependencyId = match.params.package
       }

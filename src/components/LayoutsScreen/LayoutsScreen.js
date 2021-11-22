@@ -1,7 +1,7 @@
 import { Flex, Text } from 'componentry'
 
-import { Footer, Header } from '@/components/universal'
 import { mainAreaCx } from '@/components/App/layout'
+import { Footer, Header } from '@/components/universal'
 
 /** LayoutsScreen */
 export default function LayoutsScreen() {

@@ -1,10 +1,6 @@
 'use strict'
 
-const webpackBase = require('@crystal-ball/webpack-base')
-const { babelBase } = require('@crystal-ball/babel-base')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-
-const { loaders, plugins } = webpackBase({ target: 'storybook' })
 
 module.exports = {
   core: {
@@ -16,7 +12,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
-  babel: async () => babelBase({ env: process.env.NODE_ENV, target: 'react' }),
+  // babel: async () => {},
   webpackFinal: async (config) => {
     /* eslint-disable no-param-reassign */
 
@@ -24,8 +20,8 @@ module.exports = {
 
     // Add loaders for 🔮 SVG sprite and component patterns
     config.module.rules = config.module.rules.concat([
-      loaders.svgSpriteLoader,
-      loaders.svgComponentLoader,
+      // loaders.svgSpriteLoader,
+      // loaders.svgComponentLoader,
     ])
 
     // --- Plugins ---
@@ -35,7 +31,7 @@ module.exports = {
       config.plugins.push(new ReactRefreshWebpackPlugin())
     }
 
-    config.plugins = config.plugins.concat([plugins.svgSymbolSpritePlugin])
+    // config.plugins = config.plugins.concat([plugins.svgSymbolSpritePlugin])
 
     return config
     /* eslint-enable no-param-reassign */

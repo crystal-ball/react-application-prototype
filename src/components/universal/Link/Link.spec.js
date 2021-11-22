@@ -2,8 +2,10 @@
  * @jest-environment jsdom
  */
 
+import userEvent from '@testing-library/user-event'
 import * as reactRedux from 'react-redux'
-import { createEvent, fireEvent, render, screen } from '@/utils/testing-library'
+import { render, screen } from '@/utils/testing-library'
+
 import { Link } from './Link'
 
 describe('<Link />', () => {
@@ -14,7 +16,7 @@ describe('<Link />', () => {
     expect(screen.getByText('Test Link')).toHaveClass('🅲-link link-primary')
   })
 
-  it('When Link is clicked, then defaults are prevented and routing action is dispatched', () => {
+  it('When Link is clicked, then a routing action is dispatched', () => {
     const dispatchMock = jest.fn()
     jest.spyOn(reactRedux, 'useDispatch').mockImplementation(() => dispatchMock)
 
@@ -24,10 +26,8 @@ describe('<Link />', () => {
       </Link>,
     )
 
-    const clickEvent = createEvent.click(screen.getByText('Test Link'))
-    fireEvent(screen.getByText('Test Link'), clickEvent)
+    userEvent.click(screen.getByText('Test Link'))
 
-    expect(clickEvent.defaultPrevented).toBe(true)
     expect(dispatchMock).toHaveBeenCalledWith({
       type: 'ROUTING/PATHNAME_UPDATED',
       payload: {

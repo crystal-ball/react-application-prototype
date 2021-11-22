@@ -1,7 +1,7 @@
 /* global module */
 import { configureStore } from '@reduxjs/toolkit'
-import createSagaMiddleware from 'redux-saga'
 import { routingMiddleware, setupRoutingListeners } from 'dux-routing'
+import createSagaMiddleware from 'redux-saga'
 
 import { NODE_ENV } from '@/config/environment'
 import { rootReducer } from './root-reducer'
@@ -25,7 +25,13 @@ export function createStore(preloadedState) {
 
   // Accept hot reload for reducers in dev envs
   if (NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('./root-reducer', () => store.replaceReducer(rootReducer))
+    module.hot.accept(
+      './root-reducer',
+
+      () => {
+        store.replaceReducer(rootReducer)
+      },
+    )
   }
 
   setupRoutingListeners(store)

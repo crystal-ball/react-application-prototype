@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
 import { Flex, Icon, Text } from 'componentry'
+import PropTypes from 'prop-types'
 
-import { Footer, Header } from '@/components/universal'
 import { mainAreaCx } from '@/components/App/layout'
+import { Footer, Header } from '@/components/universal'
 
 /** HomeScreen */
 export default function HomeScreen() {

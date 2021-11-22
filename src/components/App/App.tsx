@@ -1,10 +1,9 @@
+import { getPathname, routeSwitch } from 'dux-routing'
 import { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
-import { getPathname, routeSwitch } from 'dux-routing'
 
 import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
 import { routeDetails } from '@/config/routing'
-
 import { Hero } from './Hero/Hero'
 import { appGridCx } from './layout'
 
@@ -14,9 +13,7 @@ import { appGridCx } from './layout'
 const routeConfigs = [
   {
     route: routeDetails.home.path,
-    component: lazy(
-      () => import(/* webpackChunkName: "HomeScreen" */ '../HomeScreen/HomeScreen'),
-    ),
+    component: lazy(() => import('@/components/HomeScreen/HomeScreen')),
   },
   {
     route: routeDetails.stack.path,
@@ -24,32 +21,19 @@ const routeConfigs = [
   },
   {
     route: routeDetails.testing.path,
-    component: lazy(
-      () =>
-        import(/* webpackChunkName: "TestingScreen" */ '../TestingScreen/TestingScreen'),
-    ),
+    component: lazy(() => import('@/components/TestingScreen/TestingScreen')),
   },
   {
     route: routeDetails.react.path,
-    component: lazy(
-      () => import(/* webpackChunkName: "ReactScreen" */ '../ReactScreen/ReactScreen'),
-    ),
+    component: lazy(() => import('@/components/ReactScreen/ReactScreen')),
   },
   {
     route: routeDetails.layouts.path,
-    component: lazy(
-      () =>
-        import(/* webpackChunkName: "LayoutsScreen" */ '../LayoutsScreen/LayoutsScreen'),
-    ),
+    component: lazy(() => import('@/components/LayoutsScreen/LayoutsScreen')),
   },
   {
     route: routeDetails.notFound.path,
-    component: lazy(
-      () =>
-        import(
-          /* webpackChunkName: "FourOhFourScreen" */ '../FourOhFourScreen/FourOhFourScreen'
-        ),
-    ),
+    component: lazy(() => import('@/components/FourOhFourScreen/FourOhFourScreen')),
   },
 ]
 

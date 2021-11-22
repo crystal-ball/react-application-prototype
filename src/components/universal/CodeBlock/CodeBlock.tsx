@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 
-import Highlight, { Language, defaultProps } from 'prism-react-renderer'
+import Highlight, { defaultProps } from 'prism-react-renderer'
+import type { Language } from 'prism-react-renderer'
 
 import { radicalTheme } from './radical-prism-theme'
 
