@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development webpack serve",
-    "start:instrument": "NODE_ENV=production BABEL_ENV=instrument webpack serve",
+    "start:instrument": "NODE_ENV=development BABEL_ENV=instrument webpack serve",
     "start:docker": "NODE_ENV=development webpack serve --host=0.0.0.0",
     "start:storybook": "start-storybook -p 6006",
     "build": "NODE_ENV=production webpack",
