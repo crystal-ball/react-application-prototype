@@ -39,7 +39,7 @@ module.exports = {
   output: {
     path: paths.output,
     filename: `static/js/[name]${fileHash}.js`,
-    assetModuleFilename: 'static/media/[name][hash:8][ext][query]',
+    assetModuleFilename: `static/media/[name].[contenthash][ext][query]`,
     // The publicPath value is prefixed to every URL created by the runtime or
     // loaders. The default is '' which means resources from nested routes have
     // incorrect paths, eg: 'some/application/route/static/js/main.js
@@ -97,21 +97,9 @@ module.exports = {
       {
         test: /\.(jsx?|tsx?)$/,
         include: paths.jsLoaderIncludes,
-        /**
-         * ## Using Eslint Loader
-         * The `eslint-loader` will run imported modules through eslint first and
-         * surface errors/warnings in the webpack build (These are also picked up by
-         * the webpack-dev-server).
-         *
-         * **DEPENDENCIES**: This package only includes the eslint-loader package,
-         * `eslint` and any packages required to run the eslint rules for a project
-         * must be included by that project. This allows projects to handle
-         * specifying and configuring eslint explicitly as required.
-         */
         use: [
           { loader: 'babel-loader', options: { cacheDirectory: true } },
           { loader: '@linaria/webpack-loader', options: { sourceMap: true } },
-          { loader: 'eslint-loader' },
         ],
       },
 

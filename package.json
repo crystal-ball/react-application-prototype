@@ -111,7 +111,6 @@
     "css-minimizer-webpack-plugin": "3.1.4",
     "cypress": "9.0.0",
     "eslint-config-eloquence": "21.0.1",
-    "eslint-loader": "4.0.2",
     "eslint-plugin-mdx": "1.16.0",
     "html-webpack-plugin": "5.5.0",
     "jest": "27.3.1",

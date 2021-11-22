@@ -23,42 +23,42 @@ jobs:
       - name: 'Test: Lint'
         run: npm run test:lint
 
-      # - name: 'Test: Unit'
-      #   run: npm run test:unit
+      - name: 'Test: Unit'
+        run: npm run test:unit
 
-      # - name: 'Test: E2E'
-      #   uses: cypress-io/github-action@v2
-      #   with:
-      #     # Prefix Cypress command with Percy command for screenshots
-      #     command-prefix: 'percy exec -- npx'
-      #     install: false
-      #     record: true
-      #     start: npm run start:instrument
-      #     wait-on: 'http://localhost:3000'
-      #   env:
-      #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Allows accurately detecting a build vs a re-run build
-      #     PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      - name: 'Test: E2E'
+        uses: cypress-io/github-action@v2
+        with:
+          # Prefix Cypress command with Percy command for screenshots
+          command-prefix: 'percy exec -- npx'
+          install: false
+          record: true
+          start: npm run start:instrument
+          wait-on: 'http://localhost:3000'
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Allows accurately detecting a build vs a re-run build
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
-      # - name: 'Code Climate: Report'
-      #   if: success()
-      #   run: |
-      #     export GIT_BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF:11}}"
-      #     export GIT_COMMIT="${GIT_COMMIT_SHA}"
+      - name: 'Code Climate: Report'
+        if: success()
+        run: |
+          export GIT_BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF:11}}"
+          export GIT_COMMIT="${GIT_COMMIT_SHA}"
 
-      #     # Fetch Code Climate binary
-      #     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      #     chmod +x ./cc-test-reporter
+          # Fetch Code Climate binary
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
 
-      #     # Notify Code Climate of the pending report
-      #     ./cc-test-reporter before-build
+          # Notify Code Climate of the pending report
+          ./cc-test-reporter before-build
 
-      #     # Format and merge unit and e2e coverage reports
-      #     ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
-      #     ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.jest.json coverage_jest/lcov.info
-      #     ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
+          # Format and merge unit and e2e coverage reports
+          ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.cypress.json coverage_cypress/lcov.info
+          ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.jest.json coverage_jest/lcov.info
+          ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
 
-      #     # Send final report to Code Climate
-      #     ./cc-test-reporter upload-coverage
-      #   env:
-      #     CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          # Send final report to Code Climate
+          ./cc-test-reporter upload-coverage
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
