@@ -116,7 +116,7 @@ module.exports = function babelConfigs(api) {
       development: {
         plugins: [
           // Babel transform for "Fast Refresh"
-          'react-refresh/babel',
+          // 'react-refresh/babel',
         ],
       },
       production: {

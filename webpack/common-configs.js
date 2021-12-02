@@ -182,12 +182,22 @@ module.exports = {
         use: [
           {
             loader: '@svgr/webpack',
-            // For some reason svgr configures svgo to strip out `viewbox` attrs
-            // which makes it impossible to scale svgs... so fix that
+
             options: {
               svgo: true,
               svgoConfig: {
-                plugins: [{ removeViewBox: false }],
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        // By default svgo is configured to remove viewbox attrs which breaks
+                        // svg scaling so we disable that plugin
+                        removeViewBox: false,
+                      },
+                    },
+                  },
+                ],
               },
             },
           },
