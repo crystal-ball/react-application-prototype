@@ -3,8 +3,7 @@
  * @module
  */
 
-import { createSlice } from '@reduxjs/toolkit'
-import type { AnyAction, PayloadAction } from '@reduxjs/toolkit'
+import { type AnyAction, type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { PATHNAME_UPDATED, matchRoute, updatePathname } from 'dux-routing'
 
 import { routeDetails } from '@/config/routing'

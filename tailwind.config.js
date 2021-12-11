@@ -5,7 +5,6 @@ const theme = require('./src/theme/radical')
 
 module.exports = {
   purge: false,
-  darkMode: false,
   theme: {
     extend: {},
     breakpoints: theme.breakpoints,
@@ -16,9 +15,6 @@ module.exports = {
       primary: theme.palette.primary,
       secondary: theme.palette.secondary,
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }

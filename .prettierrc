@@ -19,7 +19,7 @@
     {
       "files": ["*.html", "*.yml", "*.yaml"],
       "options": {
-        "printWidth": 80
+        "printWidth": 140
       }
     }
   ]

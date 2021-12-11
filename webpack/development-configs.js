@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+// const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 const { DEVTOOL } = process.env
 
@@ -13,7 +13,7 @@ module.exports = {
 
   plugins: [
     // --- 🔄 Hot reload
-    new ReactRefreshWebpackPlugin(),
+    // new ReactRefreshWebpackPlugin(),
   ],
 
   // ---------------------------------------------------------------------------
