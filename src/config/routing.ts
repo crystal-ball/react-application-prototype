@@ -1,4 +1,11 @@
-type ApplicationRoute = 'home' | 'stack' | 'react' | 'testing' | 'layouts' | 'notFound'
+type ApplicationRoute =
+  | 'home'
+  | 'stack'
+  | 'react'
+  | 'testing'
+  | 'layouts'
+  | 'workers'
+  | 'notFound'
 
 export const routeDetails: Record<ApplicationRoute, { path: string }> = {
   home: {
@@ -15,6 +22,9 @@ export const routeDetails: Record<ApplicationRoute, { path: string }> = {
   },
   layouts: {
     path: '/layouts',
+  },
+  workers: {
+    path: '/workers',
   },
   notFound: {
     path: '(.*)',

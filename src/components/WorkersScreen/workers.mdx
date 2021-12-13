@@ -1,0 +1,169 @@
+Starting with this setup:
+
+```javascript
+// application code
+const worker = new Worker(new URL('./random-id.js', import.meta.url))
+
+worker.postMessage({ seed: Date.now() })
+worker.onmessage = ({ data: { id } }) => {
+  console.log('GENERATED ID: ', id)
+}
+
+// worker code
+self.onmessage = ({ data: { seed } }) => {
+  console.log('WORKER SEED: ', seed)
+  self.postMessage({
+    id: 893859303,
+  })
+}
+```
+
+Webpack5 natively supports workers, worker code in `random-id.js` is bundled into a chunk
+which is fetched.
+
+```javascript
+// generated worker
+self.onmessage = function (_ref) {
+  var seed = _ref.data.seed
+  console.log('WORKER SEED: ', seed)
+  self.postMessage({
+    id: 893859303,
+  })
+}
+```
+
+Now we try to use the worker in a list, we have to create a worker for each component,
+this works but we start 9 workers:
+
+```javascript
+function WorkerExample() {
+  const [id, setID] = useState(null)
+
+  const worker = useMemo(() => new Worker(new URL('./random-id.js', import.meta.url)), [])
+
+  worker.onmessage = ({ data: { id } }) => {
+    console.log('GENERATED ID: ', id)
+    setID(id)
+  }
+
+  useEffect(() => {
+    worker.postMessage({ seed: Date.now() })
+  }, [worker])
+
+  if (!id) {
+    return <li>Loading...</li>
+  }
+
+  return <li>GENERATED ID: {id}</li>
+}
+```
+
+Now we update to threadsjs, it works!!
+
+```javascript
+// WorkerScreen.js
+function WorkerExample() {
+  const [id, setID] = useState(null)
+
+  useEffect(() => {
+    async function start() {
+      const generateRandomID = await spawn(
+        new Worker(new URL('./random-id.js', import.meta.url)),
+      )
+      const id = await generateRandomID(Date.now())
+
+      console.log('GENERATED ID: ', id)
+      setID(id)
+
+      await Thread.terminate(generateRandomID)
+    }
+
+    start()
+  }, [])
+
+  return id ? <li>GENERATED ID: {id}</li> : <li>Loading...</li>
+}
+
+// random-id.js
+import { nanoid } from 'nanoid'
+import { expose } from 'threads/worker'
+
+expose(async function generateRandomID(seed) {
+  console.log('WORKER SEED: ', seed)
+  return nanoid(12)
+})
+```
+
+We don't want to start a worker for each component, start using a pool:
+
+```javascript
+// WorkerScreen.js
+import { Flex, Text } from 'componentry'
+import { useEffect, useState } from 'react'
+import { Pool, spawn } from 'threads'
+
+import { mainAreaCx } from '@/components/App/layout'
+import { Footer, Header } from '@/components/universal'
+
+const list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+const pool = Pool(() => spawn(new Worker(new URL('./random-id.js', import.meta.url))), 4)
+
+export default function WorkersScreen() {
+  return (
+    <Flex className={mainAreaCx} direction='column'>
+      <Header />
+
+      <Flex className='flex-grow' direction='column' px='xl'>
+        <Text variant='heading-1' align='center' pt='lg'>
+          Web Workers
+        </Text>
+        <Text variant='heading-3'>Demo</Text>
+        <ol>
+          {list.map((key) => (
+            <WorkerExample key={key} />
+          ))}
+        </ol>
+      </Flex>
+
+      <Footer />
+    </Flex>
+  )
+}
+
+function WorkerExample() {
+  const [id, setID] = useState(null)
+
+  useEffect(() => {
+    async function start() {
+      pool.queue(async (generateRandomID) => {
+        const id = await generateRandomID(Date.now())
+        console.log('GENERATED ID: ', id)
+        setID(id)
+      })
+    }
+
+    start()
+  }, [])
+
+  return id ? <li>GENERATED ID: {id}</li> : <li>Loading...</li>
+}
+
+// random-id.js
+import { nanoid } from 'nanoid'
+import { expose } from 'threads/worker'
+
+expose(async function generateRandomID(seed) {
+  console.log('WORKER SEED: ', seed)
+  return nanoid(12)
+})
+```
+
+# HUZZAH ヘ( ^o^)ノ＼(^\_^ )
+
+We have a "working" pool of workers that we can queue async work with 🎉
+
+---
+
+CORS ruins everything: we now need to start serving assets from a different domain, worker
+code can no longer be fetched b/c of single origin policy, much sadness.

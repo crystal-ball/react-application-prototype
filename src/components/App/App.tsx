@@ -32,6 +32,10 @@ const routeConfigs = [
     component: lazy(() => import('@/components/LayoutsScreen/LayoutsScreen')),
   },
   {
+    route: routeDetails.workers.path,
+    component: lazy(() => import('@/components/WorkersScreen/WorkersScreen')),
+  },
+  {
     route: routeDetails.notFound.path,
     component: lazy(() => import('@/components/FourOhFourScreen/FourOhFourScreen')),
   },
