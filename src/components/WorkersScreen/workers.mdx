@@ -167,3 +167,45 @@ We have a "working" pool of workers that we can queue async work with 🎉
 
 CORS ruins everything: we now need to start serving assets from a different domain, worker
 code can no longer be fetched b/c of single origin policy, much sadness.
+
+MAYBE?
+
+```javascript
+// adding threads-plugin:
+import workerURL from 'threads-plugin/dist/loader?name=worker!./random-id.js'
+
+const pool = Pool(() => spawn(new Worker(workerURL)), 4)
+```
+
+---
+
+OTHERWISE:
+
+```javascript
+// export another configuraiton entry creating a webworker bundle
+{
+  name: 'idWorker',
+  entry: './src/components/WorkersScreen/random-id.js',
+  output: {
+    filename: 'id-worker.js',
+    libraryTarget: 'commonjs',
+  },
+  target: 'webworker',
+  module: {
+    rules: [
+      // --- 🎉 JS Loader
+      {
+        test: /\.(jsx?|tsx?)$/,
+        exclude: /node_modules/,
+        use: [{ loader: 'babel-loader' }],
+      },
+    ],
+}
+
+const blob = new Blob([`importScripts('http://localhost:3000/id-worker.js');`], {
+  type: 'application/json',
+})
+const workerURL = URL.createObjectURL(blob)
+
+const pool = Pool(() => spawn(new Worker(workerURL)), 4)
+```

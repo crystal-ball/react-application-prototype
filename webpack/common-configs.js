@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const TerserPlugin = require('terser-webpack-plugin')
+const ThreadsPlugin = require('threads-plugin')
 const { EnvironmentPlugin, ProgressPlugin } = require('webpack')
 
 const { themeAccessor } = require('./theme-accessor')
@@ -251,6 +252,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `static/css/[name]${fileHash}.css`,
     }),
+
+    new ThreadsPlugin(),
 
     // --- 📦 HTML index generator
     // Generates index.html with injected script/style resources paths

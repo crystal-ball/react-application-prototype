@@ -5,9 +5,12 @@ import { Pool, spawn } from 'threads'
 import { mainAreaCx } from '@/components/App/layout'
 import { Footer, Header } from '@/components/universal'
 
+// eslint-disable-next-line
+import workerURL from 'threads-plugin/dist/loader?name=worker!./random-id.js'
+
 const list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-const pool = Pool(() => spawn(new Worker(new URL('./random-id.js', import.meta.url))), 4)
+const pool = Pool(() => spawn(new Worker(workerURL)), 4)
 
 export default function WorkersScreen() {
   return (
