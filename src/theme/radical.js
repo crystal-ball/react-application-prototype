@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const spacing = (space) => `${space * 0.5}rem`
 
 module.exports = {

@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/export */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-restricted-imports -- App RTL utils setup file */
 import { render } from '@testing-library/react'
-import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 
 import { createStore } from '@/dux/store'
@@ -20,12 +20,6 @@ function decoratedRender(
 ) {
   function StoreDecorator({ children }) {
     return <Provider store={store}>{children}</Provider>
-  }
-  StoreDecorator.defaultProps = {
-    children: null,
-  }
-  StoreDecorator.propTypes = {
-    children: PropTypes.node,
   }
 
   return render(ui, { wrapper: StoreDecorator, ...renderOptions })

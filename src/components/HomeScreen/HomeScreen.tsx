@@ -1,11 +1,10 @@
 import { Flex, Icon, Text } from 'componentry'
-import PropTypes from 'prop-types'
 
 import { mainAreaCx } from '@/components/App/layout'
 import { Footer, Header } from '@/components/universal'
 
 /** HomeScreen */
-export default function HomeScreen() {
+export default function HomeScreen(): JSX.Element {
   return (
     <Flex className={mainAreaCx} direction='column'>
       <Header />
@@ -22,12 +21,12 @@ export default function HomeScreen() {
 
         <div className='mx-xl mt-xl'>
           <Text variant='heading-3'>
-            <Icon id='coffee' /> Application featureset
+            <Icon id='coffee' /> Application feature set
           </Text>
           <ul className='list-disc list-inside mt-md'>
             <li>
-              Automaic deployments with Vercel{' '}
-              <span aria-label='mindblown' role='img'>
+              Automatic deployments with Vercel{' '}
+              <span aria-label='mind-blown' role='img'>
                 🚀
               </span>
             </li>
@@ -71,14 +70,4 @@ export default function HomeScreen() {
       <Footer />
     </Flex>
   )
-}
-
-HomeScreen.defaultProps = {
-  appInfo: null,
-}
-
-HomeScreen.propTypes = {
-  appInfo: PropTypes.shape({
-    title: PropTypes.string,
-  }),
 }
