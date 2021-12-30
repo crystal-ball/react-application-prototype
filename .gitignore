@@ -1,6 +1,9 @@
 # Ignore Me!
 # -------------------------------------
 
+# Workspace
+.vscode/settings.json
+
 # Dependencies
 node_modules
 

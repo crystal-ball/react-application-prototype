@@ -7,7 +7,7 @@ export const appGridCx = css`
 
   grid-template-areas: 'hero' 'main';
 
-  @media (min-width: theme('breakpoints.lg')) {
+  @media screen(lg) {
     & {
       grid-template-columns: 2fr 3fr;
       grid-template-areas: 'hero main';

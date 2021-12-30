@@ -69,7 +69,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       // This indicates which chunks will be selected for optimization, setting
-      // 'all' mmeans that chunks can be shared even between async and non-async
+      // 'all' means that chunks can be shared even between async and non-async
       // chunks.
       // ref: https://webpack.js.org/plugins/split-chunks-plugin/#splitchunkschunks
       chunks: 'all',
@@ -99,7 +99,12 @@ module.exports = {
         include: paths.jsLoaderIncludes,
         use: [
           { loader: 'babel-loader', options: { cacheDirectory: true } },
-          { loader: '@linaria/webpack-loader', options: { sourceMap: true } },
+          {
+            loader: '@linaria/webpack-loader',
+            // Linaria pre-processes with Stylis out of the box, but we want to
+            // just use PostCSS
+            options: { sourceMap: true, preprocessor: 'none' },
+          },
         ],
       },
 
@@ -125,13 +130,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: isProduction,
-              modules: {
-                mode: 'global',
-                localIdentName: '[name]-[local]--[hash:5]',
-              },
-            },
+            options: { sourceMap: isProduction },
           },
           {
             loader: 'postcss-loader',

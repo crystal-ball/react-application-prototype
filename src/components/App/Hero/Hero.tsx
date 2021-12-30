@@ -3,7 +3,6 @@ import { Block, Link, Text } from 'componentry'
 
 import { heroAreaCx } from '@/components/App/layout'
 import Github from '@/media/github.svg'
-import theme from '@/theme/radical-esm'
 
 type HeroProps = {
   /** Application title */
@@ -28,7 +27,7 @@ const backgroundCx = css`
 const iconCx = css`
   width: 64px;
   height: 64px;
-  fill: ${theme.palette.secondary[500]};
+  fill: theme('colors.secondary.500');
 `
 
 export function Hero({ title }: HeroProps): JSX.Element {

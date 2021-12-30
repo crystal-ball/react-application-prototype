@@ -29,7 +29,7 @@ const integrations = [
 ]
 
 const iconCx = css`
-  fill: #fff;
+  fill: theme('colors.gray.50');
   width: 75px;
   height: 75px;
 `
@@ -45,7 +45,7 @@ export default function StackScreen(): JSX.Element {
   const searchParams: { filter?: DependenciesFilter } = useSelector(getSearchParams)
 
   const [searchValue, setSearchValue] = useState('')
-  const [dependencySize, setDependencySize] = useState<number>(null)
+  const [dependencySize, setDependencySize] = useState<null | number>(null)
 
   const filteredDependencies: Dependency[] = useMemo(() => {
     if (!searchParams.filter || searchParams.filter === 'all') {
