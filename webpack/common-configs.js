@@ -101,9 +101,11 @@ module.exports = {
           { loader: 'babel-loader', options: { cacheDirectory: true } },
           {
             loader: '@linaria/webpack-loader',
-            // Linaria pre-processes with Stylis out of the box, but we want to
-            // just use PostCSS
-            options: { sourceMap: true, preprocessor: 'none' },
+            options: {
+              classNameSlug: '[title]-[hash]', // Provide nicer DX classNames
+              preprocessor: 'none', // Linaria pre-processes with Stylis out of the box, but we want to just use PostCSS
+              sourceMap: true,
+            },
           },
         ],
       },
@@ -155,11 +157,11 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: isProduction },
+            options: { sourceMap: true },
           },
           {
             loader: 'postcss-loader',
-            options: { sourceMap: isProduction },
+            options: { sourceMap: true },
           },
         ],
       },
