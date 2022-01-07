@@ -36,7 +36,7 @@
     "format": "prettier --write . !CHANGELOG.md !coverage_cypress !coverage_jest !public"
   },
   "dependencies": {
-    "@babel/runtime": "7.16.5",
+    "@babel/runtime": "7.16.7",
     "@linaria/core": "3.0.0-beta.15",
     "@mdx-js/react": "1.6.22",
     "@opentelemetry/api": "1.0.4",
@@ -51,7 +51,7 @@
     "@reduxjs/toolkit": "1.7.1",
     "classnames": "2.3.1",
     "componentry": "3.4.1",
-    "core-js": "3.20.1",
+    "core-js": "3.20.2",
     "dux-routing": "0.5.0",
     "nanoid": "3.1.30",
     "numeral": "2.0.6",
@@ -65,7 +65,7 @@
     "redux-thunk": "2.4.1",
     "regenerator-runtime": "0.13.9",
     "svg-symbol-sprite-loader": "5.1.0",
-    "tailwindcss": "3.0.8"
+    "tailwindcss": "3.0.11"
   },
   "devDependencies": {
     "@babel/core": "7.16.7",
