@@ -9,14 +9,14 @@
 ### Component template
 
 ```tsx
-type ExampleProps {
-  /** Indicator of how rad this component is */
-  status: 'pretty' | 'hecka'
-}
-
 export function Example({ status }: ExampleProps): JSX.Element {
   return {
     <div>This example component is {status} rad</div>
   }
+}
+
+type ExampleProps {
+  /** Indicator of how rad this component is */
+  status: 'pretty' | 'hecka'
 }
 ```

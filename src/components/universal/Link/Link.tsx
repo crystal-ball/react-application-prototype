@@ -3,17 +3,6 @@ import { updatePathname } from 'dux-routing'
 import { ReactNode } from 'react'
 import { useDispatch } from 'react-redux'
 
-type LinkProps = {
-  children: ReactNode
-  /** Route path to link to */
-  to: string
-  /** Search params to append to route path */
-  searchParams?: Record<string, string>
-
-  // TODO: remove with Componentry types
-  mr?: string
-}
-
 export function Link({ children, to, searchParams, ...rest }: LinkProps): JSX.Element {
   const dispatch = useDispatch()
 
@@ -32,4 +21,15 @@ export function Link({ children, to, searchParams, ...rest }: LinkProps): JSX.El
       {children}
     </ComponentryLink>
   )
+}
+
+type LinkProps = {
+  children: ReactNode
+  /** Route path to link to */
+  to: string
+  /** Search params to append to route path */
+  searchParams?: Record<string, string>
+
+  // TODO: remove with Componentry types
+  mr?: string
 }

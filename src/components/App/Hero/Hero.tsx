@@ -4,11 +4,6 @@ import { Block, Link, Text } from 'componentry'
 import { heroAreaCx } from '@/components/App/layout'
 import Github from '@/media/github.svg'
 
-type HeroProps = {
-  /** Application title */
-  title: string
-}
-
 // The container element will expand to match the height of the content in main,
 // then the inner .background element uses position sticky to stay in view when
 // app is scrolled
@@ -44,4 +39,9 @@ export function Hero({ title }: HeroProps): JSX.Element {
       </div>
     </Block>
   )
+}
+
+type HeroProps = {
+  /** Application title */
+  title: string
 }
