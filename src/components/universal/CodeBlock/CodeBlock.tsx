@@ -4,11 +4,6 @@ import Highlight, { type Language, defaultProps } from 'prism-react-renderer'
 
 import { radicalTheme } from './radical-prism-theme'
 
-type CodeBlockProps = {
-  children: string
-  className?: string
-}
-
 // https://mdxjs.com/guides/syntax-highlighting#build-a-codeblock-component
 export function CodeBlock({
   children,
@@ -32,4 +27,9 @@ export function CodeBlock({
       )}
     </Highlight>
   )
+}
+
+type CodeBlockProps = {
+  children: string
+  className?: string
 }
