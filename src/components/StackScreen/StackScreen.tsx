@@ -1,4 +1,5 @@
 import { css } from '@linaria/core'
+import { trace } from '@opentelemetry/api'
 import { Block, Flex, Icon, Input, List, Text } from 'componentry'
 import { getSearchParams } from 'dux-routing'
 import numeral from 'numeral'
@@ -69,6 +70,14 @@ export default function StackScreen(): JSX.Element {
       getDependencyDetails(selectedDependencyId)
     }
   }, [selectedDependencyId])
+
+  useEffect(() => {
+    // Testing creating a span with attributes
+    const span = trace.getTracer('default').startSpan('stack-screen')
+    span.setAttribute('string_id', '123456781234567890')
+    span.setAttribute('number_id', 123456781234567890)
+    span.end()
+  }, [])
 
   const matchedDependencies: Dependency[] = useMemo(() => {
     return filteredDependencies.filter((pkg) => pkg.name.includes(searchValue))
