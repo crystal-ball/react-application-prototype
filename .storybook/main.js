@@ -4,6 +4,7 @@
 
 const fs = require('fs')
 const path = require('path')
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 

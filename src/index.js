@@ -29,15 +29,13 @@ import './utils/require-icons'
 import { App } from './components/App/App'
 import { CodeBlock } from './components/universal'
 import { NODE_ENV } from './config/environment'
-import { createStore } from './dux/store'
+import { store } from './dux/store'
 import { componentryTheme } from './theme/componentry'
 import { logger } from './utils/logger'
 
 // Injects SVG symbol sprite into document from local storage if it exists,
 // otherwise fetch, cache in local storage and inject.
 svgSymbolSpriteLoader({ useCache: NODE_ENV === 'production' })
-
-const store = createStore()
 
 // Configure components that will be used to render elements parsed out by MDX
 const components = {
