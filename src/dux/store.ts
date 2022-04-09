@@ -7,7 +7,12 @@ import { NODE_ENV } from '@/config/environment'
 import { rootReducer } from './root-reducer'
 import rootSaga from './sagas'
 
-export function createStore(preloadedState) {
+/**
+ * Store creator exported for working with tests/Storybook
+ * @param preloadedState Test/Story state to preload into store
+ */
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types -- Use more accurate return type of `configureStore`
+export function createStore(preloadedState?: ReturnType<typeof rootReducer>) {
   // Create the middleware "thread" that the sagas run in. From the middleware
   // the root saga is able to respond to incoming actions and dispatch new actions
   const sagaMiddleware = createSagaMiddleware()
@@ -39,5 +44,7 @@ export function createStore(preloadedState) {
   return store
 }
 
-// ?? How to export the type of dispatch with `createStore` pattern?
-// export type AppDispatch = typeof store.dispatch
+export const store = createStore()
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
