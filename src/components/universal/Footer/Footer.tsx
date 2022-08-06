@@ -6,22 +6,21 @@ export function Footer(): JSX.Element {
       as='footer'
       align='center'
       backgroundColor='ultra'
-      borderColor='100'
+      borderTop={100}
       justify='center'
-      mt='xl'
-      px='xl'
-      py='md'
-      borderTop
+      mt={12}
+      px={12}
+      py={4}
     >
       <Icon
         data-testid='heart'
         id='heart'
-        fontColor='love'
-        mr='xs'
+        color='love'
+        mr={1}
         // Stroke is to provide an example of toHaveStyle
         style={{ stroke: '##a8ffdb' }}
       />
-      <Text color='accent' mb={0}>
+      <Text color='muted' mb={0}>
         Make something awesome!
       </Text>
     </Flex>

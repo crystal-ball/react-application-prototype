@@ -27,9 +27,9 @@ const iconCx = css`
 
 export function Hero({ title }: HeroProps): JSX.Element {
   return (
-    <Block className={heroAreaCx} borderColor='300' borderRight>
+    <Block className={heroAreaCx} borderRight='300'>
       <div className={backgroundCx} data-testid='hero-img'>
-        <Text variant='display-1' align='center' mt={80}>
+        <Text variant='display' textAlign='center' mt={20}>
           {title}
         </Text>
 

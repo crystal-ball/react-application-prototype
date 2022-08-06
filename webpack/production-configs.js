@@ -14,9 +14,4 @@ module.exports = {
     // Don't warn about image file sizes
     assetFilter: (assetFilename) => !/\.(map|jpe?g|png|gif|svg)$/i.test(assetFilename),
   },
-
-  // --- ✅ Validations + Optimizations
-  // Check for duplicate versions of the same package, ie React 15 && React 16
-  // in the same build (No longer maintained)
-  // new DuplicatePackageCheckerPlugin({ verbose: true }),
 }

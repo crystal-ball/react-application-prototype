@@ -44,7 +44,7 @@ export const dependenciesSlice = createSlice({
       // 🤩 THIS ACTION IS TYPE SAFE
       const match = matchRoute(action.payload.pathname, routeDetails.stack.path)
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- matchRoute type is incorrect
-      if (match) {
+      if (match && match.params.package) {
         state.selectedDependencyId = match.params.package
       }
     })

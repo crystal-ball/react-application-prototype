@@ -8,8 +8,6 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 
-const { themeAccessor } = require('../webpack/theme-accessor')
-
 const context = fs.realpathSync(process.cwd())
 
 module.exports = {
@@ -41,28 +39,11 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: isProduction,
-              modules: {
-                mode: 'global',
-                localIdentName: '[name]-[local]--[hash:5]',
-              },
-            },
+            options: { sourceMap: isProduction },
           },
           {
             loader: 'postcss-loader',
             options: { sourceMap: isProduction },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isProduction,
-              sassOptions: {
-                functions: {
-                  'theme($theme-path: null)': themeAccessor,
-                },
-              },
-            },
           },
         ],
       },

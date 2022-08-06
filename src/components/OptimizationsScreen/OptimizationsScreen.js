@@ -10,14 +10,14 @@ export default function OptimizationsScreen() {
   return (
     <Flex direction='column' className='flex-grow'>
       <Header />
-      <Flex direction='column' px='xl' py='md'>
-        <Text variant='heading-1' align='center' mb='xl'>
+      <Flex direction='column' px={12} py={4}>
+        <Text variant='h1' textAlign='center' mb={12}>
           React, Redux, and Optimizations
         </Text>
 
         {selectedPackage && (
           <div>
-            <Text variant='heading-3'>Package details</Text>
+            <Text variant='h3'>Package details</Text>
             <Text>{selectedPackage.name}</Text>
             <Text>{selectedPackage.version}</Text>
           </div>

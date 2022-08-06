@@ -10,8 +10,6 @@ const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const TerserPlugin = require('terser-webpack-plugin')
 const { EnvironmentPlugin, ProgressPlugin } = require('webpack')
 
-const { themeAccessor } = require('./theme-accessor')
-
 const isProduction = process.env.NODE_ENV === 'production'
 const fileHash = isProduction ? '.[contenthash]' : ''
 const publicPath = '/'
@@ -103,8 +101,9 @@ module.exports = {
             loader: '@linaria/webpack-loader',
             options: {
               classNameSlug: '[title]-[hash]', // Provide nicer DX classNames
-              preprocessor: 'none', // Linaria pre-processes with Stylis out of the box, but we want to just use PostCSS
-              sourceMap: true,
+              evaluate: false, // Keep it simple
+              preprocessor: 'none', // Disable default Stylis preprocessor in favor of just PostCSS
+              sourceMap: isProduction,
             },
           },
         ],
@@ -127,41 +126,16 @@ module.exports = {
 
       // --- 😍 Styles Loader
       {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: { sourceMap: isProduction },
-          },
-          {
-            loader: 'postcss-loader',
-            options: { sourceMap: isProduction },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isProduction,
-              sassOptions: {
-                functions: {
-                  'theme($theme-path: null)': themeAccessor,
-                },
-              },
-            },
-          },
-        ],
-      },
-      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: true },
+            options: { sourceMap: isProduction },
           },
           {
             loader: 'postcss-loader',
-            options: { sourceMap: true },
+            options: { sourceMap: isProduction },
           },
         ],
       },

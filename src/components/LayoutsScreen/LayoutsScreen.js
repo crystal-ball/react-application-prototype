@@ -9,12 +9,14 @@ export default function LayoutsScreen() {
     <Flex className={mainAreaCx} direction='column'>
       <Header />
 
-      <Flex className='flex-grow' direction='column' px='xl'>
-        <Text variant='heading-1' align='center' pt='lg'>
+      <Flex className='flex-grow' direction='column' px={12}>
+        <Text variant='h1' textAlign='center' pt={12}>
           Application layouts system
         </Text>
-        <Text variant='heading-3'>System summary</Text>
-        <ol>
+        <Text variant='h3' pt={6}>
+          System summary
+        </Text>
+        <ol className='pt-4'>
           <li>Use Grid to setup application and screen layouts</li>
           <li>Use Flexbox to align and position items in layout sections</li>
           <li>

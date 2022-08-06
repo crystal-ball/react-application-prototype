@@ -1,0 +1,97 @@
+/*
+ * 🔮 Projects - Application Styles Entry
+ *
+ * Best practice for application styles is to create a foundational set of
+ * component and utility styles themed by a single set of theme variables.
+ * Application components can then be composed of the base component styles,
+ * utility styles, and component styles.
+ */
+
+/*
+ * --- Browser styles ---
+ */
+@componentry foundation;
+@tailwind base;
+
+@layer base {
+  /* --- CSS Variables --- */
+  /* Small screens  */
+  :root {
+    --display1: 3rem; /* 56px */
+
+    /* ~1.25 scale on 16px */
+    --heading1: 2.5rem; /* 40px */
+    --heading2: 1.75rem; /* 28px */
+    --heading3: 1.5rem; /* 24px */
+    --heading-letter-spacing: 0.075em;
+
+    --font-sm: 0.75rem; /* 12px */
+    --font-md: 1rem; /* 16px */
+    --font-lg: 1.25rem; /* 20px */
+
+    --lead: 1.25rem; /* 20px */
+    --code: 0.75rem; /* 12px */
+
+    /* --s-xs: 0.274rem;
+      --s-sm: 0.555rem;
+      --s-md: 1rem;
+      --s-lg: 1.424rem;
+      --s-xl: 1.802rem; */
+  }
+
+  /* Large screens */
+  @media (min-width: 768px) {
+    :root {
+      --display1: 6rem; /* 96px */
+
+      --heading1: 3rem; /* 48px */
+      --heading2: 2rem; /* 32px */
+      --heading3: 1.5rem; /* 24px */
+      --heading-letter-spacing: 0.075em;
+
+      --subheading1: 1.125rem; /* 20px */
+      --subheading2: 0.875rem; /* 18px */
+
+      --font-sm: 0.875rem; /* 14px */
+      --font-md: 1rem; /* 16px */
+      --font-lg: 1.25rem; /* 20px */
+
+      --lead: 1.5rem; /* 24px */
+      --code: 0.9375rem; /* 15px */
+
+      /* --s-xs: 0.25rem; /* 4px
+        --s-sm: 0.5rem; /* 8px
+        --s-md: 1rem; /* 16px
+        --s-lg: 2rem; /* 24px
+        --s-xl: 3rem; /* 48px */
+    }
+  }
+
+  /* Include font smoothing in screens that support it */
+  @media screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 2dppx) {
+    html {
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}
+
+/*
+ * --- Component styles ---
+ */
+@componentry components;
+@tailwind components;
+
+/*
+ * --- Utility styles ---
+ */
+@componentry utilities;
+@tailwind utilities;
+
+/*
+ * --- Application styles ---
+ *
+ * Escape hatch for global application styles
+ */
+@import './styles/application';

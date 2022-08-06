@@ -31,7 +31,7 @@ export function Filter(): JSX.Element {
   const detailsList = Object.values(dependenciesFiltersDetails)
 
   return (
-    <Flex justify='end' mt='md' align='center'>
+    <Flex justify='end' mt={4} align='center'>
       <Tooltip>
         <Tooltip.Action>
           <Icon id='information' />
@@ -44,7 +44,7 @@ export function Filter(): JSX.Element {
           ))}
         </Tooltip.Content>
       </Tooltip>
-      <Text variant='subtitle-1' mr='sm'>
+      <Text variant='subtitle-1' mr={2}>
         Filter:
       </Text>
       {detailsList.map(({ id, label }) => (
@@ -52,7 +52,7 @@ export function Filter(): JSX.Element {
           key={id}
           to={createURI(routeDetails.stack.path, {})}
           searchParams={{ filter: id }}
-          mr='md'
+          mr={4}
         >
           {label}
         </Link>

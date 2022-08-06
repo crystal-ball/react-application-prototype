@@ -2,7 +2,7 @@ import { getPathname, routeSwitch } from 'dux-routing'
 import { Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
 
-import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
+// import { StackScreenLoader } from '@/components/StackScreen/StackScreenLoader'
 import { routeDetails } from '@/config/routing'
 import { Hero } from './Hero/Hero'
 import { appGridCx } from './layout'
@@ -15,10 +15,10 @@ const routeConfigs = [
     route: routeDetails.home.path,
     component: lazy(() => import('@/components/HomeScreen/HomeScreen')),
   },
-  {
-    route: routeDetails.stack.path,
-    component: StackScreenLoader,
-  },
+  // {
+  //   route: routeDetails.stack.path,
+  //   component: StackScreenLoader,
+  // },
   {
     route: routeDetails.testing.path,
     component: lazy(() => import('@/components/TestingScreen/TestingScreen')),

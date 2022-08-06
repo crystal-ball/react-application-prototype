@@ -41,5 +41,7 @@ module.exports = {
     '\\.svg$': '<rootDir>/__mocks__/svgr-loader-mock.js',
     '\\.css$': '<rootDir>/__mocks__/css-loader-mock.js',
     '\\.scss$': '<rootDir>/__mocks__/scss-loader-mock.js',
+    // Workaround for: https://jestjs.io/docs/upgrading-to-jest28#packagejson-exports
+    'componentry': '<rootDir>/node_modules/componentry/dist/commonjs/index.js',
   },
 }

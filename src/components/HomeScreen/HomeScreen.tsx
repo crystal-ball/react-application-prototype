@@ -9,21 +9,21 @@ export default function HomeScreen(): JSX.Element {
     <Flex className={mainAreaCx} direction='column'>
       <Header />
 
-      <Flex className='flex-grow' direction='column' px='xl'>
-        <Text variant='heading-1' align='center' mt='lg'>
+      <Flex className='flex-grow' direction='column' px={12}>
+        <Text variant='h1' textAlign='center' mt={12}>
           Prototype application
           <br /> for
-          <span className='d-inline-block px-xs' aria-label='crystal ball' role='img'>
+          <span className='d-inline-block px-1' aria-label='crystal ball' role='img'>
             🔮
           </span>
           projects
         </Text>
 
-        <div className='mx-xl mt-xl'>
-          <Text variant='heading-3'>
+        <div className='mx-12 mt-12'>
+          <Text variant='h3'>
             <Icon id='coffee' /> Application feature set
           </Text>
-          <ul className='list-disc list-inside mt-md'>
+          <ul className='list-disc list-inside mt-4'>
             <li>
               Automatic deployments with Vercel{' '}
               <span aria-label='mind-blown' role='img'>

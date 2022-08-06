@@ -81,16 +81,16 @@ export default function StackScreen(): JSX.Element {
     <Flex className={mainAreaCx} direction='column'>
       <Header />
 
-      <Flex className='flex-grow' direction='column' px='xl'>
-        <Text variant='heading-1' align='center' pt='lg'>
+      <Flex className='flex-grow' direction='column' px={12}>
+        <Text variant='h1' textAlign='center' pt={6}>
           Application stack
         </Text>
 
-        <Text variant='heading-3'>Application dependencies</Text>
+        <Text variant='h3'>Application dependencies</Text>
 
         <Filter />
 
-        <Flex width='90%' mt='sm'>
+        <Flex width='90%' mt={2}>
           <Input>
             <Input.Field
               value={searchValue}
@@ -101,7 +101,7 @@ export default function StackScreen(): JSX.Element {
           </Input>
         </Flex>
 
-        <Flex mt='md'>
+        <Flex mt={4}>
           <List width='50%'>
             {matchedDependencies.map((pkg) => (
               <List.Item
@@ -117,11 +117,11 @@ export default function StackScreen(): JSX.Element {
             ))}
           </List>
 
-          <Flex width='50%' pl='md'>
+          <Flex width='50%' pl={4}>
             <div>
               <Flex className='sticky-top'>
-                <Block pr='sm'>
-                  <Text variant='heading-3'>
+                <Block pr={2}>
+                  <Text variant='h3'>
                     GZIP size: {numeral(dependencySize).format('0.0 b')}
                   </Text>
                   <Text italic>Sizes provided by Bundlephobia</Text>
@@ -132,14 +132,14 @@ export default function StackScreen(): JSX.Element {
           </Flex>
         </Flex>
 
-        <Text variant='heading-2' mt='xl'>
+        <Text variant='h2' mt={12}>
           <Icon id='education' /> Integrations
         </Text>
         <Text italic>Workflows supported by 3rd party integrations</Text>
 
         <Flex justify='center'>
           {integrations.map(({ Logo, id }) => (
-            <Flex key={id} align='center' mx='md'>
+            <Flex key={id} align='center' mx={4}>
               <Logo className={iconCx} />
             </Flex>
           ))}

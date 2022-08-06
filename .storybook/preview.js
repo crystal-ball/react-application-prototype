@@ -1,10 +1,10 @@
-import { Theme } from 'componentry'
+import { ComponentryProvider } from 'componentry'
 import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 
-import { componentryTheme } from '@/theme/componentry'
+import { theme } from '@/theme/theme'
 
 // Include app base styles
-import '../src/index.scss'
+import '../src/index.css'
 
 // Import app icon sprite
 import '../src/utils/require-icons'
@@ -20,9 +20,9 @@ svgSymbolSpriteLoader({
 export const decorators = [
   // Global decorator sets Componentry prop defaults
   (Story) => (
-    <Theme theme={componentryTheme}>
+    <ComponentryProvider theme={theme}>
       <Story />
-    </Theme>
+    </ComponentryProvider>
   ),
 ]
 

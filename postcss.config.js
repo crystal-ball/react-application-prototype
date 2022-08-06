@@ -1,9 +1,5 @@
 'use strict'
 
 module.exports = {
-  plugins: {
-    'tailwindcss/nesting': {},
-    'tailwindcss': {},
-    'autoprefixer': {},
-  },
+  plugins: ['componentry/postcss', 'tailwindcss/nesting', 'tailwindcss', 'autoprefixer'],
 }
